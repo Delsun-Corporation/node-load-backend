@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const connectDb = require('./config/db');
 
 const app = express();
 
@@ -8,7 +9,7 @@ require('dotenv').config({
 })
 
 // Connect to Database
-// ....
+connectDb();
 
 app.use(
     express.urlencoded({
