@@ -23,14 +23,85 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     salt: String,
-    role: {
-      type: String,
-      default: "Normal",
-    },
-    resetPasswordLink: {
-      data: String,
-      default: "",
-    },
+    country_code: {
+        type: String
+      },
+      mobile: {
+        type: String
+      },
+      facebook: {
+        type: String
+      },
+      date_of_birth: {
+        type: String
+      },
+      gender: {
+        type: String
+      },
+      height: {
+        type: Number
+      },
+      width: {
+        type: Number
+      },
+      photo: {
+        type: String
+      },
+      goal: {
+        type: String
+      },
+      country_id: {
+        type: Number
+      },
+      latitude: {
+        type: String
+      },
+      longitude: {
+        type: String
+      },
+      membership_code: {
+        type: String
+      },
+      user_type: {
+        type: String
+      },
+      account_id: {
+        type: Number
+      },
+      is_active: {
+        type: Boolean
+      },
+      is_profile_complete: {
+        type: Boolean
+      },
+      email_verified_at: {
+        type: Date
+      },
+      expired_at: {
+        type: Date
+      },
+      last_login_at: {
+        type: Date
+      },
+      socket_id: {
+        type: String
+      },
+      is_online: {
+        type: Boolean
+      },
+      is_snooze: {
+        type: Boolean
+      },
+      is_active: {
+        type: Boolean
+      },
+      free_trial_days: {
+        type: Number
+      },
+      code: {
+        type: String,
+        unique: true
+      }
   },
   { timestamps: true }
 );
