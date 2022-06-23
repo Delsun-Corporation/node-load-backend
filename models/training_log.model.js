@@ -15,6 +15,42 @@ const userSchema = new mongoose.Schema(
         },
         training_goal_id: {
             type: String
+        },
+        training_goal_custom_id: {
+            type: String
+        },
+        training_goal_custom: {
+            type: String
+        },
+        training_intensity_id: {
+            type: String
+        },
+        training_activity_id: {
+            type: String
+        },
+        user_own_review: {
+            type: String
+        },
+        notes: {
+            type: String
+        },
+        exercise: {
+            type: String
+        },
+        is_log: {
+            type: Boolean
+        },
+        latitude: {
+            type: String
+        },
+        longtitude: {
+            type: String
+        },
+        comments: {
+            type: String
+        },
+        is_complete: {
+            type: Boolean
         }
     },
     {timestamps: true}
