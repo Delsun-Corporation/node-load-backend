@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const userSchema = new mongoose.Schema(
+const trainingLogSchema = new mongoose.Schema(
     {
         user_id: {
             type: String
