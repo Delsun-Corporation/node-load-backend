@@ -55,3 +55,5 @@ const trainingLogSchema = new mongoose.Schema(
     },
     {timestamps: true}
 );
+
+module.exports = mongoose.model("Training_Log", trainingLogSchema);

@@ -3,6 +3,8 @@ const crypto = require("crypto"); // encrypt user password
 
 const Schema = mongoose.Schema;
 
+let randomKey = Math.random().toString(36).substring(2, 3) + "-" + Math.random().toString(36).substring(2, 3) + "-" + Math.random().toString(36).substring(2, 4);
+
 //User Schema
 const userSchema = new mongoose.Schema(
   {
@@ -16,7 +18,7 @@ const userSchema = new mongoose.Schema(
     name: {
       type: String,
       trim: true,
-      required: true,
+      default: `User-${randomKey}`
     },
     hashed_password: {
       type: String,

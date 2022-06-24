@@ -184,8 +184,8 @@ exports.activationEmail = (token , username) => {
         }
   
         .btn-primary a {
-          background-color: #47919B;
-          border-color: #47919B;
+          background-color: #aa406a;
+          border-color: #aa406a;
           color: #ffffff; 
         }
   
@@ -352,7 +352,7 @@ exports.activationEmail = (token , username) => {
                       <tr>
                         <td>
                           <h2>Hi ${username},</h2>
-                          <p>Thank you for registering your account in our website. You are one step away to be able to activate your account!</p>
+                          <p>Thank you for registering your account on Load App. You are one step away to be able to activate your account!</p>
                           <p>Please click this button to activate your account.</p>
                           <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                             <tbody>
@@ -361,7 +361,7 @@ exports.activationEmail = (token , username) => {
                                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                     <tbody>
                                       <tr>
-                                        <td> <a href="${process.env.CLIENT_URL}/users/activate/${token}" target="_blank">Activate My Account!</a> </td>
+                                        <td> <a href="${process.env.CLIENT_URL}/activation?token=${token}" target="_blank">Activate My Account!</a> </td>
                                       </tr>
                                     </tbody>
                                   </table>
@@ -370,7 +370,7 @@ exports.activationEmail = (token , username) => {
                             </tbody>
                           </table>
                           <br></br>
-                          <p>This website contains important information, make sure to always keep your account secure.</p>
+                          <p>This email contains important information, make sure to always keep your account secure.</p>
                         </td>
                       </tr>
                     </table>
@@ -386,12 +386,12 @@ exports.activationEmail = (token , username) => {
                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                   <tr>
                     <td class="content-block">
-                      <span class="apple-link">DEFINE, Universitas Ciputra, Surabaya, Indonesia.</span>.
+                      <span class="apple-link">LOAD APP, Singapore.</span>.
                     </td>
                   </tr>
                   <tr>
                     <td class="content-block powered-by">
-                      Developed by <a href="${process.env.CLIENT_URL}/users/activate/${token}">Delsun.co</a>
+                      Developed by <a href="${process.env.CLIENT_URL}/activation?token=${token}">LOAD</a>
                     </td>
                   </tr>
                 </table>

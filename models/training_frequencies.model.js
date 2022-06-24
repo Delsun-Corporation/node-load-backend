@@ -25,3 +25,5 @@ const trainingFrequenciesSchema = new mongoose.Schema(
     },
     {timestamps: true}
 );
+
+module.exports = mongoose.model("Training_Frequencies", trainingFrequenciesSchema);

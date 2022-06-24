@@ -1,7 +1,10 @@
 const express = require('express');
 const morgan = require('morgan');
 const connectDb = require('./config/db');
+const bodyParser = require('body-parser');
+var multer = require('multer');
 
+var upload = multer();
 const app = express();
 
 require('dotenv').config({
@@ -11,13 +14,11 @@ require('dotenv').config({
 // Connect to Database
 connectDb();
 
-app.use(
-    express.urlencoded({
-        extended: true
-    })
-)
-
-app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(bodyParser.json());
+// for parsing multipart/form-data
+app.use(upload.array()); 
+app.use(express.static('public'));
 
 // Config for only development
 if(process.env.NODE_ENV == 'development') {

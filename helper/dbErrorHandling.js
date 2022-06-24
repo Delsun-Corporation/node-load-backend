@@ -26,7 +26,7 @@ const uniqueMessage = error => {
 */
 
 exports.errorHandler = error => {
-    let message = "";
+    let message = "Error saving object";
 
     if(error.code) {
         switch(error.code) {

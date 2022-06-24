@@ -13,3 +13,5 @@ const savedWorkoutsSchema = new mongoose.Schema(
     },
     {timestamps: true}
 );
+
+module.exports = mongoose.model("Workouts", savedWorkoutsSchema);

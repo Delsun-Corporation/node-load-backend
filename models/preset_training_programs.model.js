@@ -28,3 +28,5 @@ const presetTrainingProgramsSchema = new mongoose.Schema(
     },
     {timestamps: true}
 );
+
+module.exports = mongoose.model("Preset_Training_Programs", presetTrainingProgramsSchema);
