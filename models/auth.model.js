@@ -103,6 +103,10 @@ const userSchema = new mongoose.Schema(
       code: {
         type: String,
         unique: true
+      },
+      forgot_otp: {
+        type: String,
+        unique: true
       }
   },
   { timestamps: true }
