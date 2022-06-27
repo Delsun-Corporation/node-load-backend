@@ -19,7 +19,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"timo123\"\n}",
+							"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"4552a1f5c1a1a377d2dccb766438d646\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -80,11 +80,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5000/api/activation?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTYwMzY1ODUsImV4cCI6MTY1NjAzNzQ4NX0.8fyidfU-jhweI7HBrq2fpWqJCiSvj7mcHeY8ZBhhgf8",
+							"raw": "{{LOCAL_HOST}}/api/activation?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTYwMzY1ODUsImV4cCI6MTY1NjAzNzQ4NX0.8fyidfU-jhweI7HBrq2fpWqJCiSvj7mcHeY8ZBhhgf8",
 							"host": [
-								"localhost"
+								"{{LOCAL_HOST}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"activation"
@@ -98,13 +97,166 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"id": "70546113-4002-4b1e-b90d-000f926237cd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"lionato14@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_HOST}}/api/forgot-password",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"api",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"id": "1912c514-87ba-4746-ad6b-f99f0466beb7"
 		},
 		{
 			"name": "Production Testing",
-			"item": [],
+			"item": [
+				{
+					"name": "Register Copy",
+					"id": "b8a9d807-8630-4713-80c6-4572313b6c39",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"timo123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PRODUCTION_HOST}}/api/register",
+							"host": [
+								"{{PRODUCTION_HOST}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password Copy",
+					"id": "cb131a7e-759e-47e1-b4c9-f22a894d298d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"lionato14@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PRODUCTION_HOST}}/api/forgot-password",
+							"host": [
+								"{{PRODUCTION_HOST}}"
+							],
+							"path": [
+								"api",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activation Copy",
+					"id": "f1979b98-9590-4e78-b9a2-07d0d9686786",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{PRODUCTION_HOST}}/api/activation?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTYwMzY1ODUsImV4cCI6MTY1NjAzNzQ4NX0.8fyidfU-jhweI7HBrq2fpWqJCiSvj7mcHeY8ZBhhgf8",
+							"host": [
+								"{{PRODUCTION_HOST}}"
+							],
+							"path": [
+								"api",
+								"activation"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTYwMzY1ODUsImV4cCI6MTY1NjAzNzQ4NX0.8fyidfU-jhweI7HBrq2fpWqJCiSvj7mcHeY8ZBhhgf8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Copy",
+					"id": "fc03ce76-cd3a-4c9c-afd4-292538fe975a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"4552a1f5c1a1a377d2dccb766438d646\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PRODUCTION_HOST}}/api/login",
+							"host": [
+								"{{PRODUCTION_HOST}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
 			"id": "097a6ca0-c577-441a-9325-37fcf94cc1b1"
 		},
 		{
