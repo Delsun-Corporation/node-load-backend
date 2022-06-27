@@ -6,6 +6,7 @@ const nodemailer = require("nodejs-nodemailer-outlook");
 const { errorHandler } = require("../helper/dbErrorHandling");
 const { activationEmail } = require("../screens/activationEmail.screen");
 const { successResp, errorResp } = require("../helper/baseJsonResponse");
+const crypto = require("crypto");
 
 exports.loginController = (req, res) => {
   const { email, password } = req.body;
@@ -85,16 +86,9 @@ exports.registerController = (req, res) => {
       },
       `${process.env.JWT_ACCCOUNT_ACTIVATION}`,
       {
-        expiresIn: "24h",
+        expiresIn: "15m",
       }
     );
-
-    const emailData = {
-      from: process.env.EMAIL_FROM,
-      to: email,
-      subject: "Email verification link",
-      html: activationEmail(token, email),
-    };
 
     nodemailer.sendEmail({
       auth: {
@@ -167,3 +161,69 @@ exports.activationController = (req, res) => {
     });
   }
 };
+
+exports.forgotController = (req, res) => {
+  const { email } = req.body;
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const firstError = errors.array().map((error) => error.msg)[0];
+    return res.status(422).json({
+      error: firstError,
+    });
+  } else {
+    User.findOne(
+      {
+        email,
+      },
+      (err, user) => {
+        if (err || !user) {
+          return res.status(400).json({
+            error: "User with that email does not exist",
+          });
+        }
+
+        // if user exist, change his/her password right away
+        const newPassword = crypto.randomBytes(16).toString("hex");
+
+        return user.updateOne(
+          {
+            password: newPassword,
+          },
+          (err, success) => {
+            if (err) {
+              return res.status(400).json({
+                error: errorHandler(err),
+              });
+            } else {
+              nodemailer.sendEmail({
+                auth: {
+                  user: `${process.env.NODEMAILER_ACCOUNT}`,
+                  pass: `${process.env.NODEMAILER_PASSWORD}`,
+                },
+                from: `${process.env.EMAIL_FROM}`,
+                to: email,
+                subject: "Load App - Forgot your password",
+                html: forgotPasswordEmail(newPassword, email),
+                onError: (e) => {
+                  console.log(e);
+                  return res.status(500).json({
+                    error: "Something went wrong, please try again.",
+                  });
+                },
+                onSuccess: (i) => {
+                  console.log(i);
+                  return res.json({
+                    success: true,
+                    message: `Email has been sent to ${email}`,
+                  });
+                },
+              });
+            }
+          }
+        );
+      }
+    );
+  }
+};
+

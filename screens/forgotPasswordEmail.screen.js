@@ -1,4 +1,4 @@
-exports.forgotPasswordEmail = (token, username) => {
+exports.forgotPasswordEmail = (password, username) => {
     const emailPage = `
   <!doctype html>
 <html>
@@ -124,6 +124,10 @@ exports.forgotPasswordEmail = (token, username) => {
         font-weight: 300;
         text-align: center;
         text-transform: capitalize; 
+      }
+
+      h1.password {
+        font-weight: bold;
       }
 
       p,
@@ -335,7 +339,7 @@ exports.forgotPasswordEmail = (token, username) => {
     </style>
   </head>
   <body class="">
-    <span class="preheader">This is preheader text. Some clients will show this text as a preview.</span>
+    <span class="preheader">Forgot Password for your LOAD App's account.</span>
     <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
       <tr>
         <td>&nbsp;</td>
@@ -351,17 +355,18 @@ exports.forgotPasswordEmail = (token, username) => {
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td>
+                        <h1>WARNING! THIS EMAIL CONTAIN CREDENTIAL CONTENT OF YOUR ACCOUNT, PROCESS WITH CAUTIOS</h1>
                         <h2>Hi ${username},</h2>
                         <p>We detected a request to reset the password for your account.</p>
-                        <p>If it was yours, please click the button below to change your account password!</p>
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
+                        <p>If it was yours, please enter this new password to login to your account, and please change it as soon as possible through Settings page in the Load App</p>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                           <tbody>
                             <tr>
                               <td align="left">
                                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                   <tbody>
                                     <tr>
-                                      <td> <a href="${process.env.CLIENT_URL}/users/passwords/reset/${token}" target="_blank">Change Password</a> </td>
+                                      <td> <h1>${password}</h1> </td>
                                     </tr>
                                   </tbody>
                                 </table>
