@@ -5,7 +5,9 @@ const jwt = require("jsonwebtoken");
 const nodemailer = require("nodejs-nodemailer-outlook");
 const { errorHandler } = require("../helper/dbErrorHandling");
 const { activationEmail } = require("../screens/activationEmail.screen");
+const { forgotPasswordEmail } = require("../screens/forgotPasswordEmail.screen");
 const { successResp, errorResp } = require("../helper/baseJsonResponse");
+const _ = require("lodash");
 const crypto = require("crypto");
 
 exports.loginController = (req, res) => {
@@ -186,42 +188,43 @@ exports.forgotController = (req, res) => {
         // if user exist, change his/her password right away
         const newPassword = crypto.randomBytes(16).toString("hex");
 
-        return user.updateOne(
-          {
-            password: newPassword,
-          },
-          (err, success) => {
-            if (err) {
-              return res.status(400).json({
-                error: errorHandler(err),
-              });
-            } else {
-              nodemailer.sendEmail({
-                auth: {
-                  user: `${process.env.NODEMAILER_ACCOUNT}`,
-                  pass: `${process.env.NODEMAILER_PASSWORD}`,
-                },
-                from: `${process.env.EMAIL_FROM}`,
-                to: email,
-                subject: "Load App - Forgot your password",
-                html: forgotPasswordEmail(newPassword, email),
-                onError: (e) => {
-                  console.log(e);
-                  return res.status(500).json({
-                    error: "Something went wrong, please try again.",
-                  });
-                },
-                onSuccess: (i) => {
-                  console.log(i);
-                  return res.json({
-                    success: true,
-                    message: `Email has been sent to ${email}`,
-                  });
-                },
-              });
-            }
+        const updatedFields = {
+          password: newPassword
+        };
+
+        user = _.extend(user, updatedFields);
+
+        return user.save((err, result) => {
+          if (err) {
+            return res.status(400).json({
+              error: "Error resetting user password",
+            });
           }
-        );
+
+          nodemailer.sendEmail({
+            auth: {
+              user: `${process.env.NODEMAILER_ACCOUNT}`,
+              pass: `${process.env.NODEMAILER_PASSWORD}`,
+            },
+            from: `${process.env.EMAIL_FROM}`,
+            to: email,
+            subject: "Load App - Forgot your password",
+            html: forgotPasswordEmail(newPassword, email),
+            onError: (e) => {
+              console.log(e);
+              return res.status(500).json({
+                error: "Something went wrong, please try again.",
+              });
+            },
+            onSuccess: (i) => {
+              console.log(i);
+              return res.json({
+                success: true,
+                message: `Email has been sent to ${email}`,
+              });
+            },
+          });
+        });
       }
     );
   }

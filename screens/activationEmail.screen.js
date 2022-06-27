@@ -391,7 +391,7 @@ exports.activationEmail = (token , username) => {
                   </tr>
                   <tr>
                     <td class="content-block powered-by">
-                      Developed by <a href="${process.env.CLIENT_URL}/activation?token=${token}">LOAD</a>
+                      Developed by <a href="https://www.load-peakyourperformance.com/">LOAD - Peak Your Performance</a>
                     </td>
                   </tr>
                 </table>

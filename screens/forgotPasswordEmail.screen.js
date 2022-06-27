@@ -391,12 +391,12 @@ exports.forgotPasswordEmail = (password, username) => {
               <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <td class="content-block">
-                    <span class="apple-link">DEFINE, Universitas Ciputra, Surabaya, Indonesia.</span>.
+                    <span class="apple-link">LOAD APP, Singapore.</span>.
                   </td>
                 </tr>
                 <tr>
                   <td class="content-block powered-by">
-                    Developed by <a href="${process.env.CLIENT_URL}/users/passwords/reset/${token}">Delsun.co</a>
+                    Developed by <a href="https://www.load-peakyourperformance.com/">LOAD - Peak Your Performance</a>
                   </td>
                 </tr>
               </table>
