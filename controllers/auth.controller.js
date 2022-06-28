@@ -11,7 +11,7 @@ const _ = require("lodash");
 const crypto = require("crypto");
 
 exports.loginController = (req, res) => {
-  const { email, password } = req.body;
+  const { email, password } = req.query;
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
