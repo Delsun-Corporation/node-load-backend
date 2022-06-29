@@ -5,7 +5,9 @@ const jwt = require("jsonwebtoken");
 const nodemailer = require("nodejs-nodemailer-outlook");
 const { errorHandler } = require("../helper/dbErrorHandling");
 const { activationEmail } = require("../screens/activationEmail.screen");
-const { forgotPasswordEmail } = require("../screens/forgotPasswordEmail.screen");
+const {
+  forgotPasswordEmail,
+} = require("../screens/forgotPasswordEmail.screen");
 const { successResp, errorResp } = require("../helper/baseJsonResponse");
 const _ = require("lodash");
 const crypto = require("crypto");
@@ -33,7 +35,7 @@ exports.loginController = (req, res) => {
       // Authentication
       if (!user.authenticate(password)) {
         return res.status(400).json({
-            ...errorResp,
+          ...errorResp,
           error: "Either email or password do not match",
         });
       }
@@ -53,7 +55,7 @@ exports.loginController = (req, res) => {
         ...successResp,
         message: "Sign in Success",
         token,
-        user
+        user,
       });
     });
   }
@@ -80,41 +82,40 @@ exports.registerController = (req, res) => {
       }
 
       // Generate token
-    const token = jwt.sign(
-      {
-        email,
-        password,
-      },
-      `${process.env.JWT_ACCCOUNT_ACTIVATION}`,
-      {
-        expiresIn: "15m",
-      }
-    );
+      const token = jwt.sign(
+        {
+          email,
+          password,
+        },
+        `${process.env.JWT_ACCCOUNT_ACTIVATION}`,
+        {
+          expiresIn: "15m",
+        }
+      );
 
-    nodemailer.sendEmail({
-      auth: {
-        user: `${process.env.NODEMAILER_ACCOUNT}`,
-        pass: `${process.env.NODEMAILER_PASSWORD}`,
-      },
-      from: `${process.env.EMAIL_FROM}`,
-      to: email,
-      subject: "Email verification link",
-      html: activationEmail(token, email),
-      onError: (e) => {
-        console.log(e);
-        return res.status(500).json({
-          error: "Something went wrong, please try again.",
-        });
-      },
-      onSuccess: (i) => {
-        console.log(i);
-        return res.json({
-          success: true,
-          message: `Email has been sent to ${email}`,
-        });
-      },
-    });
-
+      nodemailer.sendEmail({
+        auth: {
+          user: `${process.env.NODEMAILER_ACCOUNT}`,
+          pass: `${process.env.NODEMAILER_PASSWORD}`,
+        },
+        from: `${process.env.EMAIL_FROM}`,
+        to: email,
+        subject: "Email verification link",
+        html: activationEmail(token, email),
+        onError: (e) => {
+          console.log(e);
+          return res.status(500).json({
+            error: "Something went wrong, please try again.",
+          });
+        },
+        onSuccess: (i) => {
+          console.log(i);
+          return res.json({
+            success: true,
+            message: `Email has been sent to ${email}`,
+          });
+        },
+      });
     });
   }
 };
@@ -130,6 +131,7 @@ exports.activationController = (req, res) => {
       (err, decoded) => {
         if (err) {
           return res.status(401).json({
+            ...errorResp,
             error: "Expired Token. Please Signup again",
           });
         } else {
@@ -193,7 +195,7 @@ exports.forgotController = (req, res) => {
         const newPassword = crypto.randomBytes(16).toString("hex");
 
         const updatedFields = {
-          password: newPassword
+          password: newPassword,
         };
 
         user = _.extend(user, updatedFields);
@@ -235,4 +237,3 @@ exports.forgotController = (req, res) => {
     );
   }
 };
-
