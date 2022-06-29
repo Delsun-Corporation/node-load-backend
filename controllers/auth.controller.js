@@ -78,9 +78,8 @@ exports.registerController = (req, res) => {
             "Email is taken, try to login or create account with another email",
         });
       }
-    });
 
-    // Generate token
+      // Generate token
     const token = jwt.sign(
       {
         email,
@@ -115,6 +114,8 @@ exports.registerController = (req, res) => {
         });
       },
     });
+
+    });
   }
 };
 
@@ -144,11 +145,12 @@ exports.activationController = (req, res) => {
           user.save((err, user) => {
             if (err) {
               return res.status(401).json({
+                ...errorResp,
                 error: err,
               });
             } else {
               return res.json({
-                success: true,
+                ...successResp,
                 message: "Signup success",
                 user,
               });
@@ -159,6 +161,7 @@ exports.activationController = (req, res) => {
     );
   } else {
     return res.json({
+      ...errorResp,
       message: "error happening please try again",
     });
   }
@@ -181,6 +184,7 @@ exports.forgotController = (req, res) => {
       (err, user) => {
         if (err || !user) {
           return res.status(400).json({
+            ...errorResp,
             error: "User with that email does not exist",
           });
         }
@@ -197,6 +201,7 @@ exports.forgotController = (req, res) => {
         return user.save((err, result) => {
           if (err) {
             return res.status(400).json({
+              errorResp,
               error: "Error resetting user password",
             });
           }
@@ -213,13 +218,14 @@ exports.forgotController = (req, res) => {
             onError: (e) => {
               console.log(e);
               return res.status(500).json({
+                ...errorResp,
                 error: "Something went wrong, please try again.",
               });
             },
             onSuccess: (i) => {
               console.log(i);
               return res.json({
-                success: true,
+                ...successResp,
                 message: `Email has been sent to ${email}`,
               });
             },
