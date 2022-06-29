@@ -71,10 +71,12 @@ const userSchema = new mongoose.Schema(
         type: Number
       },
       is_active: {
-        type: Boolean
+        type: Boolean,
+        default: false
       },
       is_profile_complete: {
-        type: Boolean
+        type: Boolean,
+        default: false
       },
       email_verified_at: {
         type: Date
@@ -89,13 +91,16 @@ const userSchema = new mongoose.Schema(
         type: String
       },
       is_online: {
-        type: Boolean
+        type: Boolean,
+        default: false
       },
       is_snooze: {
-        type: Boolean
+        type: Boolean,
+        default: false
       },
       is_active: {
-        type: Boolean
+        type: Boolean,
+        default: false
       },
       free_trial_days: {
         type: Number
