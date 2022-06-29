@@ -111,10 +111,12 @@ exports.activationController = (req, res) => {
           // if valid save to database
           // Get email and password from token
           const { email, password } = jwt.decode(token);
+          const email_verified_at = new Date();
 
           const user = new User({
             email,
             password,
+            email_verified_at
           });
 
           user.save((err, user) => {
