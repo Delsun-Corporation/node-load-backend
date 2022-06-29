@@ -8,7 +8,7 @@ const { activationEmail } = require("../screens/activationEmail.screen");
 const {
   forgotPasswordEmail,
 } = require("../screens/forgotPasswordEmail.screen");
-const { successResp, errorResp } = require("../helper/baseJsonResponse");
+const { success, error, validation } = require("../helper/baseJsonResponse");
 const _ = require("lodash");
 const crypto = require("crypto");
 
@@ -18,26 +18,18 @@ exports.loginController = (req, res) => {
 
   if (!errors.isEmpty()) {
     const firstError = errors.array().map((error) => error.msg)[0];
-    return res.status(422).json({
-      error: firstError,
-    });
+    return res.status(422).json(validation(firstError));
   } else {
     User.findOne({
       email,
     }).exec((err, user) => {
       if (err || !user) {
-        return res.status(400).json({
-          ...errorResp,
-          error: "User with that email does not exist, please sign up.",
-        });
+        return res.status(400).json(error("User with that email does not exist, please sign up", res.statusCode));
       }
 
       // Authentication
       if (!user.authenticate(password)) {
-        return res.status(400).json({
-          ...errorResp,
-          error: "Either email or password do not match",
-        });
+        return res.status(400).json(error("Either email or password do not match", res.statusCode));
       }
 
       const { _id } = user;
@@ -51,12 +43,7 @@ exports.loginController = (req, res) => {
         process.env.JWT_SECRET
       );
 
-      return res.json({
-        ...successResp,
-        message: "Sign in Success",
-        token,
-        user,
-      });
+      return res.json(success("Sign in Success", {user, token}, res.statusCode));
     });
   }
 };
@@ -67,18 +54,13 @@ exports.registerController = (req, res) => {
 
   if (!errors.isEmpty()) {
     const firstError = errors.array().map((error) => error.msg)[0];
-    return res.status(422).json({
-      error: firstError,
-    });
+    return res.status(422).json(validation(firstError));
   } else {
     User.findOne({
       email,
     }).exec((err, user) => {
       if (user) {
-        return res.status(400).json({
-          error:
-            "Email is taken, try to login or create account with another email",
-        });
+        return res.status(400).json(error("Email is taken, try to login or create account with another email", res.statusCode));
       }
 
       // Generate token
@@ -104,16 +86,10 @@ exports.registerController = (req, res) => {
         html: activationEmail(token, email),
         onError: (e) => {
           console.log(e);
-          return res.status(500).json({
-            error: "Something went wrong, please try again.",
-          });
+          return res.status(500).json(error("Something went wrong, please try again", res.statusCode));
         },
         onSuccess: (i) => {
-          console.log(i);
-          return res.json({
-            success: true,
-            message: `Email has been sent to ${email}`,
-          });
+          return res.json(success(`Email has been sent to ${email}`, null, res.statusCode));
         },
       });
     });
@@ -130,10 +106,7 @@ exports.activationController = (req, res) => {
       `${process.env.JWT_ACCCOUNT_ACTIVATION}`,
       (err, decoded) => {
         if (err) {
-          return res.status(401).json({
-            ...errorResp,
-            error: "Expired Token. Please Signup again",
-          });
+          return res.status(401).json(error("Expired Token. Please signup again", res.statusCode));
         } else {
           // if valid save to database
           // Get email and password from token
@@ -146,26 +119,16 @@ exports.activationController = (req, res) => {
 
           user.save((err, user) => {
             if (err) {
-              return res.status(401).json({
-                ...errorResp,
-                error: err,
-              });
+              return res.status(401).json(error(err.message, res.statusCode));
             } else {
-              return res.json({
-                ...successResp,
-                message: "Signup success",
-                user,
-              });
+              return res.redirect('https://www.load-peakyourperformance.com/');
             }
           });
         }
       }
     );
   } else {
-    return res.json({
-      ...errorResp,
-      message: "error happening please try again",
-    });
+    return res.status(500).json(error("Unexpected error from server", res.statusCode));
   }
 };
 
@@ -175,9 +138,7 @@ exports.forgotController = (req, res) => {
 
   if (!errors.isEmpty()) {
     const firstError = errors.array().map((error) => error.msg)[0];
-    return res.status(422).json({
-      error: firstError,
-    });
+    return res.status(422).json(validation(firstError));
   } else {
     User.findOne(
       {
@@ -185,10 +146,7 @@ exports.forgotController = (req, res) => {
       },
       (err, user) => {
         if (err || !user) {
-          return res.status(400).json({
-            ...errorResp,
-            error: "User with that email does not exist",
-          });
+          return res.status(400).json(error("User with that email does not exist", res.statusCode));
         }
 
         // if user exist, change his/her password right away
@@ -202,10 +160,7 @@ exports.forgotController = (req, res) => {
 
         return user.save((err, result) => {
           if (err) {
-            return res.status(400).json({
-              errorResp,
-              error: "Error resetting user password",
-            });
+            return res.status(400).json(error("Error resetting user password", res.statusCode));
           }
 
           nodemailer.sendEmail({
@@ -219,17 +174,11 @@ exports.forgotController = (req, res) => {
             html: forgotPasswordEmail(newPassword, email),
             onError: (e) => {
               console.log(e);
-              return res.status(500).json({
-                ...errorResp,
-                error: "Something went wrong, please try again.",
-              });
+              return res.status(500).json(error("Error when sending email, please try again", res.statusCode));
             },
             onSuccess: (i) => {
               console.log(i);
-              return res.json({
-                ...successResp,
-                message: `Email has been sent to ${email}`,
-              });
+              return res.json(success(`Email has been sent to ${email}`, null, res.statusCode));
             },
           });
         });
