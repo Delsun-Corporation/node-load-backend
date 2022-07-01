@@ -24,12 +24,21 @@ exports.loginController = (req, res) => {
       email,
     }).exec((err, user) => {
       if (err || !user) {
-        return res.status(400).json(error("User with that email does not exist, please sign up", res.statusCode));
+        return res
+          .status(400)
+          .json(
+            error(
+              "User with that email does not exist, please sign up",
+              res.statusCode
+            )
+          );
       }
 
       // Authentication
       if (!user.authenticate(password)) {
-        return res.status(400).json(error("Either email or password do not match", res.statusCode));
+        return res
+          .status(400)
+          .json(error("Either email or password do not match", res.statusCode));
       }
 
       const { _id } = user;
@@ -43,7 +52,9 @@ exports.loginController = (req, res) => {
         process.env.JWT_SECRET
       );
 
-      return res.json(success("Sign in Success", {user, token}, res.statusCode));
+      return res.json(
+        success("Sign in Success", { user, token }, res.statusCode)
+      );
     });
   }
 };
@@ -60,7 +71,14 @@ exports.registerController = (req, res) => {
       email,
     }).exec((err, user) => {
       if (user) {
-        return res.status(400).json(error("Email is taken, try to login or create account with another email", res.statusCode));
+        return res
+          .status(400)
+          .json(
+            error(
+              "Email is taken, try to login or create account with another email",
+              res.statusCode
+            )
+          );
       }
 
       // Generate token
@@ -86,10 +104,16 @@ exports.registerController = (req, res) => {
         html: activationEmail(token, email),
         onError: (e) => {
           console.log(e);
-          return res.status(500).json(error("Something went wrong, please try again", res.statusCode));
+          return res
+            .status(500)
+            .json(
+              error("Something went wrong, please try again", res.statusCode)
+            );
         },
         onSuccess: (i) => {
-          return res.json(success(`Email has been sent to ${email}`, null, res.statusCode));
+          return res.json(
+            success(`Email has been sent to ${email}`, null, res.statusCode)
+          );
         },
       });
     });
@@ -106,7 +130,9 @@ exports.activationController = (req, res) => {
       `${process.env.JWT_ACCCOUNT_ACTIVATION}`,
       (err, decoded) => {
         if (err) {
-          return res.status(401).json(error("Expired Token. Please signup again", res.statusCode));
+          return res
+            .status(401)
+            .json(error("Expired Token. Please signup again", res.statusCode));
         } else {
           // if valid save to database
           // Get email and password from token
@@ -116,21 +142,23 @@ exports.activationController = (req, res) => {
           const user = new User({
             email,
             password,
-            email_verified_at
+            email_verified_at,
           });
 
           user.save((err, user) => {
             if (err) {
               return res.status(401).json(error(err.message, res.statusCode));
             } else {
-              return res.redirect('https://www.load-peakyourperformance.com/');
+              return res.redirect("https://www.load-peakyourperformance.com/");
             }
           });
         }
       }
     );
   } else {
-    return res.status(500).json(error("Unexpected error from server", res.statusCode));
+    return res
+      .status(500)
+      .json(error("Unexpected error from server", res.statusCode));
   }
 };
 
@@ -148,7 +176,9 @@ exports.forgotController = (req, res) => {
       },
       (err, user) => {
         if (err || !user) {
-          return res.status(400).json(error("User with that email does not exist", res.statusCode));
+          return res
+            .status(400)
+            .json(error("User with that email does not exist", res.statusCode));
         }
 
         // if user exist, change his/her password right away
@@ -162,7 +192,9 @@ exports.forgotController = (req, res) => {
 
         return user.save((err, result) => {
           if (err) {
-            return res.status(400).json(error("Error resetting user password", res.statusCode));
+            return res
+              .status(400)
+              .json(error("Error resetting user password", res.statusCode));
           }
 
           nodemailer.sendEmail({
@@ -176,15 +208,58 @@ exports.forgotController = (req, res) => {
             html: forgotPasswordEmail(newPassword, email),
             onError: (e) => {
               console.log(e);
-              return res.status(500).json(error("Error when sending email, please try again", res.statusCode));
+              return res
+                .status(500)
+                .json(
+                  error(
+                    "Error when sending email, please try again",
+                    res.statusCode
+                  )
+                );
             },
             onSuccess: (i) => {
               console.log(i);
-              return res.json(success(`Email has been sent to ${email}`, null, res.statusCode));
+              return res.json(
+                success(`Email has been sent to ${email}`, null, res.statusCode)
+              );
             },
           });
         });
       }
     );
   }
+};
+
+exports.changePasswordController = (req, res) => {
+  const { email, password } = req.body;
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const firstError = errors.array().map((error) => error.msg)[0];
+    return res.status(422).json(validation(firstError));
+  }
+
+  User.findOne({ email }, (err, user) => {
+    if (err || !user) {
+      return res
+        .status(400)
+        .json(error("User with that email does not exist", res.statusCode));
+    }
+
+    const updatedFields = {
+      password: password,
+    };
+
+    user = _.extend(user, updatedFields);
+
+    return user.save((err, result) => {
+      if (err) {
+        return res
+          .status(400)
+          .json(error("Error resetting user password", res.statusCode));
+      }
+
+      return res.json(success("Password successfully changed", null, res.statusCode));
+    });
+  })
 };
