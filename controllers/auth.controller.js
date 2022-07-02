@@ -52,9 +52,23 @@ exports.loginController = (req, res) => {
         process.env.JWT_SECRET
       );
 
-      return res.json(
-        success("Sign in Success", { user, token }, res.statusCode)
-      );
+      const newBioToSave = {
+        token
+      }
+  
+      user = _.extend(user, newBioToSave);
+
+      return user.save((err, result) => {
+        if (err) {
+          return res
+            .status(400)
+            .json(error("Error resetting user password", res.statusCode));
+        }
+  
+        return res.json(
+          success("Sign in Success", { user, token }, res.statusCode)
+        );
+      });
     });
   }
 };
@@ -142,8 +156,7 @@ exports.activationController = (req, res) => {
           const user = new User({
             email,
             password,
-            email_verified_at,
-            token
+            email_verified_at
           });
 
           user.save((err, user) => {
