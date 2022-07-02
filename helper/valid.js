@@ -11,6 +11,15 @@ exports.validRegister = [
     }).withMessage('Password must contain at leat 6 characters').matches(/\d/).withMessage('password must contain a number')
 ]
 
+exports.validRegisterFullProfile = [
+    check('date_of_birth').not().isEmpty().withMessage('Date of birth must not empty!'),
+    check('name').not().isEmpty().withMessage('Name must not empty!'),
+    check('name').isLength({max: 100}).withMessage('Name should not have more thank 100 character'),
+    check('gender').not().isEmpty().withMessage('Gender must not empty!'),
+    check('height').not().isEmpty().withMessage('Height must not empty!'),
+    check('weight').not().isEmpty().withMessage('Weight must not empty!')
+]
+
 exports.validLogin = [
     check('email').isEmail()
     .withMessage('Must be a valid email address'),

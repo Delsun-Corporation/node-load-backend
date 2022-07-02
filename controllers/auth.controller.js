@@ -143,6 +143,7 @@ exports.activationController = (req, res) => {
             email,
             password,
             email_verified_at,
+            token
           });
 
           user.save((err, user) => {
@@ -263,3 +264,48 @@ exports.changePasswordController = (req, res) => {
     });
   })
 };
+
+exports.registerFullProfileController = (req, res) => {
+  const validationErrors = validationResult(req);
+  const {
+    date_of_birth,
+    name,
+    gender,
+    weight,
+    height
+  } = req.body;
+  const { authorization } = req.headers;
+
+  if (!validationErrors.isEmpty()) {
+    const firstError = validationErrors.array().map((error) => error.msg)[0];
+    return res.status(422).json(validation(firstError));
+  }
+
+  User.findOne({
+    token: authorization
+  }, (err, user) => {
+    if (err || !user) {
+      return res.status(401).json(error("Unauthorized", res.statusCode));
+    }
+
+    const newBioToSave = {
+      date_of_birth,
+      name,
+      gender,
+      weight,
+      height
+    }
+
+    user = _.extend(user, newBioToSave);
+
+    return user.save((err, result) => {
+      if (err) {
+        return res
+          .status(400)
+          .json(error("Error resetting user password", res.statusCode));
+      }
+
+      return res.json(success("Successfully register user full profile", null, res.statusCode));
+    });
+  })
+}
