@@ -3,7 +3,12 @@ const crypto = require("crypto"); // encrypt user password
 
 const Schema = mongoose.Schema;
 
-let randomKey = Math.random().toString(36).substring(2, 3) + "-" + Math.random().toString(36).substring(2, 3) + "-" + Math.random().toString(36).substring(2, 4);
+let randomKey =
+  Math.random().toString(36).substring(2, 3) +
+  "-" +
+  Math.random().toString(36).substring(2, 3) +
+  "-" +
+  Math.random().toString(36).substring(2, 4);
 
 //User Schema
 const userSchema = new mongoose.Schema(
@@ -13,16 +18,15 @@ const userSchema = new mongoose.Schema(
       trim: true,
       required: true,
       unique: true,
-      lowercase: true,
     },
     token: {
       type: String,
-      unique: true
+      unique: true,
     },
     name: {
       type: String,
       trim: true,
-      default: `User-${randomKey}`
+      default: `User-${randomKey}`,
     },
     hashed_password: {
       type: String,
@@ -30,93 +34,91 @@ const userSchema = new mongoose.Schema(
     },
     salt: String,
     country_code: {
-        type: String
-      },
-      mobile: {
-        type: String
-      },
-      facebook: {
-        type: String
-      },
-      date_of_birth: {
-        type: String
-      },
-      gender: {
-        type: String
-      },
-      height: {
-        type: Number
-      },
-      width: {
-        type: Number
-      },
-      photo: {
-        type: String
-      },
-      goal: {
-        type: String
-      },
-      country_id: {
-        type: Number
-      },
-      latitude: {
-        type: String
-      },
-      longitude: {
-        type: String
-      },
-      membership_code: {
-        type: String
-      },
-      user_type: {
-        type: String
-      },
-      account_id: {
-        type: Number
-      },
-      is_active: {
-        type: Boolean,
-        default: false
-      },
-      is_profile_complete: {
-        type: Boolean,
-        default: false
-      },
-      email_verified_at: {
-        type: Date
-      },
-      expired_at: {
-        type: Date
-      },
-      last_login_at: {
-        type: Date
-      },
-      socket_id: {
-        type: String
-      },
-      is_online: {
-        type: Boolean,
-        default: false
-      },
-      is_snooze: {
-        type: Boolean,
-        default: false
-      },
-      is_active: {
-        type: Boolean,
-        default: false
-      },
-      free_trial_days: {
-        type: Number
-      },
-      code: {
-        type: String,
-        unique: true
-      },
-      forgot_otp: {
-        type: String,
-        unique: true
-      }
+      type: String,
+    },
+    mobile: {
+      type: String,
+    },
+    facebook: {
+      type: String,
+    },
+    date_of_birth: {
+      type: String,
+    },
+    gender: {
+      type: String,
+    },
+    height: {
+      type: Number,
+    },
+    width: {
+      type: Number,
+    },
+    photo: {
+      type: String,
+    },
+    goal: {
+      type: String,
+    },
+    country_id: {
+      type: Number,
+    },
+    latitude: {
+      type: String,
+    },
+    longitude: {
+      type: String,
+    },
+    membership_code: {
+      type: String,
+    },
+    user_type: {
+      type: String,
+    },
+    account_id: {
+      type: Number,
+    },
+    is_active: {
+      type: Boolean,
+      default: false,
+    },
+    is_profile_complete: {
+      type: Boolean,
+      default: false,
+    },
+    email_verified_at: {
+      type: Date,
+    },
+    expired_at: {
+      type: Date,
+    },
+    last_login_at: {
+      type: Date,
+    },
+    socket_id: {
+      type: String,
+    },
+    is_online: {
+      type: Boolean,
+      default: false,
+    },
+    is_snooze: {
+      type: Boolean,
+      default: false,
+    },
+    is_active: {
+      type: Boolean,
+      default: false,
+    },
+    free_trial_days: {
+      type: Number,
+    },
+    code: {
+      type: String,
+    },
+    forgot_otp: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
