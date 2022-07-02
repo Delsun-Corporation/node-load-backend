@@ -18,6 +18,7 @@ const userSchema = new mongoose.Schema(
       trim: true,
       required: true,
       unique: true,
+      lowercase: true,
     },
     token: {
       type: String,
@@ -119,6 +120,15 @@ const userSchema = new mongoose.Schema(
     forgot_otp: {
       type: String,
     },
+    location: {
+      type: String
+    },
+    phone_area: {
+      type: String
+    },
+    phone_number: {
+      type: String
+    }
   },
   { timestamps: true }
 );

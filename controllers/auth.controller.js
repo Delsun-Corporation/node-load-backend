@@ -273,7 +273,11 @@ exports.registerFullProfileController = (req, res) => {
     name,
     gender,
     weight,
-    height
+    height,
+    location,
+    phone_area,
+    phone_number,
+    email
   } = req.body;
   const { authorization } = req.headers;
 
@@ -283,10 +287,14 @@ exports.registerFullProfileController = (req, res) => {
   }
 
   User.findOne({
-    token: authorization
+    email
   }, (err, user) => {
     if (err || !user) {
-      return res.status(401).json(error("Unauthorized", res.statusCode));
+      return res.status(400).json(error("User not found", res.statusCode));
+    }
+
+    if (user.token !== authorization) {
+      return res.status(401).json(error("Unautorized", res.statusCode));
     }
 
     const newBioToSave = {
@@ -294,7 +302,11 @@ exports.registerFullProfileController = (req, res) => {
       name,
       gender,
       weight,
-      height
+      height,
+      phone_area,
+      phone_number,
+      location,
+      is_profile_complete: true
     }
 
     user = _.extend(user, newBioToSave);
