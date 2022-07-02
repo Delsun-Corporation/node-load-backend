@@ -6,7 +6,8 @@ const {
     validRegister,
     validLogin,
     forgotPasswordValidator,
-    resetPasswordValidator
+    resetPasswordValidator,
+    validRegisterFullProfile
 } = require('../helper/valid')
 
 const {
@@ -14,12 +15,17 @@ const {
     registerController,
     activationController,
     forgotController,
-    changePasswordController
+    changePasswordController,
+    registerFullProfileController
 } = require('../controllers/auth.controller');
 
+// POST
 router.post('/register', validRegister, registerController);
+router.post('/register-full-profile', validRegisterFullProfile, registerFullProfileController);
 router.post('/forgot-password', forgotPasswordValidator, forgotController);
+// PUT
 router.put('/change-password', resetPasswordValidator, changePasswordController);
+// GET
 router.get('/activation', activationController)
 router.get('/login',validLogin, loginController);
 

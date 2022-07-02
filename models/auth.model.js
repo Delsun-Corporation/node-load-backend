@@ -15,6 +15,10 @@ const userSchema = new mongoose.Schema(
       unique: true,
       lowercase: true,
     },
+    token: {
+      type: String,
+      unique: true
+    },
     name: {
       type: String,
       trim: true,
