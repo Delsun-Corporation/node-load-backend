@@ -248,6 +248,7 @@ exports.forgotController = (req, res) => {
 exports.changePasswordController = (req, res) => {
   const { email, password } = req.body;
   const errors = validationResult(req);
+  const { authorization } = req.headers;
 
   if (!errors.isEmpty()) {
     const firstError = errors.array().map((error) => error.msg)[0];
@@ -259,6 +260,10 @@ exports.changePasswordController = (req, res) => {
       return res
         .status(400)
         .json(error("User with that email does not exist", res.statusCode));
+    }
+
+    if (user.token !== authorization) {
+      return res.status(401).json(error("Unautorized", res.statusCode));
     }
 
     const updatedFields = {
