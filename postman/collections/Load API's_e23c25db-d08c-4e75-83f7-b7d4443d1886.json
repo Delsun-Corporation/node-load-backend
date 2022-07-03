@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "80a86647-f18c-4150-918a-c569f5f4e767",
 		"name": "Load API's",
+		"description": "API LOAD-App version 2\n\nUsing Node JS\n\nCurrent Endpoint:\n\n`http://139.59.237.151:5000/api/`",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -9,98 +10,1166 @@
 			"name": "Local Testing",
 			"item": [
 				{
-					"name": "Login",
-					"id": "3f8abdbc-dee5-47f4-9af1-49642c5a6a16",
+					"name": "Authentication",
+					"item": [
+						{
+							"name": "Login",
+							"id": "3f8abdbc-dee5-47f4-9af1-49642c5a6a16",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_HOST_3000}}/api/login?email=lionato14@gmail.com&password=timo123",
+									"host": [
+										"{{LOCAL_HOST_3000}}"
+									],
+									"path": [
+										"api",
+										"login"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "lionato14@gmail.com"
+										},
+										{
+											"key": "password",
+											"value": "timo123"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "837b4c34-a789-46e3-a53b-d8b8c3419fb0",
+									"name": "Login -SUCCESS",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/login?email=lionato14@gmail.com&password=timo123",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"login"
+											],
+											"query": [
+												{
+													"key": "email",
+													"value": "lionato14@gmail.com"
+												},
+												{
+													"key": "password",
+													"value": "timo123"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "921"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"399-VGkRtcB1Lnlmt17kUc6TfYBiKdA\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 03 Jul 2022 07:36:43 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Sign in Success\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": {\n        \"user\": {\n            \"_id\": \"62bff663b73449e933382049\",\n            \"email\": \"lionato14@gmail.com\",\n            \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4MzM4MDN9.gUNqE-S3Wi9oDoFUtWMnef-0AMyRMDYeH8yJkWgGPgo\",\n            \"name\": \"Timotius Leonardo\",\n            \"hashed_password\": \"7392b60ad998a973bb3c0cd7825ebfe571da8b90\",\n            \"salt\": \"582938529685\",\n            \"is_active\": false,\n            \"is_profile_complete\": false,\n            \"email_verified_at\": \"2022-07-02T07:40:19.908Z\",\n            \"is_online\": false,\n            \"is_snooze\": false,\n            \"createdAt\": \"2022-07-02T07:40:19.945Z\",\n            \"updatedAt\": \"2022-07-03T07:36:43.662Z\",\n            \"__v\": 0,\n            \"date_of_birth\": \"28-03-1999\",\n            \"gender\": \"MALE\",\n            \"height\": 190,\n            \"location\": \"Indonesia\",\n            \"phone_area\": \"+62\",\n            \"phone_number\": \"089682180054\"\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4MzM4MDN9.gUNqE-S3Wi9oDoFUtWMnef-0AMyRMDYeH8yJkWgGPgo\"\n    }\n}"
+								},
+								{
+									"id": "4e8b8278-80e8-41c2-9db8-28313cb7ec42",
+									"name": "Login - Invalid password or email",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/login?email=lionato14@gmail.com&password=4552a1f5c1a1a377d2dccb766438d64",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"login"
+											],
+											"query": [
+												{
+													"key": "email",
+													"value": "lionato14@gmail.com"
+												},
+												{
+													"key": "password",
+													"value": "4552a1f5c1a1a377d2dccb766438d64"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "65"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"41-TXYorG2KN5SjSp9MrXeRcUqR5yo\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 29 Jun 2022 05:22:16 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"success\": false,\n    \"error\": \"Either email or password do not match\"\n}"
+								},
+								{
+									"id": "1358fb00-b853-48db-a365-93efba08d26c",
+									"name": "Login - Password not contain number",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/login?email=lionato14@gmail.com&password=aaa",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"login"
+											],
+											"query": [
+												{
+													"key": "email",
+													"value": "lionato14@gmail.com"
+												},
+												{
+													"key": "password",
+													"value": "aaa"
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Entity",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "54"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"36-9JgfoEx6A+EJrYcE91vDduiKiL8\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 29 Jun 2022 05:23:08 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"error\": \"Password must contain at leat 6 characters\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Register",
+							"id": "680673f4-7a50-4e99-9d20-b7b418e79ac8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"timo123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST_3000}}/api/register",
+									"host": [
+										"{{LOCAL_HOST_3000}}"
+									],
+									"path": [
+										"api",
+										"register"
+									]
+								},
+								"description": "**Params:**\n\nemail: `String`\n\npassword: `String`\n\n**Response:**\n\nUser,\n\nToken"
+							},
+							"response": [
+								{
+									"id": "b66ee050-6cdc-4fe8-970f-7c06b3a2ac45",
+									"name": "Register - SUCCESS",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"lionato15@gmail.com\",\n    \"password\": \"timo123\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/register",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"register"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "96"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"60-3RAjNvYDU8IoVg34EYVJS9Ss5EU\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 29 Jun 2022 12:07:47 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Email has been sent to lionato15@gmail.com\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": null\n}"
+								},
+								{
+									"id": "5f6ef480-46a7-46f9-984f-250c586cbe11",
+									"name": "[ERROR] Register - Email is taken",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"timo123\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/register",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"register"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "108"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"6c-/RDwEIe2FSMbmrUa/SeK9U5jQdw\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 29 Jun 2022 15:37:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Email is taken, try to login or create account with another email\",\n    \"status\": 400,\n    \"success\": false\n}"
+								}
+							]
+						},
+						{
+							"name": "Activation",
+							"id": "ad943bf9-c311-4356-816c-433d2354bcd5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_HOST_3000}}/api/activation?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTY3NDc0ODMsImV4cCI6MTY1Njc0ODM4M30.neTlcTmuNoCv7oIzXXmq-YVskeJFgOKwTasAN7WXUvk",
+									"host": [
+										"{{LOCAL_HOST_3000}}"
+									],
+									"path": [
+										"api",
+										"activation"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTY3NDc0ODMsImV4cCI6MTY1Njc0ODM4M30.neTlcTmuNoCv7oIzXXmq-YVskeJFgOKwTasAN7WXUvk"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "a9b878c3-1a79-4159-856d-88e897f99a53",
+									"name": "Activation - Token expired",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/activation?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTYwMzY1ODUsImV4cCI6MTY1NjAzNzQ4NX0.8fyidfU-jhweI7HBrq2fpWqJCiSvj7mcHeY8ZBhhgf8",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"activation"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTYwMzY1ODUsImV4cCI6MTY1NjAzNzQ4NX0.8fyidfU-jhweI7HBrq2fpWqJCiSvj7mcHeY8ZBhhgf8"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "46"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2e-CHda2oi5TyCGQ8gI+Ovj8D+N0MM\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 29 Jun 2022 05:33:42 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"error\": \"Expired Token. Please Signup again\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Forgot Password",
+							"id": "70546113-4002-4b1e-b90d-000f926237cd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"lionato14@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/forgot-password",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"forgot-password"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "f62357b0-acbc-41c8-8359-a4fb35efe57b",
+									"name": "Forgot Password - SUCCESS",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"lionato14@gmail.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/forgot-password",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"forgot-password"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "71"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"47-vKmd+nMn9RjurtfLVlAWWwhaOwg\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 29 Jun 2022 05:34:08 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"success\": true,\n    \"message\": \"Email has been sent to lionato14@gmail.com\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Change Password",
+							"id": "6c6ea93d-fc46-45d7-85a2-3fe76cfce6fd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4MzM4MDN9.gUNqE-S3Wi9oDoFUtWMnef-0AMyRMDYeH8yJkWgGPgo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"timo1234!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/change-password",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"change-password"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "c0e083f2-a2c4-4efc-9697-870a83f29112",
+									"name": "Change Password - SUCCESS",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4MzM4MDN9.gUNqE-S3Wi9oDoFUtWMnef-0AMyRMDYeH8yJkWgGPgo",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"timo1234!\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/change-password",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"change-password"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "83"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"53-uBNJ1+5ba+FMUr/GJsNvKJVM71A\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 01 Jul 2022 15:51:13 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Password successfully changed\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": null\n}"
+								},
+								{
+									"id": "78ffe776-bde9-4cc7-80be-d372e5794c7c",
+									"name": "[ERROR] - Change Password - Password is too short",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4MzM4MDN9.gUNqE-S3Wi9oDoFUtWMnef-0AMyRMDYeH8yJkWgGPgo",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"tim\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/change-password",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"change-password"
+											]
+										}
+									},
+									"status": "Unprocessable Entity",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "116"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"74-ojm4zkvtLKl4qLc2QVtNP1v17/A\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 01 Jul 2022 15:55:37 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Validation errors\",\n    \"success\": false,\n    \"status\": 422,\n    \"errors\": \"Password must be at least  6 characters long\"\n}"
+								},
+								{
+									"id": "9740c9b8-2a47-4bb7-a462-e92f1777279c",
+									"name": "[ERROR] - Change Password - Unauthorized",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "xxx",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"timo1234!\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/change-password",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"change-password"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "54"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"36-f3AosHNCIApstA1l/aTAt4s6MEg\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 03 Jul 2022 08:04:52 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Unautorized\",\n    \"status\": 401,\n    \"success\": false\n}"
+								}
+							]
+						},
+						{
+							"name": "Register Full Profile",
+							"id": "8ec8b2d1-fd2f-438a-ba83-fbfea3dc43b8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4MzM4MDN9.gUNqE-S3Wi9oDoFUtWMnef-0AMyRMDYeH8yJkWgGPgo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"date_of_birth\": \"28-03-1999\",\n    \"name\": \"Timotius Leonardo\",\n    \"gender\": \"MALE\",\n    \"height\": 190,\n    \"weight\": 70,\n    \"phone_area\": \"+62\",\n    \"phone_number\": \"089682180054\",\n    \"location\": \"Indonesia\",\n    \"email\": \"lionato14@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/register-full-profile",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"register-full-profile"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "db360506-4f03-4b6d-9745-94a869a8c9ee",
+									"name": "Register Full Profile - SUCCESS",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTY3NDc0ODMsImV4cCI6MTY1Njc0ODM4M30.neTlcTmuNoCv7oIzXXmq-YVskeJFgOKwTasAN7WXUvk",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"date_of_birth\": \"28-03-1999\",\n    \"name\": \"Timotius Leonardo\",\n    \"gender\": \"MALE\",\n    \"height\": 190,\n    \"weight\": 70,\n    \"phone_area\": \"+62\",\n    \"phone_number\": \"089682180054\",\n    \"location\": \"Indonesia\",\n    \"email\": \"lionato14@gmail.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST_3000}}/api/register-full-profile",
+											"host": [
+												"{{LOCAL_HOST_3000}}"
+											],
+											"path": [
+												"api",
+												"register-full-profile"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "93"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"5d-ZmV//bR8bM4KSosHNiJAoNdqAB4\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 02 Jul 2022 07:41:55 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Successfully register user full profile\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": null\n}"
+								}
+							]
+						}
+					],
+					"id": "d5a8fd7b-295c-4ecf-8dc9-5e3941fc0d0d"
+				}
+			],
+			"id": "1912c514-87ba-4746-ad6b-f99f0466beb7",
+			"description": "This Documentation made by local testing,\n\nchange {{LOCAL_HOST}} to your own endpoint"
+		},
+		{
+			"name": "Production Testing",
+			"item": [
+				{
+					"name": "Login Copy",
+					"id": "de5eb207-a8fb-416a-a5a6-f4e091461825",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"4552a1f5c1a1a377d2dccb766438d646\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "{{LOCAL_HOST}}/api/login",
+							"raw": "{{PRODUCTION_HOST}}/api/login?email=lionato14@gmail.com&password=08b6785c7fa94a324ab21c001e46e5f3",
 							"host": [
-								"{{LOCAL_HOST}}"
+								"{{PRODUCTION_HOST}}"
 							],
 							"path": [
 								"api",
 								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Register",
-					"id": "680673f4-7a50-4e99-9d20-b7b418e79ac8",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"timo123\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{LOCAL_HOST}}/api/register",
-							"host": [
-								"{{LOCAL_HOST}}"
-							],
-							"path": [
-								"api",
-								"register"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Activation",
-					"id": "ad943bf9-c311-4356-816c-433d2354bcd5",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{LOCAL_HOST}}/api/activation?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTYwMzY1ODUsImV4cCI6MTY1NjAzNzQ4NX0.8fyidfU-jhweI7HBrq2fpWqJCiSvj7mcHeY8ZBhhgf8",
-							"host": [
-								"{{LOCAL_HOST}}"
-							],
-							"path": [
-								"api",
-								"activation"
 							],
 							"query": [
 								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTYwMzY1ODUsImV4cCI6MTY1NjAzNzQ4NX0.8fyidfU-jhweI7HBrq2fpWqJCiSvj7mcHeY8ZBhhgf8"
+									"key": "email",
+									"value": "lionato14@gmail.com"
+								},
+								{
+									"key": "password",
+									"value": "08b6785c7fa94a324ab21c001e46e5f3"
 								}
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"id": "c68af6bf-d841-49f9-b1b7-30d61e729fc0",
+							"name": "Login - SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/login?email=lionato14@gmail.com&password=4552a1f5c1a1a377d2dccb766438d646",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"login"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "lionato14@gmail.com"
+										},
+										{
+											"key": "password",
+											"value": "4552a1f5c1a1a377d2dccb766438d646"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "471"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d7-G5Lpb1RN1m0K7Tn3kONI8xZqp84\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Jun 2022 05:20:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"success\": true,\n    \"message\": \"Sign in Success\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmI1MmE4Mzg5NWZiMjEyNDIyNjI5YjAiLCJpYXQiOjE2NTY0ODAwNTF9.iClfoklY7-uhJ-6kkiz-Z_Hkclm7lyn6hOKQ6A1mU2A\",\n    \"user\": {\n        \"_id\": \"62b52a83895fb212422629b0\",\n        \"email\": \"lionato14@gmail.com\",\n        \"name\": \"User-4-1-0z\",\n        \"hashed_password\": \"4a6a5429baae9fdfdf1ff7349c642fa30b6d93ab\",\n        \"salt\": \"1544673135885\",\n        \"createdAt\": \"2022-06-24T03:07:47.045Z\",\n        \"updatedAt\": \"2022-06-27T05:04:11.037Z\",\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"id": "b5a094e2-2d4a-4985-881b-d421948b6494",
+							"name": "Login - Invalid password or email",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/login?email=lionato14@gmail.com&password=4552a1f5c1a1a377d2dccb766438d64",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"login"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "lionato14@gmail.com"
+										},
+										{
+											"key": "password",
+											"value": "4552a1f5c1a1a377d2dccb766438d64"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"41-TXYorG2KN5SjSp9MrXeRcUqR5yo\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Jun 2022 05:22:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"success\": false,\n    \"error\": \"Either email or password do not match\"\n}"
+						},
+						{
+							"id": "e0caa6b2-efd4-4f60-bd41-83db76788f98",
+							"name": "Login - Password not contain number",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/login?email=lionato14@gmail.com&password=aaa",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"login"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "lionato14@gmail.com"
+										},
+										{
+											"key": "password",
+											"value": "aaa"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "54"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"36-9JgfoEx6A+EJrYcE91vDduiKiL8\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Jun 2022 05:23:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"error\": \"Password must contain at leat 6 characters\"\n}"
+						}
+					]
 				},
 				{
-					"name": "Forgot Password",
-					"id": "70546113-4002-4b1e-b90d-000f926237cd",
+					"name": "Forgot Password Copy",
+					"id": "99f15fb8-386f-472d-92c8-e72dcfa2d7d4",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -127,79 +1196,75 @@
 							]
 						}
 					},
-					"response": []
-				}
-			],
-			"id": "1912c514-87ba-4746-ad6b-f99f0466beb7"
-		},
-		{
-			"name": "Production Testing",
-			"item": [
-				{
-					"name": "Register Copy",
-					"id": "b8a9d807-8630-4713-80c6-4572313b6c39",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"timo123\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"response": [
+						{
+							"id": "af56eb1d-438f-4014-9624-68eec21c1b9d",
+							"name": "Forgot Password - SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"lionato14@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/forgot-password",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"forgot-password"
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "{{PRODUCTION_HOST}}/api/register",
-							"host": [
-								"{{PRODUCTION_HOST}}"
-							],
-							"path": [
-								"api",
-								"register"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Forgot Password Copy",
-					"id": "cb131a7e-759e-47e1-b4c9-f22a894d298d",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"lionato14@gmail.com\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"47-vKmd+nMn9RjurtfLVlAWWwhaOwg\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Jun 2022 05:34:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
 								}
-							}
-						},
-						"url": {
-							"raw": "{{PRODUCTION_HOST}}/api/forgot-password",
-							"host": [
-								"{{PRODUCTION_HOST}}"
 							],
-							"path": [
-								"api",
-								"forgot-password"
-							]
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"success\": true,\n    \"message\": \"Email has been sent to lionato14@gmail.com\"\n}"
 						}
-					},
-					"response": []
+					]
 				},
 				{
 					"name": "Activation Copy",
-					"id": "f1979b98-9590-4e78-b9a2-07d0d9686786",
+					"id": "a9ecaa4f-5dac-4638-b4a6-70d4a4d0c9c7",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -207,9 +1272,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{PRODUCTION_HOST}}/api/activation?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTYwMzY1ODUsImV4cCI6MTY1NjAzNzQ4NX0.8fyidfU-jhweI7HBrq2fpWqJCiSvj7mcHeY8ZBhhgf8",
+							"raw": "{{LOCAL_HOST}}/api/activation?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTYwMzY1ODUsImV4cCI6MTY1NjAzNzQ4NX0.8fyidfU-jhweI7HBrq2fpWqJCiSvj7mcHeY8ZBhhgf8",
 							"host": [
-								"{{PRODUCTION_HOST}}"
+								"{{LOCAL_HOST}}"
 							],
 							"path": [
 								"api",
@@ -223,163 +1288,71 @@
 							]
 						}
 					},
-					"response": []
-				},
-				{
-					"name": "Login Copy",
-					"id": "fc03ce76-cd3a-4c9c-afd4-292538fe975a",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"4552a1f5c1a1a377d2dccb766438d646\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{PRODUCTION_HOST}}/api/login",
-							"host": [
-								"{{PRODUCTION_HOST}}"
-							],
-							"path": [
-								"api",
-								"login"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"id": "097a6ca0-c577-441a-9325-37fcf94cc1b1"
-		},
-		{
-			"name": "Details about a user",
-			"id": "2b72fe39-3410-41eb-8d30-977fc538972c",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json"
-					}
-				],
-				"url": {
-					"raw": "{{baseUrl}}/user?id=<integer>",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"user"
-					],
-					"query": [
+					"response": [
 						{
-							"description": "(Required) ID of the user",
-							"key": "id",
-							"value": "<integer>"
+							"id": "c56879b4-d675-4fda-b4e3-83f2e808185d",
+							"name": "Activation - Token expired",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/activation?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTYwMzY1ODUsImV4cCI6MTY1NjAzNzQ4NX0.8fyidfU-jhweI7HBrq2fpWqJCiSvj7mcHeY8ZBhhgf8",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"activation"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTYwMzY1ODUsImV4cCI6MTY1NjAzNzQ4NX0.8fyidfU-jhweI7HBrq2fpWqJCiSvj7mcHeY8ZBhhgf8"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-CHda2oi5TyCGQ8gI+Ovj8D+N0MM\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Jun 2022 05:33:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"error\": \"Expired Token. Please Signup again\"\n}"
 						}
 					]
 				}
-			},
-			"response": [
-				{
-					"id": "68b6e52f-9741-414c-8500-5a10240708f1",
-					"name": "Details about a user",
-					"originalRequest": {
-						"method": "GET",
-						"header": [
-							{
-								"description": "Added as a part of security scheme: basic",
-								"key": "Authorization",
-								"value": "Basic <credentials>"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/user?id=<integer>",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"user"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "<integer>"
-								}
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"disabled": false,
-							"description": {
-								"content": "A link to the next page of responses",
-								"type": "text/plain"
-							},
-							"key": "x-next",
-							"value": "ut enim do fugiat"
-						},
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						}
-					],
-					"cookie": [],
-					"responseTime": null,
-					"body": "{\n  \"id\": 35532182,\n  \"name\": \"pariatur\",\n  \"tag\": \"officia ex exercitation aliquip nisi\"\n}"
-				},
-				{
-					"id": "2345c4d4-b198-4296-9bf3-9ee7c7e63fa2",
-					"name": "unexpected error",
-					"originalRequest": {
-						"method": "GET",
-						"header": [
-							{
-								"description": "Added as a part of security scheme: basic",
-								"key": "Authorization",
-								"value": "Basic <credentials>"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/user?id=<integer>",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"user"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "<integer>"
-								}
-							]
-						}
-					},
-					"status": "Internal Server Error",
-					"code": 500,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						}
-					],
-					"cookie": [],
-					"responseTime": null,
-					"body": "{\n  \"code\": 50000219,\n  \"message\": \"fugiat id\"\n}"
-				}
-			]
+			],
+			"id": "097a6ca0-c577-441a-9325-37fcf94cc1b1"
 		}
 	],
 	"variable": [
