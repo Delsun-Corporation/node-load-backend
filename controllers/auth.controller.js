@@ -28,7 +28,7 @@ exports.loginController = (req, res) => {
           .status(400)
           .json(
             error(
-              "User with that email does not exist, please sign up",
+              "User with that email does not exist, please sign up or activate your account with email that has been sent",
               res.statusCode
             )
           );
