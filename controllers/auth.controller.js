@@ -66,7 +66,7 @@ exports.loginController = (req, res) => {
         }
   
         return res.json(
-          success("Sign in Success", { user, token }, res.statusCode)
+          success("Sign in Success", { user: result, token }, res.statusCode)
         );
       });
     });
@@ -331,7 +331,7 @@ exports.registerFullProfileController = (req, res) => {
           .json(error("Error resetting user password", res.statusCode));
       }
 
-      return res.json(success("Successfully register user full profile", null, res.statusCode));
+      return res.json(success("Successfully register user full profile", { user: result }, res.statusCode));
     });
   })
 }
