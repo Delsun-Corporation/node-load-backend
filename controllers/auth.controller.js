@@ -197,7 +197,7 @@ exports.forgotController = (req, res) => {
         }
 
         // if user exist, change his/her password right away
-        const newPassword = crypto.randomBytes(16).toString("hex");
+        const newPassword = crypto.randomBytes(8).toString("hex");
 
         const updatedFields = {
           password: newPassword,
