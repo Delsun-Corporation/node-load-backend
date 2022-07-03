@@ -128,6 +128,7 @@ exports.forgotPasswordEmail = (password, username) => {
 
       .password {
         font-weight: bold;
+        text-transform: none;
       }
 
       p,
@@ -355,7 +356,7 @@ exports.forgotPasswordEmail = (password, username) => {
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td>
-                        <h1>WARNING! THIS EMAIL CONTAIN CREDENTIAL CONTENT OF YOUR ACCOUNT, PROCESS WITH CAUTIOS</h1>
+                        <h1>WARNING! THIS EMAIL CONTAIN CREDENTIAL CONTENT OF YOUR ACCOUNT, PROCEED WITH CAUTION</h1>
                         <h2>Hi ${username},</h2>
                         <p>We detected a request to reset the password for your account.</p>
                         <p>If it was yours, please enter this new password to login to your account, and please change it as soon as possible through Settings page in the Load App</p>
