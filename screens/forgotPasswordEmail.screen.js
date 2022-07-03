@@ -126,7 +126,7 @@ exports.forgotPasswordEmail = (password, username) => {
         text-transform: capitalize; 
       }
 
-      h1.password {
+      .password {
         font-weight: bold;
       }
 
@@ -366,7 +366,7 @@ exports.forgotPasswordEmail = (password, username) => {
                                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                   <tbody>
                                     <tr>
-                                      <td> <h1>${password}</h1> </td>
+                                      <td> <h1 class="password">${password}</h1> </td>
                                     </tr>
                                   </tbody>
                                 </table>
