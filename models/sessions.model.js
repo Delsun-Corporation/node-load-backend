@@ -30,4 +30,4 @@ const sessionsSchema = new mongoose.Schema(
     {timestamps: true}
 );
 
-module.exports = mongoose.model("Notification", sessionsSchema);
+module.exports = mongoose.model("Session", sessionsSchema);
