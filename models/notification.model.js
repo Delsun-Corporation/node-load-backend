@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const notificationProgramsSchema = new mongoose.Schema(
+const notificationSchema = new mongoose.Schema(
     {
         title: {
             type: String
@@ -23,4 +23,4 @@ const notificationProgramsSchema = new mongoose.Schema(
     {timestamps: true}
 );
 
-module.exports = mongoose.model("Notification", notificationProgramsSchema);
+module.exports = mongoose.model("Notification", notificationSchema);
