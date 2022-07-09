@@ -376,7 +376,7 @@ exports.registerFullProfileController = (req, res) => {
 exports.getAllData = (req, res) => {
   const { authorization } = req.headers;
 
-  accountModel.find({}, (err, accounts) => {
+  Account.find({}, (err, accounts) => {
 
     return res.json(success("Success Get All Data", { accounts }, res.statusCode));
   })
