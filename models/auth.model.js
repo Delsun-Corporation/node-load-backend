@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema(
   {
     id: {
       type: Number,
-      default: getDefaultAccountId(),
+      default: getDefaultUserId(),
       unique: true
     },
     email: {
