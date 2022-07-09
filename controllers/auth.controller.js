@@ -82,7 +82,7 @@ exports.loginController = (req, res) => {
             date_of_birth: result.date_of_birth,
             gender: result.gender,
             height: result.height,
-            width: result.width,
+            weight: result.weight,
             location: result.location,
             phone_area: result.phone_area,
             phone_number: result.phone_number

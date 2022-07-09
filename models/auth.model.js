@@ -70,7 +70,7 @@ const userSchema = new mongoose.Schema(
     height: {
       type: Number,
     },
-    width: {
+    weight: {
       type: Number,
     },
     photo: {
