@@ -11,7 +11,7 @@ const {
 const { success, error, validation } = require("../helper/baseJsonResponse");
 const _ = require("lodash");
 const crypto = require("crypto");
-const accountModel = require("../models/account.model");
+const Account = require("../models/account.model");
 
 exports.loginController = (req, res) => {
   const { email, password } = req.query;
@@ -65,10 +65,39 @@ exports.loginController = (req, res) => {
             .status(400)
             .json(error("Error resetting user password", res.statusCode));
         }
-  
-        return res.json(
-          success("Sign in Success", { user: result, token }, res.statusCode)
-        );
+
+        Account.findOne({
+          user_id: result.id
+        }, (err, account) => {
+          const objectUserToReturn = {
+            email: result.email,
+            token: result.token,
+            name: result.token,
+            is_active: result.is_active,
+            is_profile_complete: result.is_profile_complete,
+            email_verified_at: result.email_verified_at,
+            is_online: result.is_snooze,
+            createdAt: result.createdAt,
+            updatedAt: result.updatedAt,
+            date_of_birth: result.date_of_birth,
+            gender: result.gender,
+            height: result.height,
+            width: result.width,
+            location: result.location,
+            phone_area: result.phone_area,
+            phone_number: result.phone_number
+          }
+
+          if (err) {
+            return res.json(
+              success("Sign in Success", { user: objectUserToReturn, token }, res.statusCode)
+            );
+          }
+
+          return res.json(
+            success("Sign in Success", { user: { ...objectUserToReturn, user_snooze_detail: account}, token }, res.statusCode)
+          );
+        })
       });
     });
   }
