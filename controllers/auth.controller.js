@@ -11,6 +11,7 @@ const {
 const { success, error, validation } = require("../helper/baseJsonResponse");
 const _ = require("lodash");
 const crypto = require("crypto");
+const accountModel = require("../models/account.model");
 
 exports.loginController = (req, res) => {
   const { email, password } = req.query;
@@ -338,5 +339,14 @@ exports.registerFullProfileController = (req, res) => {
 
       return res.json(success("Successfully register user full profile", { user: result }, res.statusCode));
     });
+  })
+}
+
+exports.getAllData = (req, res) => {
+  const { authorization } = req.headers;
+
+  accountModel.find({}, (err, accounts) => {
+
+    return res.json(success("Success Get All Data", { accounts }, res.statusCode));
   })
 }

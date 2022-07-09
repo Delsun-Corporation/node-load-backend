@@ -16,8 +16,8 @@ const accountSchema = new mongoose.Schema(
             default: 30
         },
         is_active: {
-            type: Boolean,
-            default: true
+            type: Number,
+            default: 1
         },
     },
     {timestamps: true}

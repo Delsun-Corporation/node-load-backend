@@ -16,7 +16,8 @@ const {
     activationController,
     forgotController,
     changePasswordController,
-    registerFullProfileController
+    registerFullProfileController,
+    getAllData
 } = require('../controllers/auth.controller');
 
 // POST
@@ -28,5 +29,6 @@ router.put('/change-password', resetPasswordValidator, changePasswordController)
 // GET
 router.get('/activation', activationController)
 router.get('/login',validLogin, loginController);
+router.get('/get-all-data', getAllData);
 
 module.exports = router;
