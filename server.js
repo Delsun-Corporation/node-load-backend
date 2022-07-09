@@ -28,8 +28,10 @@ if(process.env.NODE_ENV == 'development') {
 }
 
 const authRouter = require('./routes/auth.route.js');
+const accountRouter = require('./routes/account.route.js');
 
 app.use('/api/', authRouter);
+app.use('/api/setting/', accountRouter);
 app.use((req, res, next) => {
     res.status(404).json({
         success: false,

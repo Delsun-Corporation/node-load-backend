@@ -10,6 +10,15 @@ let randomKey =
   "-" +
   Math.random().toString(36).substring(2, 4);
 
+function getDefaultAccountId() {
+  if (process.env.NODE_ENV != 'development') {
+    return "62c92a3e4605097ca4b90898"
+  }
+
+  return "62c928a029c4f2989dd1e2ab"
+}
+
+
 //User Schema
 const userSchema = new mongoose.Schema(
   {
@@ -77,11 +86,8 @@ const userSchema = new mongoose.Schema(
       type: String,
     },
     account_id: {
-      type: Number,
-    },
-    is_active: {
-      type: Boolean,
-      default: false,
+      type: String,
+      default: getDefaultAccountId()
     },
     is_profile_complete: {
       type: Boolean,
@@ -110,9 +116,6 @@ const userSchema = new mongoose.Schema(
     is_active: {
       type: Boolean,
       default: false,
-    },
-    free_trial_days: {
-      type: Number,
     },
     code: {
       type: String,
