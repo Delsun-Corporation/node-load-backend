@@ -30,14 +30,14 @@ exports.updateAccountType = (req, res) => {
     const { authorization } = req.headers;
 
     Account.findById(account_id, (err, result) => {
-        if (err) {
+        if (err || !result) {
             return res.status(401).json(error("No Account Found with that ID", res.statusCode));
         }
 
         User.findOne({
             token: authorization
         }, (err, user) => {
-            if (err) {
+            if (err || !user) {
                 return res.status(401).json(error("Unauthorized", res.statusCode));
             }
     
@@ -91,8 +91,9 @@ exports.updateAccountSnooze = (req, res) => {
             }
 
             Snooze.findOne({
-                id: result.id
+                user_id: result.id
             }, (err, model) => {
+                console.log(model);
                 if (err) {
                     return res
                       .status(500)
@@ -113,7 +114,7 @@ exports.updateAccountSnooze = (req, res) => {
                           .json(error("Error while saving Snooze", res.statusCode));
                         }
 
-                        return res.json(success("Success update account type", null, res.statusCode)); 
+                        return res.json(success("Success update account snooze", null, res.statusCode)); 
                     })
                 }
 
