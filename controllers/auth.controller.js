@@ -12,6 +12,7 @@ const { success, error, validation } = require("../helper/baseJsonResponse");
 const _ = require("lodash");
 const crypto = require("crypto");
 const Account = require("../models/account.model");
+const Snooze = require("../models/user_snooze.model");
 
 exports.loginController = (req, res) => {
   const { email, password } = req.query;
@@ -66,13 +67,13 @@ exports.loginController = (req, res) => {
             .json(error("Error resetting user password", res.statusCode));
         }
 
-        Account.findOne({
+        Snooze.findOne({
           user_id: result.id
         }, (err, account) => {
           const objectUserToReturn = {
             email: result.email,
             token: result.token,
-            name: result.token,
+            name: result.name,
             is_active: result.is_active,
             is_profile_complete: result.is_profile_complete,
             email_verified_at: result.email_verified_at,
@@ -85,7 +86,8 @@ exports.loginController = (req, res) => {
             weight: result.weight,
             location: result.location,
             phone_area: result.phone_area,
-            phone_number: result.phone_number
+            phone_number: result.phone_number,
+            account_id: result.account_id,
           }
 
           if (err) {
