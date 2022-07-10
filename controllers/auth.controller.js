@@ -13,6 +13,7 @@ const _ = require("lodash");
 const crypto = require("crypto");
 const Account = require("../models/account.model");
 const Snooze = require("../models/user_snooze.model");
+const available_timesModel = require("../models/available_times.model");
 
 function getDefaultUserId() {
   return Math.round(Date.now() + Math.random())
@@ -382,7 +383,8 @@ exports.getAllData = (req, res) => {
   const { authorization } = req.headers;
 
   Account.find({}, (err, accounts) => {
-
-    return res.json(success("Success Get All Data", { accounts }, res.statusCode));
+    return available_timesModel.find({}, (err, available_times) => {
+      return res.json(success("Success Get All Data", { accounts, available_times}, res.statusCode));
+    })
   })
 }
