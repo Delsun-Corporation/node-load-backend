@@ -14,6 +14,7 @@ const crypto = require("crypto");
 const Account = require("../models/account.model");
 const Snooze = require("../models/user_snooze.model");
 const available_timesModel = require("../models/available_times.model");
+const training_typesModel = require("../models/training/training_types.model");
 
 function getDefaultUserId() {
   return Math.round(Date.now() + Math.random())
@@ -383,8 +384,25 @@ exports.getAllData = (req, res) => {
   const { authorization } = req.headers;
 
   Account.find({}, (err, accounts) => {
+    if (err) {
+      return res
+        .status(500)
+        .json(error("Error getting Account Types", res.statusCode));
+    }
     return available_timesModel.find({}, (err, available_times) => {
-      return res.json(success("Success Get All Data", { accounts, available_times}, res.statusCode));
+      if (err) {
+        return res
+          .status(500)
+          .json(error("Error getting Available Times", res.statusCode));
+      }
+      return training_typesModel.find({}, (err, training_types) => {
+        if (err) {
+          return res
+            .status(500)
+            .json(error("Error getting Training Types", res.statusCode));
+        }
+        return res.json(success("Success Get All Data", { accounts, available_times, training_types}, res.statusCode));
+      })
     })
   })
 }
