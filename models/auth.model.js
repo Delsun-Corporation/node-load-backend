@@ -18,17 +18,12 @@ function getDefaultAccountId() {
   return "62c928a029c4f2989dd1e2ab"
 }
 
-function getDefaultUserId() {
-  return Math.round(Date.now() + Math.random())
-}
-
 
 //User Schema
 const userSchema = new mongoose.Schema(
   {
     id: {
       type: Number,
-      default: getDefaultUserId(),
       unique: true
     },
     email: {

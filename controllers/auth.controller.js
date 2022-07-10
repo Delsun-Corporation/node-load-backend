@@ -14,6 +14,10 @@ const crypto = require("crypto");
 const Account = require("../models/account.model");
 const Snooze = require("../models/user_snooze.model");
 
+function getDefaultUserId() {
+  return Math.round(Date.now() + Math.random())
+}
+
 exports.loginController = (req, res) => {
   const { email, password } = req.query;
   const errors = validationResult(req);
@@ -188,7 +192,8 @@ exports.activationController = (req, res) => {
           const user = new User({
             email,
             password,
-            email_verified_at
+            email_verified_at,
+            id: getDefaultUserId()
           });
 
           user.save((err, user) => {
