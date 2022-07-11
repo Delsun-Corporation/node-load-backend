@@ -73,37 +73,21 @@ exports.loginController = (req, res) => {
             .json(error("Error resetting user password", res.statusCode));
         }
 
+        delete result._doc["hashed_password"];
+        delete result._doc["salt"];
+
         Snooze.findOne({
           user_id: result.id
         }, (err, account) => {
-          const objectUserToReturn = {
-            email: result.email,
-            token: result.token,
-            name: result.name,
-            is_active: result.is_active,
-            is_profile_complete: result.is_profile_complete,
-            email_verified_at: result.email_verified_at,
-            is_online: result.is_snooze,
-            createdAt: result.createdAt,
-            updatedAt: result.updatedAt,
-            date_of_birth: result.date_of_birth,
-            gender: result.gender,
-            height: result.height,
-            weight: result.weight,
-            location: result.location,
-            phone_area: result.phone_area,
-            phone_number: result.phone_number,
-            account_id: result.account_id,
-          }
 
-          if (err) {
+          if (err || account == null || account == undefined) {
             return res.json(
-              success("Sign in Success", { user: objectUserToReturn, token }, res.statusCode)
+              success("Sign in Success", { result, token }, res.statusCode)
             );
           }
 
           return res.json(
-            success("Sign in Success", { user: { ...objectUserToReturn, user_snooze_detail: account}, token }, res.statusCode)
+            success("Sign in Success", { user: { ...result._doc, user_snooze_detail: account}, token }, res.statusCode)
           );
         })
       });
@@ -307,6 +291,7 @@ exports.changePasswordController = (req, res) => {
 
     const updatedFields = {
       password: password,
+      pass: password
     };
 
     user = _.extend(user, updatedFields);

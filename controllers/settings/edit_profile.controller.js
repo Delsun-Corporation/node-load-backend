@@ -18,6 +18,8 @@ exports.getEditProfile = (req, res) => {
         }
 
         delete user._doc["token"];
+        delete user._doc["hashed_password"];
+        delete user._doc["salt"];
 
         return res.json(success("Success getting user profile", user, res.statusCode));
     })
