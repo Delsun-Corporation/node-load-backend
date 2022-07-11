@@ -22,7 +22,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{LOCAL_HOST_3000}}/api/login?email=lionato14@gmail.com&password=timo123",
+									"raw": "{{LOCAL_HOST_3000}}/api/login?email=lionato14@gmail.com&password=timo1234!",
 									"host": [
 										"{{LOCAL_HOST_3000}}"
 									],
@@ -37,7 +37,7 @@
 										},
 										{
 											"key": "password",
-											"value": "timo123"
+											"value": "timo1234!"
 										}
 									]
 								}
@@ -256,9 +256,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{LOCAL_HOST_3000}}/api/register",
+									"raw": "{{LOCAL_HOST}}/api/register",
 									"host": [
-										"{{LOCAL_HOST_3000}}"
+										"{{LOCAL_HOST}}"
 									],
 									"path": [
 										"api",
@@ -406,9 +406,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{LOCAL_HOST_3000}}/api/activation?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTY3NDc0ODMsImV4cCI6MTY1Njc0ODM4M30.neTlcTmuNoCv7oIzXXmq-YVskeJFgOKwTasAN7WXUvk",
+									"raw": "{{LOCAL_HOST}}/api/activation?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTY3NDc0ODMsImV4cCI6MTY1Njc0ODM4M30.neTlcTmuNoCv7oIzXXmq-YVskeJFgOKwTasAN7WXUvk",
 									"host": [
-										"{{LOCAL_HOST_3000}}"
+										"{{LOCAL_HOST}}"
 									],
 									"path": [
 										"api",
@@ -495,13 +495,8 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"lionato14@gmail.com\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"mode": "formdata",
+									"formdata": []
 								},
 								"url": {
 									"raw": "{{LOCAL_HOST}}/api/forgot-password",
@@ -591,7 +586,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4MzM4MDN9.gUNqE-S3Wi9oDoFUtWMnef-0AMyRMDYeH8yJkWgGPgo",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4NTEyOTZ9.iSri4o_9IDnAOBhSw1uLNPVODNRaTMLpv7OlVKDbJ90",
 										"type": "text"
 									}
 								],
@@ -850,9 +845,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{LOCAL_HOST}}/api/register-full-profile",
+									"raw": "{{LOCAL_HOST_3000}}/api/register-full-profile",
 									"host": [
-										"{{LOCAL_HOST}}"
+										"{{LOCAL_HOST_3000}}"
 									],
 									"path": [
 										"api",
@@ -931,9 +926,301 @@
 									"body": "{\n    \"message\": \"Successfully register user full profile\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": null\n}"
 								}
 							]
+						},
+						{
+							"name": "Get All Data",
+							"id": "998fc0dc-ab9e-407c-aa5b-5266a8ffbcd8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/get-all-data",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"get-all-data"
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"id": "d5a8fd7b-295c-4ecf-8dc9-5e3941fc0d0d"
+				},
+				{
+					"name": "Library",
+					"item": [
+						{
+							"name": "Library List",
+							"id": "8a5555c3-f686-4e31-bbf9-37947766173c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "\"application/json\"",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "\"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTc4LjEyOC40NS4xMTAvbG9hZC9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTY1Njc0NDMxOCwibmJmIjoxNjU2NzQ0MzE4LCJqdGkiOiI4YmtqU2tlaW5lWkdWQ0pjIiwic3ViIjoyMiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.qMKFCpuIunVvK0DFeEZHvKLI2V6pRLgSt8mu7qCb3YI\"",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"status\": \"UPPER\",\n  \"relation\": [\"mechanic_detail\"],\n  \"list\": [\"id\", \"exercise_name\", \"category_id\", \"regions_ids\", \"user_id\", \"is_favorite\", \"mechanics_id\",           \"repetition_max\"], \n  \"user_id\": 22, \n  \"is_group_wise\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://178.128.45.110/load/api/library-list",
+									"protocol": "http",
+									"host": [
+										"178",
+										"128",
+										"45",
+										"110"
+									],
+									"path": [
+										"load",
+										"api",
+										"library-list"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "1fa36072-3a48-4149-971f-039ecac29c7b"
+				},
+				{
+					"name": "Setting",
+					"item": [
+						{
+							"name": "Account",
+							"id": "f91b94a2-37f7-481d-b2fe-46c87525c477",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Professional\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST_3000}}/api/setting/account",
+									"host": [
+										"{{LOCAL_HOST_3000}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"account"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Account Type",
+							"id": "9ba0d7db-3db8-4195-88f4-91ccd3cc3da4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4NTQ1NTd9.-ChMOvQt-94O8pdzBS8PF1K4xmTQ49SFaVvFHPmBGcQ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"account_id\": \"62c928d2773234a0e0085cba\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST_3000}}/api/setting/update-account-type",
+									"host": [
+										"{{LOCAL_HOST_3000}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"update-account-type"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Is Snooze Account Type",
+							"id": "cbaaf652-f79d-4c7c-9562-d1ebdeb80682",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4NTQ1NTd9.-ChMOvQt-94O8pdzBS8PF1K4xmTQ49SFaVvFHPmBGcQ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"is_snooze\": false,\n    \"start_date\": \"2022-10-09T09:19:09Z\",\n    \"end_date\": \"2022-10-09T09:19:09Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST_3000}}/api/setting/update-account-snooze",
+									"host": [
+										"{{LOCAL_HOST_3000}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"update-account-snooze"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Setting Profile",
+							"id": "c4f53ad2-f5f6-410c-b86a-c972dd487d72",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTczNzY2Njh9.D6EFSFEZJMCD5nMqVzkVcgMsBSaUSZvvazNC8Sw3sK4",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/setting/user?id=1657359626947",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"user"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1657359626947"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "4d173f20-cced-4a3b-bf7a-df98eebbb9ec",
+									"name": "[SUCCESS] - Get Setting Profile",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTczNzY2Njh9.D6EFSFEZJMCD5nMqVzkVcgMsBSaUSZvvazNC8Sw3sK4",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/setting/user?id=1657359626947",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"setting",
+												"user"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "1657359626947"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "613"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"265-24ieuI+6Rhm0LMej7yFZ+2sUJPE\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 11 Jul 2022 16:49:20 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Success getting user profile\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": {\n        \"_id\": \"62bff663b73449e933382049\",\n        \"email\": \"lionato14@gmail.com\",\n        \"name\": \"Timotius Leonardo\",\n        \"is_active\": false,\n        \"is_profile_complete\": true,\n        \"email_verified_at\": \"2022-07-02T07:40:19.908Z\",\n        \"is_online\": false,\n        \"is_snooze\": false,\n        \"createdAt\": \"2022-07-02T07:40:19.945Z\",\n        \"updatedAt\": \"2022-07-09T14:24:28.494Z\",\n        \"__v\": 0,\n        \"date_of_birth\": \"28-03-1999\",\n        \"gender\": \"MALE\",\n        \"height\": 190,\n        \"location\": \"Indonesia\",\n        \"phone_area\": \"+62\",\n        \"phone_number\": \"089682180054\",\n        \"pass\": \"l55c6e5facthgtjrdv5\",\n        \"account_id\": \"62c928d2773234a0e0085cba\",\n        \"id\": 1657359626947,\n        \"weight\": 70\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "51f0de2c-bb17-427b-bef0-600798622184"
 				}
 			],
 			"id": "1912c514-87ba-4746-ad6b-f99f0466beb7",
@@ -942,6 +1229,418 @@
 		{
 			"name": "Production Testing",
 			"item": [
+				{
+					"name": "Library Copy",
+					"item": [
+						{
+							"name": "Library List",
+							"id": "ae191191-4eae-4b7e-925b-b3b1fac20232",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "\"application/json\"",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "\"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTc4LjEyOC40NS4xMTAvbG9hZC9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTY1Njc0NDMxOCwibmJmIjoxNjU2NzQ0MzE4LCJqdGkiOiI4YmtqU2tlaW5lWkdWQ0pjIiwic3ViIjoyMiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.qMKFCpuIunVvK0DFeEZHvKLI2V6pRLgSt8mu7qCb3YI\"",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"status\": \"UPPER\",\n  \"relation\": [\"mechanic_detail\"],\n  \"list\": [\"id\", \"exercise_name\", \"category_id\", \"regions_ids\", \"user_id\", \"is_favorite\", \"mechanics_id\",           \"repetition_max\"], \n  \"user_id\": 22, \n  \"is_group_wise\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://178.128.45.110/load/api/library-list",
+									"protocol": "http",
+									"host": [
+										"178",
+										"128",
+										"45",
+										"110"
+									],
+									"path": [
+										"load",
+										"api",
+										"library-list"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "7ebdbb5d-e7cd-4311-8af7-c5130a6a43ec"
+				},
+				{
+					"name": "Setting Copy",
+					"item": [
+						{
+							"name": "Account",
+							"id": "6238cd5e-ec06-4ce2-a937-e5f59658a40f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Professional\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{PRODUCTION_HOST}}/api/setting/account",
+									"host": [
+										"{{PRODUCTION_HOST}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"account"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Account Type",
+							"id": "fac16024-7973-4f34-9398-61b7a2e077fc",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmM5Nzc0MjZkYWFiOGFhZjcwMjQxMzMiLCJpYXQiOjE2NTczNzA0NDd9.HQbrE6Wfq8Lvfe5iNjHMVF3hcPhLJXWgVHYPw4xaGzc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"account_id\": \"62c92a144605097ca4b90894\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{PRODUCTION_HOST}}/api/setting/update-account-type",
+									"host": [
+										"{{PRODUCTION_HOST}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"update-account-type"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Is Snooze Account Type",
+							"id": "ee26b055-b31c-4011-a5eb-336f2b62a1a8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmM5Nzc0MjZkYWFiOGFhZjcwMjQxMzMiLCJpYXQiOjE2NTczNzA0NDd9.HQbrE6Wfq8Lvfe5iNjHMVF3hcPhLJXWgVHYPw4xaGzc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"is_snooze\": false,\n    \"start_date\": \"2022-10-09T09:19:09Z\",\n    \"end_date\": \"2022-10-09T09:19:09Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{PRODUCTION_HOST}}/api/setting/update-account-snooze",
+									"host": [
+										"{{PRODUCTION_HOST}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"update-account-snooze"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "c6d3953a-752e-4ed1-9d1e-e6b11643bd2f"
+				},
+				{
+					"name": "Change Password Copy",
+					"id": "53c00120-1660-463e-8251-253bb32f4471",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmMxNGIxMzRhOTg0ZmVhY2IwNGQ1Y2UiLCJpYXQiOjE2NTY4MzQ4NDR9.rS34Nc1YQCbKbFjJX8zZHcTUtSoWUXChxA1_naEsWLo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"dckchrist123@gmail.com\",\n    \"password\": \"A476b6db69e18e99\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PRODUCTION_HOST}}/api/change-password",
+							"host": [
+								"{{PRODUCTION_HOST}}"
+							],
+							"path": [
+								"api",
+								"change-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "db6d7fdc-838d-40f2-acfa-84fbb09a8f49",
+							"name": "Change Password - SUCCESS",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4MzM4MDN9.gUNqE-S3Wi9oDoFUtWMnef-0AMyRMDYeH8yJkWgGPgo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"timo1234!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/change-password",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"change-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "83"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"53-uBNJ1+5ba+FMUr/GJsNvKJVM71A\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 01 Jul 2022 15:51:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"message\": \"Password successfully changed\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": null\n}"
+						},
+						{
+							"id": "0ab1d406-4da9-4740-9f52-f4a59e5f3cb4",
+							"name": "[ERROR] - Change Password - Password is too short",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4MzM4MDN9.gUNqE-S3Wi9oDoFUtWMnef-0AMyRMDYeH8yJkWgGPgo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"tim\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/change-password",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"change-password"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "116"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"74-ojm4zkvtLKl4qLc2QVtNP1v17/A\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 01 Jul 2022 15:55:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"message\": \"Validation errors\",\n    \"success\": false,\n    \"status\": 422,\n    \"errors\": \"Password must be at least  6 characters long\"\n}"
+						},
+						{
+							"id": "84624e98-130a-4b50-8137-18699d88a9a5",
+							"name": "[ERROR] - Change Password - Unauthorized",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "xxx",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"timo1234!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/change-password",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"change-password"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "54"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"36-f3AosHNCIApstA1l/aTAt4s6MEg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 03 Jul 2022 08:04:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"message\": \"Unautorized\",\n    \"status\": 401,\n    \"success\": false\n}"
+						}
+					]
+				},
 				{
 					"name": "Login Copy",
 					"id": "de5eb207-a8fb-416a-a5a6-f4e091461825",
@@ -952,7 +1651,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{PRODUCTION_HOST}}/api/login?email=lionato14@gmail.com&password=08b6785c7fa94a324ab21c001e46e5f3",
+							"raw": "{{PRODUCTION_HOST}}/api/login?email=dckchrist123@gmail.com&password=A476b6db69e18e99",
 							"host": [
 								"{{PRODUCTION_HOST}}"
 							],
@@ -963,11 +1662,11 @@
 							"query": [
 								{
 									"key": "email",
-									"value": "lionato14@gmail.com"
+									"value": "dckchrist123@gmail.com"
 								},
 								{
 									"key": "password",
-									"value": "08b6785c7fa94a324ab21c001e46e5f3"
+									"value": "A476b6db69e18e99"
 								}
 							]
 						}
