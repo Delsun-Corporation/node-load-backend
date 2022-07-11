@@ -203,7 +203,7 @@ exports.activationController = (req, res) => {
               console.log(err);
               return res.status(401).json(error(err.message, res.statusCode));
             } else {
-              return res.redirect("https://www.load-peakyourperformance.com/");
+              return res.redirect("https://www.load-peakyourperformance.com/load-app-activated");
             }
           });
         }
