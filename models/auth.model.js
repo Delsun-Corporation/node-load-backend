@@ -45,8 +45,12 @@ const userSchema = new mongoose.Schema(
     hashed_password: {
       type: String,
       required: true,
+      select: false
     },
-    salt: String,
+    salt: {
+      type: String,
+      select: false
+    },
     country_code: {
       type: String,
     },
