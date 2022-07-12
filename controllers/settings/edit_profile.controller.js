@@ -1,6 +1,7 @@
 const { error, success } = require("../../helper/baseJsonResponse");
 const authModel = require("../../models/auth.model")
 const _ = require("lodash");
+const user_snoozeModel = require("../../models/user_snooze.model");
 
 exports.getEditProfile = (req, res) => {
     const { id } = req.query;
@@ -21,7 +22,13 @@ exports.getEditProfile = (req, res) => {
         delete user._doc["hashed_password"];
         delete user._doc["salt"];
 
-        return res.json(success("Success getting user profile", user, res.statusCode));
+        return user_snoozeModel.findOne({user_id: id}, (err, snooze) => {
+            if (err || snooze == null || snooze == undefined) {
+                return res.status(403).json(error("No snooze detail found with that ID", res.statusCode))
+            }
+
+            return res.json(success("Success getting user profile", { ...user._doc, user_snooze_detail: snooze}, res.statusCode));
+        })
     })
 }
 
