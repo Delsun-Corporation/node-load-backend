@@ -55,7 +55,7 @@ exports.updateEditProfile = (req, res) => {
 
         return user.save((err, result) => {
             if (err) {
-                return res.status(500).json(error("Error saving user profile, please try again later", res.statusCode))
+                return res.status(403).json(error("Bad Request", res.statusCode))
             }
 
             return res.json(success("Success getting user profile", result, res.statusCode));
