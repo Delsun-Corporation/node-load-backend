@@ -82,7 +82,7 @@ exports.loginController = (req, res) => {
 
           if (err || account == null || account == undefined) {
             return res.json(
-              success("Sign in Success", { result, token }, res.statusCode)
+              success("Sign in Success", { user: result, token }, res.statusCode)
             );
           }
 
