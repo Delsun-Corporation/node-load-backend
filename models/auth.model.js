@@ -137,6 +137,9 @@ const userSchema = new mongoose.Schema(
     },
     phone_number: {
       type: String
+    },
+    otp: {
+      type: Number
     }
   },
   { timestamps: true }

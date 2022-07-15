@@ -220,10 +220,10 @@ exports.forgotController = (req, res) => {
         }
 
         // if user exist, change his/her password right away
-        const newPassword = crypto.randomBytes(8).toString("hex");
+        const otp = Math.floor(100000 + Math.random() * 900000);
 
         const updatedFields = {
-          password: newPassword,
+          otp: otp,
         };
 
         user = _.extend(user, updatedFields);
@@ -232,7 +232,7 @@ exports.forgotController = (req, res) => {
           if (err) {
             return res
               .status(400)
-              .json(error("Error resetting user password", res.statusCode));
+              .json(error("Error saving user OTP", res.statusCode));
           }
 
           nodemailer.sendEmail({
@@ -243,7 +243,7 @@ exports.forgotController = (req, res) => {
             from: `${process.env.EMAIL_FROM}`,
             to: email,
             subject: "Load App - Forgot your password",
-            html: forgotPasswordEmail(newPassword, email),
+            html: forgotPasswordEmail(otp, email),
             onError: (e) => {
               console.log(e);
               return res

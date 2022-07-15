@@ -1,4 +1,4 @@
-exports.forgotPasswordEmail = (password, username) => {
+exports.forgotPasswordEmail = (otp, username) => {
     const emailPage = `
   <!doctype html>
 <html>
@@ -359,7 +359,7 @@ exports.forgotPasswordEmail = (password, username) => {
                         <h1>WARNING! THIS EMAIL CONTAIN CREDENTIAL CONTENT OF YOUR ACCOUNT, PROCEED WITH CAUTION</h1>
                         <h2>Hi ${username},</h2>
                         <p>We detected a request to reset the password for your account.</p>
-                        <p>If it was yours, please enter this new password to login to your account, and please change it as soon as possible through Settings page in the Load App</p>
+                        <p>If it was yours, please enter this OTP number to change your password in LOAD App</p>
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                           <tbody>
                             <tr>
@@ -367,7 +367,7 @@ exports.forgotPasswordEmail = (password, username) => {
                                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                   <tbody>
                                     <tr>
-                                      <td> <h1 class="password">${password}</h1> </td>
+                                      <td> <h1 class="password">${otp}</h1> </td>
                                     </tr>
                                   </tbody>
                                 </table>
