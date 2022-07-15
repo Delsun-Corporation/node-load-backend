@@ -17,13 +17,15 @@ const {
     forgotController,
     changePasswordController,
     registerFullProfileController,
-    getAllData
+    getAllData,
+    otpVerification
 } = require('../controllers/auth.controller');
 
 // POST
 router.post('/register', validRegister, registerController);
 router.post('/register-full-profile', validRegisterFullProfile, registerFullProfileController);
 router.post('/forgot-password', forgotPasswordValidator, forgotController);
+router.post('/otp-verification', otpVerification);
 // PUT
 router.put('/change-password', resetPasswordValidator, changePasswordController);
 // GET
