@@ -391,3 +391,32 @@ exports.getAllData = (req, res) => {
     })
   })
 }
+
+exports.otpVerification = (req, res) => {
+  const { otp, email } = req.body;
+
+  if (otp == undefined  || otp == null || email == undefined || email == null) {
+    return res.status(403).json(error("Bad Request", res.statusCode));
+  }
+
+  User.findOne({email}, (err, user) => {
+    if (err || !user) {
+      return res.status(400).json(error("User not found", res.statusCode));
+    }
+    
+    if (otp != user._doc.otp) {
+      return res.status(401).json(error("OTP is not valid", res.statusCode));
+    }
+
+    // If Valid, Delete OTP for better security
+    user.set('otp', undefined, {strict: false} );
+
+    return user.save((err, result) => {
+      if (err) {
+        return res.status(500).json(error("Error delete user otp", res.statusCode));
+      }
+
+      return res.json(success("OTP is Valid!", null, res.statusCode));
+    });
+  })
+}
