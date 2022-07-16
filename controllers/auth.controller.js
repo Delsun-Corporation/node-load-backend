@@ -220,7 +220,7 @@ exports.forgotController = (req, res) => {
         }
 
         // if user exist, change his/her password right away
-        const otp = Math.floor(100000 + Math.random() * 900000);
+        const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
         const updatedFields = {
           otp: otp,
