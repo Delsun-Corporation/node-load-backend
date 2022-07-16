@@ -259,7 +259,7 @@ exports.forgotPasswordEmailv2 = (otp, username) => {
                           <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                             <tbody>
                               <tr>
-                                <td style="overflow-wrap:break-word;word-break:break-word;padding:41px 55px 18px;font-family:'Cabin',sans-serif;" align="left">
+                                <td style="overflow-wrap:break-word;word-break:break-word;padding:41px 55px 18px;font-family:'Cabin',sans-serif; color: #ffffff;" align="left">
     
                                   <div style="color: #ffffff; line-height: 160%; text-align: center; word-wrap: break-word;">
                                     <p style="font-size: 14px; line-height: 160%;"><strong>© 2022 by LOAD | Peak Your Performance</strong></p>
