@@ -16,11 +16,14 @@ const Snooze = require("../models/user_snooze.model");
 const available_timesModel = require("../models/available_times.model");
 const training_typesModel = require("../models/training/training_types.model");
 const { activationEmailv2 } = require("../screens/activationEmailV2.screen");
-const { forgotPasswordEmailv2 } = require("../screens/forgotPasswordEmailv2.screen");
+const {
+  forgotPasswordEmailv2,
+} = require("../screens/forgotPasswordEmailv2.screen");
 const training_intensityModel = require("../models/training/training_intensity.model");
+const languagesModel = require("../models/languages.model");
 
 function getDefaultUserId() {
-  return Math.round(Date.now() + Math.random())
+  return Math.round(Date.now() + Math.random());
 }
 
 exports.loginController = (req, res) => {
@@ -64,9 +67,9 @@ exports.loginController = (req, res) => {
       );
 
       const newBioToSave = {
-        token
-      }
-  
+        token,
+      };
+
       user = _.extend(user, newBioToSave);
 
       return user.save((err, result) => {
@@ -79,20 +82,33 @@ exports.loginController = (req, res) => {
         delete result._doc["hashed_password"];
         delete result._doc["salt"];
 
-        Snooze.findOne({
-          user_id: result.id
-        }, (err, account) => {
+        Snooze.findOne(
+          {
+            user_id: result.id,
+          },
+          (err, account) => {
+            if (err || account == null || account == undefined) {
+              return res.json(
+                success(
+                  "Sign in Success",
+                  { user: result, token },
+                  res.statusCode
+                )
+              );
+            }
 
-          if (err || account == null || account == undefined) {
             return res.json(
-              success("Sign in Success", { user: result, token }, res.statusCode)
+              success(
+                "Sign in Success",
+                {
+                  user: { ...result._doc, user_snooze_detail: account },
+                  token,
+                },
+                res.statusCode
+              )
             );
           }
-
-          return res.json(
-            success("Sign in Success", { user: { ...result._doc, user_snooze_detail: account}, token }, res.statusCode)
-          );
-        })
+        );
       });
     });
   }
@@ -182,7 +198,7 @@ exports.activationController = (req, res) => {
             email,
             password,
             email_verified_at,
-            id: getDefaultUserId()
+            id: getDefaultUserId(),
           });
 
           user.save((err, user) => {
@@ -190,7 +206,9 @@ exports.activationController = (req, res) => {
               console.log(err);
               return res.status(401).json(error(err.message, res.statusCode));
             } else {
-              return res.redirect("https://www.load-peakyourperformance.com/load-app-activated");
+              return res.redirect(
+                "https://www.load-peakyourperformance.com/load-app-activated"
+              );
             }
           });
         }
@@ -228,7 +246,7 @@ exports.forgotController = (req, res) => {
 
         const updatedFields = {
           otp: otp,
-          otp_date: today
+          otp_date: today,
         };
 
         user = _.extend(user, updatedFields);
@@ -290,10 +308,14 @@ exports.changePasswordController = (req, res) => {
         .json(error("User with that email does not exist", res.statusCode));
     }
 
-    if (is_from_otp !== null && is_from_otp !== undefined && is_from_otp === true) {
+    if (
+      is_from_otp !== null &&
+      is_from_otp !== undefined &&
+      is_from_otp === true
+    ) {
       const updatedFields = {
         password: password,
-        pass: password
+        pass: password,
       };
 
       user = _.extend(user, updatedFields);
@@ -302,10 +324,17 @@ exports.changePasswordController = (req, res) => {
         if (err) {
           return res
             .status(400)
-            .json(error("Error resetting user password from forget password", res.statusCode));
+            .json(
+              error(
+                "Error resetting user password from forget password",
+                res.statusCode
+              )
+            );
         }
-  
-        return res.json(success("forgot password successfully", null, res.statusCode));
+
+        return res.json(
+          success("forgot password successfully", null, res.statusCode)
+        );
       });
     }
 
@@ -315,7 +344,7 @@ exports.changePasswordController = (req, res) => {
 
     const updatedFields = {
       password: password,
-      pass: password
+      pass: password,
     };
 
     user = _.extend(user, updatedFields);
@@ -327,9 +356,11 @@ exports.changePasswordController = (req, res) => {
           .json(error("Error resetting user password", res.statusCode));
       }
 
-      return res.json(success("Password successfully changed", null, res.statusCode));
+      return res.json(
+        success("Password successfully changed", null, res.statusCode)
+      );
     });
-  })
+  });
 };
 
 exports.registerFullProfileController = (req, res) => {
@@ -343,7 +374,7 @@ exports.registerFullProfileController = (req, res) => {
     location,
     phone_area,
     phone_number,
-    email
+    email,
   } = req.body;
   const { authorization } = req.headers;
 
@@ -352,42 +383,51 @@ exports.registerFullProfileController = (req, res) => {
     return res.status(422).json(validation(firstError));
   }
 
-  User.findOne({
-    email
-  }, (err, user) => {
-    if (err || !user) {
-      return res.status(400).json(error("User not found", res.statusCode));
-    }
-
-    if (user.token !== authorization) {
-      return res.status(401).json(error("Unautorized", res.statusCode));
-    }
-
-    const newBioToSave = {
-      date_of_birth,
-      name,
-      gender,
-      weight,
-      height,
-      phone_area,
-      phone_number,
-      location,
-      is_profile_complete: true
-    }
-
-    user = _.extend(user, newBioToSave);
-
-    return user.save((err, result) => {
-      if (err) {
-        return res
-          .status(400)
-          .json(error("Error resetting user password", res.statusCode));
+  User.findOne(
+    {
+      email,
+    },
+    (err, user) => {
+      if (err || !user) {
+        return res.status(400).json(error("User not found", res.statusCode));
       }
 
-      return res.json(success("Successfully register user full profile", { user: result }, res.statusCode));
-    });
-  })
-}
+      if (user.token !== authorization) {
+        return res.status(401).json(error("Unautorized", res.statusCode));
+      }
+
+      const newBioToSave = {
+        date_of_birth,
+        name,
+        gender,
+        weight,
+        height,
+        phone_area,
+        phone_number,
+        location,
+        is_profile_complete: true,
+      };
+
+      user = _.extend(user, newBioToSave);
+
+      return user.save((err, result) => {
+        if (err) {
+          return res
+            .status(400)
+            .json(error("Error resetting user password", res.statusCode));
+        }
+
+        return res.json(
+          success(
+            "Successfully register user full profile",
+            { user: result },
+            res.statusCode
+          )
+        );
+      });
+    }
+  );
+};
 
 exports.getAllData = (req, res) => {
   const { authorization } = req.headers;
@@ -412,41 +452,63 @@ exports.getAllData = (req, res) => {
         }
 
         return training_intensityModel.find({}, (err, training_intensity) => {
-          console.log(training_intensity)
+          console.log(training_intensity);
           if (err) {
             return res
               .status(500)
               .json(error("Error getting Training Intensty", res.statusCode));
           }
 
-          return res.json(success("Success Get All Data", { accounts, available_times, training_types, training_intensity}, res.statusCode));
-        })
-      })
-    })
-  })
-}
+          return languagesModel.find({}, (err, languages) => {
+            if (err) {
+              return res
+                .status(500)
+                .json(error("Error getting languages", res.statusCode));
+            }
+
+            return res.json(
+              success(
+                "Success Get All Data",
+                {
+                  accounts,
+                  available_times,
+                  training_types,
+                  training_intensity,
+                  languages
+                },
+                res.statusCode
+              )
+            );
+          });
+        });
+      });
+    });
+  });
+};
 
 exports.otpVerification = (req, res) => {
   const { otp, email } = req.body;
 
-  if (otp == undefined  || otp == null || email == undefined || email == null) {
+  if (otp == undefined || otp == null || email == undefined || email == null) {
     return res.status(403).json(error("Bad Request", res.statusCode));
   }
 
-  User.findOne({email}, (err, user) => {
+  User.findOne({ email }, (err, user) => {
     if (err || !user) {
       return res.status(400).json(error("User not found", res.statusCode));
     }
-    
+
     if (otp != user._doc.otp) {
       return res.status(401).json(error("OTP is not valid", res.statusCode));
     }
 
     const today = new Date();
     const userOtp = user._doc.otp_date;
-    
+
     if (userOtp === undefined || userOtp === null) {
-      return res.status(401).json(error("OTP date is not valid", res.statusCode));
+      return res
+        .status(401)
+        .json(error("OTP date is not valid", res.statusCode));
     }
 
     const differenceDate = today - userOtp;
@@ -457,15 +519,17 @@ exports.otpVerification = (req, res) => {
     }
 
     // If Valid, Delete OTP for better security
-    user.set('otp', undefined, {strict: false} );
-    user.set('otp_date', undefined, {strict: false});
+    user.set("otp", undefined, { strict: false });
+    user.set("otp_date", undefined, { strict: false });
 
     return user.save((err, result) => {
       if (err) {
-        return res.status(500).json(error("Error delete user otp", res.statusCode));
+        return res
+          .status(500)
+          .json(error("Error delete user otp", res.statusCode));
       }
 
       return res.json(success("OTP is Valid!", null, res.statusCode));
     });
-  })
-}
+  });
+};

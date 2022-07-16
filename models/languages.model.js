@@ -4,6 +4,9 @@ const Schema = mongoose.Schema;
 
 const languagesSchema = new mongoose.Schema(
     {
+        id: {
+            type: Number
+        },
         name: {
             type: String
         },
@@ -12,6 +15,12 @@ const languagesSchema = new mongoose.Schema(
         },
         is_active: {
             type: Boolean
+        },
+        create_at: {
+            type: Date
+        },
+        update_at: {
+            type: Date
         }
     },
     {timestamps: true}
