@@ -17,6 +17,7 @@ const available_timesModel = require("../models/available_times.model");
 const training_typesModel = require("../models/training/training_types.model");
 const { activationEmailv2 } = require("../screens/activationEmailV2.screen");
 const { forgotPasswordEmailv2 } = require("../screens/forgotPasswordEmailv2.screen");
+const training_intensityModel = require("../models/training/training_intensity.model");
 
 function getDefaultUserId() {
   return Math.round(Date.now() + Math.random())
@@ -409,7 +410,17 @@ exports.getAllData = (req, res) => {
             .status(500)
             .json(error("Error getting Training Types", res.statusCode));
         }
-        return res.json(success("Success Get All Data", { accounts, available_times, training_types}, res.statusCode));
+
+        return training_intensityModel.find({}, (err, training_intensity) => {
+          console.log(training_intensity)
+          if (err) {
+            return res
+              .status(500)
+              .json(error("Error getting Training Intensty", res.statusCode));
+          }
+
+          return res.json(success("Success Get All Data", { accounts, available_times, training_types, training_intensity}, res.statusCode));
+        })
       })
     })
   })
