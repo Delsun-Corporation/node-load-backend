@@ -24,7 +24,9 @@ exports.getEditProfile = (req, res) => {
 
         return user_snoozeModel.findOne({user_id: id}, (err, snooze) => {
             if (err || snooze == null || snooze == undefined) {
-                return res.status(403).json(error("No snooze detail found with that ID", res.statusCode))
+                return res.json(
+                    success("Sign in Success", { ...user._doc }, res.statusCode)
+                );
             }
 
             return res.json(success("Success getting user profile", { ...user._doc, user_snooze_detail: snooze}, res.statusCode));
