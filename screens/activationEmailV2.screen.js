@@ -277,14 +277,15 @@ exports.activationEmailv2 = (token , username) => {
                             <td style="overflow-wrap:break-word;word-break:break-word;padding:41px 55px 18px;font-family:'Cabin',sans-serif;" align="left">
 
                               <div style="color: #ffffff; line-height: 160%; text-align: center; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 160%;"><span style="font-size: 14px; line-height: 22.4px;"><strong>© 2022 by LOAD | Peak Your Performance</strong></span></p>
+                                <p style="font-size: 14px; line-height: 160%;"><strong>© 2022 by LOAD | Peak Your Performance</strong></p>
+                                <p style="font-size: 14px; line-height: 160%;"> </p>
                                 <p style="font-size: 14px; line-height: 160%;"> </p>
                                 <p style="font-size: 14px; line-height: 160%;">This e-mail message has been delivered from a send-only address. Please do not reply to this message. If you have any questions, please contact our Customer Service Support.</p>
                                 <p style="font-size: 14px; line-height: 160%;"> </p>
-                                <p style="font-size: 14px; line-height: 160%;">For Terms of Service/User Agreement and Privacy Policy, please visit:<br />xxxxxxxxxxxxxx</p>
+                                <p style="font-size: 14px; line-height: 160%;">For Terms of Service/User Agreement and Privacy Policy, please visit:<br /><span style="text-decoration: underline; font-size: 14px; line-height: 22.4px; color: #ffffff;"><a rel="noopener" href="mailto:hello@load-peakyourperformance.com?subject=Customer%20Service%20Support&body=" target="_blank" style="color: #ffffff; text-decoration: underline;">Customer Service Support</a></span>.</p>
                                 <p style="font-size: 14px; line-height: 160%;"> </p>
                                 <p style="font-size: 14px; line-height: 160%;">LOAD does not contact customers for their sign-in IDs, passwords or personal information. If you are uncertain about any "official" message or emails you have received, please do not reply that message or email, and report
-                                  to our Customer Service immediately.</p>
+                                    to our Customer Service immediately.</p>
                                 <p style="font-size: 14px; line-height: 160%;"> </p>
                               </div>
 
