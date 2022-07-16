@@ -432,34 +432,33 @@ exports.registerFullProfileController = (req, res) => {
 exports.getAllData = (req, res) => {
   const { authorization } = req.headers;
 
-  Account.find({}, (err, accounts) => {
+  Account.find({is_active: 1}, (err, accounts) => {
     if (err) {
       return res
         .status(500)
         .json(error("Error getting Account Types", res.statusCode));
     }
-    return available_timesModel.find({}, (err, available_times) => {
+    return available_timesModel.find({ is_active: 1 }, (err, available_times) => {
       if (err) {
         return res
           .status(500)
           .json(error("Error getting Available Times", res.statusCode));
       }
-      return training_typesModel.find({}, (err, training_types) => {
+      return training_typesModel.find({ is_active: 1 }, (err, training_types) => {
         if (err) {
           return res
             .status(500)
             .json(error("Error getting Training Types", res.statusCode));
         }
 
-        return training_intensityModel.find({}, (err, training_intensity) => {
-          console.log(training_intensity);
+        return training_intensityModel.find({ is_active: 1 }, (err, training_intensity) => {
           if (err) {
             return res
               .status(500)
               .json(error("Error getting Training Intensty", res.statusCode));
           }
 
-          return languagesModel.find({}, (err, languages) => {
+          return languagesModel.find({ is_active: 1 }, (err, languages) => {
             if (err) {
               return res
                 .status(500)

@@ -14,7 +14,7 @@ const languagesSchema = new mongoose.Schema(
             type: String
         },
         is_active: {
-            type: Boolean
+            type: Number
         },
         create_at: {
             type: Date
