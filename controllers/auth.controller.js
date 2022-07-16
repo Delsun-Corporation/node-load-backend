@@ -16,6 +16,7 @@ const Snooze = require("../models/user_snooze.model");
 const available_timesModel = require("../models/available_times.model");
 const training_typesModel = require("../models/training/training_types.model");
 const { activationEmailv2 } = require("../screens/activationEmailV2.screen");
+const { forgotPasswordEmailv2 } = require("../screens/forgotPasswordEmailv2.screen");
 
 function getDefaultUserId() {
   return Math.round(Date.now() + Math.random())
@@ -244,7 +245,7 @@ exports.forgotController = (req, res) => {
             from: `${process.env.EMAIL_FROM}`,
             to: email,
             subject: "Load App - Forgot your password",
-            html: forgotPasswordEmail(otp, email),
+            html: forgotPasswordEmailv2(otp, email),
             onError: (e) => {
               console.log(e);
               return res
