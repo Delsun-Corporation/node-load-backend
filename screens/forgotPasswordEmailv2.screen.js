@@ -180,7 +180,8 @@ exports.forgotPasswordEmailv2 = (otp, username) => {
                                   <div style="line-height: 150%; text-align: center; word-wrap: break-word;">
                                     <p style="font-size: 14px; line-height: 150%; text-align: left;">Hi ${username},</p>
                                     <p style="font-size: 14px; line-height: 150%; text-align: left;">We have received a request to change your account password.</p>
-                                    <p style="font-size: 14px; line-height: 150%; text-align: left;">Your can use this OTP to change your account password in LOAD app.</p>
+                                    <p style="font-size: 14px; line-height: 150%; text-align: left;">You can use this OTP to change your account password in LOAD app.</p>
+                                    <p style="font-size: 14px; line-height: 160%; text-align: left;">Please note that the OTP (One-Time Password) will expire in 10 minutes.</p>
                                   </div>
     
                                 </td>
@@ -266,10 +267,10 @@ exports.forgotPasswordEmailv2 = (otp, username) => {
                                     <p style="font-size: 14px; line-height: 160%;"> </p>
                                     <p style="font-size: 14px; line-height: 160%;">This e-mail message has been delivered from a send-only address. Please do not reply to this message. If you have any questions, please contact our Customer Service Support.</p>
                                     <p style="font-size: 14px; line-height: 160%;"> </p>
-                                    <p style="font-size: 14px; line-height: 160%;">For Terms of Service/User Agreement and Privacy Policy, please visit:<br />xxxxxxxxxxxxxx</p>
+                                    <p style="font-size: 14px; line-height: 160%;">For Terms of Service/User Agreement and Privacy Policy, please visit:<br /><span style="text-decoration: underline; font-size: 14px; line-height: 22.4px; color: #ffffff;"><a rel="noopener" href="mailto:hello@load-peakyourperformance.com?subject=Customer%20Service%20Support&body=" target="_blank" style="color: #ffffff; text-decoration: underline;">Customer Service Support</a></span>.</p>
                                     <p style="font-size: 14px; line-height: 160%;"> </p>
                                     <p style="font-size: 14px; line-height: 160%;">LOAD does not contact customers for their sign-in IDs, passwords or personal information. If you are uncertain about any "official" message or emails you have received, please do not reply that message or email, and report
-                                      to our Customer Service immediately.</p>
+                                        to our Customer Service immediately.</p>
                                     <p style="font-size: 14px; line-height: 160%;"> </p>
                                   </div>
     
