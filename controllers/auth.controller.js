@@ -271,7 +271,7 @@ exports.forgotController = (req, res) => {
 };
 
 exports.changePasswordController = (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, is_from_otp } = req.body;
   const errors = validationResult(req);
   const { authorization } = req.headers;
 
@@ -285,6 +285,25 @@ exports.changePasswordController = (req, res) => {
       return res
         .status(400)
         .json(error("User with that email does not exist", res.statusCode));
+    }
+
+    if (is_from_otp !== null && is_from_otp !== undefined && is_from_otp === true) {
+      const updatedFields = {
+        password: password,
+        pass: password
+      };
+
+      user = _.extend(user, updatedFields);
+
+      return user.save((err, result) => {
+        if (err) {
+          return res
+            .status(400)
+            .json(error("Error resetting user password from forget password", res.statusCode));
+        }
+  
+        return res.json(success("forgot password successfully", null, res.statusCode));
+      });
     }
 
     if (user.token !== authorization) {
