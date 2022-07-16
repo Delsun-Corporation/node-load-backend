@@ -223,9 +223,11 @@ exports.forgotController = (req, res) => {
 
         // if user exist, change his/her password right away
         const otp = Math.floor(100000 + Math.random() * 900000).toString();
+        const today = new Date();
 
         const updatedFields = {
           otp: otp,
+          otp_date: today
         };
 
         user = _.extend(user, updatedFields);
@@ -429,8 +431,23 @@ exports.otpVerification = (req, res) => {
       return res.status(401).json(error("OTP is not valid", res.statusCode));
     }
 
+    const today = new Date();
+    const userOtp = user._doc.otp_date;
+    
+    if (userOtp === undefined || userOtp === null) {
+      return res.status(401).json(error("OTP date is not valid", res.statusCode));
+    }
+
+    const differenceDate = today - userOtp;
+    var diffMins = Math.round(((differenceDate % 86400000) % 3600000) / 60000);
+
+    if (diffMins >= 10) {
+      return res.status(401).json(error("OTP expired", res.statusCode));
+    }
+
     // If Valid, Delete OTP for better security
     user.set('otp', undefined, {strict: false} );
+    user.set('otp_date', undefined, {strict: false});
 
     return user.save((err, result) => {
       if (err) {

@@ -140,6 +140,9 @@ const userSchema = new mongoose.Schema(
     },
     otp: {
       type: String
+    },
+    otp_date: {
+      type: Date
     }
   },
   { timestamps: true }
