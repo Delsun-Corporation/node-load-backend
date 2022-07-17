@@ -21,6 +21,7 @@ const {
 } = require("../screens/forgotPasswordEmailv2.screen");
 const training_intensityModel = require("../models/training/training_intensity.model");
 const languagesModel = require("../models/languages.model");
+const professional_typesModel = require("../models/professional_types.model");
 
 function getDefaultUserId() {
   return Math.round(Date.now() + Math.random());
@@ -465,19 +466,22 @@ exports.getAllData = (req, res) => {
                 .json(error("Error getting languages", res.statusCode));
             }
 
-            return res.json(
-              success(
-                "Success Get All Data",
-                {
-                  accounts,
-                  available_times,
-                  training_types,
-                  training_intensity,
-                  languages
-                },
-                res.statusCode
-              )
-            );
+            return professional_typesModel.find({ is_active: 1 }, (err, professional_types) => {
+              return res.json(
+                success(
+                  "Success Get All Data",
+                  {
+                    accounts,
+                    available_times,
+                    training_types,
+                    training_intensity,
+                    languages,
+                    professional_types
+                  },
+                  res.statusCode
+                )
+              ); 
+            })
           });
         });
       });
