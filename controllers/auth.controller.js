@@ -22,6 +22,7 @@ const {
 const training_intensityModel = require("../models/training/training_intensity.model");
 const languagesModel = require("../models/languages.model");
 const professional_typesModel = require("../models/professional_types.model");
+const cancelation_policiesModel = require("../models/cancelation_policies.model");
 
 function getDefaultUserId() {
   return Math.round(Date.now() + Math.random());
@@ -467,20 +468,24 @@ exports.getAllData = (req, res) => {
             }
 
             return professional_typesModel.find({ is_active: 1 }, (err, professional_types) => {
-              return res.json(
-                success(
-                  "Success Get All Data",
-                  {
-                    accounts,
-                    available_times,
-                    training_types,
-                    training_intensity,
-                    languages,
-                    professional_types
-                  },
-                  res.statusCode
-                )
-              ); 
+
+              return cancelation_policiesModel.find({is_active: 1}, (err, cancellation_policy) => {
+                return res.json(
+                  success(
+                    "Success Get All Data",
+                    {
+                      accounts,
+                      available_times,
+                      training_types,
+                      training_intensity,
+                      languages,
+                      professional_types,
+                      cancellation_policy
+                    },
+                    res.statusCode
+                  )
+                ); 
+              })
             })
           });
         });
