@@ -31,6 +31,7 @@ const currenciesModel = require("../models/currencies.model");
 const servicesModel = require("../models/services.model");
 const countries = require("../models/countries.model");
 const regionsModel = require("../models/regions.model");
+const preset_training_programsModel = require("../models/training/preset_training_programs.model");
 
 function getDefaultUserId() {
   return Math.round(Date.now() + Math.random());
@@ -494,29 +495,37 @@ exports.getAllData = (req, res) => {
                             return countries.find({is_active: 1}, (err, countries) => {
 
                               return regionsModel.find({is_active: 1}, (err, regions) => {
-                                return res.json(
-                                  success(
-                                    "Success Get All Data",
-                                    {
-                                      accounts,
-                                      available_times,
-                                      training_types,
-                                      training_intensity,
-                                      languages,
-                                      professional_types,
-                                      cancellation_policy,
-                                      payment_options,
-                                      professional_schedule_advance_booking,
-                                      specialization,
-                                      settings_race_distances,
-                                      currencies,
-                                      services,
-                                      countries,
-                                      regions
-                                    },
-                                    res.statusCode
-                                  )
-                                ); 
+
+                                return preset_training_programsModel.find({is_active: 1, status: "CARDIO"}, (err, cardio_preset_training_program) => {
+
+                                  return preset_training_programsModel.find({is_active: 1, status: "RESISTANCE"}, (err, resistance_preset_training_program) => {
+                                    return res.json(
+                                      success(
+                                        "Success Get All Data",
+                                        {
+                                          accounts,
+                                          available_times,
+                                          training_types,
+                                          training_intensity,
+                                          languages,
+                                          professional_types,
+                                          cancellation_policy,
+                                          payment_options,
+                                          professional_schedule_advance_booking,
+                                          specialization,
+                                          settings_race_distances,
+                                          currencies,
+                                          services,
+                                          countries,
+                                          regions,
+                                          cardio_preset_training_program,
+                                          resistance_preset_training_program
+                                        },
+                                        res.statusCode
+                                      )
+                                    );
+                                  }); 
+                                })
                               })
                             })
                           })

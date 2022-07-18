@@ -2,28 +2,34 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const trainingFrequenciesSchema = new mongoose.Schema(
+const trainingActivitiesSchema = new mongoose.Schema(
     {
         id: {
             type: Number
         },
-        title: {
+        name: {
             type: String
         },
         code: {
             type: String
         },
-        max_days: {
-            type: Number
+        icon_path: {
+            type: String
         },
-        preset_training_program_ids: {
+        icon_path_red: {
+            type: String
+        },
+        icon_path_white: {
             type: String
         },
         is_active: {
+            type: Number
+        },
+        sequence: {
             type: Number
         }
     },
     {timestamps: true}
 );
 
-module.exports = mongoose.model("training_frequencies", trainingFrequenciesSchema);
+module.exports = mongoose.model("training_activities", trainingActivitiesSchema);
