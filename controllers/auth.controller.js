@@ -27,6 +27,7 @@ const payment_optionsModel = require("../models/payment_options.model");
 const professional_scheduleModel = require("../models/professional_schedule.model");
 const specializationModel = require("../models/specialization.model");
 const race_distanceModel = require("../models/race_distance.model");
+const currenciesModel = require("../models/currencies.model");
 
 function getDefaultUserId() {
   return Math.round(Date.now() + Math.random());
@@ -482,25 +483,29 @@ exports.getAllData = (req, res) => {
                     return specializationModel.find({is_active: "1"}, (err, specialization) => {
 
                       return race_distanceModel.find({is_active: 1}, (err, settings_race_distances) => {
-                        return res.json(
-                          success(
-                            "Success Get All Data",
-                            {
-                              accounts,
-                              available_times,
-                              training_types,
-                              training_intensity,
-                              languages,
-                              professional_types,
-                              cancellation_policy,
-                              payment_options,
-                              professional_schedule_advance_booking,
-                              specialization,
-                              settings_race_distances
-                            },
-                            res.statusCode
-                          )
-                        ); 
+
+                        return currenciesModel.find({is_active: 1}, (err, currencies) => {
+                          return res.json(
+                            success(
+                              "Success Get All Data",
+                              {
+                                accounts,
+                                available_times,
+                                training_types,
+                                training_intensity,
+                                languages,
+                                professional_types,
+                                cancellation_policy,
+                                payment_options,
+                                professional_schedule_advance_booking,
+                                specialization,
+                                settings_race_distances,
+                                currencies
+                              },
+                              res.statusCode
+                            )
+                          ); 
+                        })
                       })
                     })
                   })
