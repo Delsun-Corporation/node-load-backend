@@ -4,6 +4,9 @@ const Schema = mongoose.Schema;
 
 const regionsSchema = new mongoose.Schema(
     {
+        id: {
+            type: Number
+        },
         name: {
             type: String
         },
@@ -11,10 +14,10 @@ const regionsSchema = new mongoose.Schema(
             type: String
         },
         is_active: {
-            type: Boolean
+            type: Number
         }
     },
     {timestamps: true}
 );
 
-module.exports = mongoose.model("Regions", regionsSchema);
+module.exports = mongoose.model("regions", regionsSchema);

@@ -30,6 +30,7 @@ const race_distanceModel = require("../models/race_distance.model");
 const currenciesModel = require("../models/currencies.model");
 const servicesModel = require("../models/services.model");
 const countries = require("../models/countries.model");
+const regionsModel = require("../models/regions.model");
 
 function getDefaultUserId() {
   return Math.round(Date.now() + Math.random());
@@ -491,28 +492,32 @@ exports.getAllData = (req, res) => {
                           return servicesModel.find({is_active: 1}, (err, services) => {
 
                             return countries.find({is_active: 1}, (err, countries) => {
-                              return res.json(
-                                success(
-                                  "Success Get All Data",
-                                  {
-                                    accounts,
-                                    available_times,
-                                    training_types,
-                                    training_intensity,
-                                    languages,
-                                    professional_types,
-                                    cancellation_policy,
-                                    payment_options,
-                                    professional_schedule_advance_booking,
-                                    specialization,
-                                    settings_race_distances,
-                                    currencies,
-                                    services,
-                                    countries
-                                  },
-                                  res.statusCode
-                                )
-                              ); 
+
+                              return regionsModel.find({is_active: 1}, (err, regions) => {
+                                return res.json(
+                                  success(
+                                    "Success Get All Data",
+                                    {
+                                      accounts,
+                                      available_times,
+                                      training_types,
+                                      training_intensity,
+                                      languages,
+                                      professional_types,
+                                      cancellation_policy,
+                                      payment_options,
+                                      professional_schedule_advance_booking,
+                                      specialization,
+                                      settings_race_distances,
+                                      currencies,
+                                      services,
+                                      countries,
+                                      regions
+                                    },
+                                    res.statusCode
+                                  )
+                                ); 
+                              })
                             })
                           })
                         })
