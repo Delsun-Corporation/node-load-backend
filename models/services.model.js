@@ -11,10 +11,10 @@ const servicesSchema = new mongoose.Schema(
             type: String
         },
         is_active: {
-            type: Boolean
+            type: Number
         }
     },
     {timestamps: true}
 );
 
-module.exports = mongoose.model("Services", servicesSchema);
+module.exports = mongoose.model("services", servicesSchema);
