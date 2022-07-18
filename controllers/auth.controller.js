@@ -32,6 +32,7 @@ const servicesModel = require("../models/services.model");
 const countries = require("../models/countries.model");
 const regionsModel = require("../models/regions.model");
 const preset_training_programsModel = require("../models/training/preset_training_programs.model");
+const body_partsModel = require("../models/body_parts.model");
 
 function getDefaultUserId() {
   return Math.round(Date.now() + Math.random());
@@ -499,31 +500,37 @@ exports.getAllData = (req, res) => {
                                 return preset_training_programsModel.find({is_active: 1, status: "CARDIO"}, (err, cardio_preset_training_program) => {
 
                                   return preset_training_programsModel.find({is_active: 1, status: "RESISTANCE"}, (err, resistance_preset_training_program) => {
-                                    return res.json(
-                                      success(
-                                        "Success Get All Data",
-                                        {
-                                          accounts,
-                                          available_times,
-                                          training_types,
-                                          training_intensity,
-                                          languages,
-                                          professional_types,
-                                          cancellation_policy,
-                                          payment_options,
-                                          professional_schedule_advance_booking,
-                                          specialization,
-                                          settings_race_distances,
-                                          currencies,
-                                          services,
-                                          countries,
-                                          regions,
-                                          cardio_preset_training_program,
-                                          resistance_preset_training_program
-                                        },
-                                        res.statusCode
-                                      )
-                                    );
+                                    
+                                    return body_partsModel.find({is_active: "1"}, (err, body_parts) => {
+
+                                      return res.json(
+                                        success(
+                                          "Success Get All Data",
+                                          {
+                                            accounts,
+                                            available_times,
+                                            training_types,
+                                            training_intensity,
+                                            languages,
+                                            professional_types,
+                                            cancellation_policy,
+                                            payment_options,
+                                            professional_schedule_advance_booking,
+                                            specialization,
+                                            settings_race_distances,
+                                            currencies,
+                                            services,
+                                            countries,
+                                            regions,
+                                            cardio_preset_training_program,
+                                            resistance_preset_training_program,
+                                            body_parts
+                                          },
+                                          res.statusCode
+                                        )
+                                      );
+
+                                    })
                                   }); 
                                 })
                               })
