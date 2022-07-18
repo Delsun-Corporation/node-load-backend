@@ -1,8 +1,10 @@
+// Split jadi 2 ndek cardio sama resistance
+
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const trainingFrequenciesSchema = new mongoose.Schema(
+const presetTrainingProgramsSchema = new mongoose.Schema(
     {
         id: {
             type: Number
@@ -13,17 +15,23 @@ const trainingFrequenciesSchema = new mongoose.Schema(
         code: {
             type: String
         },
-        max_days: {
-            type: Number
+        subtitle: {
+            type: String
         },
-        preset_training_program_ids: {
+        status: {
+            type: String
+        },
+        type: {
             type: String
         },
         is_active: {
+            type: Number
+        },
+        weeks: {
             type: Number
         }
     },
     {timestamps: true}
 );
 
-module.exports = mongoose.model("training_frequencies", trainingFrequenciesSchema);
+module.exports = mongoose.model("preset_training_programs", presetTrainingProgramsSchema);

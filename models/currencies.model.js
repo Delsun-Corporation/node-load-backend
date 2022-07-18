@@ -2,8 +2,11 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const servicesSchema = new mongoose.Schema(
+const currenciesSchema = new mongoose.Schema(
     {
+        id: {
+            type: Number
+        },
         name: {
             type: String
         },
@@ -12,9 +15,15 @@ const servicesSchema = new mongoose.Schema(
         },
         is_active: {
             type: Number
+        },
+        created_at: {
+            type: Date
+        },
+        updated_at: {
+            type: Date
         }
     },
     {timestamps: true}
 );
 
-module.exports = mongoose.model("services", servicesSchema);
+module.exports = mongoose.model("currencies", currenciesSchema);

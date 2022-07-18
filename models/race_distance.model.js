@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const regionsSchema = new mongoose.Schema(
+const raceDistanceSchema = new mongoose.Schema(
     {
         id: {
             type: Number
@@ -15,9 +15,15 @@ const regionsSchema = new mongoose.Schema(
         },
         is_active: {
             type: Number
+        },
+        created_at: {
+            type: Date
+        },
+        updated_at: {
+            type: Date
         }
     },
     {timestamps: true}
 );
 
-module.exports = mongoose.model("regions", regionsSchema);
+module.exports = mongoose.model("race_distances", raceDistanceSchema);

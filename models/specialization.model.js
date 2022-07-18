@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const regionsSchema = new mongoose.Schema(
+const specializationSchema = new mongoose.Schema(
     {
         id: {
             type: Number
@@ -14,10 +14,16 @@ const regionsSchema = new mongoose.Schema(
             type: String
         },
         is_active: {
-            type: Number
+            type: String
+        },
+        created_at: {
+            type: Date
+        },
+        updated_at: {
+            type: Date
         }
     },
     {timestamps: true}
 );
 
-module.exports = mongoose.model("regions", regionsSchema);
+module.exports = mongoose.model("specialization", specializationSchema);
