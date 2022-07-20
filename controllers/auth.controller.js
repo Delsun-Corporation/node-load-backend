@@ -180,7 +180,7 @@ exports.registerController = (req, res) => {
         },
         onSuccess: (i) => {
           return res.json(
-            success(`Email has been sent to ${email}`, null, res.statusCode)
+            success(`An activation link has been sent to your email`, null, res.statusCode)
           );
         },
       });
