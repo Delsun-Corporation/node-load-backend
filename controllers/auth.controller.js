@@ -217,7 +217,9 @@ exports.activationController = (req, res) => {
           user.save((err, user) => {
             if (err) {
               console.log(err);
-              return res.status(401).json(error(err.message, res.statusCode));
+              return res.redirect(
+                "https://www.load-peakyourperformance.com/load-app-activated"
+              );
             } else {
               return res.redirect(
                 "https://www.load-peakyourperformance.com/load-app-activated"
