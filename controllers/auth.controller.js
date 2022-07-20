@@ -277,7 +277,7 @@ exports.forgotController = (req, res) => {
             },
             from: `${process.env.EMAIL_FROM}`,
             to: email,
-            subject: "Load App - Forgot your password",
+            subject: "Password Change Request",
             html: forgotPasswordEmailv2(otp, email),
             onError: (e) => {
               console.log(e);

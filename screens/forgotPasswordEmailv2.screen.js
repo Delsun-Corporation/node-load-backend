@@ -178,10 +178,10 @@ exports.forgotPasswordEmailv2 = (otp, username) => {
                                 <td style="overflow-wrap:break-word;word-break:break-word;padding:33px 55px;font-family:'Cabin',sans-serif;" align="left">
     
                                   <div style="line-height: 150%; text-align: center; word-wrap: break-word;">
-                                    <p style="font-size: 14px; line-height: 150%; text-align: left;">Hi ${username},</p>
-                                    <p style="font-size: 14px; line-height: 150%; text-align: left;">We have received a request to change your account password.</p>
-                                    <p style="font-size: 14px; line-height: 150%; text-align: left;">You can use this OTP to change your account password in LOAD app.</p>
-                                    <p style="font-size: 14px; line-height: 160%; text-align: left;">Please note that the OTP (One-Time Password) will expire in 10 minutes.</p>
+                                    <p style="font-size: 18px; line-height: 150%; text-align: left;">Hi ${username},</p>
+                                    <p style="font-size: 18px; line-height: 150%; text-align: left;">We have received a request to change your account password.</p>
+                                    <p style="font-size: 18px; line-height: 150%; text-align: left;">You can use this OTP to change your account password in LOAD app.</p>
+                                    <p style="font-size: 18px; line-height: 160%; text-align: left;">Please note that the OTP (One-Time Password) will expire in 10 minutes.</p>
                                   </div>
     
                                 </td>
@@ -195,7 +195,7 @@ exports.forgotPasswordEmailv2 = (otp, username) => {
                                 <td style="overflow-wrap:break-word;word-break:break-word;padding:33px 55px;font-family:'Cabin',sans-serif;" align="left">
     
                                   <div style="line-height: 100%; text-align: center; word-wrap: break-word;">
-                                    <p style="line-height: 100%; font-size: 14px; text-align: center;"><span style="font-size: 24px; line-height: 24px;"><strong>${otp}</strong></span></p>
+                                    <p style="line-height: 100%; font-size: 24px; text-align: center;"><span style="font-size: 24px; line-height: 24px;"><strong>${otp}</strong></span></p>
                                   </div>
     
                                 </td>
@@ -209,7 +209,7 @@ exports.forgotPasswordEmailv2 = (otp, username) => {
                                 <td style="overflow-wrap:break-word;word-break:break-word;padding:33px 55px;font-family:'Cabin',sans-serif;" align="left">
     
                                   <div style="line-height: 160%; text-align: center; word-wrap: break-word;">
-                                    <p style="font-size: 14px; line-height: 160%; text-align: left;">Didn’t request a password change? Simply ignore this email. Make sure only you have access to your account and consider updating your password periodically.</p>
+                                    <p style="font-size: 18px; line-height: 160%; text-align: left;">Didn’t request a password change? Simply ignore this email. Make sure only you have access to your account and consider updating your password periodically.</p>
                                   </div>
     
                                 </td>
@@ -223,7 +223,7 @@ exports.forgotPasswordEmailv2 = (otp, username) => {
                                 <td style="overflow-wrap:break-word;word-break:break-word;padding:33px 55px 60px;font-family:'Cabin',sans-serif;" align="left">
     
                                   <div style="line-height: 160%; text-align: center; word-wrap: break-word;">
-                                    <p style="font-size: 14px; line-height: 160%; text-align: left;">Thanks,<br />LOAD Team</p>
+                                    <p style="font-size: 18px; line-height: 160%; text-align: left;">Thanks,<br /><strong style="font-weight: 700;">LOAD Team</strong></p>
                                   </div>
     
                                 </td>
@@ -262,16 +262,16 @@ exports.forgotPasswordEmailv2 = (otp, username) => {
                                 <td style="overflow-wrap:break-word;word-break:break-word;padding:41px 55px 18px;font-family:'Cabin',sans-serif; color: #ffffff;" align="left">
     
                                   <div style="color: #ffffff; line-height: 160%; text-align: center; word-wrap: break-word;">
-                                    <p style="font-size: 14px; line-height: 160%;"><strong>© 2022 by LOAD | Peak Your Performance</strong></p>
-                                    <p style="font-size: 14px; line-height: 160%;"> </p>
-                                    <p style="font-size: 14px; line-height: 160%;"> </p>
-                                    <p style="font-size: 14px; line-height: 160%;">This e-mail message has been delivered from a send-only address. Please do not reply to this message. If you have any questions, please contact our Customer Service Support.</p>
-                                    <p style="font-size: 14px; line-height: 160%;"> </p>
-                                    <p style="font-size: 14px; line-height: 160%;">For Terms of Service/User Agreement and Privacy Policy, please visit:<br /><span style="text-decoration: underline; font-size: 14px; line-height: 22.4px; color: #ffffff;"><a rel="noopener" href="mailto:hello@load-peakyourperformance.com?subject=Customer%20Service%20Support&body=" target="_blank" style="color: #ffffff; text-decoration: underline;">Customer Service Support</a></span>.</p>
-                                    <p style="font-size: 14px; line-height: 160%;"> </p>
-                                    <p style="font-size: 14px; line-height: 160%;">LOAD does not contact customers for their sign-in IDs, passwords or personal information. If you are uncertain about any "official" message or emails you have received, please do not reply that message or email, and report
+                                    <p style="font-size: 12px; line-height: 160%;"><strong>© 2022 by LOAD | Peak Your Performance</strong></p>
+                                    <p style="font-size: 12px; line-height: 160%;"> </p>
+                                    <p style="font-size: 12px; line-height: 160%;"> </p>
+                                    <p style="font-size: 12px; line-height: 150%;">This e-mail message has been delivered from a send-only address. Please do not reply to this message. If you have any questions, please contact our<br /><span style="text-decoration: underline; font-size: 12px; line-height: 22.4px; color: #ffffff;"><a rel="noopener" href="mailto:hello@load-peakyourperformance.com?subject=Customer%20Service%20Support&body=" target="_blank" style="color: #ffffff; text-decoration: underline;">Customer Service Support</a></span>.</p>
+                                    <p style="font-size: 12px; line-height: 160%;"> </p>
+                                    <p style="font-size: 12px; line-height: 160%;">For Terms of Service/User Agreement and Privacy Policy, please visit:<br /><span style="font-size: 12px; line-height: 22.4px; color: #ffffff;">xxxxxxxxxxxxxx</span>.</p>
+                                    <p style="font-size: 12px; line-height: 160%;"> </p>
+                                    <p style="font-size: 12px; line-height: 160%;">LOAD does not contact customers for their sign-in IDs, passwords or personal information. If you are uncertain about any "official" message or emails you have received, please do not reply that message or email, and report
                                         to our Customer Service immediately.</p>
-                                    <p style="font-size: 14px; line-height: 160%;"> </p>
+                                    <p style="font-size: 12px; line-height: 160%;"> </p>
                                   </div>
     
                                 </td>
