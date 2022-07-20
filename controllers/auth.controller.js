@@ -33,6 +33,7 @@ const countries = require("../models/countries.model");
 const regionsModel = require("../models/regions.model");
 const preset_training_programsModel = require("../models/training/preset_training_programs.model");
 const body_partsModel = require("../models/body_parts.model");
+const { changePassword } = require("../screens/changePassword.screen");
 
 function getDefaultUserId() {
   return Math.round(Date.now() + Math.random());
@@ -320,14 +321,15 @@ exports.changePasswordController = (req, res) => {
         .json(error("User with that email does not exist", res.statusCode));
     }
 
+    const name = user.name
+
     if (
       is_from_otp !== null &&
       is_from_otp !== undefined &&
       is_from_otp === true
     ) {
       const updatedFields = {
-        password: password,
-        pass: password,
+        password: password
       };
 
       user = _.extend(user, updatedFields);
@@ -344,9 +346,33 @@ exports.changePasswordController = (req, res) => {
             );
         }
 
-        return res.json(
-          success("forgot password successfully", null, res.statusCode)
-        );
+        nodemailer.sendEmail({
+          auth: {
+            user: `${process.env.NODEMAILER_ACCOUNT}`,
+            pass: `${process.env.NODEMAILER_PASSWORD}`,
+          },
+          from: `${process.env.EMAIL_FROM}`,
+          to: email,
+          subject: "Success Change Password",
+          html: changePassword(name),
+          onError: (e) => {
+            console.log(e);
+            return res
+              .status(500)
+              .json(
+                error(
+                  "Error when sending email, please try again",
+                  res.statusCode
+                )
+              );
+          },
+          onSuccess: (i) => {
+            console.log(i);
+            return res.json(
+              success("Change password successfully", null, res.statusCode)
+            );
+          },
+        });
       });
     }
 
@@ -356,7 +382,6 @@ exports.changePasswordController = (req, res) => {
 
     const updatedFields = {
       password: password,
-      pass: password,
     };
 
     user = _.extend(user, updatedFields);
@@ -368,9 +393,33 @@ exports.changePasswordController = (req, res) => {
           .json(error("Error resetting user password", res.statusCode));
       }
 
-      return res.json(
-        success("Password successfully changed", null, res.statusCode)
-      );
+      nodemailer.sendEmail({
+        auth: {
+          user: `${process.env.NODEMAILER_ACCOUNT}`,
+          pass: `${process.env.NODEMAILER_PASSWORD}`,
+        },
+        from: `${process.env.EMAIL_FROM}`,
+        to: email,
+        subject: "Success Change Password",
+        html: changePassword(name),
+        onError: (e) => {
+          console.log(e);
+          return res
+            .status(500)
+            .json(
+              error(
+                "Error when sending email, please try again",
+                res.statusCode
+              )
+            );
+        },
+        onSuccess: (i) => {
+          console.log(i);
+          return res.json(
+            success("Change password successfully", null, res.statusCode)
+          );
+        },
+      });
     });
   });
 };
