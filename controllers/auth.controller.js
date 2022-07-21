@@ -255,7 +255,7 @@ exports.forgotController = (req, res) => {
             .json(error("User with that email does not exist", res.statusCode));
         }
 
-        // if user exist, change his/her password right away
+        // if user exist, change his/her otp right away
         const otp = Math.floor(100000 + Math.random() * 900000).toString();
         const today = new Date();
 
@@ -265,6 +265,8 @@ exports.forgotController = (req, res) => {
         };
 
         user = _.extend(user, updatedFields);
+
+        const name = user.name;
 
         return user.save((err, result) => {
           if (err) {
@@ -281,7 +283,7 @@ exports.forgotController = (req, res) => {
             from: `${process.env.EMAIL_FROM}`,
             to: email,
             subject: "Password Change Request",
-            html: forgotPasswordEmailv2(otp, email),
+            html: forgotPasswordEmailv2(otp, name),
             onError: (e) => {
               console.log(e);
               return res
