@@ -21,10 +21,14 @@
 							"request": {
 								"method": "GET",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
-									"raw": "{{LOCAL_HOST_3000}}/api/login?email=lionato14@gmail.com&password=timo1234!",
+									"raw": "{{LOCAL_HOST}}/api/login?email=timotius.lianoto@idntimes.com&password=timo1234!",
 									"host": [
-										"{{LOCAL_HOST_3000}}"
+										"{{LOCAL_HOST}}"
 									],
 									"path": [
 										"api",
@@ -33,7 +37,7 @@
 									"query": [
 										{
 											"key": "email",
-											"value": "lionato14@gmail.com"
+											"value": "timotius.lianoto@idntimes.com"
 										},
 										{
 											"key": "password",
@@ -44,13 +48,17 @@
 							},
 							"response": [
 								{
-									"id": "837b4c34-a789-46e3-a53b-d8b8c3419fb0",
-									"name": "Login -SUCCESS",
+									"id": "2b4d8504-8ec4-42c4-a328-2fd3ef5f219e",
+									"name": "Login - SUCCESS",
 									"originalRequest": {
 										"method": "GET",
 										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
 										"url": {
-											"raw": "{{LOCAL_HOST}}/api/login?email=lionato14@gmail.com&password=timo123",
+											"raw": "{{LOCAL_HOST}}/api/login?email=lionato14@gmail.com&password=timo1234!",
 											"host": [
 												"{{LOCAL_HOST}}"
 											],
@@ -65,7 +73,7 @@
 												},
 												{
 													"key": "password",
-													"value": "timo123"
+													"value": "timo1234!"
 												}
 											]
 										}
@@ -84,15 +92,15 @@
 										},
 										{
 											"key": "Content-Length",
-											"value": "921"
+											"value": "1254"
 										},
 										{
 											"key": "ETag",
-											"value": "W/\"399-VGkRtcB1Lnlmt17kUc6TfYBiKdA\""
+											"value": "W/\"4e6-quKmhukG5LRaU7gN2DCB3+gCsMs\""
 										},
 										{
 											"key": "Date",
-											"value": "Sun, 03 Jul 2022 07:36:43 GMT"
+											"value": "Mon, 11 Jul 2022 17:05:20 GMT"
 										},
 										{
 											"key": "Connection",
@@ -105,7 +113,7 @@
 									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n    \"message\": \"Sign in Success\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": {\n        \"user\": {\n            \"_id\": \"62bff663b73449e933382049\",\n            \"email\": \"lionato14@gmail.com\",\n            \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4MzM4MDN9.gUNqE-S3Wi9oDoFUtWMnef-0AMyRMDYeH8yJkWgGPgo\",\n            \"name\": \"Timotius Leonardo\",\n            \"hashed_password\": \"7392b60ad998a973bb3c0cd7825ebfe571da8b90\",\n            \"salt\": \"582938529685\",\n            \"is_active\": false,\n            \"is_profile_complete\": false,\n            \"email_verified_at\": \"2022-07-02T07:40:19.908Z\",\n            \"is_online\": false,\n            \"is_snooze\": false,\n            \"createdAt\": \"2022-07-02T07:40:19.945Z\",\n            \"updatedAt\": \"2022-07-03T07:36:43.662Z\",\n            \"__v\": 0,\n            \"date_of_birth\": \"28-03-1999\",\n            \"gender\": \"MALE\",\n            \"height\": 190,\n            \"location\": \"Indonesia\",\n            \"phone_area\": \"+62\",\n            \"phone_number\": \"089682180054\"\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4MzM4MDN9.gUNqE-S3Wi9oDoFUtWMnef-0AMyRMDYeH8yJkWgGPgo\"\n    }\n}"
+									"body": "{\n    \"message\": \"Sign in Success\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": {\n        \"user\": {\n            \"_id\": \"62bff663b73449e933382049\",\n            \"email\": \"lionato14@gmail.com\",\n            \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc1NTkxMTl9.pnrH40_aKsK8hudq1ZqT8x0LsRyfU-bmQAtta7HYGQs\",\n            \"name\": \"Timotius Leonardo\",\n            \"hashed_password\": \"bbd12f1c502a631414707b7c90213ac3d4064bd2\",\n            \"salt\": \"781605352164\",\n            \"is_active\": false,\n            \"is_profile_complete\": true,\n            \"email_verified_at\": \"2022-07-02T07:40:19.908Z\",\n            \"is_online\": false,\n            \"is_snooze\": false,\n            \"createdAt\": \"2022-07-02T07:40:19.945Z\",\n            \"updatedAt\": \"2022-07-11T17:05:19.980Z\",\n            \"__v\": 0,\n            \"date_of_birth\": \"28-03-1999\",\n            \"gender\": \"MALE\",\n            \"height\": 190,\n            \"location\": \"Indonesia\",\n            \"phone_area\": \"+62\",\n            \"phone_number\": \"089682180054\",\n            \"pass\": \"timo1234!\",\n            \"account_id\": \"62c928d2773234a0e0085cba\",\n            \"id\": 1657359626947,\n            \"weight\": 70,\n            \"user_snooze_detail\": {\n                \"_id\": \"62c982de8581d17272ad48ad\",\n                \"user_id\": 1657359626947,\n                \"start_date\": \"2022-10-09T09:19:09.000Z\",\n                \"end_date\": \"2022-10-09T09:19:09.000Z\",\n                \"createdAt\": \"2022-07-09T13:30:06.642Z\",\n                \"updatedAt\": \"2022-07-09T13:30:06.642Z\",\n                \"__v\": 0\n            }\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc1NTkxMTl9.pnrH40_aKsK8hudq1ZqT8x0LsRyfU-bmQAtta7HYGQs\"\n    }\n}"
 								},
 								{
 									"id": "4e8b8278-80e8-41c2-9db8-28313cb7ec42",
@@ -234,6 +242,74 @@
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n    \"error\": \"Password must contain at leat 6 characters\"\n}"
+								},
+								{
+									"id": "bcd6765d-19c0-4e70-88fd-4e288098a535",
+									"name": "Login - SUCCESS -  when no user snooze detail",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/login?email=lionato14@gmail.com&password=timo1234!",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"login"
+											],
+											"query": [
+												{
+													"key": "email",
+													"value": "lionato14@gmail.com"
+												},
+												{
+													"key": "password",
+													"value": "timo1234!"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "929"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3a1-lpn7Hm44VgEHUcz1zrTkNDvUCJQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 11 Jul 2022 17:10:10 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Sign in Success\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": {\n        \"result\": {\n            \"_id\": \"62bff663b73449e933382049\",\n            \"email\": \"lionato14@gmail.com\",\n            \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc1NTk0MTB9.G5JUW0LJY0aOSaZcYfk96OGTl5K43u2GzYoYu74J7qQ\",\n            \"name\": \"Timotius Leonardo\",\n            \"is_active\": false,\n            \"is_profile_complete\": true,\n            \"email_verified_at\": \"2022-07-02T07:40:19.908Z\",\n            \"is_online\": false,\n            \"is_snooze\": false,\n            \"createdAt\": \"2022-07-02T07:40:19.945Z\",\n            \"updatedAt\": \"2022-07-11T17:10:10.252Z\",\n            \"__v\": 0,\n            \"date_of_birth\": \"28-03-1999\",\n            \"gender\": \"MALE\",\n            \"height\": 190,\n            \"location\": \"Indonesia\",\n            \"phone_area\": \"+62\",\n            \"phone_number\": \"089682180054\",\n            \"pass\": \"timo1234!\",\n            \"account_id\": \"62c928d2773234a0e0085cba\",\n            \"id\": 1657359626947,\n            \"weight\": 70\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc1NTk0MTB9.G5JUW0LJY0aOSaZcYfk96OGTl5K43u2GzYoYu74J7qQ\"\n    }\n}"
 								}
 							]
 						},
@@ -248,7 +324,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"timo123\"\n}",
+									"raw": "{\n    \"email\": \"timotius.lianoto@idntimes.com\",\n    \"password\": \"Timo1234\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -393,6 +469,195 @@
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n    \"message\": \"Email is taken, try to login or create account with another email\",\n    \"status\": 400,\n    \"success\": false\n}"
+								},
+								{
+									"id": "6a43174a-6111-4ed4-8f24-968f7a446165",
+									"name": "[ERROR] Register - Password length",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"timotius.lianoto@idntimes.com\",\n    \"password\": \"timo123\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/register",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"register"
+											]
+										}
+									},
+									"status": "Unprocessable Entity",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "114"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"72-T9oeYV+yYnpGEh5BRvhoK7fg41c\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 23 Jul 2022 04:57:16 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Validation errors\",\n    \"success\": false,\n    \"status\": 422,\n    \"errors\": \"Password must contain at leat 8 characters\"\n}"
+								},
+								{
+									"id": "24bc0eb1-fe44-4f28-9e4b-8491d4942ecb",
+									"name": "[ERROR] Register - Password upper case and lower case",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"timotius.lianoto@idntimes.com\",\n    \"password\": \"timo1234\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/register",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"register"
+											]
+										}
+									},
+									"status": "Unprocessable Entity",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "130"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"82-ofmlMJj9qWlo0Wk+wTcFfZXEOkA\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 23 Jul 2022 04:57:53 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Validation errors\",\n    \"success\": false,\n    \"status\": 422,\n    \"errors\": \"Password must contain at least 1 lower or uppercase letter\"\n}"
+								},
+								{
+									"id": "d6805103-23fd-4ff3-9110-9cbb72775966",
+									"name": "[ERROR] Register - Password must contain a number",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"timotius.lianoto@idntimes.com\",\n    \"password\": \"timotimo\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/register",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"register"
+											]
+										}
+									},
+									"status": "Unprocessable Entity",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "102"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"66-3K8M/V6/NhKbzCdSLtYBGiLnSK8\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 23 Jul 2022 04:58:35 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Validation errors\",\n    \"success\": false,\n    \"status\": 422,\n    \"errors\": \"password must contain a number\"\n}"
 								}
 							]
 						},
@@ -495,8 +760,13 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "formdata",
-									"formdata": []
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"timotius.lianoto@idntimes.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
 								},
 								"url": {
 									"raw": "{{LOCAL_HOST}}/api/forgot-password",
@@ -586,13 +856,14 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4NTEyOTZ9.iSri4o_9IDnAOBhSw1uLNPVODNRaTMLpv7OlVKDbJ90",
-										"type": "text"
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmQyNDU1YzYzOWRkYTViYTM1OTNmMWYiLCJpYXQiOjE2NTc5NTAwMTN9.pj0Pzj8hT3JFNqtTPu8jvT7ldNbbLgq2_UNgbkfC7GM",
+										"type": "text",
+										"disabled": true
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"timo1234!\"\n}",
+									"raw": "{\n    \"email\": \"timotius.lianoto@idntimes.com\",\n    \"password\": \"timo1234!\",\n    \"is_from_otp\": true\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -666,6 +937,69 @@
 										{
 											"key": "Date",
 											"value": "Fri, 01 Jul 2022 15:51:13 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Password successfully changed\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": null\n}"
+								},
+								{
+									"id": "4bd9220e-db24-4375-93a3-fdc4dfebd5f6",
+									"name": "Change Password - SUCCESS - Without Token / Auth",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"timotius.lianoto@idntimes.com\",\n    \"password\": \"timo1234!\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/change-password",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"change-password"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "83"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"53-uBNJ1+5ba+FMUr/GJsNvKJVM71A\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 16 Jul 2022 05:39:29 GMT"
 										},
 										{
 											"key": "Connection",
@@ -831,13 +1165,13 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4MzM4MDN9.gUNqE-S3Wi9oDoFUtWMnef-0AMyRMDYeH8yJkWgGPgo",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc3MjE4NTd9.thCKFvaB2VVx811ZzB7Fi0L2vAA_1peFwq4pcjn-Y9A",
 										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"date_of_birth\": \"28-03-1999\",\n    \"name\": \"Timotius Leonardo\",\n    \"gender\": \"MALE\",\n    \"height\": 190,\n    \"weight\": 70,\n    \"phone_area\": \"+62\",\n    \"phone_number\": \"089682180054\",\n    \"location\": \"Indonesia\",\n    \"email\": \"lionato14@gmail.com\"\n}",
+									"raw": "{\n    \"date_of_birth\": \"28-03-1999\",\n    \"name\": \"Timotius Leonardo\",\n    \"gender\": \"FEMALE\",\n    \"height\": 190,\n    \"weight\": 70,\n    \"phone_area\": \"+62\",\n    \"phone_number\": \"089682180054\",\n    \"location\": \"Indonesia\",\n    \"email\": \"lionato14@gmail.com\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -845,9 +1179,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{LOCAL_HOST_3000}}/api/register-full-profile",
+									"raw": "{{LOCAL_HOST}}/api/register-full-profile",
 									"host": [
-										"{{LOCAL_HOST_3000}}"
+										"{{LOCAL_HOST}}"
 									],
 									"path": [
 										"api",
@@ -947,7 +1281,337 @@
 									]
 								}
 							},
-							"response": []
+							"response": [
+								{
+									"id": "c1337448-d1ec-43f3-a1d5-e3faff676733",
+									"name": "Get All Data - SUCCESS",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/get-all-data",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"get-all-data"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "38210"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"9542-zFfXlmQeAe72qsOS0tsKY1lB+R4\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 18 Jul 2022 14:01:47 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Success Get All Data\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": {\n        \"accounts\": [\n            {\n                \"_id\": \"62c928a029c4f2989dd1e2ab\",\n                \"name\": \"Free\",\n                \"code\": \"FREE\",\n                \"free_trial_days\": 30,\n                \"is_active\": 1,\n                \"createdAt\": \"2022-07-09T07:05:04.506Z\",\n                \"updatedAt\": \"2022-07-09T07:05:04.506Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"62c928d2773234a0e0085cba\",\n                \"name\": \"Premium\",\n                \"code\": \"PREMIUM\",\n                \"free_trial_days\": 30,\n                \"is_active\": 1,\n                \"createdAt\": \"2022-07-09T07:05:54.705Z\",\n                \"updatedAt\": \"2022-07-09T07:05:54.705Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"62c928e0773234a0e0085cbc\",\n                \"name\": \"Professional\",\n                \"code\": \"PROFESSIONAL\",\n                \"free_trial_days\": 30,\n                \"is_active\": 1,\n                \"createdAt\": \"2022-07-09T07:06:08.882Z\",\n                \"updatedAt\": \"2022-07-09T07:06:08.882Z\",\n                \"__v\": 0\n            }\n        ],\n        \"available_times\": [\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a69\",\n                \"id\": 23,\n                \"name\": \"7AM-8AM\",\n                \"code\": \"7AM-8AM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a64\",\n                \"id\": 18,\n                \"name\": \"2AM-3AM\",\n                \"code\": \"2AM-3AM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a65\",\n                \"id\": 19,\n                \"name\": \"3AM-4AM\",\n                \"code\": \"3AM-4AM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a66\",\n                \"id\": 20,\n                \"name\": \"4AM-5AM\",\n                \"code\": \"4AM-5AM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a58\",\n                \"id\": 6,\n                \"name\": \"2PM-3PM\",\n                \"code\": \"2PM-3PM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a56\",\n                \"id\": 4,\n                \"name\": \"12AM-1PM\",\n                \"code\": \"12AM-1PM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a67\",\n                \"id\": 21,\n                \"name\": \"5AM-6AM\",\n                \"code\": \"5AM-6AM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a53\",\n                \"id\": 1,\n                \"name\": \"9AM-10AM\",\n                \"code\": \"9AM-10AM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a61\",\n                \"id\": 15,\n                \"name\": \"11PM-12PM\",\n                \"code\": \"11PM-12PM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a68\",\n                \"id\": 22,\n                \"name\": \"6AM-7AM\",\n                \"code\": \"6AM-7AM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a59\",\n                \"id\": 7,\n                \"name\": \"3PM-4PM\",\n                \"code\": \"3PM-4PM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a5b\",\n                \"id\": 9,\n                \"name\": \"5PM-6PM\",\n                \"code\": \"5PM-6PM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a5c\",\n                \"id\": 10,\n                \"name\": \"6PM-7PM\",\n                \"code\": \"6PM-7PM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a5d\",\n                \"id\": 11,\n                \"name\": \"7PM-8PM\",\n                \"code\": \"7PM-8PM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a5f\",\n                \"id\": 13,\n                \"name\": \"9PM-10PM\",\n                \"code\": \"9PM-10PM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a60\",\n                \"id\": 14,\n                \"name\": \"10PM-11PM\",\n                \"code\": \"10PM-11PM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a5e\",\n                \"id\": 12,\n                \"name\": \"8PM-9PM\",\n                \"code\": \"8PM-9PM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a62\",\n                \"id\": 16,\n                \"name\": \"12PM-1AM\",\n                \"code\": \"12PM-1AM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a54\",\n                \"id\": 2,\n                \"name\": \"10AM-11AM\",\n                \"code\": \"10AM-11AM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a57\",\n                \"id\": 5,\n                \"name\": \"1PM-2PM\",\n                \"code\": \"1PM-2PM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a6a\",\n                \"id\": 24,\n                \"name\": \"8AM-9AM\",\n                \"code\": \"8AM-9AM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a5a\",\n                \"id\": 8,\n                \"name\": \"4PM-5PM\",\n                \"code\": \"4PM-5PM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a55\",\n                \"id\": 3,\n                \"name\": \"11AM-12AM\",\n                \"code\": \"11AM-12AM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62ca9bd7676df3f3ed574a63\",\n                \"id\": 17,\n                \"name\": \"1AM-2AM\",\n                \"code\": \"1AM-2AM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            }\n        ],\n        \"training_types\": [\n            {\n                \"_id\": \"62caa969676df3f3ed574a78\",\n                \"id\": 6,\n                \"name\": \"Distance\",\n                \"code\": \"Distance\",\n                \"sequence\": 1,\n                \"is_active\": 1,\n                \"created_at\": \"2019-07-09T22:01:00.000Z\",\n                \"updated_at\": \"2019-07-09T22:01:00.000Z\"\n            },\n            {\n                \"_id\": \"62caa969676df3f3ed574a75\",\n                \"id\": 2,\n                \"name\": \"Meet Up\",\n                \"code\": \"MEET_UP\",\n                \"sequence\": 2,\n                \"is_active\": 1,\n                \"created_at\": \"2019-07-09T21:40:04.000Z\",\n                \"updated_at\": \"2019-07-09T21:40:04.000Z\"\n            },\n            {\n                \"_id\": \"62caa969676df3f3ed574a77\",\n                \"id\": 4,\n                \"name\": \"No Preference\",\n                \"code\": \"NO_PREFERENCE\",\n                \"sequence\": 4,\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62caa969676df3f3ed574a79\",\n                \"id\": 7,\n                \"name\": \"Both\",\n                \"code\": \"BOTH\",\n                \"sequence\": 3,\n                \"is_active\": 1,\n                \"created_at\": \"2019-07-09T22:01:10.000Z\",\n                \"updated_at\": \"2019-08-19T21:45:05.000Z\"\n            }\n        ],\n        \"training_intensity\": [\n            {\n                \"_id\": \"62d26def676df3f3ed574af7\",\n                \"id\": 2,\n                \"name\": \"Low\",\n                \"code\": \"LOW\",\n                \"target_hr\": \"65-72\",\n                \"time_to_complete_1_rep_in_second\": null,\n                \"tempo\": null,\n                \"sequence\": 1,\n                \"is_active\": 1,\n                \"created_at\": \"2019-05-29 18:30:00\",\n                \"updated_at\": \"2019-05-29 18:30:00\"\n            },\n            {\n                \"_id\": \"62d26def676df3f3ed574af6\",\n                \"id\": 1,\n                \"name\": \"Moderate\",\n                \"code\": \"MODERATE\",\n                \"target_hr\": \"83-87\",\n                \"time_to_complete_1_rep_in_second\": null,\n                \"tempo\": null,\n                \"sequence\": 3,\n                \"is_active\": 1,\n                \"created_at\": \"2019-05-29 18:30:00\",\n                \"updated_at\": \"2019-05-29 18:30:00\"\n            },\n            {\n                \"_id\": \"62d26def676df3f3ed574af9\",\n                \"id\": 5,\n                \"name\": \"Moderately-low\",\n                \"code\": \"MODERATELY_LOW\",\n                \"target_hr\": \"73-82\",\n                \"time_to_complete_1_rep_in_second\": null,\n                \"tempo\": null,\n                \"sequence\": 2,\n                \"is_active\": 1,\n                \"created_at\": \"2019-09-26 10:20:29\",\n                \"updated_at\": \"2019-09-26 10:20:29\"\n            },\n            {\n                \"_id\": \"62d26def676df3f3ed574af8\",\n                \"id\": 3,\n                \"name\": \"High\",\n                \"code\": \"HIGH\",\n                \"target_hr\": \"93-100\",\n                \"time_to_complete_1_rep_in_second\": null,\n                \"tempo\": null,\n                \"sequence\": 5,\n                \"is_active\": 1,\n                \"created_at\": \"2019-05-29 18:30:00\",\n                \"updated_at\": \"2019-05-29 18:30:00\"\n            },\n            {\n                \"_id\": \"62d26def676df3f3ed574afa\",\n                \"id\": 6,\n                \"name\": \"Moderately-high\",\n                \"code\": \"MODERATELY_HIGH\",\n                \"target_hr\": \"88-92\",\n                \"time_to_complete_1_rep_in_second\": null,\n                \"tempo\": null,\n                \"sequence\": 4,\n                \"is_active\": 1,\n                \"created_at\": \"2019-09-26 10:20:43\",\n                \"updated_at\": \"2019-09-26 10:20:43\"\n            }\n        ],\n        \"languages\": [\n            {\n                \"_id\": \"62d27512676df3f3ed574b11\",\n                \"id\": 4,\n                \"name\": \"Spanish\",\n                \"code\": \"SPANISH\",\n                \"is_active\": 1,\n                \"created_at\": \"2019-07-09 06:32:10\",\n                \"updated_at\": \"2019-07-09 06:32:12\"\n            },\n            {\n                \"_id\": \"62d27512676df3f3ed574b0f\",\n                \"id\": 2,\n                \"name\": \"Gujarati\",\n                \"code\": \"GUJARATI\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d27512676df3f3ed574b0e\",\n                \"id\": 1,\n                \"name\": \"English\",\n                \"code\": \"ENGLISH\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            }\n        ],\n        \"professional_types\": [\n            {\n                \"_id\": \"62d44d1b676df3f3ed574b9a\",\n                \"id\": 3,\n                \"name\": \"Single and package\",\n                \"code\": \"SINGLE_AND_PACKAGE\",\n                \"description\": null,\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d44d1b676df3f3ed574b98\",\n                \"id\": 1,\n                \"name\": \"Single\",\n                \"code\": \"SINGLE\",\n                \"description\": \"Allow the client to book service one session at a time\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d44d1b676df3f3ed574b99\",\n                \"id\": 2,\n                \"name\": \"Package\",\n                \"code\": \"PACKAGE\",\n                \"description\": null,\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            }\n        ],\n        \"cancellation_policy\": [\n            {\n                \"_id\": \"62d44f3f676df3f3ed574ba4\",\n                \"id\": 1,\n                \"name\": \"Strict\",\n                \"code\": \"STRICT\",\n                \"description\": \"50% refund 5 days prior to session/event\",\n                \"is_active\": 1,\n                \"created_at\": \"2019-08-15T11:30:00.000Z\",\n                \"updated_at\": \"2019-08-19T22:07:09.000Z\"\n            },\n            {\n                \"_id\": \"62d44f3f676df3f3ed574ba6\",\n                \"id\": 3,\n                \"name\": \"Flexible \",\n                \"code\": \"FLEXIBLE\",\n                \"description\": \"Full refund 1 day prior to session/event.\",\n                \"is_active\": 1,\n                \"created_at\": \"2019-08-15T11:30:00.000Z\",\n                \"updated_at\": \"2019-08-15T11:30:00.000Z\"\n            },\n            {\n                \"_id\": \"62d44f3f676df3f3ed574ba5\",\n                \"id\": 2,\n                \"name\": \"Moderate \",\n                \"code\": \"MODERATE\",\n                \"description\": \"Full refund 5 days prior to session/event\",\n                \"is_active\": 1,\n                \"created_at\": \"2019-08-15T11:30:00.000Z\",\n                \"updated_at\": \"2019-08-15T11:30:00.000Z\"\n            }\n        ],\n        \"payment_options\": [\n            {\n                \"_id\": \"62d450dc676df3f3ed574bae\",\n                \"id\": 1,\n                \"name\": \"eWallet\",\n                \"code\": \"EWALLET\",\n                \"description\": \"No minimum top up\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d450dc676df3f3ed574baf\",\n                \"id\": 2,\n                \"name\": \"Cash\",\n                \"code\": \"CASH\",\n                \"description\": \"*Load will not be responsible for any dispute paid by cash\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            }\n        ],\n        \"professional_schedule_advance_booking\": [\n            {\n                \"_id\": \"62d51153e864dc2b3abea3c1\",\n                \"id\": 1,\n                \"description\": \"2 weeks in advance\",\n                \"is_active\": 1,\n                \"created_at\": \"2021-06-17T22:05:01.000Z\"\n            },\n            {\n                \"_id\": \"62d51153e864dc2b3abea3c2\",\n                \"id\": 2,\n                \"description\": \"1 month in advance\",\n                \"is_active\": 1,\n                \"created_at\": \"2021-06-17T22:05:08.000Z\"\n            },\n            {\n                \"_id\": \"62d51153e864dc2b3abea3c3\",\n                \"id\": 3,\n                \"description\": \"3 months in advance\",\n                \"is_active\": 1,\n                \"created_at\": \"2021-06-17T22:05:43.000Z\"\n            },\n            {\n                \"_id\": \"62d51153e864dc2b3abea3c4\",\n                \"id\": 4,\n                \"description\": \"6 months in advance\",\n                \"is_active\": 1,\n                \"created_at\": \"2021-06-17T22:05:43.000Z\"\n            }\n        ],\n        \"specialization\": [\n            {\n                \"_id\": \"62d514bde864dc2b3abea436\",\n                \"id\": 2,\n                \"name\": \"Triathion\",\n                \"code\": \"TRIATHION\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea437\",\n                \"id\": 3,\n                \"name\": \"Marathon\",\n                \"code\": \"MARATHON\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea43d\",\n                \"id\": 9,\n                \"name\": \"Bodybuilding\",\n                \"code\": \"BODYBUILDING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea440\",\n                \"id\": 13,\n                \"name\": \"Powerlifting\",\n                \"code\": \"POWERLIFTING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea447\",\n                \"id\": 23,\n                \"name\": \"Cycling\",\n                \"code\": \"CYCLING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea448\",\n                \"id\": 24,\n                \"name\": \"Yoga\",\n                \"code\": \"YOGA\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea44a\",\n                \"id\": 27,\n                \"name\": \"CrossFit\",\n                \"code\": \"CROSSFIT\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea44d\",\n                \"id\": 30,\n                \"name\": \"American Football\",\n                \"code\": \"AMERICAN_FOOTBALL\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea44e\",\n                \"id\": 31,\n                \"name\": \"Archery\",\n                \"code\": \"ARCHERY\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea44f\",\n                \"id\": 32,\n                \"name\": \"Athletics\",\n                \"code\": \"ATHLETICS\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea450\",\n                \"id\": 33,\n                \"name\": \"Australian Football\",\n                \"code\": \"AUSTRALIAN_FOOTBALL\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea451\",\n                \"id\": 34,\n                \"name\": \"Badminton\",\n                \"code\": \"BADMINTON\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea452\",\n                \"id\": 35,\n                \"name\": \"Ballet\",\n                \"code\": \"BALLET\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea453\",\n                \"id\": 36,\n                \"name\": \"Barre\",\n                \"code\": \"BARRE\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea454\",\n                \"id\": 37,\n                \"name\": \"Baseball\",\n                \"code\": \"BASEBALL\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea455\",\n                \"id\": 38,\n                \"name\": \"Basketball\",\n                \"code\": \"BASKETBALL\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea456\",\n                \"id\": 39,\n                \"name\": \"Bowling\",\n                \"code\": \"BOWLING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea457\",\n                \"id\": 40,\n                \"name\": \"Boxing\",\n                \"code\": \"BOXING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea458\",\n                \"id\": 41,\n                \"name\": \"Core Training\",\n                \"code\": \"CORE_TRAINING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea459\",\n                \"id\": 42,\n                \"name\": \"Cricket\",\n                \"code\": \"CRICKET\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea45a\",\n                \"id\": 43,\n                \"name\": \"Cross Country Skiing\",\n                \"code\": \"CROSS_COUNTRY_SKIING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea45b\",\n                \"id\": 44,\n                \"name\": \"Cross Training\",\n                \"code\": \"CROSS_TRAINING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea45c\",\n                \"id\": 45,\n                \"name\": \"Curling\",\n                \"code\": \"CURLING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea45d\",\n                \"id\": 46,\n                \"name\": \"Dance\",\n                \"code\": \"DANCE\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea45e\",\n                \"id\": 47,\n                \"name\": \"Disc Sports\",\n                \"code\": \"DISC_SPORTS\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea45f\",\n                \"id\": 48,\n                \"name\": \"Downhill Skiing\",\n                \"code\": \"DOWNHILL_SKIING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea460\",\n                \"id\": 49,\n                \"name\": \"Dragon Boating\",\n                \"code\": \"DRAGON_BOATING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea461\",\n                \"id\": 50,\n                \"name\": \"Endurance Sports\",\n                \"code\": \"ENDURANCE_SPORTS\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea462\",\n                \"id\": 51,\n                \"name\": \"Equestrian Sports\",\n                \"code\": \"equestrian_sports\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea463\",\n                \"id\": 52,\n                \"name\": \"Fencing\",\n                \"code\": \"FENCING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea464\",\n                \"id\": 53,\n                \"name\": \"Figure Skating\",\n                \"code\": \"FIGURE_SKATING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea465\",\n                \"id\": 54,\n                \"name\": \"Football\",\n                \"code\": \"FOOTBALL\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea466\",\n                \"id\": 55,\n                \"name\": \"Full Marathon\",\n                \"code\": \"FULL_MARATHON\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea467\",\n                \"id\": 56,\n                \"name\": \"Functional Strength Training\",\n                \"code\": \"FUNCTIONAL_STRENGTH_TRAINING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea468\",\n                \"id\": 57,\n                \"name\": \"Golf\",\n                \"code\": \"GOLF\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea469\",\n                \"id\": 58,\n                \"name\": \"Gymnastics\",\n                \"code\": \"GYMNASTICS\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea46a\",\n                \"id\": 59,\n                \"name\": \"Half Marathon\",\n                \"code\": \"HALF_MARATHON\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea46b\",\n                \"id\": 60,\n                \"name\": \"Handball\",\n                \"code\": \"HANDBALL\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea46c\",\n                \"id\": 61,\n                \"name\": \"High-Intensity Interval Training\",\n                \"code\": \"HIGH_INTENSITY_INTERVAL_TRAINING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea46d\",\n                \"id\": 62,\n                \"name\": \"Hiking\",\n                \"code\": \"HIKING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea46e\",\n                \"id\": 63,\n                \"name\": \"Hockey\",\n                \"code\": \"HOCKEY\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea46f\",\n                \"id\": 64,\n                \"name\": \"Inline Skating\",\n                \"code\": \"INLINE_SKATING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea470\",\n                \"id\": 65,\n                \"name\": \"Inline Speed Skating\",\n                \"code\": \"INLINE_SPEED_SKATING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea471\",\n                \"id\": 66,\n                \"name\": \"Ironman\",\n                \"code\": \"IRONMAN\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea472\",\n                \"id\": 67,\n                \"name\": \"Judo\",\n                \"code\": \"JUDO\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea473\",\n                \"id\": 68,\n                \"name\": \"Karate\",\n                \"code\": \"KARATE\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea474\",\n                \"id\": 69,\n                \"name\": \"Kendo\",\n                \"code\": \"KENDO\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea475\",\n                \"id\": 70,\n                \"name\": \"Kickboxing\",\n                \"code\": \"KICKBOXING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea476\",\n                \"id\": 71,\n                \"name\": \"Krav Maga\",\n                \"code\": \"KRAV_MAGA\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea477\",\n                \"id\": 72,\n                \"name\": \"Lacrosse\",\n                \"code\": \"LACROSSE\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea478\",\n                \"id\": 73,\n                \"name\": \"Long Distance Running\",\n                \"code\": \"LONG_DISTANCE_RUNNING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea479\",\n                \"id\": 74,\n                \"name\": \"Mixed Martial Arts\",\n                \"code\": \"MIXED_MARTIAL_ARTS\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea47a\",\n                \"id\": 75,\n                \"name\": \"Mountain Biking\",\n                \"code\": \"MOUNTAIN_BIKING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea47b\",\n                \"id\": 76,\n                \"name\": \"Muay Thai\",\n                \"code\": \"MUAY_THAI\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea47c\",\n                \"id\": 77,\n                \"name\": \"Netball\",\n                \"code\": \"NETBALL\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea47d\",\n                \"id\": 78,\n                \"name\": \"Open Water Swim\",\n                \"code\": \"OPEN_WATER_SWIM\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea47e\",\n                \"id\": 79,\n                \"name\": \"Olympic Weightlifting\",\n                \"code\": \"OLYMPIC_WEIGHTLIFTING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea47f\",\n                \"id\": 80,\n                \"name\": \"Paddling\",\n                \"code\": \"PADDLING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea480\",\n                \"id\": 81,\n                \"name\": \"Pilates\",\n                \"code\": \"PILATES\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea481\",\n                \"id\": 82,\n                \"name\": \"Pool Swim\",\n                \"code\": \"POOL_SWIM\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea482\",\n                \"id\": 83,\n                \"name\": \"Racketball\",\n                \"code\": \"RACKETBALL\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea483\",\n                \"id\": 84,\n                \"name\": \"Rehabilitation Training\",\n                \"code\": \"REHABILITATION_TRAINING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea484\",\n                \"id\": 85,\n                \"name\": \"Rugby\",\n                \"code\": \"RUGBY\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea485\",\n                \"id\": 86,\n                \"name\": \"Sailing\",\n                \"code\": \"SAILING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea486\",\n                \"id\": 87,\n                \"name\": \"Short Distance Running\",\n                \"code\": \"SHORT_DISTANCE_RUNNING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea487\",\n                \"id\": 88,\n                \"name\": \"Silat\",\n                \"code\": \"SILAT\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea488\",\n                \"id\": 89,\n                \"name\": \"Skating\",\n                \"code\": \"SKATING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea489\",\n                \"id\": 90,\n                \"name\": \"Snow Sports\",\n                \"code\": \"SNOW_SPORTS\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea48a\",\n                \"id\": 91,\n                \"name\": \"Snowboarding\",\n                \"code\": \"SNOWBOARDING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea48b\",\n                \"id\": 92,\n                \"name\": \"Softball\",\n                \"code\": \"SOFTBALL\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea48c\",\n                \"id\": 93,\n                \"name\": \"Squash\",\n                \"code\": \"SQUASH\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea48d\",\n                \"id\": 94,\n                \"name\": \"Surfing\",\n                \"code\": \"SURFING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea48e\",\n                \"id\": 95,\n                \"name\": \"Table Tennis\",\n                \"code\": \"TABLE_TENNIS\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea48f\",\n                \"id\": 96,\n                \"name\": \"Taekwondo\",\n                \"code\": \"TAEKWONDO\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea490\",\n                \"id\": 97,\n                \"name\": \"Tai Chi\",\n                \"code\": \"TAI_CHI\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea491\",\n                \"id\": 98,\n                \"name\": \"Tennis\",\n                \"code\": \"TENNIS\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea492\",\n                \"id\": 99,\n                \"name\": \"Traditional Strength Training\",\n                \"code\": \"TRADITIONAL_STRENGTH_TRAINING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea493\",\n                \"id\": 101,\n                \"name\": \"Volleyball\",\n                \"code\": \"VOLLEYBALL\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea494\",\n                \"id\": 102,\n                \"name\": \"Wall Climbing\",\n                \"code\": \"WALL_CLIMBING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea495\",\n                \"id\": 103,\n                \"name\": \"Water Polo\",\n                \"code\": \"WATER_POLO\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea496\",\n                \"id\": 104,\n                \"name\": \"Wrestling\",\n                \"code\": \"WRESTLING\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea497\",\n                \"id\": 105,\n                \"name\": \"Wushu\",\n                \"code\": \"WUSHU\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d514bde864dc2b3abea498\",\n                \"id\": 106,\n                \"name\": \"Zumba\",\n                \"code\": \"ZUMBA\",\n                \"is_active\": \"1\",\n                \"created_at\": null,\n                \"updated_at\": null\n            }\n        ],\n        \"settings_race_distances\": [\n            {\n                \"_id\": \"62d5163ae864dc2b3abea501\",\n                \"id\": 1,\n                \"name\": \"1.5 km\",\n                \"code\": \"1.5_km\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d5163ae864dc2b3abea502\",\n                \"id\": 2,\n                \"name\": \"1 miles\",\n                \"code\": \"1_MILES\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d5163ae864dc2b3abea503\",\n                \"id\": 3,\n                \"name\": \"3 km\",\n                \"code\": \"3_KM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d5163ae864dc2b3abea504\",\n                \"id\": 4,\n                \"name\": \"2 miles\",\n                \"code\": \"2_MILES\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d5163ae864dc2b3abea505\",\n                \"id\": 5,\n                \"name\": \"5 km\",\n                \"code\": \"5_KM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d5163ae864dc2b3abea506\",\n                \"id\": 6,\n                \"name\": \"10 km\",\n                \"code\": \"10_km\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d5163ae864dc2b3abea507\",\n                \"id\": 7,\n                \"name\": \"15 km\",\n                \"code\": \"15_km\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d5163ae864dc2b3abea508\",\n                \"id\": 8,\n                \"name\": \"21 km\",\n                \"code\": \"21_KM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d5163ae864dc2b3abea509\",\n                \"id\": 9,\n                \"name\": \"42 km\",\n                \"code\": \"42_KM\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            }\n        ],\n        \"currencies\": [\n            {\n                \"_id\": \"62d51887e864dc2b3abea517\",\n                \"id\": 1,\n                \"name\": \"Singapore\",\n                \"code\": \"SGD\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": \"2019-08-19T04:21:27.000Z\"\n            },\n            {\n                \"_id\": \"62d51887e864dc2b3abea518\",\n                \"id\": 2,\n                \"name\": \"USD\",\n                \"code\": \"USD\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d51887e864dc2b3abea519\",\n                \"id\": 3,\n                \"name\": \"India\",\n                \"code\": \"INR\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": \"2019-08-19T04:20:50.000Z\"\n            },\n            {\n                \"_id\": \"62d51887e864dc2b3abea51a\",\n                \"id\": 4,\n                \"name\": \"Europe\",\n                \"code\": \"EUR\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": \"2019-08-19T04:20:40.000Z\"\n            },\n            {\n                \"_id\": \"62d51887e864dc2b3abea51b\",\n                \"id\": 5,\n                \"name\": \"Austria\",\n                \"code\": \"AUT\",\n                \"is_active\": 1,\n                \"created_at\": \"2019-08-19T03:39:51.000Z\",\n                \"updated_at\": \"2019-08-19T04:14:41.000Z\"\n            },\n            {\n                \"_id\": \"62d51887e864dc2b3abea51c\",\n                \"id\": 6,\n                \"name\": \"Monaco\",\n                \"code\": \"MCO\",\n                \"is_active\": 1,\n                \"created_at\": \"2019-08-19T03:41:43.000Z\",\n                \"updated_at\": \"2019-08-19T04:14:42.000Z\"\n            }\n        ],\n        \"services\": [\n            {\n                \"_id\": \"62d51957e864dc2b3abea527\",\n                \"id\": 1,\n                \"name\": \"Service1\",\n                \"code\": \"service1\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": \"2019-07-09 10:35:05\"\n            },\n            {\n                \"_id\": \"62d51957e864dc2b3abea528\",\n                \"id\": 2,\n                \"name\": \"Service2\",\n                \"code\": \"Service2\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            }\n        ],\n        \"countries\": [\n            {\n                \"_id\": \"62d51affe864dc2b3abea52f\",\n                \"id\": 1,\n                \"name\": \"India\",\n                \"code\": \"IN\",\n                \"country_code\": \"+91\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d51affe864dc2b3abea530\",\n                \"id\": 2,\n                \"name\": \"Albania\",\n                \"code\": \"AL\",\n                \"country_code\": \"+355\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d51affe864dc2b3abea531\",\n                \"id\": 3,\n                \"name\": \"Algeria\",\n                \"code\": \"DZ\",\n                \"country_code\": \"+213\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d51affe864dc2b3abea532\",\n                \"id\": 4,\n                \"name\": \"American Samoa\",\n                \"code\": \"DS\",\n                \"country_code\": \"+1\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d51affe864dc2b3abea533\",\n                \"id\": 5,\n                \"name\": \"Andorra\",\n                \"code\": \"AD\",\n                \"country_code\": \"+376\",\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d51affe864dc2b3abea534\",\n                \"id\": 6,\n                \"name\": \"Angola\",\n                \"code\": \"AO\",\n                \"country_code\": null,\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d51affe864dc2b3abea535\",\n                \"id\": 7,\n                \"name\": \"Anguilla\",\n                \"code\": \"AI\",\n                \"country_code\": null,\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d51affe864dc2b3abea536\",\n                \"id\": 8,\n                \"name\": \"Antarctica\",\n                \"code\": \"AQ\",\n                \"country_code\": null,\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d51affe864dc2b3abea537\",\n                \"id\": 9,\n                \"name\": \"Antigua and Barbuda\",\n                \"code\": \"AG\",\n                \"country_code\": null,\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"_id\": \"62d51affe864dc2b3abea539\",\n                \"id\": 11,\n                \"name\": \"Armenia\",\n                \"code\": \"AM\",\n                \"country_code\": null,\n                \"is_active\": 1,\n                \"created_at\": null,\n                \"updated_at\": null\n            }\n        ],\n        \"regions\": [],\n        \"cardio_preset_training_program\": [\n            {\n                \"_id\": \"62d5648ae864dc2b3abea56e\",\n                \"id\": 8,\n                \"title\": \"5 KM\",\n                \"code\": \"5K\",\n                \"subtitle\": \"This training program lasts for 3 months.\",\n                \"status\": \"CARDIO\",\n                \"type\": \"PRESET\",\n                \"is_active\": 1,\n                \"weeks\": 18,\n                \"created_at\": \"2019-06-02 18:30:00\",\n                \"updated_at\": \"2019-06-02 18:30:00\"\n            },\n            {\n                \"_id\": \"62d5648ae864dc2b3abea56f\",\n                \"id\": 9,\n                \"title\": \"10 KM\",\n                \"code\": \"10K\",\n                \"subtitle\": \"This training program lasts for 6 months.\",\n                \"status\": \"CARDIO\",\n                \"type\": \"PRESET\",\n                \"is_active\": 1,\n                \"weeks\": 24,\n                \"created_at\": \"2019-06-02 18:30:00\",\n                \"updated_at\": \"2019-06-02 18:30:00\"\n            },\n            {\n                \"_id\": \"62d5648ae864dc2b3abea570\",\n                \"id\": 10,\n                \"title\": \"21 KM\",\n                \"code\": \"21K\",\n                \"subtitle\": \"This training program lasts for 6 months.\",\n                \"status\": \"CARDIO\",\n                \"type\": \"PRESET\",\n                \"is_active\": 1,\n                \"weeks\": 24,\n                \"created_at\": \"2019-06-02 18:30:00\",\n                \"updated_at\": \"2019-06-02 18:30:00\"\n            },\n            {\n                \"_id\": \"62d5648ae864dc2b3abea571\",\n                \"id\": 11,\n                \"title\": \"42 KM\",\n                \"code\": \"42K\",\n                \"subtitle\": \"This training program lasts for 6 months.\",\n                \"status\": \"CARDIO\",\n                \"type\": \"PRESET\",\n                \"is_active\": 1,\n                \"weeks\": 24,\n                \"created_at\": \"2019-06-02 18:30:00\",\n                \"updated_at\": \"2019-06-02 18:30:00\"\n            }\n        ],\n        \"resistance_preset_training_program\": [\n            {\n                \"_id\": \"62d5648ae864dc2b3abea567\",\n                \"id\": 1,\n                \"title\": \"General Strengthening\",\n                \"code\": null,\n                \"subtitle\": \"This training program lasts for 8 months.\",\n                \"status\": \"RESISTANCE\",\n                \"type\": \"PRESET\",\n                \"is_active\": 1,\n                \"weeks\": 34,\n                \"created_at\": \"2019-06-02 18:30:00\",\n                \"updated_at\": \"2019-06-02 18:30:00\"\n            },\n            {\n                \"_id\": \"62d5648ae864dc2b3abea568\",\n                \"id\": 2,\n                \"title\": \"Triathion\",\n                \"code\": null,\n                \"subtitle\": \"This training program lasts for 23 monaths.\",\n                \"status\": \"RESISTANCE\",\n                \"type\": \"PRESET\",\n                \"is_active\": 1,\n                \"weeks\": 52,\n                \"created_at\": \"2019-06-02 18:30:00\",\n                \"updated_at\": \"2019-06-02 18:30:00\"\n            },\n            {\n                \"_id\": \"62d5648ae864dc2b3abea569\",\n                \"id\": 3,\n                \"title\": \"Martial Arts( without endurance )\",\n                \"code\": null,\n                \"subtitle\": \"Martial Arts( without endurance ) Training.\",\n                \"status\": \"RESISTANCE\",\n                \"type\": \"PRESET\",\n                \"is_active\": 1,\n                \"weeks\": null,\n                \"created_at\": \"2019-06-02 18:30:00\",\n                \"updated_at\": \"2019-06-02 18:30:00\"\n            },\n            {\n                \"_id\": \"62d5648ae864dc2b3abea56a\",\n                \"id\": 4,\n                \"title\": \"Martial Arts( with endurance )\",\n                \"code\": null,\n                \"subtitle\": \"Martial Arts( with endurance ) Training.\",\n                \"status\": \"RESISTANCE\",\n                \"type\": \"PRESET\",\n                \"is_active\": 1,\n                \"weeks\": null,\n                \"created_at\": \"2019-06-02 18:30:00\",\n                \"updated_at\": \"2019-06-02 18:30:00\"\n            },\n            {\n                \"_id\": \"62d5648ae864dc2b3abea56b\",\n                \"id\": 5,\n                \"title\": \"Soccer( amateur )\",\n                \"code\": null,\n                \"subtitle\": \"Soccer( amateur ) Training.\",\n                \"status\": \"RESISTANCE\",\n                \"type\": \"PRESET\",\n                \"is_active\": 1,\n                \"weeks\": null,\n                \"created_at\": \"2019-06-02 18:30:00\",\n                \"updated_at\": \"2019-06-02 18:30:00\"\n            },\n            {\n                \"_id\": \"62d5648ae864dc2b3abea56c\",\n                \"id\": 6,\n                \"title\": \"Soccer( professional)\",\n                \"code\": null,\n                \"subtitle\": \"Soccer( professional) Training.\",\n                \"status\": \"RESISTANCE\",\n                \"type\": \"PRESET\",\n                \"is_active\": 1,\n                \"weeks\": null,\n                \"created_at\": \"2019-06-02 18:30:00\",\n                \"updated_at\": \"2019-06-02 18:30:00\"\n            },\n            {\n                \"_id\": \"62d5648ae864dc2b3abea56d\",\n                \"id\": 7,\n                \"title\": \"Basketball\",\n                \"code\": null,\n                \"subtitle\": \"Basketball Training.\",\n                \"status\": \"RESISTANCE\",\n                \"type\": \"PRESET\",\n                \"is_active\": 1,\n                \"weeks\": null,\n                \"created_at\": \"2019-06-02 18:30:00\",\n                \"updated_at\": \"2019-06-02 18:30:00\"\n            }\n        ],\n        \"body_parts\": [\n            {\n                \"_id\": \"62d56683e864dc2b3abea581\",\n                \"id\": 0,\n                \"parent_id\": null,\n                \"name\": \"Power\",\n                \"code\": \"POWER_PARENT\",\n                \"type\": null,\n                \"display_id\": null,\n                \"is_region\": null,\n                \"image\": null,\n                \"secondary_image\": null,\n                \"sequence\": 4,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea582\",\n                \"id\": 1,\n                \"parent_id\": null,\n                \"name\": \"Upper Body\",\n                \"code\": \"UPPER\",\n                \"type\": null,\n                \"display_id\": null,\n                \"is_region\": null,\n                \"image\": null,\n                \"secondary_image\": null,\n                \"sequence\": 1,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea583\",\n                \"id\": 2,\n                \"parent_id\": null,\n                \"name\": \"Lower Body\",\n                \"code\": \"LOWER\",\n                \"type\": null,\n                \"display_id\": null,\n                \"is_region\": null,\n                \"image\": null,\n                \"secondary_image\": null,\n                \"sequence\": 2,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea584\",\n                \"id\": 3,\n                \"parent_id\": null,\n                \"name\": \"Trunk\",\n                \"code\": \"TRUNK\",\n                \"type\": null,\n                \"display_id\": null,\n                \"is_region\": null,\n                \"image\": null,\n                \"secondary_image\": null,\n                \"sequence\": 3,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea585\",\n                \"id\": 4,\n                \"parent_id\": null,\n                \"name\": \"Favorite\",\n                \"code\": \"FAVORITE\",\n                \"type\": null,\n                \"display_id\": null,\n                \"is_region\": null,\n                \"image\": null,\n                \"secondary_image\": null,\n                \"sequence\": 5,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea586\",\n                \"id\": 5,\n                \"parent_id\": \"1\",\n                \"name\": \"Arm\",\n                \"code\": \"ARM\",\n                \"type\": \"front\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Front_Upper_arm_01\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Front_Upper_arm_02\",\n                \"sequence\": 211,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea587\",\n                \"id\": 6,\n                \"parent_id\": \"1\",\n                \"name\": \"Chest\",\n                \"code\": \"CHEST\",\n                \"type\": \"front\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Front_Upper_Chest_01\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Front_Upper_Chest_02\",\n                \"sequence\": 212,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea589\",\n                \"id\": 8,\n                \"parent_id\": \"1\",\n                \"name\": \"Neck\",\n                \"code\": \"NECK\",\n                \"type\": \"front\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Front_Upper_Neck_01\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Front_Upper_Neck_02\",\n                \"sequence\": 216,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea58a\",\n                \"id\": 9,\n                \"parent_id\": \"1\",\n                \"name\": \"Shoulder\",\n                \"code\": \"SHOULDER\",\n                \"type\": \"front\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Front_Upper_Shoulder_01\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Front_Upper_Shoulder_02\",\n                \"sequence\": 217,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea58b\",\n                \"id\": 10,\n                \"parent_id\": \"1\",\n                \"name\": \"Arm\",\n                \"code\": \"ARM\",\n                \"type\": \"back\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Back_Upper_arm_1\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Back_Upper_arm_2\",\n                \"sequence\": 211,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea58c\",\n                \"id\": 11,\n                \"parent_id\": \"1\",\n                \"name\": \"Back\",\n                \"code\": \"BACK\",\n                \"type\": \"back\",\n                \"display_id\": null,\n                \"is_region\": null,\n                \"image\": null,\n                \"secondary_image\": null,\n                \"sequence\": null,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea58d\",\n                \"id\": 12,\n                \"parent_id\": \"1\",\n                \"name\": \"Back (Upper)\",\n                \"code\": \"BACK_UPPER\",\n                \"type\": \"back\",\n                \"display_id\": \"11\",\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Back_Upper_BackUpper_1\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Back_Upper_BackUpper_2\",\n                \"sequence\": 212,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea58e\",\n                \"id\": 13,\n                \"parent_id\": \"1\",\n                \"name\": \"Back (Middle)\",\n                \"code\": \"BACK_MIDDLE\",\n                \"type\": \"back\",\n                \"display_id\": \"11\",\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Back_Upper_BackMid_1\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Back_Upper_BackMid_2\",\n                \"sequence\": 213,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea58f\",\n                \"id\": 14,\n                \"parent_id\": \"1\",\n                \"name\": \"Back (Outer)\",\n                \"code\": \"BACK_OUTER\",\n                \"type\": \"back\",\n                \"display_id\": \"11\",\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Back_Upper_BackOuter_1\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Back_Upper_BackOuter_2\",\n                \"sequence\": 214,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea591\",\n                \"id\": 16,\n                \"parent_id\": \"1\",\n                \"name\": \"Forearm\",\n                \"code\": \"FOREARM\",\n                \"type\": \"back\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Back_Upper_forearm_1\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Back_Upper_forearm_2\",\n                \"sequence\": 215,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea592\",\n                \"id\": 17,\n                \"parent_id\": \"1\",\n                \"name\": \"Neck\",\n                \"code\": \"NECK\",\n                \"type\": \"back\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Back_Upper_neck_1\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Back_Upper_neck_2\",\n                \"sequence\": 216,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea593\",\n                \"id\": 18,\n                \"parent_id\": \"1\",\n                \"name\": \"Shoulder\",\n                \"code\": \"SHOULDER\",\n                \"type\": \"back\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Back_Upper_shoulder_1\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Back_Upper_shoulder_2\",\n                \"sequence\": 217,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea594\",\n                \"id\": 19,\n                \"parent_id\": \"2\",\n                \"name\": \"Hip\",\n                \"code\": \"HIP\",\n                \"type\": \"front\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Front_Lower_Hip_01\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Front_Lower_Hip_2\",\n                \"sequence\": 221,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea595\",\n                \"id\": 20,\n                \"parent_id\": \"2\",\n                \"name\": \"Shin\",\n                \"code\": \"SHIN\",\n                \"type\": \"front\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Front_Lower_Shin_01\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Front_Lower_Shin_02\",\n                \"sequence\": 222,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea596\",\n                \"id\": 21,\n                \"parent_id\": \"2\",\n                \"name\": \"Thigh (Inner)\",\n                \"code\": \"THIGH_INNER\",\n                \"type\": \"front\",\n                \"display_id\": \"31\",\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Front_Lower_Thigh-inner_01\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Front_Lower_Thigh-inner_02\",\n                \"sequence\": 225,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea598\",\n                \"id\": 23,\n                \"parent_id\": \"2\",\n                \"name\": \"Calf\",\n                \"code\": \"CALF\",\n                \"type\": \"back\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Back_Lower_calf_1\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Back_Lower_calf_2\",\n                \"sequence\": 231,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea599\",\n                \"id\": 24,\n                \"parent_id\": \"2\",\n                \"name\": \"Hip\",\n                \"code\": \"HIP\",\n                \"type\": \"back\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Back_Lower_hip_1\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Back_Lower_hip_2\",\n                \"sequence\": 233,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea59a\",\n                \"id\": 25,\n                \"parent_id\": \"2\",\n                \"name\": \"Thigh (Inner)\",\n                \"code\": \"THIGH_INNER\",\n                \"type\": \"back\",\n                \"display_id\": \"30\",\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Back_Lower_thighInner_1\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Back_Lower_thighInner_2\",\n                \"sequence\": 237,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea59c\",\n                \"id\": 27,\n                \"parent_id\": \"3\",\n                \"name\": \"Abdominal\",\n                \"code\": \"ABDOMINAL\",\n                \"type\": \"front\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Front_Trunk_Abdominal_01\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Front_Trunk_abdominal_02\",\n                \"sequence\": null,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea59d\",\n                \"id\": 28,\n                \"parent_id\": \"3\",\n                \"name\": \"Obliques\",\n                \"code\": \"OBLIQUES\",\n                \"type\": \"front\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Front_Trunk_Oblique_01\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Front_Trunk_Oblique_02\",\n                \"sequence\": null,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-26 00:00:00\",\n                \"created_at\": \"2019-11-26 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea59e\",\n                \"id\": 29,\n                \"parent_id\": \"1\",\n                \"name\": \"Forearm\",\n                \"code\": \"FOREARM\",\n                \"type\": \"front\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Front_Upper_Forearm_01\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Front_Upper_Forearm_02\",\n                \"sequence\": 215,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2021-06-14 06:48:23\",\n                \"created_at\": \"2019-11-29 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea59f\",\n                \"id\": 30,\n                \"parent_id\": \"2\",\n                \"name\": \"Thigh\",\n                \"code\": \"THIGH\",\n                \"type\": \"back\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Back_Lower_thigh_1\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Back_Lower_thigh_2\",\n                \"sequence\": 236,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-29 00:00:00\",\n                \"created_at\": \"2019-11-29 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea5a0\",\n                \"id\": 31,\n                \"parent_id\": \"2\",\n                \"name\": \"Thigh\",\n                \"code\": \"THIGH\",\n                \"type\": \"front\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Front_Lower_Thigh_01\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Front_Lower_Thigh_02\",\n                \"sequence\": 224,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-29 00:00:00\",\n                \"created_at\": \"2019-11-29 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea5a2\",\n                \"id\": 33,\n                \"parent_id\": \"3\",\n                \"name\": \"Lower Back\",\n                \"code\": \"LOWER_BACK\",\n                \"type\": \"back\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Back_Trunk_LowerBack_1\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Back_Trunk_LowerBack_2\",\n                \"sequence\": null,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2019-11-30 00:00:00\",\n                \"created_at\": \"2019-11-30 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea5a3\",\n                \"id\": 34,\n                \"parent_id\": \"2\",\n                \"name\": \"Shin (Inner)\",\n                \"code\": \"SHIN_INNER\",\n                \"type\": \"front\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": \"/uploaded/images/body_parts/Front_Lower_InnerShin_01\",\n                \"secondary_image\": \"/uploaded/images/body_parts/Front_Lower_InnerShin_02\",\n                \"sequence\": 223,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2020-02-06 00:00:00\",\n                \"created_at\": \"2020-02-06 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea5a4\",\n                \"id\": 36,\n                \"parent_id\": \"0\",\n                \"name\": \"Full\",\n                \"code\": \"POWER_FULL\",\n                \"type\": \"front_back\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": null,\n                \"secondary_image\": null,\n                \"sequence\": 240,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2020-02-06 00:00:00\",\n                \"created_at\": \"2020-02-06 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea5a5\",\n                \"id\": 37,\n                \"parent_id\": \"0\",\n                \"name\": \"Upper\",\n                \"code\": \"POWER_UPPER\",\n                \"type\": \"front_back\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": null,\n                \"secondary_image\": null,\n                \"sequence\": 241,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2020-02-06 00:00:00\",\n                \"created_at\": \"2020-02-06 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea5a6\",\n                \"id\": 38,\n                \"parent_id\": \"0\",\n                \"name\": \"Lower\",\n                \"code\": \"POWER_LOWER\",\n                \"type\": \"front_back\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": null,\n                \"secondary_image\": null,\n                \"sequence\": 242,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2020-02-06 00:00:00\",\n                \"created_at\": \"2020-02-06 00:00:00\"\n            },\n            {\n                \"_id\": \"62d56683e864dc2b3abea5a7\",\n                \"id\": 39,\n                \"parent_id\": \"0\",\n                \"name\": \"Trunk\",\n                \"code\": \"POWER_TRUNK\",\n                \"type\": \"front_back\",\n                \"display_id\": null,\n                \"is_region\": true,\n                \"image\": null,\n                \"secondary_image\": null,\n                \"sequence\": 243,\n                \"is_active\": \"1\",\n                \"updated_at\": \"2020-02-06 00:00:00\",\n                \"created_at\": \"2020-02-06 00:00:00\"\n            }\n        ]\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "OTP Verification",
+							"id": "9037ec45-7823-4f79-b803-ef445e367047",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"timotius.lianoto@idntimes.com\",\n    \"otp\": \"867407\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/otp-verification",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"otp-verification"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "fc79453b-2bc0-4901-bd30-71484e5a692a",
+									"name": "[ERROR] OTP Verification - Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/otp-verification",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"otp-verification"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "54"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"36-MM42M7Ned6yJjyqaYifJjrrVRZ8\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 15 Jul 2022 18:55:55 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Bad Request\",\n    \"status\": 403,\n    \"success\": false\n}"
+								},
+								{
+									"id": "dffccd00-d0bf-4aed-9176-5a7dfe972f79",
+									"name": "[ERROR] OTP Verification - OTP is not valid",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"otp\": 5500\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/otp-verification",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"otp-verification"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "59"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3b-KZOrjUZ3RBkYb0hUkWsBXCwiHKw\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 15 Jul 2022 18:56:55 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"OTP is not valid\",\n    \"status\": 401,\n    \"success\": false\n}"
+								},
+								{
+									"id": "8f67e946-49a6-40d2-9e15-76b654a7e265",
+									"name": "OTP Verification - SUCCESS",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"otp\": 563195\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/otp-verification",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"otp-verification"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "67"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"43-ZiXvpGUPVCEAU7bzJOgsZ3umH00\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 15 Jul 2022 19:04:56 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"OTP is Valid!\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": null\n}"
+								},
+								{
+									"id": "e557d276-3bbd-4867-ac14-0e26fd3ca378",
+									"name": "[ERROR] OTP Verification - otp expired",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"timotius.lianoto@idntimes.com\",\n    \"otp\": \"913148\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/otp-verification",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"otp-verification"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "54"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"36-WHbHylv0pvltX8p4KV/pJyug8/c\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 16 Jul 2022 06:50:23 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"OTP expired\",\n    \"status\": 401,\n    \"success\": false\n}"
+								}
+							]
 						}
 					],
 					"id": "d5a8fd7b-295c-4ecf-8dc9-5e3941fc0d0d"
@@ -1051,7 +1715,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4NTQ1NTd9.-ChMOvQt-94O8pdzBS8PF1K4xmTQ49SFaVvFHPmBGcQ",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc1NTk0MTB9.G5JUW0LJY0aOSaZcYfk96OGTl5K43u2GzYoYu74J7qQ",
 										"type": "text"
 									}
 								],
@@ -1089,7 +1753,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4NTQ1NTd9.-ChMOvQt-94O8pdzBS8PF1K4xmTQ49SFaVvFHPmBGcQ",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc1NTk0MTB9.G5JUW0LJY0aOSaZcYfk96OGTl5K43u2GzYoYu74J7qQ",
 										"type": "text"
 									}
 								],
@@ -1103,9 +1767,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{LOCAL_HOST_3000}}/api/setting/update-account-snooze",
+									"raw": "{{LOCAL_HOST}}/api/setting/update-account-snooze",
 									"host": [
-										"{{LOCAL_HOST_3000}}"
+										"{{LOCAL_HOST}}"
 									],
 									"path": [
 										"api",
@@ -1127,7 +1791,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTczNzY2Njh9.D6EFSFEZJMCD5nMqVzkVcgMsBSaUSZvvazNC8Sw3sK4",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc3MjE4NTd9.thCKFvaB2VVx811ZzB7Fi0L2vAA_1peFwq4pcjn-Y9A",
 										"type": "text"
 									}
 								],
@@ -1151,14 +1815,14 @@
 							},
 							"response": [
 								{
-									"id": "4d173f20-cced-4a3b-bf7a-df98eebbb9ec",
-									"name": "[SUCCESS] - Get Setting Profile",
+									"id": "49775964-e4b6-4632-b11c-9b69175f7ae0",
+									"name": "Get Setting Profile - SUCCESS",
 									"originalRequest": {
 										"method": "GET",
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTczNzY2Njh9.D6EFSFEZJMCD5nMqVzkVcgMsBSaUSZvvazNC8Sw3sK4",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc1NTk2NDN9.s90bJJpvvZ7irRCAy0FBk06HDsVRhUiZPwdGGwb6DeA",
 												"type": "text"
 											}
 										],
@@ -1194,15 +1858,15 @@
 										},
 										{
 											"key": "Content-Length",
-											"value": "613"
+											"value": "847"
 										},
 										{
 											"key": "ETag",
-											"value": "W/\"265-24ieuI+6Rhm0LMej7yFZ+2sUJPE\""
+											"value": "W/\"34f-5NxTuQyyxTpOLcneiTYLFaEwx3s\""
 										},
 										{
 											"key": "Date",
-											"value": "Mon, 11 Jul 2022 16:49:20 GMT"
+											"value": "Tue, 12 Jul 2022 01:28:37 GMT"
 										},
 										{
 											"key": "Connection",
@@ -1215,7 +1879,316 @@
 									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n    \"message\": \"Success getting user profile\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": {\n        \"_id\": \"62bff663b73449e933382049\",\n        \"email\": \"lionato14@gmail.com\",\n        \"name\": \"Timotius Leonardo\",\n        \"is_active\": false,\n        \"is_profile_complete\": true,\n        \"email_verified_at\": \"2022-07-02T07:40:19.908Z\",\n        \"is_online\": false,\n        \"is_snooze\": false,\n        \"createdAt\": \"2022-07-02T07:40:19.945Z\",\n        \"updatedAt\": \"2022-07-09T14:24:28.494Z\",\n        \"__v\": 0,\n        \"date_of_birth\": \"28-03-1999\",\n        \"gender\": \"MALE\",\n        \"height\": 190,\n        \"location\": \"Indonesia\",\n        \"phone_area\": \"+62\",\n        \"phone_number\": \"089682180054\",\n        \"pass\": \"l55c6e5facthgtjrdv5\",\n        \"account_id\": \"62c928d2773234a0e0085cba\",\n        \"id\": 1657359626947,\n        \"weight\": 70\n    }\n}"
+									"body": "{\n    \"message\": \"Success getting user profile\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": {\n        \"_id\": \"62bff663b73449e933382049\",\n        \"email\": \"lionato14@gmail.com\",\n        \"name\": \"Timotius Leonardo\",\n        \"is_active\": false,\n        \"is_profile_complete\": true,\n        \"email_verified_at\": \"2022-07-02T07:40:19.908Z\",\n        \"is_online\": false,\n        \"is_snooze\": false,\n        \"createdAt\": \"2022-07-02T07:40:19.945Z\",\n        \"updatedAt\": \"2022-07-11T17:14:03.327Z\",\n        \"__v\": 0,\n        \"date_of_birth\": \"28-03-1999\",\n        \"gender\": \"MALE\",\n        \"height\": 190,\n        \"location\": \"Indonesia\",\n        \"phone_area\": \"+62\",\n        \"phone_number\": \"089682180054\",\n        \"pass\": \"timo1234!\",\n        \"account_id\": \"62c928d2773234a0e0085cba\",\n        \"id\": 1657359626947,\n        \"weight\": 70,\n        \"user_snooze_detail\": {\n            \"_id\": \"62cc5a3f47beaf4c910824b4\",\n            \"user_id\": 1657359626947,\n            \"start_date\": \"2022-10-09T09:19:09.000Z\",\n            \"end_date\": \"2022-10-09T09:19:09.000Z\",\n            \"createdAt\": \"2022-07-11T17:13:35.162Z\",\n            \"updatedAt\": \"2022-07-11T17:13:35.162Z\",\n            \"__v\": 0\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Setting Profile",
+							"id": "be7aae2b-830f-4f9e-b805-ec3a96678d45",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc3MjE4NTd9.thCKFvaB2VVx811ZzB7Fi0L2vAA_1peFwq4pcjn-Y9A",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1657359626947,\n    \"name\": \"Timotius LL\",\n    \"email\": \"lionato14@gmail.com\",\n    \"country_code\": \"+63\",\n    \"mobile\": \"089682180054\",\n    \"date_of_birth\": \"28-03-1999\",\n    \"facebook\": \"timo\",\n    \"gender\": \"MALE\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/setting/user-update",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"user-update"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "6a2f1feb-d853-4d87-ad3f-3288f2c59a85",
+									"name": "Update Setting Profile - SUCCESS",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc3MjE4NTd9.thCKFvaB2VVx811ZzB7Fi0L2vAA_1peFwq4pcjn-Y9A",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1657359626947,\n    \"name\": \"Timotius LL\",\n    \"email\": \"lionato14@gmail.com\",\n    \"country_code\": \"+63\",\n    \"mobile\": \"089682180054\",\n    \"date_of_birth\": \"28-03-1999\",\n    \"facebook\": \"timo\",\n    \"gender\": \"MALE\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/setting/user-update",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"setting",
+												"user-update"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "907"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"38b-IGUxdrVmQkAYsXFzGwVG6BZNQMY\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 23 Jul 2022 07:28:03 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Success getting user profile\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": {\n        \"_id\": \"62bff663b73449e933382049\",\n        \"email\": \"lionato14@gmail.com\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc3MjE4NTd9.thCKFvaB2VVx811ZzB7Fi0L2vAA_1peFwq4pcjn-Y9A\",\n        \"name\": \"Timotius LL\",\n        \"hashed_password\": \"bbd12f1c502a631414707b7c90213ac3d4064bd2\",\n        \"salt\": \"781605352164\",\n        \"is_active\": false,\n        \"is_profile_complete\": true,\n        \"email_verified_at\": \"2022-07-02T07:40:19.908Z\",\n        \"is_online\": false,\n        \"is_snooze\": false,\n        \"createdAt\": \"2022-07-02T07:40:19.945Z\",\n        \"updatedAt\": \"2022-07-23T07:28:03.208Z\",\n        \"__v\": 0,\n        \"date_of_birth\": \"28-03-1999\",\n        \"gender\": \"MALE\",\n        \"height\": 190,\n        \"location\": \"Indonesia\",\n        \"phone_area\": \"+62\",\n        \"phone_number\": \"089682180054\",\n        \"pass\": \"timo1234!\",\n        \"account_id\": \"62c928d2773234a0e0085cba\",\n        \"id\": 1657359626947,\n        \"weight\": 70,\n        \"country_code\": \"+63\",\n        \"facebook\": \"timo\",\n        \"mobile\": \"089682180054\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Premium Settings",
+							"id": "0d96aa6c-8f91-443f-8991-a664f31fb037",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc3MjE4NTd9.thCKFvaB2VVx811ZzB7Fi0L2vAA_1peFwq4pcjn-Y9A",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/setting/get-setting-primium",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"get-setting-primium"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "2da75bad-656d-442b-acc9-27e44648dd21",
+									"name": "Premium Settings - SUCCESS - Empty Data",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc3MjE4NTd9.thCKFvaB2VVx811ZzB7Fi0L2vAA_1peFwq4pcjn-Y9A",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/setting/get-setting-primium",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"setting",
+												"get-setting-primium"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "90"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"5a-kFB+j6mJbkL52xtIGdlPsStLEEU\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 23 Jul 2022 06:46:18 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Success getting premium's setting data\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": {}\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Premium Settings",
+							"id": "d0583ca2-f284-4491-8b1a-cb82d0ac576d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc3MjE4NTd9.thCKFvaB2VVx811ZzB7Fi0L2vAA_1peFwq4pcjn-Y9A",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"about\": \"Aku anak petualang\",\n        \"specialization_ids\": [1, 2, 3],\n        \"language_id\": 1,\n        \"is_auto_topup\": true,\n        \"auto_topup_amount\": \"30\",\n        \"minimum_balance\": \"100\",\n        \"is_card_default\": false,\n        \"credit_card_id\": \"898989\",\n        \"premium_profile_permission\": \"permission\",\n        \"feed_permission\": \"feed_permission\"\n      }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/setting/setting-create-update-primium",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"setting-create-update-primium"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "054f4442-add9-46a6-bce6-3f94bdce5add",
+									"name": "Update Premium Settings - SUCCESS",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc3MjE4NTd9.thCKFvaB2VVx811ZzB7Fi0L2vAA_1peFwq4pcjn-Y9A",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n        \"about\": \"Aku anak petualang\",\n        \"specialization_ids\": [1, 2, 3],\n        \"language_id\": 1,\n        \"is_auto_topup\": true,\n        \"auto_topup_amount\": \"30\",\n        \"minimum_balance\": \"100\",\n        \"is_card_default\": false,\n        \"credit_card_id\": \"898989\",\n        \"premium_profile_permission\": \"permission\",\n        \"feed_permission\": \"feed_permission\"\n      }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/setting/setting-create-update-primium",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"setting",
+												"setting-create-update-primium"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "89"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"59-u8NkuhOLNpqQrKjC00Yr3Y5NDqU\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 23 Jul 2022 07:21:40 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Success saving user premium setting\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": null\n}"
 								}
 							]
 						}
@@ -1229,6 +2202,1362 @@
 		{
 			"name": "Production Testing",
 			"item": [
+				{
+					"name": "Authentication Copy",
+					"item": [
+						{
+							"name": "Login",
+							"id": "2c5bfc97-9620-4d08-a498-8b36dc76b44b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/login?email=timotius.lianoto@idntimes.com&password=timo1234!",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"login"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "timotius.lianoto@idntimes.com"
+										},
+										{
+											"key": "password",
+											"value": "timo1234!"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "52d993b9-193f-4f0d-a337-71b2b664f716",
+									"name": "Login - SUCCESS",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/login?email=lionato14@gmail.com&password=timo1234!",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"login"
+											],
+											"query": [
+												{
+													"key": "email",
+													"value": "lionato14@gmail.com"
+												},
+												{
+													"key": "password",
+													"value": "timo1234!"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1254"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"4e6-quKmhukG5LRaU7gN2DCB3+gCsMs\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 11 Jul 2022 17:05:20 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Sign in Success\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": {\n        \"user\": {\n            \"_id\": \"62bff663b73449e933382049\",\n            \"email\": \"lionato14@gmail.com\",\n            \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc1NTkxMTl9.pnrH40_aKsK8hudq1ZqT8x0LsRyfU-bmQAtta7HYGQs\",\n            \"name\": \"Timotius Leonardo\",\n            \"hashed_password\": \"bbd12f1c502a631414707b7c90213ac3d4064bd2\",\n            \"salt\": \"781605352164\",\n            \"is_active\": false,\n            \"is_profile_complete\": true,\n            \"email_verified_at\": \"2022-07-02T07:40:19.908Z\",\n            \"is_online\": false,\n            \"is_snooze\": false,\n            \"createdAt\": \"2022-07-02T07:40:19.945Z\",\n            \"updatedAt\": \"2022-07-11T17:05:19.980Z\",\n            \"__v\": 0,\n            \"date_of_birth\": \"28-03-1999\",\n            \"gender\": \"MALE\",\n            \"height\": 190,\n            \"location\": \"Indonesia\",\n            \"phone_area\": \"+62\",\n            \"phone_number\": \"089682180054\",\n            \"pass\": \"timo1234!\",\n            \"account_id\": \"62c928d2773234a0e0085cba\",\n            \"id\": 1657359626947,\n            \"weight\": 70,\n            \"user_snooze_detail\": {\n                \"_id\": \"62c982de8581d17272ad48ad\",\n                \"user_id\": 1657359626947,\n                \"start_date\": \"2022-10-09T09:19:09.000Z\",\n                \"end_date\": \"2022-10-09T09:19:09.000Z\",\n                \"createdAt\": \"2022-07-09T13:30:06.642Z\",\n                \"updatedAt\": \"2022-07-09T13:30:06.642Z\",\n                \"__v\": 0\n            }\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc1NTkxMTl9.pnrH40_aKsK8hudq1ZqT8x0LsRyfU-bmQAtta7HYGQs\"\n    }\n}"
+								},
+								{
+									"id": "85972f48-0bd4-49a7-8da3-41e5eaf6f9f2",
+									"name": "Login - Invalid password or email",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/login?email=lionato14@gmail.com&password=4552a1f5c1a1a377d2dccb766438d64",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"login"
+											],
+											"query": [
+												{
+													"key": "email",
+													"value": "lionato14@gmail.com"
+												},
+												{
+													"key": "password",
+													"value": "4552a1f5c1a1a377d2dccb766438d64"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "65"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"41-TXYorG2KN5SjSp9MrXeRcUqR5yo\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 29 Jun 2022 05:22:16 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"success\": false,\n    \"error\": \"Either email or password do not match\"\n}"
+								},
+								{
+									"id": "d8cb4442-09e9-4b4f-9bb8-29e8a182b743",
+									"name": "Login - Password not contain number",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/login?email=lionato14@gmail.com&password=aaa",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"login"
+											],
+											"query": [
+												{
+													"key": "email",
+													"value": "lionato14@gmail.com"
+												},
+												{
+													"key": "password",
+													"value": "aaa"
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Entity",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "54"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"36-9JgfoEx6A+EJrYcE91vDduiKiL8\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 29 Jun 2022 05:23:08 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"error\": \"Password must contain at leat 6 characters\"\n}"
+								},
+								{
+									"id": "deabf265-2315-4f9c-805b-206ba9810942",
+									"name": "Login - SUCCESS -  when no user snooze detail",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/login?email=lionato14@gmail.com&password=timo1234!",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"login"
+											],
+											"query": [
+												{
+													"key": "email",
+													"value": "lionato14@gmail.com"
+												},
+												{
+													"key": "password",
+													"value": "timo1234!"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "929"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3a1-lpn7Hm44VgEHUcz1zrTkNDvUCJQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 11 Jul 2022 17:10:10 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Sign in Success\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": {\n        \"result\": {\n            \"_id\": \"62bff663b73449e933382049\",\n            \"email\": \"lionato14@gmail.com\",\n            \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc1NTk0MTB9.G5JUW0LJY0aOSaZcYfk96OGTl5K43u2GzYoYu74J7qQ\",\n            \"name\": \"Timotius Leonardo\",\n            \"is_active\": false,\n            \"is_profile_complete\": true,\n            \"email_verified_at\": \"2022-07-02T07:40:19.908Z\",\n            \"is_online\": false,\n            \"is_snooze\": false,\n            \"createdAt\": \"2022-07-02T07:40:19.945Z\",\n            \"updatedAt\": \"2022-07-11T17:10:10.252Z\",\n            \"__v\": 0,\n            \"date_of_birth\": \"28-03-1999\",\n            \"gender\": \"MALE\",\n            \"height\": 190,\n            \"location\": \"Indonesia\",\n            \"phone_area\": \"+62\",\n            \"phone_number\": \"089682180054\",\n            \"pass\": \"timo1234!\",\n            \"account_id\": \"62c928d2773234a0e0085cba\",\n            \"id\": 1657359626947,\n            \"weight\": 70\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTc1NTk0MTB9.G5JUW0LJY0aOSaZcYfk96OGTl5K43u2GzYoYu74J7qQ\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Register",
+							"id": "245bffdf-0ca1-40c9-a453-12763e156802",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"timotius.lianoto@idntimes.com\",\n    \"password\": \"timo123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/register",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"register"
+									]
+								},
+								"description": "**Params:**\n\nemail: `String`\n\npassword: `String`\n\n**Response:**\n\nUser,\n\nToken"
+							},
+							"response": [
+								{
+									"id": "e4ca2e3f-b7fa-4a44-850a-3202e741ee81",
+									"name": "Register - SUCCESS",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"lionato15@gmail.com\",\n    \"password\": \"timo123\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/register",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"register"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "96"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"60-3RAjNvYDU8IoVg34EYVJS9Ss5EU\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 29 Jun 2022 12:07:47 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Email has been sent to lionato15@gmail.com\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": null\n}"
+								},
+								{
+									"id": "45a75843-5dc6-40e7-9bca-938da57b58c5",
+									"name": "[ERROR] Register - Email is taken",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"timo123\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/register",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"register"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "108"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"6c-/RDwEIe2FSMbmrUa/SeK9U5jQdw\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 29 Jun 2022 15:37:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Email is taken, try to login or create account with another email\",\n    \"status\": 400,\n    \"success\": false\n}"
+								}
+							]
+						},
+						{
+							"name": "Activation",
+							"id": "624a6468-148f-49da-80b5-93490c47820f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/activation?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTY3NDc0ODMsImV4cCI6MTY1Njc0ODM4M30.neTlcTmuNoCv7oIzXXmq-YVskeJFgOKwTasAN7WXUvk",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"activation"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTY3NDc0ODMsImV4cCI6MTY1Njc0ODM4M30.neTlcTmuNoCv7oIzXXmq-YVskeJFgOKwTasAN7WXUvk"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "c2312bc4-e90f-4e06-a907-c9de71225466",
+									"name": "Activation - Token expired",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/activation?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTYwMzY1ODUsImV4cCI6MTY1NjAzNzQ4NX0.8fyidfU-jhweI7HBrq2fpWqJCiSvj7mcHeY8ZBhhgf8",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"activation"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTYwMzY1ODUsImV4cCI6MTY1NjAzNzQ4NX0.8fyidfU-jhweI7HBrq2fpWqJCiSvj7mcHeY8ZBhhgf8"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "46"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2e-CHda2oi5TyCGQ8gI+Ovj8D+N0MM\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 29 Jun 2022 05:33:42 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"error\": \"Expired Token. Please Signup again\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Forgot Password",
+							"id": "ec37aae3-22b2-46ca-b01a-eb9b661683c8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"timotius.lianoto@idntimes.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/forgot-password",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"forgot-password"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "4c9099eb-f7c2-4b85-8f34-a5da7b286a2d",
+									"name": "Forgot Password - SUCCESS",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"lionato14@gmail.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/forgot-password",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"forgot-password"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "71"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"47-vKmd+nMn9RjurtfLVlAWWwhaOwg\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 29 Jun 2022 05:34:08 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"success\": true,\n    \"message\": \"Email has been sent to lionato14@gmail.com\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Change Password",
+							"id": "ddafcbc5-2a4e-4e29-b343-d0380167435d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"timotius.lianoto@idntimes.com\",\n    \"password\": \"timo1234!\",\n    \"is_from_otp\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/change-password",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"change-password"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "51f51405-a282-4c11-a4cf-e728e3102eb6",
+									"name": "Change Password - SUCCESS",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4MzM4MDN9.gUNqE-S3Wi9oDoFUtWMnef-0AMyRMDYeH8yJkWgGPgo",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"timo1234!\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/change-password",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"change-password"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "83"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"53-uBNJ1+5ba+FMUr/GJsNvKJVM71A\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 01 Jul 2022 15:51:13 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Password successfully changed\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": null\n}"
+								},
+								{
+									"id": "0bf7e753-d56e-42ae-93bf-3d13c14e4f23",
+									"name": "Change Password - SUCCESS - Without Token / Auth",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"timotius.lianoto@idntimes.com\",\n    \"password\": \"timo1234!\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/change-password",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"change-password"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "83"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"53-uBNJ1+5ba+FMUr/GJsNvKJVM71A\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 16 Jul 2022 05:39:29 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Password successfully changed\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": null\n}"
+								},
+								{
+									"id": "ba5ca64a-9e73-485b-9ad3-b3222e94db29",
+									"name": "[ERROR] - Change Password - Password is too short",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4MzM4MDN9.gUNqE-S3Wi9oDoFUtWMnef-0AMyRMDYeH8yJkWgGPgo",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"tim\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/change-password",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"change-password"
+											]
+										}
+									},
+									"status": "Unprocessable Entity",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "116"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"74-ojm4zkvtLKl4qLc2QVtNP1v17/A\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 01 Jul 2022 15:55:37 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Validation errors\",\n    \"success\": false,\n    \"status\": 422,\n    \"errors\": \"Password must be at least  6 characters long\"\n}"
+								},
+								{
+									"id": "311adff4-c139-4693-99e4-68bf24c6ea5e",
+									"name": "[ERROR] - Change Password - Unauthorized",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "xxx",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"timo1234!\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/change-password",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"change-password"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "54"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"36-f3AosHNCIApstA1l/aTAt4s6MEg\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 03 Jul 2022 08:04:52 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Unautorized\",\n    \"status\": 401,\n    \"success\": false\n}"
+								}
+							]
+						},
+						{
+							"name": "Register Full Profile",
+							"id": "1228ba04-877f-44e3-9b20-6689018bcfbd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4MzM4MDN9.gUNqE-S3Wi9oDoFUtWMnef-0AMyRMDYeH8yJkWgGPgo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"date_of_birth\": \"28-03-1999\",\n    \"name\": \"Timotius Leonardo\",\n    \"gender\": \"MALE\",\n    \"height\": 190,\n    \"weight\": 70,\n    \"phone_area\": \"+62\",\n    \"phone_number\": \"089682180054\",\n    \"location\": \"Indonesia\",\n    \"email\": \"lionato14@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST_3000}}/api/register-full-profile",
+									"host": [
+										"{{LOCAL_HOST_3000}}"
+									],
+									"path": [
+										"api",
+										"register-full-profile"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "c603d4ba-d972-4a81-b1a7-db9c4a6cbbc3",
+									"name": "Register Full Profile - SUCCESS",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTY3NDc0ODMsImV4cCI6MTY1Njc0ODM4M30.neTlcTmuNoCv7oIzXXmq-YVskeJFgOKwTasAN7WXUvk",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"date_of_birth\": \"28-03-1999\",\n    \"name\": \"Timotius Leonardo\",\n    \"gender\": \"MALE\",\n    \"height\": 190,\n    \"weight\": 70,\n    \"phone_area\": \"+62\",\n    \"phone_number\": \"089682180054\",\n    \"location\": \"Indonesia\",\n    \"email\": \"lionato14@gmail.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST_3000}}/api/register-full-profile",
+											"host": [
+												"{{LOCAL_HOST_3000}}"
+											],
+											"path": [
+												"api",
+												"register-full-profile"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "93"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"5d-ZmV//bR8bM4KSosHNiJAoNdqAB4\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 02 Jul 2022 07:41:55 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Successfully register user full profile\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "Get All Data",
+							"id": "db860fc6-6591-4b31-a49d-e6f6eeec2fd4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{PRODUCTION_HOST}}/api/get-all-data",
+									"host": [
+										"{{PRODUCTION_HOST}}"
+									],
+									"path": [
+										"api",
+										"get-all-data"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "OTP Verification",
+							"id": "4ad30ad6-5cd1-459e-88b6-c6eae0c02505",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"timotius.lianoto@idntimes.com\",\n    \"otp\": \"867407\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST}}/api/otp-verification",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"api",
+										"otp-verification"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "eccc7810-0ca8-4580-a826-8abae80ec927",
+									"name": "[ERROR] OTP Verification - Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/otp-verification",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"otp-verification"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "54"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"36-MM42M7Ned6yJjyqaYifJjrrVRZ8\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 15 Jul 2022 18:55:55 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Bad Request\",\n    \"status\": 403,\n    \"success\": false\n}"
+								},
+								{
+									"id": "712726eb-c101-470e-b1ee-c1465b39c112",
+									"name": "[ERROR] OTP Verification - OTP is not valid",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"otp\": 5500\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/otp-verification",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"otp-verification"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "59"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3b-KZOrjUZ3RBkYb0hUkWsBXCwiHKw\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 15 Jul 2022 18:56:55 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"OTP is not valid\",\n    \"status\": 401,\n    \"success\": false\n}"
+								},
+								{
+									"id": "8a7849d1-c1ef-447d-8d12-a36d0c6398ce",
+									"name": "OTP Verification - SUCCESS",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"otp\": 563195\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/otp-verification",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"otp-verification"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "67"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"43-ZiXvpGUPVCEAU7bzJOgsZ3umH00\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 15 Jul 2022 19:04:56 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"OTP is Valid!\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": null\n}"
+								},
+								{
+									"id": "50bde708-920d-4c9c-95c8-be93eb8426ff",
+									"name": "[ERROR] OTP Verification - otp expired",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"timotius.lianoto@idntimes.com\",\n    \"otp\": \"913148\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_HOST}}/api/otp-verification",
+											"host": [
+												"{{LOCAL_HOST}}"
+											],
+											"path": [
+												"api",
+												"otp-verification"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "54"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"36-WHbHylv0pvltX8p4KV/pJyug8/c\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 16 Jul 2022 06:50:23 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"OTP expired\",\n    \"status\": 401,\n    \"success\": false\n}"
+								}
+							]
+						}
+					],
+					"id": "bdb208a2-bf82-45c4-bef4-6414f9a74672"
+				},
 				{
 					"name": "Library Copy",
 					"item": [
@@ -1395,660 +3724,6 @@
 						}
 					],
 					"id": "c6d3953a-752e-4ed1-9d1e-e6b11643bd2f"
-				},
-				{
-					"name": "Change Password Copy",
-					"id": "53c00120-1660-463e-8251-253bb32f4471",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmMxNGIxMzRhOTg0ZmVhY2IwNGQ1Y2UiLCJpYXQiOjE2NTY4MzQ4NDR9.rS34Nc1YQCbKbFjJX8zZHcTUtSoWUXChxA1_naEsWLo",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"dckchrist123@gmail.com\",\n    \"password\": \"A476b6db69e18e99\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{PRODUCTION_HOST}}/api/change-password",
-							"host": [
-								"{{PRODUCTION_HOST}}"
-							],
-							"path": [
-								"api",
-								"change-password"
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "db6d7fdc-838d-40f2-acfa-84fbb09a8f49",
-							"name": "Change Password - SUCCESS",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4MzM4MDN9.gUNqE-S3Wi9oDoFUtWMnef-0AMyRMDYeH8yJkWgGPgo",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"timo1234!\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{LOCAL_HOST}}/api/change-password",
-									"host": [
-										"{{LOCAL_HOST}}"
-									],
-									"path": [
-										"api",
-										"change-password"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "83"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"53-uBNJ1+5ba+FMUr/GJsNvKJVM71A\""
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 01 Jul 2022 15:51:13 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"message\": \"Password successfully changed\",\n    \"success\": true,\n    \"status\": 200,\n    \"data\": null\n}"
-						},
-						{
-							"id": "0ab1d406-4da9-4740-9f52-f4a59e5f3cb4",
-							"name": "[ERROR] - Change Password - Password is too short",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmJmZjY2M2I3MzQ0OWU5MzMzODIwNDkiLCJpYXQiOjE2NTY4MzM4MDN9.gUNqE-S3Wi9oDoFUtWMnef-0AMyRMDYeH8yJkWgGPgo",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"tim\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{LOCAL_HOST}}/api/change-password",
-									"host": [
-										"{{LOCAL_HOST}}"
-									],
-									"path": [
-										"api",
-										"change-password"
-									]
-								}
-							},
-							"status": "Unprocessable Entity",
-							"code": 422,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "116"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"74-ojm4zkvtLKl4qLc2QVtNP1v17/A\""
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 01 Jul 2022 15:55:37 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"message\": \"Validation errors\",\n    \"success\": false,\n    \"status\": 422,\n    \"errors\": \"Password must be at least  6 characters long\"\n}"
-						},
-						{
-							"id": "84624e98-130a-4b50-8137-18699d88a9a5",
-							"name": "[ERROR] - Change Password - Unauthorized",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "xxx",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"lionato14@gmail.com\",\n    \"password\": \"timo1234!\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{LOCAL_HOST}}/api/change-password",
-									"host": [
-										"{{LOCAL_HOST}}"
-									],
-									"path": [
-										"api",
-										"change-password"
-									]
-								}
-							},
-							"status": "Unauthorized",
-							"code": 401,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "54"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"36-f3AosHNCIApstA1l/aTAt4s6MEg\""
-								},
-								{
-									"key": "Date",
-									"value": "Sun, 03 Jul 2022 08:04:52 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"message\": \"Unautorized\",\n    \"status\": 401,\n    \"success\": false\n}"
-						}
-					]
-				},
-				{
-					"name": "Login Copy",
-					"id": "de5eb207-a8fb-416a-a5a6-f4e091461825",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{PRODUCTION_HOST}}/api/login?email=dckchrist123@gmail.com&password=A476b6db69e18e99",
-							"host": [
-								"{{PRODUCTION_HOST}}"
-							],
-							"path": [
-								"api",
-								"login"
-							],
-							"query": [
-								{
-									"key": "email",
-									"value": "dckchrist123@gmail.com"
-								},
-								{
-									"key": "password",
-									"value": "A476b6db69e18e99"
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "c68af6bf-d841-49f9-b1b7-30d61e729fc0",
-							"name": "Login - SUCCESS",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{LOCAL_HOST}}/api/login?email=lionato14@gmail.com&password=4552a1f5c1a1a377d2dccb766438d646",
-									"host": [
-										"{{LOCAL_HOST}}"
-									],
-									"path": [
-										"api",
-										"login"
-									],
-									"query": [
-										{
-											"key": "email",
-											"value": "lionato14@gmail.com"
-										},
-										{
-											"key": "password",
-											"value": "4552a1f5c1a1a377d2dccb766438d646"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "471"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"1d7-G5Lpb1RN1m0K7Tn3kONI8xZqp84\""
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 29 Jun 2022 05:20:51 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"success\": true,\n    \"message\": \"Sign in Success\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmI1MmE4Mzg5NWZiMjEyNDIyNjI5YjAiLCJpYXQiOjE2NTY0ODAwNTF9.iClfoklY7-uhJ-6kkiz-Z_Hkclm7lyn6hOKQ6A1mU2A\",\n    \"user\": {\n        \"_id\": \"62b52a83895fb212422629b0\",\n        \"email\": \"lionato14@gmail.com\",\n        \"name\": \"User-4-1-0z\",\n        \"hashed_password\": \"4a6a5429baae9fdfdf1ff7349c642fa30b6d93ab\",\n        \"salt\": \"1544673135885\",\n        \"createdAt\": \"2022-06-24T03:07:47.045Z\",\n        \"updatedAt\": \"2022-06-27T05:04:11.037Z\",\n        \"__v\": 0\n    }\n}"
-						},
-						{
-							"id": "b5a094e2-2d4a-4985-881b-d421948b6494",
-							"name": "Login - Invalid password or email",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{LOCAL_HOST}}/api/login?email=lionato14@gmail.com&password=4552a1f5c1a1a377d2dccb766438d64",
-									"host": [
-										"{{LOCAL_HOST}}"
-									],
-									"path": [
-										"api",
-										"login"
-									],
-									"query": [
-										{
-											"key": "email",
-											"value": "lionato14@gmail.com"
-										},
-										{
-											"key": "password",
-											"value": "4552a1f5c1a1a377d2dccb766438d64"
-										}
-									]
-								}
-							},
-							"status": "Bad Request",
-							"code": 400,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "65"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"41-TXYorG2KN5SjSp9MrXeRcUqR5yo\""
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 29 Jun 2022 05:22:16 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"success\": false,\n    \"error\": \"Either email or password do not match\"\n}"
-						},
-						{
-							"id": "e0caa6b2-efd4-4f60-bd41-83db76788f98",
-							"name": "Login - Password not contain number",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{LOCAL_HOST}}/api/login?email=lionato14@gmail.com&password=aaa",
-									"host": [
-										"{{LOCAL_HOST}}"
-									],
-									"path": [
-										"api",
-										"login"
-									],
-									"query": [
-										{
-											"key": "email",
-											"value": "lionato14@gmail.com"
-										},
-										{
-											"key": "password",
-											"value": "aaa"
-										}
-									]
-								}
-							},
-							"status": "Unprocessable Entity",
-							"code": 422,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "54"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"36-9JgfoEx6A+EJrYcE91vDduiKiL8\""
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 29 Jun 2022 05:23:08 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"error\": \"Password must contain at leat 6 characters\"\n}"
-						}
-					]
-				},
-				{
-					"name": "Forgot Password Copy",
-					"id": "99f15fb8-386f-472d-92c8-e72dcfa2d7d4",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"lionato14@gmail.com\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{LOCAL_HOST}}/api/forgot-password",
-							"host": [
-								"{{LOCAL_HOST}}"
-							],
-							"path": [
-								"api",
-								"forgot-password"
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "af56eb1d-438f-4014-9624-68eec21c1b9d",
-							"name": "Forgot Password - SUCCESS",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"lionato14@gmail.com\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{LOCAL_HOST}}/api/forgot-password",
-									"host": [
-										"{{LOCAL_HOST}}"
-									],
-									"path": [
-										"api",
-										"forgot-password"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "71"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"47-vKmd+nMn9RjurtfLVlAWWwhaOwg\""
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 29 Jun 2022 05:34:08 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"success\": true,\n    \"message\": \"Email has been sent to lionato14@gmail.com\"\n}"
-						}
-					]
-				},
-				{
-					"name": "Activation Copy",
-					"id": "a9ecaa4f-5dac-4638-b4a6-70d4a4d0c9c7",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{LOCAL_HOST}}/api/activation?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTYwMzY1ODUsImV4cCI6MTY1NjAzNzQ4NX0.8fyidfU-jhweI7HBrq2fpWqJCiSvj7mcHeY8ZBhhgf8",
-							"host": [
-								"{{LOCAL_HOST}}"
-							],
-							"path": [
-								"api",
-								"activation"
-							],
-							"query": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTYwMzY1ODUsImV4cCI6MTY1NjAzNzQ4NX0.8fyidfU-jhweI7HBrq2fpWqJCiSvj7mcHeY8ZBhhgf8"
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "c56879b4-d675-4fda-b4e3-83f2e808185d",
-							"name": "Activation - Token expired",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{LOCAL_HOST}}/api/activation?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTYwMzY1ODUsImV4cCI6MTY1NjAzNzQ4NX0.8fyidfU-jhweI7HBrq2fpWqJCiSvj7mcHeY8ZBhhgf8",
-									"host": [
-										"{{LOCAL_HOST}}"
-									],
-									"path": [
-										"api",
-										"activation"
-									],
-									"query": [
-										{
-											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxpb25hdG8xNEBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRpbW8xMjMiLCJpYXQiOjE2NTYwMzY1ODUsImV4cCI6MTY1NjAzNzQ4NX0.8fyidfU-jhweI7HBrq2fpWqJCiSvj7mcHeY8ZBhhgf8"
-										}
-									]
-								}
-							},
-							"status": "Unauthorized",
-							"code": 401,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "46"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"2e-CHda2oi5TyCGQ8gI+Ovj8D+N0MM\""
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 29 Jun 2022 05:33:42 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"error\": \"Expired Token. Please Signup again\"\n}"
-						}
-					]
 				}
 			],
 			"id": "097a6ca0-c577-441a-9325-37fcf94cc1b1"
