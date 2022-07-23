@@ -107,7 +107,7 @@ exports.getPremiumSettings = (req, res) => {
 
     const id = user.id;
 
-    return settingsModel.findOne({id}, 'about specialization_ids language_ids is_auto_topup auto_topup_amount minimum_balance is_card_default credit_card_id premium_profile_permission feed_permission', 
+    return settingsModel.findOne({id}, 'about specialization_ids language_id is_auto_topup auto_topup_amount minimum_balance is_card_default credit_card_id premium_profile_permission feed_permission', 
     (err, response) => {
         if (err) {
             return res.status(500).json(error("Cannot find user premium's setting, please try again", res.statusCode))
