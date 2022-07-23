@@ -113,7 +113,7 @@ exports.getPremiumSettings = (req, res) => {
             return res.status(500).json(error("Cannot find user premium's setting, please try again", res.statusCode))
         }
 
-        return res.json(success("Success getting premium's setting data", { ...response }, res.statusCode));
+        return res.json(success("Success getting premium's setting data", { ...response._doc }, res.statusCode));
     })
   });
 };
