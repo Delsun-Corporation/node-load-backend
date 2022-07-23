@@ -36,7 +36,7 @@ exports.getEditProfile = (req, res) => {
 
 exports.updateEditProfile = (req, res) => {
     const { authorization } = req.headers;
-    const { id, name, email, country_code, mobile, date_of_birth, country_id, facebook } = req.body;
+    const { id, name, email, country_code, mobile, date_of_birth, country_id, facebook, gender } = req.body;
     
     authModel.findOne({
         id
@@ -50,7 +50,7 @@ exports.updateEditProfile = (req, res) => {
         }
 
         const updatedData = {
-            name, email, country_code, mobile, date_of_birth, country_id, facebook
+            name, email, country_code, mobile, date_of_birth, country_id, facebook, gender
         }
 
         user = _.extend(user, updatedData);
