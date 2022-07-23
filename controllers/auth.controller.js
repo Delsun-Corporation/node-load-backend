@@ -538,7 +538,7 @@ exports.getAllData = (req, res) => {
 
                   return professional_scheduleModel.find({is_active: 1}, (err, professional_schedule_advance_booking) => {
 
-                    return specializationModel.find({is_active: "1"}, (err, specialization) => {
+                    return specializationModel.find({is_active: "1"}, (err, specializations) => {
 
                       return race_distanceModel.find({is_active: 1}, (err, settings_race_distances) => {
 
@@ -569,7 +569,7 @@ exports.getAllData = (req, res) => {
                                             cancellation_policy,
                                             payment_options,
                                             professional_schedule_advance_booking,
-                                            specialization,
+                                            specializations,
                                             settings_race_distances,
                                             currencies,
                                             services,
