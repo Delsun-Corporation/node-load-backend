@@ -50,7 +50,7 @@ exports.createCreditCardList = (req, res) => {
 
             var is_default = false;
 
-            if (!creditCards) {
+            if (creditCards.length < 1) {
                 is_default = true;
             }
 
