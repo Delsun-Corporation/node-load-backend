@@ -1,5 +1,5 @@
 const express = require('express');
-const { createCreditCardList, getCreditCardList } = require('../controllers/settings/credit_card_controller');
+const { createCreditCardList, getCreditCardList, updateDefaultPaymentMethod } = require('../controllers/settings/credit_card_controller');
 const { getEditProfile, updateEditProfile } = require('../controllers/settings/edit_profile.controller');
 const { updatePremiumSettings, getPremiumSettings } = require('../controllers/settings/premium.controller');
 const router = express.Router();
@@ -13,5 +13,6 @@ router.get('/get-credit-card', getCreditCardList);
 router.post('/user-update', updateEditProfile);
 router.post('/setting-create-update-primium', updatePremiumSettings);
 router.post('/create-credit-card', createCreditCardList);
+router.post('/update-default-payment', updateDefaultPaymentMethod);
 
 module.exports = router;

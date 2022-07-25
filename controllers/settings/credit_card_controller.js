@@ -1,6 +1,7 @@
 const { error, success } = require("../../helper/baseJsonResponse");
 const authModel = require("../../models/auth.model");
 const credit_cardModel = require("../../models/credit_card.model");
+const _ = require('lodash');
 
 exports.createCreditCardList = (req, res) => {
     const { authorization } = req.headers;
@@ -95,6 +96,54 @@ exports.getCreditCardList = (req, res) => {
             }
 
             return res.json(success("Success get all user credit cards", credits, res.statusCode));
+        })
+    })
+}
+
+exports.updateDefaultPaymentMethod = (req, res) => {
+    const { authorization } = req.headers;
+    const { id } = req.body;
+
+    authModel.findOne({token: authorization}, (err, user) => {
+        if (err || !user) {
+            return res.status(401).json(error("Unauthorized", res.statusCode));
+        }
+        return credit_cardModel.findById(id, (err, credit) => {
+            if (err || !credit) {
+                return res.status(500).json(error("Cannot find the credit card, please try again later", res.statusCode));
+            }
+
+            return credit_cardModel.findOne({is_default: true}, (err, defaultCredit) => {
+                if (err || !defaultCredit) {
+                    return res.status(500).json(error("Cannot find default credit card, please try again later", res.statusCode));
+                }
+
+                const updateDefaultData = {
+                    is_default: false
+                }
+
+                defaultCredit = _.extend(defaultCredit, updateDefaultData);
+
+                return defaultCredit.save((err, result) => {
+                    if (err) {
+                        return res.status(500).json(error("Error updating default payment, please try again", res.statusCode));
+                    }
+
+                    const updateDefaultData = {
+                        is_default: true
+                    }
+
+                    credit = _.extend(credit, updateDefaultData);
+
+                    return credit.save((err, result) => {
+                        if (err) {
+                            return res.status(500).json(error("Error updating default payment, please try again", res.statusCode));
+                        }
+
+                        return res.json(success("Success get all user credit cards", null, res.statusCode));
+                    })
+                })
+            })
         })
     })
 }
