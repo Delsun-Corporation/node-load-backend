@@ -19,7 +19,7 @@ exports.updatePremiumSettings = (req, res) => {
   } = req.body;
 
   authModel.findOne({ authorization }, (err, user) => {
-    if (err) {
+    if (err || !user) {
       return res.status(401).json(error("Unauthorized", res.statusCode));
     }
 
@@ -101,7 +101,7 @@ exports.getPremiumSettings = (req, res) => {
   const { authorization } = req.headers;
 
   authModel.findOne({ authorization }, (err, user) => {
-    if (err) {
+    if (err || !user) {
       return res.status(401).json(error("Unauthorized", res.statusCode));
     }
 
@@ -109,7 +109,7 @@ exports.getPremiumSettings = (req, res) => {
 
     return settingsModel.findOne({id}, 'about specialization_ids language_id is_auto_topup auto_topup_amount minimum_balance is_card_default credit_card_id premium_profile_permission feed_permission', 
     (err, response) => {
-        if (err) {
+        if (err || !response) {
             return res.status(500).json(error("Cannot find user premium's setting, please try again", res.statusCode))
         }
 
