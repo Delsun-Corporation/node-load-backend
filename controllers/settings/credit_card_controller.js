@@ -104,6 +104,10 @@ exports.updateDefaultPaymentMethod = (req, res) => {
     const { authorization } = req.headers;
     const { id } = req.body;
 
+    if (id == null || id == undefined || id == '') {
+        return res.status(403).json(error("False request", res.statusCode));
+    }
+
     authModel.findOne({token: authorization}, (err, user) => {
         if (err || !user) {
             return res.status(401).json(error("Unauthorized", res.statusCode));
