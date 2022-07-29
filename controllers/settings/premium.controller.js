@@ -25,11 +25,12 @@ exports.updatePremiumSettings = (req, res) => {
 
     const id = user.id;
 
-    return settingsModel.findOne({ id }, (err, setting) => {
+    return settingsModel.findOne({ user_id: id }, (err, setting) => {
       if (err || !setting) {
         console.log("Cannot Find setting model, create one instead");
         var setting = new settingsModel();
         const updateData = {
+          user_id: id,
           about,
           specialization_ids,
           language_id,
@@ -63,6 +64,7 @@ exports.updatePremiumSettings = (req, res) => {
       }
 
       const updateData = {
+        user_id: id,
         about,
         specialization_ids,
         language_id,
@@ -107,7 +109,7 @@ exports.getPremiumSettings = (req, res) => {
 
     const id = user.id;
 
-    return settingsModel.findOne({id}, 'about specialization_ids language_id is_auto_topup auto_topup_amount minimum_balance is_card_default credit_card_id premium_profile_permission feed_permission', 
+    return settingsModel.findOne({user_id: id}, 'about specialization_ids language_id is_auto_topup auto_topup_amount minimum_balance is_card_default credit_card_id premium_profile_permission feed_permission', 
     (err, response) => {
         if (err || !response) {
             return res.status(500).json(error("Cannot find user premium's setting, please try again", res.statusCode))

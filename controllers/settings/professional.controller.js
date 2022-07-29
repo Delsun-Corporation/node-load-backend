@@ -13,13 +13,13 @@ exports.getProfessionalData = (req, res) => {
     
         const id = user.id;
     
-        return settingsModel.findOne({id}, 'is_custom is_auto_accept cancellation_policy_id rate per_multiple_session_rate professional_type_id location_name languages_written_ids professional_specialization_ids currency_id amenities professional_language_id experience_and_achievements general_rules per_session_rates terms_of_service academic_and_certifications introduction session_duration payment_option_id days session_maximum_clients basic_requirements profession is_form is_answered is_auto_form professional_type_id', 
+        return settingsModel.findOne({user_id: id}, 'is_custom is_auto_accept cancellation_policy_id rate per_multiple_session_rate professional_type_id location_name languages_written_ids professional_specialization_ids currency_id amenities professional_language_id experience_and_achievements general_rules per_session_rates terms_of_service academic_and_certifications introduction session_duration payment_option_id days session_maximum_clients basic_requirements profession is_form is_answered is_auto_form professional_type_id', 
         (err, response) => {
             if (err || !response) {
-                return res.status(500).json(error("Cannot find user premium's setting, please try again", res.statusCode))
+                return res.status(500).json(error("Cannot find user professional's setting, please try again", res.statusCode))
             }
     
-            return res.json(success("Success getting premium's setting data", { ...response._doc }, res.statusCode));
+            return res.json(success("Success getting professional's setting data", { ...response._doc }, res.statusCode));
         })
       });
 }
@@ -60,11 +60,12 @@ exports.updateProfessionalSettings = (req, res) => {
   
       const id = user.id;
   
-      return settingsModel.findOne({ id }, (err, setting) => {
+      return settingsModel.findOne({ user_id: id }, (err, setting) => {
         if (err || !setting) {
           console.log("Cannot Find setting model, create one instead");
           var setting = new settingsModel();
           const updateData = {
+            user_id: id,
             profession,
             introduction,
             rate,
@@ -106,12 +107,13 @@ exports.updateProfessionalSettings = (req, res) => {
             }
   
             return res.json(
-              success("Success saving user premium setting", null, res.statusCode)
+              success("Success saving user professional setting", null, res.statusCode)
             );
           });
         }
   
         const updateData = {
+            user_id: id,
             profession,
             introduction,
             rate,
