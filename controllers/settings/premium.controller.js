@@ -18,7 +18,7 @@ exports.updatePremiumSettings = (req, res) => {
     feed_permission,
   } = req.body;
 
-  authModel.findOne({ authorization }, (err, user) => {
+  authModel.findOne({ token: authorization }, (err, user) => {
     if (err || !user) {
       return res.status(401).json(error("Unauthorized", res.statusCode));
     }
@@ -100,7 +100,7 @@ exports.updatePremiumSettings = (req, res) => {
 exports.getPremiumSettings = (req, res) => {
   const { authorization } = req.headers;
 
-  authModel.findOne({ authorization }, (err, user) => {
+  authModel.findOne({ token: authorization }, (err, user) => {
     if (err || !user) {
       return res.status(401).json(error("Unauthorized", res.statusCode));
     }
