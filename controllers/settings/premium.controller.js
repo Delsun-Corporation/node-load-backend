@@ -111,9 +111,13 @@ exports.getPremiumSettings = (req, res) => {
 
     return settingsModel.findOne({user_id: id}, 'about specialization_ids language_id is_auto_topup auto_topup_amount minimum_balance is_card_default credit_card_id premium_profile_permission feed_permission', 
     (err, response) => {
-        if (err || !response) {
+        if (err) {
             return res.status(500).json(error("Cannot find user premium's setting, please try again", res.statusCode))
         }
+
+        if (!response) {
+          return res.json(success("Success getting professional's setting data", null, res.statusCode));
+      }
 
         return res.json(success("Success getting premium's setting data", { ...response._doc }, res.statusCode));
     })
