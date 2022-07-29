@@ -117,9 +117,13 @@ exports.updateDefaultPaymentMethod = (req, res) => {
                 return res.status(500).json(error("Cannot find the credit card, please try again later", res.statusCode));
             }
 
-            return credit_cardModel.findOne({is_default: true}, (err, defaultCredit) => {
+            return credit_cardModel.findOne({is_default: true, user_id: user.id}, (err, defaultCredit) => {
                 if (err || !defaultCredit) {
                     return res.status(500).json(error("Cannot find default credit card, please try again later", res.statusCode));
+                }
+
+                if (defaultCredit._id.toString() == credit._id.toString()) {
+                    return res.json(success("Success save default credit card", null, res.statusCode));
                 }
 
                 const updateDefaultData = {
@@ -133,18 +137,18 @@ exports.updateDefaultPaymentMethod = (req, res) => {
                         return res.status(500).json(error("Error updating default payment, please try again", res.statusCode));
                     }
 
-                    const updateDefaultData = {
+                    const newDefaultData = {
                         is_default: true
                     }
 
-                    credit = _.extend(credit, updateDefaultData);
+                    credit = _.extend(credit, newDefaultData);
 
                     return credit.save((err, result) => {
                         if (err) {
                             return res.status(500).json(error("Error updating default payment, please try again", res.statusCode));
                         }
 
-                        return res.json(success("Success get all user credit cards", null, res.statusCode));
+                        return res.json(success("Success save default credit card", null, res.statusCode));
                     })
                 })
             })
