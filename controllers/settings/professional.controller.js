@@ -2,6 +2,7 @@ const { error, success } = require("../../helper/baseJsonResponse");
 const authModel = require("../../models/auth.model");
 const settingsModel = require("../../models/settings.model");
 const _ = require("lodash");
+const specializationModel = require("../../models/specialization.model");
 
 exports.getProfessionalData = (req, res) => {
   const { authorization } = req.headers;
@@ -38,17 +39,33 @@ exports.getProfessionalData = (req, res) => {
           );
         }
 
-        return res.json(
-          success(
-            "Success getting professional's setting data",
-            {
-              specialization_ids: response._doc.professional_specialization_ids,
-              languages_spoken_ids: response._doc.professional_language_id,
-              ...response._doc,
-            },
-            res.statusCode
-          )
-        );
+        const _ids = response._doc.professional_specialization_ids;
+
+        return specializationModel.find({id: {$in: _ids}}, (err, specialization_details) => {
+            if (err) {
+                return res
+                  .status(500)
+                  .json(
+                    error(
+                      "Cannot find user specialization_details, please try again",
+                      res.statusCode
+                    )
+                  );
+              }
+
+              return res.json(
+                success(
+                  "Success getting professional's setting data",
+                  {
+                    specialization_details,
+                    specialization_ids: response._doc.professional_specialization_ids,
+                    languages_spoken_ids: response._doc.professional_language_id,
+                    ...response._doc,
+                  },
+                  res.statusCode
+                )
+              );
+        })
       }
     );
   });
