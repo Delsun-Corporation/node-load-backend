@@ -37,7 +37,7 @@ const settingsSchema = new mongoose.Schema(
     session_duration: String,
     payment_option_id: String,
     days: [String],
-    session_maximum_clients: Number,
+    session_maximum_clients: String,
     basic_requirements: String,
     profession: String,
     is_form: Boolean,
