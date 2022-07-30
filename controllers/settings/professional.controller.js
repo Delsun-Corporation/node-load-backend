@@ -22,7 +22,7 @@ exports.getProfessionalData = (req, res) => {
             if (!response) {
                 return res.json(success("Success getting professional's setting data", null, res.statusCode));
             }
-    
+            
             return res.json(success("Success getting professional's setting data", { ...response._doc }, res.statusCode));
         })
       });
