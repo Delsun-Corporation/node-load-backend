@@ -46,7 +46,8 @@ const settingsSchema = new mongoose.Schema(
     is_custom: Boolean,
     professional_type_id: Number,
     latitude: Number,
-    longitude: Number
+    longitude: Number,
+    session_per_package: String
   },
   { timestamps: true }
 );
