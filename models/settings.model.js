@@ -47,7 +47,14 @@ const settingsSchema = new mongoose.Schema(
     professional_type_id: Number,
     latitude: Number,
     longitude: Number,
-    session_per_package: String
+    session_per_package: String,
+    academic_credentials:
+      [
+        {
+          AwardingInstitution: String,
+          CourseOfStudy: String,
+        }
+      ]
   },
   { timestamps: true }
 );
