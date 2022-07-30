@@ -16,7 +16,7 @@ exports.getProfessionalData = (req, res) => {
 
     return settingsModel.findOne(
       { user_id: id },
-      "academic_credentials is_custom is_auto_accept cancellation_policy_id rate per_multiple_session_rate professional_type_id location_name languages_written_ids professional_specialization_ids currency_id amenities professional_language_id experience_and_achievements general_rules per_session_rates terms_of_service academic_and_certifications introduction session_duration payment_option_id days session_maximum_clients basic_requirement profession is_form is_answered is_auto_form professional_type_id longitude latitude session_per_package",
+      "is_form_agree is_form_compulsary is_form_auto_send academic_credentials is_custom is_auto_accept cancellation_policy_id rate per_multiple_session_rate professional_type_id location_name languages_written_ids professional_specialization_ids currency_id amenities professional_language_id experience_and_achievements general_rules per_session_rates terms_of_service academic_and_certifications introduction session_duration payment_option_id days session_maximum_clients basic_requirement profession is_answered is_auto_form professional_type_id longitude latitude session_per_package",
       (err, response) => {
         if (err) {
           return res
@@ -41,31 +41,35 @@ exports.getProfessionalData = (req, res) => {
 
         const _ids = response._doc.professional_specialization_ids;
 
-        return specializationModel.find({id: {$in: _ids}}, (err, specialization_details) => {
+        return specializationModel.find(
+          { id: { $in: _ids } },
+          (err, specialization_details) => {
             if (err) {
-                return res
-                  .status(500)
-                  .json(
-                    error(
-                      "Cannot find user specialization_details, please try again",
-                      res.statusCode
-                    )
-                  );
-              }
+              return res
+                .status(500)
+                .json(
+                  error(
+                    "Cannot find user specialization_details, please try again",
+                    res.statusCode
+                  )
+                );
+            }
 
-              return res.json(
-                success(
-                  "Success getting professional's setting data",
-                  {
-                    specialization_details,
-                    specialization_ids: response._doc.professional_specialization_ids,
-                    languages_spoken_ids: response._doc.professional_language_id,
-                    ...response._doc,
-                  },
-                  res.statusCode
-                )
-              );
-        })
+            return res.json(
+              success(
+                "Success getting professional's setting data",
+                {
+                  specialization_details,
+                  specialization_ids:
+                    response._doc.professional_specialization_ids,
+                  languages_spoken_ids: response._doc.professional_language_id,
+                  ...response._doc,
+                },
+                res.statusCode
+              )
+            );
+          }
+        );
       }
     );
   });
@@ -96,9 +100,11 @@ exports.updateProfessionalSettings = (req, res) => {
     longitude,
     location_name,
     academic_credentials,
-    is_forms,
     is_answered,
     session_per_package,
+    is_form_auto_send,
+    is_form_compulsary,
+    is_form_agree,
   } = req.body;
 
   authModel.findOne({ token: authorization }, (err, user) => {
@@ -136,9 +142,11 @@ exports.updateProfessionalSettings = (req, res) => {
           longitude,
           location_name,
           academic_credentials,
-          is_forms,
           is_answered,
           session_per_package,
+          is_form_auto_send,
+          is_form_compulsary,
+          is_form_agree,
         };
 
         setting = _.extend(setting, updateData);
@@ -189,9 +197,11 @@ exports.updateProfessionalSettings = (req, res) => {
         longitude,
         location_name,
         academic_credentials,
-        is_forms,
         is_answered,
         session_per_package,
+        is_form_auto_send,
+        is_form_compulsary,
+        is_form_agree,
       };
 
       setting = _.extend(setting, updateData);
