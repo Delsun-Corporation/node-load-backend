@@ -30,7 +30,7 @@ const settingsSchema = new mongoose.Schema(
     professional_language_id: [Number],
     experience_and_achievements: String,
     general_rules: String,
-    per_session_rates: String,
+    per_session_rate: String,
     terms_of_service: String,
     academic_and_certifications: String,
     introduction: String,
