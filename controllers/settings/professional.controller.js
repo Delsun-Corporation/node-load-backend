@@ -16,7 +16,7 @@ exports.getProfessionalData = (req, res) => {
 
     return settingsModel.findOne(
       { user_id: id },
-      "is_form_agree is_form_compulsary is_form_auto_send academic_credentials is_custom is_auto_accept cancellation_policy_id rate per_multiple_session_rate professional_type_id location_name languages_written_ids professional_specialization_ids currency_id amenities professional_language_id experience_and_achievements general_rules per_session_rate terms_of_service academic_and_certifications introduction session_duration payment_option_id days session_maximum_clients basic_requirement profession is_answered is_auto_form professional_type_id longitude latitude session_per_package",
+      "schedule_management is_form_agree is_form_compulsary is_form_auto_send academic_credentials is_custom is_auto_accept cancellation_policy_id rate per_multiple_session_rate professional_type_id location_name languages_written_ids professional_specialization_ids currency_id amenities professional_language_id experience_and_achievements general_rules per_session_rate terms_of_service academic_and_certifications introduction session_duration payment_option_id days session_maximum_clients basic_requirement profession is_answered is_auto_form professional_type_id longitude latitude session_per_package",
       (err, response) => {
         if (err) {
           return res
@@ -105,6 +105,7 @@ exports.updateProfessionalSettings = (req, res) => {
     is_form_auto_send,
     is_form_compulsary,
     is_form_agree,
+    schedule_management
   } = req.body;
 
   authModel.findOne({ token: authorization }, (err, user) => {
@@ -147,6 +148,7 @@ exports.updateProfessionalSettings = (req, res) => {
           is_form_auto_send,
           is_form_compulsary,
           is_form_agree,
+          schedule_management
         };
 
         setting = _.extend(setting, updateData);
@@ -202,6 +204,7 @@ exports.updateProfessionalSettings = (req, res) => {
         is_form_auto_send,
         is_form_compulsary,
         is_form_agree,
+        schedule_management
       };
 
       setting = _.extend(setting, updateData);

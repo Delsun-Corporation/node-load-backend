@@ -50,13 +50,16 @@ const settingsSchema = new mongoose.Schema(
     latitude: Number,
     longitude: Number,
     session_per_package: Number,
-    academic_credentials:
-      [
-        {
-          AwardingInstitution: String,
-          CourseOfStudy: String,
-        }
-      ]
+    academic_credentials: [
+      {
+        AwardingInstitution: String,
+        CourseOfStudy: String,
+      },
+    ],
+    schedule_management: {
+      allow_advance_booking: Boolean,
+      time_in_advance_id: Number,
+    },
   },
   { timestamps: true }
 );
