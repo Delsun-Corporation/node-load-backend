@@ -72,6 +72,7 @@ const settingsSchema = new mongoose.Schema(
     schedule_management: {
       allow_advance_booking: Boolean,
       time_in_advance_id: Number,
+      is_schedule_auto_accept: Boolean
     },
   },
   { timestamps: true }
