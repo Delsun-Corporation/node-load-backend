@@ -74,6 +74,25 @@ const settingsSchema = new mongoose.Schema(
       time_in_advance_id: Number,
       is_schedule_auto_accept: Boolean
     },
+
+    // Training Data
+    height: Number,
+    race_time: String,
+    race_distance_id: Number,
+    hr_max: Number,
+    hr_rest: Number,
+    weight: Number,
+    training_unit_ids: [String],
+    run_auto_pause: Boolean,
+    cycle_auto_pause: Boolean,
+    is_hr_max_is_estimated: Boolean,
+    training_physical_activity_level_ids: Number,
+    vo2_max: Number,
+    is_vo2_max_is_estimated: Boolean,
+    bike_weight: Number,
+    bike_wheel_diameter: Number,
+    bike_front_chainwheel: Number,
+    bike_rear_freewheel: Number
   },
   { timestamps: true }
 );
