@@ -45,10 +45,10 @@ const settingsSchema = new mongoose.Schema(
             name: String,
             break: String,
             selected_day: Boolean,
-            openning_hours: String
-          }
-        ]
-      }
+            openning_hours: String,
+          },
+        ],
+      },
     ],
     session_maximum_clients: Number,
     basic_requirement: String,
@@ -72,7 +72,7 @@ const settingsSchema = new mongoose.Schema(
     schedule_management: {
       allow_advance_booking: Boolean,
       time_in_advance_id: Number,
-      is_schedule_auto_accept: Boolean
+      is_schedule_auto_accept: Boolean,
     },
 
     // Training Data
@@ -92,7 +92,30 @@ const settingsSchema = new mongoose.Schema(
     bike_weight: Number,
     bike_wheel_diameter: Number,
     bike_front_chainwheel: Number,
-    bike_rear_freewheel: Number
+    bike_rear_freewheel: Number,
+
+    // Units Data
+    units: {
+      type: [
+        {
+          title: String,
+          description: String,
+          is_selected: Boolean,
+        },
+      ],
+      default: [
+        {
+          title: "Metric",
+          description: "kg, km, m, km/hr, min/km, min/100 m",
+          is_selected: true
+        },
+        {
+          title: "Imperial",
+          description: "lbs, miles, yd, miles/hr, min/miles, min/100 yd",
+          is_selected: false
+        }
+      ]
+    }
   },
   { timestamps: true }
 );

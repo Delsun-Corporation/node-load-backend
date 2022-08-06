@@ -185,3 +185,52 @@ exports.updateTrainingSettings = (req, res) => {
     });
   });
 };
+
+exports.getTrainingUnitsData = (req, res) => {
+    const { authorization } = req.headers;
+
+    authModel.findOne({ token: authorization }, (err, user) => {
+        if (err || !user) {
+          return res.status(401).json(error("Unauthorized", res.statusCode));
+        }
+    
+        const id = user.id;
+    
+        return settingsModel.findOne(
+          { user_id: id },
+          "units",
+          (err, response) => {
+            if (err) {
+              return res
+                .status(500)
+                .json(
+                  error(
+                    "Cannot find user training's setting, please try again",
+                    res.statusCode
+                  )
+                );
+            }
+    
+            if (!response) {
+              return res.json(
+                success(
+                  "Success getting training's setting data",
+                  null,
+                  res.statusCode
+                )
+              );
+            }
+
+            return res.json(
+                success(
+                  "Success getting training's setting data",
+                  {
+                    ...response._doc,
+                  },
+                  res.statusCode
+                )
+              );
+          }
+        );
+      });
+}

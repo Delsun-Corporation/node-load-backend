@@ -3,7 +3,7 @@ const { createCreditCardList, getCreditCardList, updateDefaultPaymentMethod } = 
 const { getEditProfile, updateEditProfile } = require('../controllers/settings/edit_profile.controller');
 const { updatePremiumSettings, getPremiumSettings } = require('../controllers/settings/premium.controller');
 const { updateProfessionalSettings, getProfessionalData } = require('../controllers/settings/professional.controller');
-const { getTrainingData, updateTrainingSettings } = require('../controllers/settings/training.controller');
+const { getTrainingData, updateTrainingSettings, getTrainingUnitsData } = require('../controllers/settings/training.controller');
 const router = express.Router();
 
 // GET
@@ -12,6 +12,7 @@ router.get('/get-setting-primium', getPremiumSettings);
 router.get('/get-credit-card', getCreditCardList);
 router.get('/get-professional-profile-details', getProfessionalData);
 router.get('/get-setting-program', getTrainingData);
+router.get('/all-training-units-list', getTrainingUnitsData);
 
 // POST
 router.post('/user-update', updateEditProfile);
