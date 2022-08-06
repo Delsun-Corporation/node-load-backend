@@ -224,9 +224,7 @@ exports.getTrainingUnitsData = (req, res) => {
             return res.json(
                 success(
                   "Success getting training's setting data",
-                  {
-                    ...response._doc.units,
-                  },
+                  response._doc.units,
                   res.statusCode
                 )
               );
@@ -272,9 +270,7 @@ exports.updateTrainingUnitsData = (req, res) => {
               return res.json(
                 success(
                   "Success getting training's setting data",
-                  {
-                    ...result._doc.units,
-                  },
+                  response._doc.units,
                   res.statusCode
                 )
               );
@@ -298,9 +294,7 @@ exports.updateTrainingUnitsData = (req, res) => {
             return res.json(
                 success(
                   "Success saving training's setting data",
-                  {
-                    ...result._doc.units,
-                  },
+                  response._doc.units,
                   res.statusCode
                 )
               );
