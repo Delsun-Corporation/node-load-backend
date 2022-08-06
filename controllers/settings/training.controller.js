@@ -130,13 +130,23 @@ exports.updateTrainingSettings = (req, res) => {
               );
           }
 
-          return res.json(
-            success(
-              "Success saving user training setting",
-              null,
-              res.statusCode
-            )
-          );
+        const _ids = result._doc.race_distance_id;
+
+        return raceDistanceModel.findOne(
+          { id: _ids },
+          (err, race_distance_detail) => {
+            return res.json(
+              success(
+                "Success getting training's setting data",
+                {
+                    race_distance_detail,
+                  ...result._doc,
+                },
+                res.statusCode
+              )
+            );
+          }
+        );
         });
       }
 
@@ -154,12 +164,22 @@ exports.updateTrainingSettings = (req, res) => {
             );
         }
 
-        return res.json(
-          success(
-            "Success saving user training setting",
-            null,
-            res.statusCode
-          )
+        const _ids = result._doc.race_distance_id;
+
+        return raceDistanceModel.findOne(
+          { id: _ids },
+          (err, race_distance_detail) => {
+            return res.json(
+              success(
+                "Success getting training's setting data",
+                {
+                    race_distance_detail,
+                  ...result._doc,
+                },
+                res.statusCode
+              )
+            );
+          }
         );
       });
     });
