@@ -86,7 +86,7 @@ const settingsSchema = new mongoose.Schema(
     run_auto_pause: Boolean,
     cycle_auto_pause: Boolean,
     is_hr_max_is_estimated: Boolean,
-    training_physical_activity_level_ids: Number,
+    training_physical_activity_level_ids: String,
     vo2_max: Number,
     is_vo2_max_is_estimated: Boolean,
     bike_weight: Number,
@@ -115,7 +115,7 @@ const settingsSchema = new mongoose.Schema(
           is_selected: false
         }
       ]
-    }
+    },
   },
   { timestamps: true }
 );

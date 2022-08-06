@@ -3,6 +3,7 @@ const authModel = require("../../models/auth.model");
 const settingsModel = require("../../models/settings.model");
 const raceDistanceModel = require("../../models/race_distance.model");
 const _ = require("lodash");
+const training_activity_levelModel = require("../../models/training/physical_activity_levels.model");
 
 exports.getTrainingData = (req, res) => {
   const { authorization } = req.headers;
@@ -230,6 +231,72 @@ exports.getTrainingUnitsData = (req, res) => {
                   res.statusCode
                 )
               );
+          }
+        );
+      });
+}
+
+exports.getTrainingPhysicalLevelData = (req, res) => {
+    const { authorization } = req.headers;
+
+    authModel.findOne({ token: authorization }, (err, user) => {
+        if (err || !user) {
+          return res.status(401).json(error("Unauthorized", res.statusCode));
+        }
+    
+        const id = user.id;
+    
+        return settingsModel.findOne(
+          { user_id: id },
+          "training_physical_activity_level_ids",
+          (err, user) => {
+            if (err) {
+              return res
+                .status(500)
+                .json(
+                  error(
+                    "Cannot find user training's setting, please try again",
+                    res.statusCode
+                  )
+                );
+            }
+
+            if (!user || user.training_physical_activity_level_ids == null || user.training_physical_activity_level_ids == undefined || user.training_physical_activity_level_ids == '' ) {
+                return training_activity_levelModel.find({}, (err, training_activity_levels) => {
+                    return res.json(
+                        success(
+                          "Success getting training's setting data",
+                          training_activity_levels,
+                          res.statusCode
+                        )
+                    );
+                })
+            }
+
+            return training_activity_levelModel.find({}, (err, training_activity_levels) => {
+                if (!training_activity_levels) {
+                    return res
+                    .status(500)
+                    .json(
+                      error(
+                        "Cannot find user training activity levels, please try again",
+                        res.statusCode
+                      )
+                    );
+                }
+
+                training_activity_levels.forEach(function (level) {
+                    level.is_selected = level._id.toString() == user.training_physical_activity_level_ids
+                });
+
+                return res.json(
+                    success(
+                      "Success getting training's setting data",
+                      training_activity_levels,
+                      res.statusCode
+                    )
+                );
+            })
           }
         );
       });
