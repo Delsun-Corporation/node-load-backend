@@ -80,7 +80,8 @@ exports.updateTrainingSettings = (req, res) => {
     bike_weight, 
     bike_wheel_diameter, 
     bike_front_chainwheel, 
-    bike_rear_freewheel
+    bike_rear_freewheel,
+    units
   } = req.body;
 
   authModel.findOne({ token: authorization }, (err, user) => {
@@ -108,7 +109,8 @@ exports.updateTrainingSettings = (req, res) => {
         bike_weight, 
         bike_wheel_diameter, 
         bike_front_chainwheel, 
-        bike_rear_freewheel
+        bike_rear_freewheel,
+        units
       };
 
     return settingsModel.findOne({ user_id: id }, (err, setting) => {
@@ -230,75 +232,5 @@ exports.getTrainingUnitsData = (req, res) => {
               );
           }
         );
-      });
-}
-
-exports.updateTrainingUnitsData = (req, res) => {
-    const { authorization } = req.headers;
-    const { units } = req.body;
-
-    authModel.findOne({ token: authorization }, (err, user) => {
-        if (err || !user) {
-          return res.status(401).json(error("Unauthorized", res.statusCode));
-        }
-    
-        const id = user.id;
-    
-        const updateData = {
-            units
-          };
-    
-        return settingsModel.findOne({ user_id: id }, (err, setting) => {
-          if (err || !setting) {
-            console.log("Cannot Find setting model, create one instead");
-            var setting = new settingsModel();
-    
-            setting = _.extend(setting, updateData);
-    
-            return setting.save((err, result) => {
-              if (err) {
-                return res
-                  .status(500)
-                  .json(
-                    error(
-                      "Error while saving to server, please try again",
-                      res.statusCode
-                    )
-                  );
-              }
-
-              return res.json(
-                success(
-                  "Success getting training's setting data",
-                  response._doc.units,
-                  res.statusCode
-                )
-              );
-            });
-          }
-    
-          setting = _.extend(setting, updateData);
-    
-          return setting.save((err, result) => {
-            if (err) {
-              return res
-                .status(500)
-                .json(
-                  error(
-                    "Error while saving to server, please try again",
-                    res.statusCode
-                  )
-                );
-            }
-
-            return res.json(
-                success(
-                  "Success saving training's setting data",
-                  response._doc.units,
-                  res.statusCode
-                )
-              );
-          });
-        });
       });
 }
