@@ -10,7 +10,7 @@ const creditCardSchema = new mongoose.Schema(
         expiry_date: Date,
         cvv: String,
         address: String,
-        country_id: Number,
+        country_name: String,
         city: String,
         state_province_region: String,
         postal_code: String,

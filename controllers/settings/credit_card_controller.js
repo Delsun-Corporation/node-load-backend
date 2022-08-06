@@ -11,7 +11,7 @@ exports.createCreditCardList = (req, res) => {
         expiry_date,
         cvv,
         address,
-        country_id,
+        country_name,
         city,
         state_province_region,
         postal_code,
@@ -22,7 +22,7 @@ exports.createCreditCardList = (req, res) => {
         expiry_date == null ||
         cvv == null ||
         address == null ||
-        country_id == null ||
+        country_name == null ||
         city == null ||
         state_province_region == null ||
         postal_code == null) {
@@ -61,7 +61,7 @@ exports.createCreditCardList = (req, res) => {
                 expiry_date,
                 cvv,
                 address,
-                country_id,
+                country_name,
                 city,
                 state_province_region,
                 postal_code,
