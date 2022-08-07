@@ -82,7 +82,9 @@ const settingsSchema = new mongoose.Schema(
     hr_max: Number,
     hr_rest: Number,
     weight: Number,
-    training_unit_ids: String,
+    training_unit_ids: {
+      type: String
+    },
     run_auto_pause: Boolean,
     cycle_auto_pause: Boolean,
     is_hr_max_is_estimated: Boolean,
