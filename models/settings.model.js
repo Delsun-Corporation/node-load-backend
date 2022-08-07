@@ -82,7 +82,7 @@ const settingsSchema = new mongoose.Schema(
     hr_max: Number,
     hr_rest: Number,
     weight: Number,
-    training_unit_ids: [String],
+    training_unit_ids: String,
     run_auto_pause: Boolean,
     cycle_auto_pause: Boolean,
     is_hr_max_is_estimated: Boolean,
@@ -92,30 +92,7 @@ const settingsSchema = new mongoose.Schema(
     bike_weight: Number,
     bike_wheel_diameter: Number,
     bike_front_chainwheel: Number,
-    bike_rear_freewheel: Number,
-
-    // Units Data
-    units: {
-      type: [
-        {
-          title: String,
-          description: String,
-          is_selected: Boolean,
-        },
-      ],
-      default: [
-        {
-          title: "Metric",
-          description: "kg, km, m, km/hr, min/km, min/100 m",
-          is_selected: true
-        },
-        {
-          title: "Imperial",
-          description: "lbs, miles, yd, miles/hr, min/miles, min/100 yd",
-          is_selected: false
-        }
-      ]
-    },
+    bike_rear_freewheel: Number
   },
   { timestamps: true }
 );

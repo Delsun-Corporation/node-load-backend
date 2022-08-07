@@ -4,6 +4,7 @@ const settingsModel = require("../../models/settings.model");
 const raceDistanceModel = require("../../models/race_distance.model");
 const _ = require("lodash");
 const training_activity_levelModel = require("../../models/training/physical_activity_levels.model");
+const setting_training_unitsModel = require("../../models/training/setting_training_units.model");
 
 exports.getTrainingData = (req, res) => {
   const { authorization } = req.headers;
@@ -81,8 +82,7 @@ exports.updateTrainingSettings = (req, res) => {
     bike_weight, 
     bike_wheel_diameter, 
     bike_front_chainwheel, 
-    bike_rear_freewheel,
-    units
+    bike_rear_freewheel
   } = req.body;
 
   authModel.findOne({ token: authorization }, (err, user) => {
@@ -111,7 +111,6 @@ exports.updateTrainingSettings = (req, res) => {
         bike_wheel_diameter, 
         bike_front_chainwheel, 
         bike_rear_freewheel,
-        units
       };
 
     return settingsModel.findOne({ user_id: id }, (err, setting) => {
@@ -201,8 +200,8 @@ exports.getTrainingUnitsData = (req, res) => {
     
         return settingsModel.findOne(
           { user_id: id },
-          "units",
-          (err, response) => {
+          "training_unit_ids",
+          (err, user) => {
             if (err) {
               return res
                 .status(500)
@@ -213,24 +212,43 @@ exports.getTrainingUnitsData = (req, res) => {
                   )
                 );
             }
-    
-            if (!response) {
-              return res.json(
-                success(
-                  "Success getting training's setting data",
-                  null,
-                  res.statusCode
-                )
-              );
+
+            if (!user || user.training_unit_ids == null || user.training_unit_ids == undefined || user.training_unit_ids == '' ) {
+                return setting_training_unitsModel.find({}, (err, training_units) => {
+                    return res.json(
+                        success(
+                          "Success getting training's setting data",
+                          training_units,
+                          res.statusCode
+                        )
+                    );
+                })
             }
 
-            return res.json(
-                success(
-                  "Success getting training's setting data",
-                  response._doc.units,
-                  res.statusCode
-                )
-              );
+            return setting_training_unitsModel.find({}, (err, training_units) => {
+                if (!training_units) {
+                    return res
+                    .status(500)
+                    .json(
+                      error(
+                        "Cannot find user training activity levels, please try again",
+                        res.statusCode
+                      )
+                    );
+                }
+
+                training_units.forEach(function (units) {
+                    units.is_selected = units._id.toString() == user.training_unit_ids
+                });
+
+                return res.json(
+                    success(
+                      "Success getting training's setting data",
+                      training_units,
+                      res.statusCode
+                    )
+                );
+            })
           }
         );
       });
