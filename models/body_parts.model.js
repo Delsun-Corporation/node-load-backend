@@ -7,6 +7,9 @@ const bodyPartSchema = new mongoose.Schema(
         id: {
             type: Number
         },
+        parent_id: {
+            type: Number
+        },
         name: {
             type: String
         },
