@@ -96,7 +96,15 @@ const settingsSchema = new mongoose.Schema(
     bike_weight: Number,
     bike_wheel_diameter: Number,
     bike_front_chainwheel: Number,
-    bike_rear_freewheel: Number
+    bike_rear_freewheel: Number,
+
+    // Time under tension data
+    time_under_tension: [
+      {
+        id: String,
+        user_updated_tempo: String
+      }
+    ]
   },
   { timestamps: true }
 );

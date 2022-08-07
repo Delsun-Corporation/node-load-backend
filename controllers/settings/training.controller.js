@@ -5,6 +5,7 @@ const raceDistanceModel = require("../../models/race_distance.model");
 const _ = require("lodash");
 const training_activity_levelModel = require("../../models/training/physical_activity_levels.model");
 const setting_training_unitsModel = require("../../models/training/setting_training_units.model");
+const time_under_tensionModel = require("../../models/time_under_tension.model");
 
 exports.getTrainingData = (req, res) => {
   const { authorization } = req.headers;
@@ -82,7 +83,8 @@ exports.updateTrainingSettings = (req, res) => {
     bike_weight, 
     bike_wheel_diameter, 
     bike_front_chainwheel, 
-    bike_rear_freewheel
+    bike_rear_freewheel,
+    time_under_tension
   } = req.body;
 
   authModel.findOne({ token: authorization }, (err, user) => {
@@ -111,6 +113,7 @@ exports.updateTrainingSettings = (req, res) => {
         bike_wheel_diameter, 
         bike_front_chainwheel, 
         bike_rear_freewheel,
+        time_under_tension
       };
 
     return settingsModel.findOne({ user_id: id }, (err, setting) => {
@@ -311,6 +314,78 @@ exports.getTrainingPhysicalLevelData = (req, res) => {
                     success(
                       "Success getting training's setting data",
                       training_activity_levels,
+                      res.statusCode
+                    )
+                );
+            })
+          }
+        );
+      });
+}
+
+exports.getTrainingTimeUnderTension = (req, res) => {
+    const { authorization } = req.headers;
+
+    authModel.findOne({ token: authorization }, (err, user) => {
+        if (err || !user) {
+          return res.status(401).json(error("Unauthorized", res.statusCode));
+        }
+    
+        const id = user.id;
+    
+        return settingsModel.findOne(
+          { user_id: id },
+          "time_under_tension",
+          (err, user) => {
+            if (err) {
+              return res
+                .status(500)
+                .json(
+                  error(
+                    "Cannot find user training's setting, please try again",
+                    res.statusCode
+                  )
+                );
+            }
+
+            if (!user || user.time_under_tension == null || user.time_under_tension == undefined ) {
+                return time_under_tensionModel.find({}, (err, time_under_tension) => {
+                    return res.json(
+                        success(
+                          "Success getting time under tension's setting data",
+                          time_under_tension,
+                          res.statusCode
+                        )
+                    );
+                })
+            }
+
+            return time_under_tensionModel.find({}, (err, time_under_tension) => {
+                if (!time_under_tension) {
+                    return res
+                    .status(500)
+                    .json(
+                      error(
+                        "Cannot find user training time under tension data, please try again",
+                        res.statusCode
+                      )
+                    );
+                }
+
+                time_under_tension.forEach(function (time) {
+                    user.time_under_tension.forEach(function (user_time) {
+                        if (user_time.id == time._id.toString()) {
+                            if (time.user_updated_tempo != null || time.user_updated_tempo != undefined || time.user_updated_tempo != []) {
+                                time.user_updated_tempo = user_time.user_updated_tempo
+                            }
+                        }
+                    })
+                });
+
+                return res.json(
+                    success(
+                      "Success getting time under tension's setting data",
+                      time_under_tension,
                       res.statusCode
                     )
                 );
