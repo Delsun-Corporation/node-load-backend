@@ -554,7 +554,7 @@ exports.getAllData = (req, res) => {
 
                                   return preset_training_programsModel.find({is_active: 1, status: "RESISTANCE"}, (err, resistance_preset_training_program) => {
                                     
-                                    return body_partsModel.find({is_active: "1"}, (err, body_parts) => {
+                                    return body_partsModel.find({is_active: "1", parent_id: null}, (err, body_parts) => {
 
                                       return res.json(
                                         success(
@@ -577,7 +577,7 @@ exports.getAllData = (req, res) => {
                                             regions,
                                             cardio_preset_training_program,
                                             resistance_preset_training_program,
-                                            body_parts
+                                            category: body_parts
                                           },
                                           res.statusCode
                                         )
