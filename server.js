@@ -30,10 +30,12 @@ if(process.env.NODE_ENV == 'development') {
 const authRouter = require('./routes/auth.route.js');
 const accountRouter = require('./routes/account.route.js');
 const settingsRouter = require('./routes/settings.route.js');
+const libraryRouter = require('./routes/libraries.route.js');
 
 app.use('/api/', authRouter);
 app.use('/api/setting/', accountRouter);
 app.use('/api/setting/', settingsRouter);
+app.use('/api/library/', libraryRouter);
 app.use((req, res, next) => {
     res.status(404).json({
         success: false,
