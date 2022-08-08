@@ -9,7 +9,7 @@ const settingsSchema = new mongoose.Schema(
     },
     about: String,
     specialization_ids: [Number],
-    language_id: Number,
+    language_id: [Number],
     is_auto_topup: Boolean,
     auto_topup_amount: Number,
     minimum_balance: String,
