@@ -44,16 +44,16 @@ const bodyPartSchema = new mongoose.Schema(
             type: [
                 {
                     id: {
-                        type: String
+                        type: Number
                     },
                     exercise_name: {
                         type: String
                     },
                     category_id: {
-                        type: String
+                        type: Number
                     },
                     sub_header_id: {
-                        type: String
+                        type: Number
                     },
                     body_image_type: {
                         type: Number
@@ -77,7 +77,7 @@ const bodyPartSchema = new mongoose.Schema(
                     exercise_link: {
                         type: String
                     },
-                    is_favorite: String,
+                    is_favorite: Number,
                     created_at: {
                         type: Date
                     },

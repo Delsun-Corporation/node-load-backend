@@ -30,13 +30,13 @@ exports.postLibraryList = (req, res) => {
             if (!body_parts) {
                 return res.json(success("Success find body parts data", null, res.statusCode));
             }
-            const sub_header_ids = []
+            const category_ids = []
             
             body_parts.forEach(element => {
-                sub_header_ids.push(element.id.toString())
+                category_ids.push(element.id)
             });
 
-            return common_librariesModel.find({ sub_header_id: { $in: sub_header_ids } }, (err, common_libraries) => {
+            return common_librariesModel.find({ category_id: { $in: category_ids } }, (err, common_libraries) => {
                 if (err) {
                     return res.status(500).json(error("Cannot get common libraries", res.statusCode));
                 }
@@ -49,7 +49,7 @@ exports.postLibraryList = (req, res) => {
 
                 body_parts.forEach(body => {
                     common_libraries.forEach(library => {
-                        if (body.id.toString() == library.sub_header_id && library.exercise_name.includes(searchKeyword)) {
+                        if (body.id.toString() == library.category_id && library.exercise_name.includes(searchKeyword)) {
                             body.data.push(library);
                         }
                     });
