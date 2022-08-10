@@ -26,7 +26,7 @@ const bodyPartSchema = new mongoose.Schema(
             type: String
         },
         is_region: {
-            type: Boolean
+            type: String
         },
         image: {
             type: String

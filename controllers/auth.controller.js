@@ -548,7 +548,7 @@ exports.getAllData = (req, res) => {
 
                             return countries.find({is_active: 1}, (err, countries) => {
 
-                              return regionsModel.find({is_active: 1}, (err, regions) => {
+                              return body_partsModel.find({is_region: "1"}, (err, regions) => {
 
                                 return preset_training_programsModel.find({is_active: 1, status: "CARDIO"}, (err, cardio_preset_training_program) => {
 
