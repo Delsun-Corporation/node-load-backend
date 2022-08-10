@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { commonLibrariesDataModel } = require("./common_libraries.model");
 
 const Schema = mongoose.Schema;
 
@@ -42,49 +43,7 @@ const bodyPartSchema = new mongoose.Schema(
         },
         data: {
             type: [
-                {
-                    id: {
-                        type: Number
-                    },
-                    exercise_name: {
-                        type: String
-                    },
-                    category_id: {
-                        type: Number
-                    },
-                    sub_header_id: {
-                        type: Number
-                    },
-                    body_image_type: {
-                        type: Number
-                    },
-                    regions_ids: {
-                        type: [String]
-                    },
-                    regions_secondary_ids: {
-                        type: [String]
-                    },
-                    motion: String,
-                    movement: String,
-                    mechanics_id: String,
-                    targeted_muscles_ids: {
-                        type: [String]
-                    },
-                    action_force_id: String,
-                    equipment_ids: {
-                        type: [String]
-                    },
-                    exercise_link: {
-                        type: String
-                    },
-                    is_favorite: Number,
-                    created_at: {
-                        type: Date
-                    },
-                    updated_at: {
-                        type: Date
-                    }
-                }
+                commonLibrariesDataModel
             ]
         }
     },
