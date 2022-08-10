@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const equipmentSchema = new mongoose.Schema(
     {
+        id: Number,
         name: {
             type: String
         },
@@ -11,10 +12,10 @@ const equipmentSchema = new mongoose.Schema(
             type: String
         },
         is_active: {
-            type: Boolean
+            type: String
         }
     },
     {timestamps: true}
 );
 
-module.exports = mongoose.model("Equipment", equipmentSchema);
+module.exports = mongoose.model("equipments", equipmentSchema);
