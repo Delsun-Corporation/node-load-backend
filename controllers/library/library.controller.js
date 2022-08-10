@@ -72,6 +72,15 @@ exports.postLibraryList = (req, res) => {
                     body.id == library.sub_header_id &&
                     library.exercise_name.includes(searchKeyword)
                   ) {
+                    const splittedRegionsString = library.regions_ids.split(/[, ]+/);
+                    const splittedMusclesString = library.targeted_muscles_ids.split(/[, ]+/);
+                    const splittedEquipmentsString = library.equipment_ids.split(/[, ]+/);
+                    const splittedregions_secondary_idsString = library.regions_secondary_ids.split(/[, ]+/);
+                    
+                    library._doc.regions_ids = splittedRegionsString;
+                    library._doc.targeted_muscles_ids = splittedMusclesString;
+                    library._doc.equipment_ids = splittedEquipmentsString;
+                    library._doc.regions_secondary_ids = splittedregions_secondary_idsString;
                     body.data.push(library);
                   }
                 });

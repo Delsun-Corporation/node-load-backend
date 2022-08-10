@@ -59,20 +59,20 @@ const bodyPartSchema = new mongoose.Schema(
                         type: Number
                     },
                     regions_ids: {
-                        type: String
+                        type: [String]
                     },
                     regions_secondary_ids: {
-                        type: String
+                        type: [String]
                     },
                     motion: String,
                     movement: String,
                     mechanics_id: String,
                     targeted_muscles_ids: {
-                        type: String
+                        type: [String]
                     },
                     action_force_id: String,
                     equipment_ids: {
-                        type: String
+                        type: [String]
                     },
                     exercise_link: {
                         type: String
