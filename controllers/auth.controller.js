@@ -35,6 +35,7 @@ const preset_training_programsModel = require("../models/training/preset_trainin
 const body_partsModel = require("../models/body_parts.model");
 const { changePassword } = require("../screens/changePassword.screen");
 const mechanicsModel = require("../models/mechanics.model");
+const action_forceModel = require("../models/action_force.model");
 
 function getDefaultUserId() {
   return Math.round(Date.now() + Math.random());
@@ -558,33 +559,39 @@ exports.getAllData = (req, res) => {
                                     return body_partsModel.find({is_active: "1", parent_id: null}, (err, body_parts) => {
 
                                       return mechanicsModel.find({is_active: 1}, (err, mechanics) => {
-                                        return res.json(
-                                          success(
-                                            "Success Get All Data",
-                                            {
-                                              accounts,
-                                              available_times,
-                                              training_types,
-                                              training_intensity,
-                                              languages,
-                                              professional_types,
-                                              cancellation_policy,
-                                              payment_options,
-                                              professional_schedule_advance_booking,
-                                              specializations,
-                                              settings_race_distances,
-                                              currencies,
-                                              services,
-                                              countries,
-                                              regions,
-                                              cardio_preset_training_program,
-                                              resistance_preset_training_program,
-                                              category: body_parts,
-                                              mechanics
-                                            },
-                                            res.statusCode
-                                          )
-                                        );
+
+                                        return action_forceModel.find({is_active: 1}, (err, action_force) => {
+
+                                          return res.json(
+                                            success(
+                                              "Success Get All Data",
+                                              {
+                                                accounts,
+                                                available_times,
+                                                training_types,
+                                                training_intensity,
+                                                languages,
+                                                professional_types,
+                                                cancellation_policy,
+                                                payment_options,
+                                                professional_schedule_advance_booking,
+                                                specializations,
+                                                settings_race_distances,
+                                                currencies,
+                                                services,
+                                                countries,
+                                                regions,
+                                                cardio_preset_training_program,
+                                                resistance_preset_training_program,
+                                                category: body_parts,
+                                                mechanics,
+                                                action_force
+                                              },
+                                              res.statusCode
+                                            )
+                                          );
+
+                                        });
                                       })
 
                                     })

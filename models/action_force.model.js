@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const actionForceSchema = new mongoose.Schema(
     {
+        id: Number,
         name: {
             type: String
         },
@@ -11,10 +12,10 @@ const actionForceSchema = new mongoose.Schema(
             type: String
         },
         is_active: {
-            type: Boolean
+            type: Number
         }
     },
     {timestamps: true}
 );
 
-module.exports = mongoose.model("ActionForce", actionForceSchema);
+module.exports = mongoose.model("action_forces", actionForceSchema);
