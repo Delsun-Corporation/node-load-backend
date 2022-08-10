@@ -37,6 +37,7 @@ const { changePassword } = require("../screens/changePassword.screen");
 const mechanicsModel = require("../models/mechanics.model");
 const action_forceModel = require("../models/action_force.model");
 const equipmentModel = require("../models/equipment.model");
+const targeted_muscleModel = require("../models/targeted_muscle.model");
 
 function getDefaultUserId() {
   return Math.round(Date.now() + Math.random());
@@ -564,35 +565,42 @@ exports.getAllData = (req, res) => {
                                         return action_forceModel.find({is_active: 1}, (err, action_force) => {
 
                                           return equipmentModel.find({is_active: "1"}, (err, equipments) => {
-                                            return res.json(
-                                              success(
-                                                "Success Get All Data",
-                                                {
-                                                  accounts,
-                                                  available_times,
-                                                  training_types,
-                                                  training_intensity,
-                                                  languages,
-                                                  professional_types,
-                                                  cancellation_policy,
-                                                  payment_options,
-                                                  professional_schedule_advance_booking,
-                                                  specializations,
-                                                  settings_race_distances,
-                                                  currencies,
-                                                  services,
-                                                  countries,
-                                                  regions,
-                                                  cardio_preset_training_program,
-                                                  resistance_preset_training_program,
-                                                  category: body_parts,
-                                                  mechanics,
-                                                  action_force,
-                                                  equipments
-                                                },
-                                                res.statusCode
-                                              )
-                                            );
+
+                                            return targeted_muscleModel.find({is_active: "1"}, (err, targeted_muscles) => {
+
+                                              return res.json(
+                                                success(
+                                                  "Success Get All Data",
+                                                  {
+                                                    accounts,
+                                                    available_times,
+                                                    training_types,
+                                                    training_intensity,
+                                                    languages,
+                                                    professional_types,
+                                                    cancellation_policy,
+                                                    payment_options,
+                                                    professional_schedule_advance_booking,
+                                                    specializations,
+                                                    settings_race_distances,
+                                                    currencies,
+                                                    services,
+                                                    countries,
+                                                    regions,
+                                                    cardio_preset_training_program,
+                                                    resistance_preset_training_program,
+                                                    category: body_parts,
+                                                    mechanics,
+                                                    action_force,
+                                                    equipments,
+                                                    targeted_muscles
+                                                  },
+                                                  res.statusCode
+                                                )
+                                              );
+
+                                            });
+                                            
                                           })
 
                                         });
