@@ -44,4 +44,4 @@ const librariesSchema = new mongoose.Schema(
     {timestamps: true}
 );
 
-module.exports = mongoose.model("Libraries", librariesSchema);
+module.exports = mongoose.model("libraries", librariesSchema);

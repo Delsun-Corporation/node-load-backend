@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { commonLibrariesDataModel } = require("./common_libraries.model");
+const { commonLibrariesDataModel } = require("./libraries/common_libraries.model");
 
 const Schema = mongoose.Schema;
 
