@@ -108,3 +108,7 @@ exports.postLibraryList = (req, res) => {
     });
   });
 };
+
+exports.addFavouriteLibrary = (req, res) => {
+  // const { library }
+}

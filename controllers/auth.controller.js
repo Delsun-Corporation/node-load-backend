@@ -486,10 +486,12 @@ exports.registerFullProfileController = (req, res) => {
             .json(error("Error resetting user password", res.statusCode));
         }
 
+        const token = result.token;
+
         return res.json(
           success(
             "Successfully register user full profile",
-            { user: result },
+            { user: result, token },
             res.statusCode
           )
         );
