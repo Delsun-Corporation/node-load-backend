@@ -8,7 +8,7 @@ const userLibrariesSchema = new mongoose.Schema(
             type: [Number]
         },
         user_id: {
-            type: String
+            type: Number
         },
     },
     {timestamps: true}

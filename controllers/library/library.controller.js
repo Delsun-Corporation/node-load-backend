@@ -63,6 +63,8 @@ exports.postLibraryList = (req, res) => {
                 );
               }
 
+              // return user_librariesModel.findOne({})
+
               const searchKeyword =
                 search == null || search == undefined || search == ""
                   ? ""
@@ -136,12 +138,12 @@ exports.addFavouriteLibrary = (req, res) => {
   const library_id = req.params.libraryId;
   const { user_id, is_favorite } = req.body;
   const { authorization } = req.headers;
-  console.log(library_id);
+
   if (library_id == null || library_id == undefined || library_id == "") {
     return res.status(403).json(error("Invalid request", res.statusCode));
   }
 
-  authModel.findOne({ user_id }, (err, user) => {
+  authModel.findOne({ id: user_id }, (err, user) => {
     if (err || !user) {
       return res
         .status(500)
