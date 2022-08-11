@@ -63,68 +63,98 @@ exports.postLibraryList = (req, res) => {
                 );
               }
 
-              // return user_librariesModel.findOne({})
-
-              const searchKeyword =
-                search == null || search == undefined || search == ""
-                  ? ""
-                  : search;
-
-              body_parts.forEach((body) => {
-                common_libraries.forEach((library) => {
-                  if (
-                    body.id == library.sub_header_id &&
-                    library.exercise_name.includes(searchKeyword)
-                  ) {
-                    if (
-                      library.regions_ids != null &&
-                      library.regions_ids != undefined &&
-                      library.regions_ids != ""
-                    ) {
-                      const splittedRegionsString =
-                        library.regions_ids.split(/[, ]+/);
-                      library._doc.regions_ids = splittedRegionsString;
-                    }
-                    if (
-                      library.targeted_muscles_ids != null &&
-                      library.targeted_muscles_ids != undefined &&
-                      library.targeted_muscles_ids != ""
-                    ) {
-                      const splittedMusclesString =
-                        library.targeted_muscles_ids.split(/[, ]+/);
-                      library._doc.targeted_muscles_ids = splittedMusclesString;
-                    }
-                    if (
-                      library.equipment_ids != null &&
-                      library.equipment_ids != undefined &&
-                      library.equipment_ids != ""
-                    ) {
-                      const splittedEquipmentsString =
-                        library.equipment_ids.split(/[, ]+/);
-                      library._doc.equipment_ids = splittedEquipmentsString;
-                    }
-                    if (
-                      library.regions_secondary_ids != null &&
-                      library.regions_secondary_ids != undefined &&
-                      library.regions_secondary_ids != ""
-                    ) {
-                      const splittedregions_secondary_idsString =
-                        library.regions_secondary_ids.split(/[, ]+/);
-                      library._doc.regions_secondary_ids =
-                        splittedregions_secondary_idsString;
-                    }
-
-                    body.data.push(library);
+              return user_librariesModel.findOne(
+                { id },
+                (err, user_library) => {
+                  if (err) {
+                    return res
+                      .status(500)
+                      .json(
+                        error(
+                          "Error server while get user libraries",
+                          res.statusCode
+                        )
+                      );
                   }
-                });
-              });
 
-              return res.json(
-                success(
-                  "Scucces get library list",
-                  { list: body_parts },
-                  res.statusCode
-                )
+                  if (user_library != undefined && user_library != null) {
+                    // Search for favorite user_library
+                    const favorite_libraries = user_library.favorite_libraries;
+
+                    if (favorite_libraries !== undefined || favorite_libraries.length > 0) {
+                      // array exists
+                      common_libraries.forEach((library) => {
+                        favorite_libraries.forEach((favorite_library) => {
+                          library.is_favorite = library.id == favorite_library
+                        })
+                      })
+                    }
+                  }
+
+                  
+                  const searchKeyword =
+                    search == null || search == undefined || search == ""
+                      ? ""
+                      : search;
+
+                  body_parts.forEach((body) => {
+                    common_libraries.forEach((library) => {
+                      if (
+                        body.id == library.sub_header_id &&
+                        library.exercise_name.includes(searchKeyword)
+                      ) {
+                        if (
+                          library.regions_ids != null &&
+                          library.regions_ids != undefined &&
+                          library.regions_ids != ""
+                        ) {
+                          const splittedRegionsString =
+                            library.regions_ids.split(/[, ]+/);
+                          library._doc.regions_ids = splittedRegionsString;
+                        }
+                        if (
+                          library.targeted_muscles_ids != null &&
+                          library.targeted_muscles_ids != undefined &&
+                          library.targeted_muscles_ids != ""
+                        ) {
+                          const splittedMusclesString =
+                            library.targeted_muscles_ids.split(/[, ]+/);
+                          library._doc.targeted_muscles_ids =
+                            splittedMusclesString;
+                        }
+                        if (
+                          library.equipment_ids != null &&
+                          library.equipment_ids != undefined &&
+                          library.equipment_ids != ""
+                        ) {
+                          const splittedEquipmentsString =
+                            library.equipment_ids.split(/[, ]+/);
+                          library._doc.equipment_ids = splittedEquipmentsString;
+                        }
+                        if (
+                          library.regions_secondary_ids != null &&
+                          library.regions_secondary_ids != undefined &&
+                          library.regions_secondary_ids != ""
+                        ) {
+                          const splittedregions_secondary_idsString =
+                            library.regions_secondary_ids.split(/[, ]+/);
+                          library._doc.regions_secondary_ids =
+                            splittedregions_secondary_idsString;
+                        }
+
+                        body.data.push(library);
+                      }
+                    });
+                  });
+
+                  return res.json(
+                    success(
+                      "Scucces get library list",
+                      { list: body_parts },
+                      res.statusCode
+                    )
+                  );
+                }
               );
             }
           );
@@ -206,7 +236,8 @@ exports.addFavouriteLibrary = (req, res) => {
       } else {
         // if not, remove data from list if exist
         const index = updateUserFavoriteLibraries.indexOf(library_id);
-        if (index > -1) { // only splice array when item is found
+        if (index > -1) {
+          // only splice array when item is found
           updateUserFavoriteLibraries.splice(index, 1); // 2nd parameter means remove one item only
         }
       }
