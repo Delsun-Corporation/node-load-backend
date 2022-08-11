@@ -12,7 +12,7 @@ const settingsSchema = new mongoose.Schema(
     language_id: [Number],
     is_auto_topup: Boolean,
     auto_topup_amount: Number,
-    minimum_balance: String,
+    minimum_balance: Number,
     is_card_default: Boolean,
     credit_card_id: String,
     premium_profile_permission: String,
