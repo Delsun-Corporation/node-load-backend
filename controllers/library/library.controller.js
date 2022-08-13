@@ -92,7 +92,10 @@ exports.postLibraryList = (req, res) => {
                   // array exists
                   selectedFavoriteLibraries.forEach((library) => {
                     favorite_libraries.forEach((favorite_library) => {
-                      library.is_favorite = library.id == favorite_library
+                      if (library.id == favorite_library) {
+                        console.log(library.id);
+                        library.is_favorite = 1
+                      }
                     })
                   })
                 }
@@ -227,7 +230,9 @@ exports.postLibraryList = (req, res) => {
                       // array exists
                       common_libraries.forEach((library) => {
                         favorite_libraries.forEach((favorite_library) => {
-                          library.is_favorite = library.id == favorite_library
+                          if (library.id == favorite_library) {
+                            library.is_favorite = 1
+                          }
                         })
                       })
                     }
