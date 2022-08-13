@@ -24,6 +24,148 @@ exports.postLibraryList = (req, res) => {
 
     const id = user.id;
 
+    // If Favorite is called
+    if (status == 'FAVORITE') {
+      return common_librariesModel.find({}, (err, common_library) => {
+        if (err) {
+          return res
+            .status(500)
+            .json(error("Cannot get common libraries", res.statusCode));
+        }
+
+        if (!common_library) {
+          return res.json(
+            success("Success find body parts data", { list: []}, res.statusCode)
+          );
+        }
+        return user_librariesModel.findOne({user_id: id}, (err, user_library) => {
+          if (err) {
+            return res.status(500).json(error("Error server while getting user library", res.statusCode))
+          }
+
+          if (!user_library) {
+            return res.json(success("No favorite libraries, please add one", { list: []}, res.statusCode))
+          }
+
+          const userFavoriteLibraries = user_library.favorite_libraries;
+          if (userFavoriteLibraries.length == 0) {
+            return res.json(success("No favorite libraries, please add one", { list: []}, res.statusCode))
+          }
+
+          var selectedFavoriteLibraries = [];
+
+          common_library.forEach((part) => {
+            userFavoriteLibraries.forEach((favorite_library) => {
+              if (part.id == favorite_library) {
+                part.is_favorite = true
+                selectedFavoriteLibraries.push(part);
+              }
+            })
+          })
+
+          const sub_parent_ids = [];
+
+          selectedFavoriteLibraries.forEach((element) => {
+            sub_parent_ids.push(element.sub_header_id);
+          });
+
+          return bodyPartsModel.find(
+            { id: { $in: sub_parent_ids } },
+            (err, body_parts) => {
+              if (err) {
+                return res
+                  .status(500)
+                  .json(error("Cannot get common libraries", res.statusCode));
+              }
+
+              if (!body_parts) {
+                return res.json(
+                  success("Success find body parts data", null, res.statusCode)
+                );
+              }
+
+              if (user_library != undefined && user_library != null) {
+                // Search for favorite user_library
+                const favorite_libraries = user_library.favorite_libraries;
+
+                if (favorite_libraries !== undefined || favorite_libraries.length > 0) {
+                  // array exists
+                  selectedFavoriteLibraries.forEach((library) => {
+                    favorite_libraries.forEach((favorite_library) => {
+                      library.is_favorite = library.id == favorite_library
+                    })
+                  })
+                }
+              }
+
+              const searchKeyword =
+                search == null || search == undefined || search == ""
+                  ? ""
+                  : search;
+
+              body_parts.forEach((body) => {
+                selectedFavoriteLibraries.forEach((library) => {
+                  if (
+                    body.id == library.sub_header_id &&
+                    library.exercise_name.includes(searchKeyword)
+                  ) {
+                    if (
+                      library.regions_ids != null &&
+                      library.regions_ids != undefined &&
+                      library.regions_ids != ""
+                    ) {
+                      const splittedRegionsString =
+                        library.regions_ids.split(/[, ]+/);
+                      library._doc.regions_ids = splittedRegionsString;
+                    }
+                    if (
+                      library.targeted_muscles_ids != null &&
+                      library.targeted_muscles_ids != undefined &&
+                      library.targeted_muscles_ids != ""
+                    ) {
+                      const splittedMusclesString =
+                        library.targeted_muscles_ids.split(/[, ]+/);
+                      library._doc.targeted_muscles_ids =
+                        splittedMusclesString;
+                    }
+                    if (
+                      library.equipment_ids != null &&
+                      library.equipment_ids != undefined &&
+                      library.equipment_ids != ""
+                    ) {
+                      const splittedEquipmentsString =
+                        library.equipment_ids.split(/[, ]+/);
+                      library._doc.equipment_ids = splittedEquipmentsString;
+                    }
+                    if (
+                      library.regions_secondary_ids != null &&
+                      library.regions_secondary_ids != undefined &&
+                      library.regions_secondary_ids != ""
+                    ) {
+                      const splittedregions_secondary_idsString =
+                        library.regions_secondary_ids.split(/[, ]+/);
+                      library._doc.regions_secondary_ids =
+                        splittedregions_secondary_idsString;
+                    }
+
+                    body.data.push(library);
+                  }
+                });
+              });
+
+              return res.json(
+                success(
+                  "Success get library list",
+                  { list: body_parts },
+                  res.statusCode
+                )
+              );
+            }
+          );
+        })
+      });
+    }
+
     return bodyPartsModel.findOne({ code: status }, (err, category) => {
       if (err) {
         return res
@@ -91,7 +233,6 @@ exports.postLibraryList = (req, res) => {
                     }
                   }
 
-                  
                   const searchKeyword =
                     search == null || search == undefined || search == ""
                       ? ""
@@ -267,3 +408,19 @@ exports.addFavouriteLibrary = (req, res) => {
     });
   });
 };
+
+// exports.deleteLibrary = (req, res) => {
+//   const library_id = req.params.libraryId;
+//   const { authorization } = req.headers;
+
+//   authModel.findOne({ token: authorization }, (err, user) => {
+
+//     if (err || !user) {
+//       return res
+//         .status(500)
+//         .json(error("Can't find user with that id", res.statusCode));
+//     }
+
+
+//   });
+// }
