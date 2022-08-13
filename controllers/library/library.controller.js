@@ -209,7 +209,7 @@ exports.postLibraryList = (req, res) => {
               }
 
               return user_librariesModel.findOne(
-                { id },
+                { user_id: id },
                 (err, user_library) => {
                   if (err) {
                     return res
