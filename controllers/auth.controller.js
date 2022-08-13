@@ -595,7 +595,9 @@ exports.getAllData = (req, res) => {
                                                     mechanics,
                                                     action_force,
                                                     equipments,
-                                                    targeted_muscles
+                                                    targeted_muscles,
+                                                    default_body_part_image_url_back: "https://firebasestorage.googleapis.com/v0/b/loadapp-3ab00.appspot.com/o/libraries_images%2FAnatomy_Back.png?alt=media&token=20de3dc8-1cd8-46d4-9072-26f15010da90",
+                                                    default_body_part_image_url_front: "https://firebasestorage.googleapis.com/v0/b/loadapp-3ab00.appspot.com/o/libraries_images%2FAnatomy_Front.png?alt=media&token=febececc-e04e-4fdf-b7ef-3a0483da44d0"
                                                   },
                                                   res.statusCode
                                                 )
