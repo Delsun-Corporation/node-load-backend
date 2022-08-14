@@ -517,7 +517,8 @@ exports.updateCommonLibrariesDetail = (req, res) => {
             saved_common_libraries_detail.push(detailToBeSaved);
 
             const updatedData = {
-              saved_common_libraries_detail
+              saved_common_libraries_detail,
+              user_id
             };
 
             userLibrary = _.extend(userLibrary, updatedData);
@@ -535,40 +536,66 @@ exports.updateCommonLibrariesDetail = (req, res) => {
               }
 
               return res.json(
-                success("Success add favorite library", null, res.statusCode)
+                success("Success save common library details", null, res.statusCode)
               );
             });
           }
+
+          // Else, we update current model
+          var tempSavedCommonLibrary = [];
+          const saved_common_libraries_detail = user_library.saved_common_libraries_detail;
+          if (saved_common_libraries_detail != undefined && saved_common_libraries_detail.length > 0) {
+            // if saved_common_libraries not empty and null
+            saved_common_libraries_detail.forEach((library) => {
+              tempSavedCommonLibrary.push(library);
+            });
+          }
+
+          var tempIndex = -1;
+          tempSavedCommonLibrary.forEach((library) => {
+            tempIndex += 1
+            if (library.common_libraries_id == common_libraries_id) {
+              // If already exist, we remove that item from database
+              tempSavedCommonLibrary.splice(tempIndex, 1);
+            }
+          });
+
+          const detailToBeSaved = {
+            common_libraries_id,
+            exercise_link,
+            is_show_again_message,
+            selected_rm,
+            repetition_max,
+          };
+          tempSavedCommonLibrary.push(detailToBeSaved);
+
+          const updatedData = {
+            saved_common_libraries_detail: tempSavedCommonLibrary,
+            user_id
+          };
+
+          user_library = _.extend(user_library, updatedData);
+
+          return user_library.save((err, result) => {
+            if (err) {
+              return res
+                .status(500)
+                .json(
+                  error(
+                    "Error server while saving new user library",
+                    res.statusCode
+                  )
+                );
+            }
+
+            return res.json(
+              success("Success update library detail", null, res.statusCode)
+            );
+          });
+
+          // Will return error if other request body is null
+          return res.status(403).json(error("Error request", res.statusCode));
         });
-
-        // if exerice link is not null, we will update
-        if (
-          exercise_link != undefined ||
-          exercise_link != null ||
-          exercise_link != ""
-        ) {
-          return;
-        }
-
-        // if user want to update is_show_again_message of library
-        if (
-          is_show_again_message != undefined ||
-          is_show_again_message != null
-        ) {
-          return;
-        }
-
-        // if user want to update records of library
-        if (
-          (selected_rm != undefined || selected_rm != null) &&
-          (repetition_max != undefined ||
-            is_show_again_messarepetition_maxge != null)
-        ) {
-          return;
-        }
-
-        // Will return error if other request body is null
-        return res.status(403).json(error("Error request", res.statusCode));
       }
     );
   });
