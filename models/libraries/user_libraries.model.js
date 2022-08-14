@@ -11,7 +11,8 @@ const userLibrariesSchema = new mongoose.Schema(
           common_libraries_id: Number,
           is_show_again_message: Boolean,
           exercise_link: String,
-          repetition_max: repetitionMaxDetailObject
+          selected_rm: Number,
+          repetition_max: [repetitionMaxDetailObject]
         },
       ],
     },
