@@ -624,7 +624,7 @@ exports.updateCommonLibrariesDetail = (req, res) => {
             }
 
             return res.json(
-              success("Success update library detail", null, res.statusCode)
+              success("Success update library detail", {...savedDetail._doc, user_id}, res.statusCode)
             );
           });
           }
@@ -658,12 +658,9 @@ exports.updateCommonLibrariesDetail = (req, res) => {
             }
 
             return res.json(
-              success("Success update library detail", null, res.statusCode)
+              success("Success update library detail", {...detailToBeSaved._doc, user_id}, res.statusCode)
             );
           });
-
-          // Will return error if other request body is null
-          return res.status(403).json(error("Error request", res.statusCode));
         });
       }
     );
