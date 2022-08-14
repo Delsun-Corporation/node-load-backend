@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { repetitionMaxDetailObject } = require("./custom/libraries_custom_object.model");
 
 const Schema = mongoose.Schema;
 
@@ -39,6 +40,11 @@ exports.commonLibrariesDataModel = {
     },
     is_favorite: Number,
     is_active: Number,
+    repetition_max: {
+        type: [
+            repetitionMaxDetailObject
+        ]
+    },
     created_at: {
         type: Date
     },

@@ -1,17 +1,28 @@
 const mongoose = require("mongoose");
+const { repetitionMaxDetailObject } = require("./custom/libraries_custom_object.model");
 
 const Schema = mongoose.Schema;
 
 const userLibrariesSchema = new mongoose.Schema(
-    {
-        favorite_libraries: {
-            type: [Number]
+  {
+    saved_common_libraries_detail: {
+      type: [
+        {
+          common_libraries_id: Number,
+          is_show_again_message: Boolean,
+          exercise_link: String,
+          repetition_max: repetitionMaxDetailObject
         },
-        user_id: {
-            type: Number
-        },
+      ],
     },
-    {timestamps: true}
+    favorite_libraries: {
+      type: [Number],
+    },
+    user_id: {
+      type: Number,
+    },
+  },
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("user_libraries", userLibrariesSchema);

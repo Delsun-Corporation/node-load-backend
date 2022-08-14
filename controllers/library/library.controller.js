@@ -25,7 +25,7 @@ exports.postLibraryList = (req, res) => {
     const id = user.id;
 
     // If Favorite is called
-    if (status == 'FAVORITE') {
+    if (status == "FAVORITE") {
       return common_librariesModel.find({}, (err, common_library) => {
         if (err) {
           return res
@@ -35,137 +35,170 @@ exports.postLibraryList = (req, res) => {
 
         if (!common_library) {
           return res.json(
-            success("Success find body parts data", { list: []}, res.statusCode)
+            success(
+              "Success find body parts data",
+              { list: [] },
+              res.statusCode
+            )
           );
         }
-        return user_librariesModel.findOne({user_id: id}, (err, user_library) => {
-          if (err) {
-            return res.status(500).json(error("Error server while getting user library", res.statusCode))
-          }
-
-          if (!user_library) {
-            return res.json(success("No favorite libraries, please add one", { list: []}, res.statusCode))
-          }
-
-          const userFavoriteLibraries = user_library.favorite_libraries;
-          if (userFavoriteLibraries.length == 0) {
-            return res.json(success("No favorite libraries, please add one", { list: []}, res.statusCode))
-          }
-
-          var selectedFavoriteLibraries = [];
-
-          common_library.forEach((part) => {
-            userFavoriteLibraries.forEach((favorite_library) => {
-              if (part.id == favorite_library) {
-                part.is_favorite = true
-                selectedFavoriteLibraries.push(part);
-              }
-            })
-          })
-
-          const sub_parent_ids = [];
-
-          selectedFavoriteLibraries.forEach((element) => {
-            sub_parent_ids.push(element.sub_header_id);
-          });
-
-          return bodyPartsModel.find(
-            { id: { $in: sub_parent_ids } },
-            (err, body_parts) => {
-              if (err) {
-                return res
-                  .status(500)
-                  .json(error("Cannot get common libraries", res.statusCode));
-              }
-
-              if (!body_parts) {
-                return res.json(
-                  success("Success find body parts data", null, res.statusCode)
+        return user_librariesModel.findOne(
+          { user_id: id },
+          (err, user_library) => {
+            if (err) {
+              return res
+                .status(500)
+                .json(
+                  error(
+                    "Error server while getting user library",
+                    res.statusCode
+                  )
                 );
-              }
+            }
 
-              if (user_library != undefined && user_library != null) {
-                // Search for favorite user_library
-                const favorite_libraries = user_library.favorite_libraries;
-
-                if (favorite_libraries !== undefined || favorite_libraries.length > 0) {
-                  // array exists
-                  selectedFavoriteLibraries.forEach((library) => {
-                    favorite_libraries.forEach((favorite_library) => {
-                      if (library.id == favorite_library) {
-                        console.log(library.id);
-                        library.is_favorite = 1
-                      }
-                    })
-                  })
-                }
-              }
-
-              const searchKeyword =
-                search == null || search == undefined || search == ""
-                  ? ""
-                  : search;
-
-              body_parts.forEach((body) => {
-                selectedFavoriteLibraries.forEach((library) => {
-                  if (
-                    body.id == library.sub_header_id &&
-                    library.exercise_name.includes(searchKeyword)
-                  ) {
-                    if (
-                      library.regions_ids != null &&
-                      library.regions_ids != undefined &&
-                      library.regions_ids != ""
-                    ) {
-                      const splittedRegionsString =
-                        library.regions_ids.split(/[, ]+/);
-                      library._doc.regions_ids = splittedRegionsString;
-                    }
-                    if (
-                      library.targeted_muscles_ids != null &&
-                      library.targeted_muscles_ids != undefined &&
-                      library.targeted_muscles_ids != ""
-                    ) {
-                      const splittedMusclesString =
-                        library.targeted_muscles_ids.split(/[, ]+/);
-                      library._doc.targeted_muscles_ids =
-                        splittedMusclesString;
-                    }
-                    if (
-                      library.equipment_ids != null &&
-                      library.equipment_ids != undefined &&
-                      library.equipment_ids != ""
-                    ) {
-                      const splittedEquipmentsString =
-                        library.equipment_ids.split(/[, ]+/);
-                      library._doc.equipment_ids = splittedEquipmentsString;
-                    }
-                    if (
-                      library.regions_secondary_ids != null &&
-                      library.regions_secondary_ids != undefined &&
-                      library.regions_secondary_ids != ""
-                    ) {
-                      const splittedregions_secondary_idsString =
-                        library.regions_secondary_ids.split(/[, ]+/);
-                      library._doc.regions_secondary_ids =
-                        splittedregions_secondary_idsString;
-                    }
-
-                    body.data.push(library);
-                  }
-                });
-              });
-
+            if (!user_library) {
               return res.json(
                 success(
-                  "Success get library list",
-                  { list: body_parts },
+                  "No favorite libraries, please add one",
+                  { list: [] },
                   res.statusCode
                 )
               );
             }
-          );
-        })
+
+            const userFavoriteLibraries = user_library.favorite_libraries;
+            if (userFavoriteLibraries.length == 0) {
+              return res.json(
+                success(
+                  "No favorite libraries, please add one",
+                  { list: [] },
+                  res.statusCode
+                )
+              );
+            }
+
+            var selectedFavoriteLibraries = [];
+
+            common_library.forEach((part) => {
+              userFavoriteLibraries.forEach((favorite_library) => {
+                if (part.id == favorite_library) {
+                  part.is_favorite = true;
+                  selectedFavoriteLibraries.push(part);
+                }
+              });
+            });
+
+            const sub_parent_ids = [];
+
+            selectedFavoriteLibraries.forEach((element) => {
+              sub_parent_ids.push(element.sub_header_id);
+            });
+
+            return bodyPartsModel.find(
+              { id: { $in: sub_parent_ids } },
+              (err, body_parts) => {
+                if (err) {
+                  return res
+                    .status(500)
+                    .json(error("Cannot get common libraries", res.statusCode));
+                }
+
+                if (!body_parts) {
+                  return res.json(
+                    success(
+                      "Success find body parts data",
+                      null,
+                      res.statusCode
+                    )
+                  );
+                }
+
+                if (user_library != undefined && user_library != null) {
+                  // Search for favorite user_library
+                  const favorite_libraries = user_library.favorite_libraries;
+
+                  if (
+                    favorite_libraries !== undefined ||
+                    favorite_libraries.length > 0
+                  ) {
+                    // array exists
+                    selectedFavoriteLibraries.forEach((library) => {
+                      favorite_libraries.forEach((favorite_library) => {
+                        if (library.id == favorite_library) {
+                          console.log(library.id);
+                          library.is_favorite = 1;
+                        }
+                      });
+                    });
+                  }
+                }
+
+                const searchKeyword =
+                  search == null || search == undefined || search == ""
+                    ? ""
+                    : search;
+
+                body_parts.forEach((body) => {
+                  selectedFavoriteLibraries.forEach((library) => {
+                    if (
+                      body.id == library.sub_header_id &&
+                      library.exercise_name.includes(searchKeyword)
+                    ) {
+                      if (
+                        library.regions_ids != null &&
+                        library.regions_ids != undefined &&
+                        library.regions_ids != ""
+                      ) {
+                        const splittedRegionsString =
+                          library.regions_ids.split(/[, ]+/);
+                        library._doc.regions_ids = splittedRegionsString;
+                      }
+                      if (
+                        library.targeted_muscles_ids != null &&
+                        library.targeted_muscles_ids != undefined &&
+                        library.targeted_muscles_ids != ""
+                      ) {
+                        const splittedMusclesString =
+                          library.targeted_muscles_ids.split(/[, ]+/);
+                        library._doc.targeted_muscles_ids =
+                          splittedMusclesString;
+                      }
+                      if (
+                        library.equipment_ids != null &&
+                        library.equipment_ids != undefined &&
+                        library.equipment_ids != ""
+                      ) {
+                        const splittedEquipmentsString =
+                          library.equipment_ids.split(/[, ]+/);
+                        library._doc.equipment_ids = splittedEquipmentsString;
+                      }
+                      if (
+                        library.regions_secondary_ids != null &&
+                        library.regions_secondary_ids != undefined &&
+                        library.regions_secondary_ids != ""
+                      ) {
+                        const splittedregions_secondary_idsString =
+                          library.regions_secondary_ids.split(/[, ]+/);
+                        library._doc.regions_secondary_ids =
+                          splittedregions_secondary_idsString;
+                      }
+
+                      body.data.push(library);
+                    }
+                  });
+                });
+
+                return res.json(
+                  success(
+                    "Success get library list",
+                    { list: body_parts },
+                    res.statusCode
+                  )
+                );
+              }
+            );
+          }
+        );
       });
     }
 
@@ -226,15 +259,18 @@ exports.postLibraryList = (req, res) => {
                     // Search for favorite user_library
                     const favorite_libraries = user_library.favorite_libraries;
 
-                    if (favorite_libraries !== undefined || favorite_libraries.length > 0) {
+                    if (
+                      favorite_libraries !== undefined ||
+                      favorite_libraries.length > 0
+                    ) {
                       // array exists
                       common_libraries.forEach((library) => {
                         favorite_libraries.forEach((favorite_library) => {
                           if (library.id == favorite_library) {
-                            library.is_favorite = 1
+                            library.is_favorite = 1;
                           }
-                        })
-                      })
+                        });
+                      });
                     }
                   }
 
@@ -414,6 +450,130 @@ exports.addFavouriteLibrary = (req, res) => {
   });
 };
 
+exports.updateCommonLibrariesDetail = (req, res) => {
+  const { authorization } = req.headers;
+
+  const {
+    common_libraries_id,
+    exercise_link,
+    is_show_again_message,
+    selected_rm,
+    repetition_max,
+  } = req.body;
+
+  if (
+    common_libraries_id == undefined ||
+    common_libraries_id == null ||
+    common_libraries_id == ""
+  ) {
+    return res.status(403).json(error("Error request", res.statusCode));
+  }
+
+  authModel.findOne({ token: authorization }, (err, user) => {
+    if (err || !user) {
+      return res.status(500).json(error("Can't find user", res.statusCode));
+    }
+
+    const user_id = user.id;
+
+    return common_librariesModel.findOne(
+      { id: common_libraries_id },
+      (err, common_library) => {
+        if (err || !common_library) {
+          return res
+            .status(500)
+            .json(
+              error(
+                "Error server while get common library with that id, please try again",
+                res.statusCode
+              )
+            );
+        }
+
+        return user_librariesModel.findOne({ user_id }, (err, user_library) => {
+          if (err) {
+            return res
+              .status(500)
+              .json(
+                error(
+                  "Error server while search for user library",
+                  res.statusCode
+                )
+              );
+          }
+
+          if (!user_library) {
+            // Create new model
+            var userLibrary = new user_librariesModel();
+
+            const detailToBeSaved = {
+              common_libraries_id,
+              exercise_link,
+              is_show_again_message,
+              selected_rm,
+              repetition_max,
+            };
+            const saved_common_libraries_detail = [];
+            saved_common_libraries_detail.push(detailToBeSaved);
+
+            const updatedData = {
+              saved_common_libraries_detail
+            };
+
+            userLibrary = _.extend(userLibrary, updatedData);
+
+            return userLibrary.save((err, result) => {
+              if (err) {
+                return res
+                  .status(500)
+                  .json(
+                    error(
+                      "Error server while saving new user library",
+                      res.statusCode
+                    )
+                  );
+              }
+
+              return res.json(
+                success("Success add favorite library", null, res.statusCode)
+              );
+            });
+          }
+        });
+
+        // if exerice link is not null, we will update
+        if (
+          exercise_link != undefined ||
+          exercise_link != null ||
+          exercise_link != ""
+        ) {
+          return;
+        }
+
+        // if user want to update is_show_again_message of library
+        if (
+          is_show_again_message != undefined ||
+          is_show_again_message != null
+        ) {
+          return;
+        }
+
+        // if user want to update records of library
+        if (
+          (selected_rm != undefined || selected_rm != null) &&
+          (repetition_max != undefined ||
+            is_show_again_messarepetition_maxge != null)
+        ) {
+          return;
+        }
+
+        // Will return error if other request body is null
+        return res.status(403).json(error("Error request", res.statusCode));
+      }
+    );
+  });
+};
+
 // exports.deleteLibrary = (req, res) => {
 //   const library_id = req.params.libraryId;
 //   const { authorization } = req.headers;
@@ -425,7 +585,6 @@ exports.addFavouriteLibrary = (req, res) => {
 //         .status(500)
 //         .json(error("Can't find user with that id", res.statusCode));
 //     }
-
 
 //   });
 // }
