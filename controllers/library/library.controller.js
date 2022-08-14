@@ -66,6 +66,25 @@ exports.postLibraryList = (req, res) => {
               );
             }
 
+            const savedCommonLibrariesDetail =
+              user_library.saved_common_libraries_detail;
+            if (
+              savedCommonLibrariesDetail !== undefined &&
+              savedCommonLibrariesDetail.length > 0
+            ) {
+              // Assign Personal Common Libraries Detail if exist
+              common_library.forEach((part) => {
+                savedCommonLibrariesDetail.forEach((detail) => {
+                  if (part.id == detail.common_libraries_id) {
+                    part.common_libraries_id = detail.common_libraries_id;
+                    part.is_show_again_message = detail.is_show_again_message;
+                    part.exercise_link = detail.exercise_link;
+                    part.repetition_max = detail.repetition_max;
+                  }
+                });
+              });
+            }
+
             const userFavoriteLibraries = user_library.favorite_libraries;
             if (userFavoriteLibraries.length == 0) {
               return res.json(
@@ -201,6 +220,7 @@ exports.postLibraryList = (req, res) => {
         );
       });
     }
+    // END OF FAVORITE QUERY
 
     return bodyPartsModel.findOne({ code: status }, (err, category) => {
       if (err) {
@@ -256,6 +276,26 @@ exports.postLibraryList = (req, res) => {
                   }
 
                   if (user_library != undefined && user_library != null) {
+                    const savedCommonLibrariesDetail =
+                      user_library.saved_common_libraries_detail;
+                    if (
+                      savedCommonLibrariesDetail !== undefined &&
+                      savedCommonLibrariesDetail.length > 0
+                    ) {
+                      // Assign Personal Common Libraries Detail if exist
+                      common_libraries.forEach((part) => {
+                        savedCommonLibrariesDetail.forEach((detail) => {
+                          if (part.id == detail.common_libraries_id) {
+                            part.common_libraries_id =
+                              detail.common_libraries_id;
+                            part.is_show_again_message =
+                              detail.is_show_again_message;
+                            part.exercise_link = detail.exercise_link;
+                            part.repetition_max = detail.repetition_max;
+                          }
+                        });
+                      });
+                    }
                     // Search for favorite user_library
                     const favorite_libraries = user_library.favorite_libraries;
 
@@ -604,29 +644,33 @@ exports.updateCommonLibrariesDetail = (req, res) => {
 
             tempSavedCommonLibrary.push(savedDetail);
 
-          const parentUpdatedData = {
-            saved_common_libraries_detail: tempSavedCommonLibrary,
-            user_id,
-          };
+            const parentUpdatedData = {
+              saved_common_libraries_detail: tempSavedCommonLibrary,
+              user_id,
+            };
 
-          user_library = _.extend(user_library, parentUpdatedData);
+            user_library = _.extend(user_library, parentUpdatedData);
 
-          return user_library.save((err, result) => {
-            if (err) {
-              return res
-                .status(500)
-                .json(
-                  error(
-                    "Error server while saving new user library",
-                    res.statusCode
-                  )
-                );
-            }
+            return user_library.save((err, result) => {
+              if (err) {
+                return res
+                  .status(500)
+                  .json(
+                    error(
+                      "Error server while saving new user library",
+                      res.statusCode
+                    )
+                  );
+              }
 
-            return res.json(
-              success("Success update library detail", {...savedDetail._doc, user_id}, res.statusCode)
-            );
-          });
+              return res.json(
+                success(
+                  "Success update library detail",
+                  { ...savedDetail._doc, user_id },
+                  res.statusCode
+                )
+              );
+            });
           }
 
           const detailToBeSaved = {
@@ -658,7 +702,11 @@ exports.updateCommonLibrariesDetail = (req, res) => {
             }
 
             return res.json(
-              success("Success update library detail", {...detailToBeSaved._doc, user_id}, res.statusCode)
+              success(
+                "Success update library detail",
+                { ...detailToBeSaved._doc, user_id },
+                res.statusCode
+              )
             );
           });
         });

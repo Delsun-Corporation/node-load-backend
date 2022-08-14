@@ -45,6 +45,8 @@ exports.commonLibrariesDataModel = {
             repetitionMaxDetailObject
         ]
     },
+    is_show_again_message: Boolean,
+    common_libraries_id: Number,
     created_at: {
         type: Date
     },
