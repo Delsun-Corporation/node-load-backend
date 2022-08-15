@@ -278,6 +278,18 @@ exports.postLibraryList = (req, res) => {
                   if (user_library != undefined && user_library != null) {
                     const savedCommonLibrariesDetail =
                       user_library.saved_common_libraries_detail;
+                      const createdCommonLibraries = user_library.custom_common_libraries;
+                      // add SAVED custom libraries to common_libraries
+
+                      if (createdCommonLibraries !== undefined && createdCommonLibraries.length > 0) {
+                        sub_parent_ids.forEach((sub_parent_id) => {
+                          createdCommonLibraries.forEach((library) => {
+                            if (sub_parent_id == library.sub_header_id) {
+                              common_libraries.push(library);
+                            }
+                          });
+                        });
+                      }
                     if (
                       savedCommonLibrariesDetail !== undefined &&
                       savedCommonLibrariesDetail.length > 0
@@ -763,6 +775,7 @@ exports.addCustomLibraries = (req, res) => {
           id: getDefaultLibraryId(),
           exercise_name,
           regions_ids: regions_ids.toString(),
+          sub_header_id: regions_ids[0],
           category_id,
           mechanics_id,
           motion,
@@ -813,6 +826,7 @@ exports.addCustomLibraries = (req, res) => {
         id: getDefaultLibraryId(),
         exercise_name,
         regions_ids: regions_ids.toString(),
+        sub_header_id: regions_ids[0],
         category_id,
         mechanics_id,
         motion,
