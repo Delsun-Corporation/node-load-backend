@@ -732,7 +732,7 @@ exports.updateCommonLibrariesDetail = (req, res) => {
             return res.json(
               success(
                 "Success update library detail",
-                { ...detailToBeSaved._doc, user_id },
+                { ...detailToBeSaved, user_id },
                 res.statusCode
               )
             );
@@ -891,17 +891,19 @@ exports.addCustomLibraries = (req, res) => {
   });
 };
 
-// exports.deleteLibrary = (req, res) => {
-//   const library_id = req.params.libraryId;
-//   const { authorization } = req.headers;
+exports.deleteLibrary = (req, res) => {
+  const library_id = req.params.libraryId;
+  const { authorization } = req.headers;
 
-//   authModel.findOne({ token: authorization }, (err, user) => {
+  authModel.findOne({ token: authorization }, (err, user) => {
 
-//     if (err || !user) {
-//       return res
-//         .status(500)
-//         .json(error("Can't find user with that id", res.statusCode));
-//     }
+    if (err || !user) {
+      return res
+        .status(500)
+        .json(error("Can't find user with that id", res.statusCode));
+    }
 
-//   });
-// }
+    
+
+  });
+}
