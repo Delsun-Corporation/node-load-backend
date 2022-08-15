@@ -72,6 +72,18 @@ exports.postLibraryList = (req, res) => {
               savedCommonLibrariesDetail !== undefined &&
               savedCommonLibrariesDetail.length > 0
             ) {
+              const createdCommonLibraries =
+                user_library.custom_common_libraries;
+              // add SAVED custom libraries to common_libraries
+
+              if (
+                createdCommonLibraries !== undefined &&
+                createdCommonLibraries.length > 0
+              ) {
+                createdCommonLibraries.forEach((library) => {
+                  common_library.push(library);
+                });
+              }
               // Assign Personal Common Libraries Detail if exist
               common_library.forEach((part) => {
                 savedCommonLibrariesDetail.forEach((detail) => {
@@ -278,18 +290,22 @@ exports.postLibraryList = (req, res) => {
                   if (user_library != undefined && user_library != null) {
                     const savedCommonLibrariesDetail =
                       user_library.saved_common_libraries_detail;
-                      const createdCommonLibraries = user_library.custom_common_libraries;
-                      // add SAVED custom libraries to common_libraries
+                    const createdCommonLibraries =
+                      user_library.custom_common_libraries;
+                    // add SAVED custom libraries to common_libraries
 
-                      if (createdCommonLibraries !== undefined && createdCommonLibraries.length > 0) {
-                        sub_parent_ids.forEach((sub_parent_id) => {
-                          createdCommonLibraries.forEach((library) => {
-                            if (sub_parent_id == library.sub_header_id) {
-                              common_libraries.push(library);
-                            }
-                          });
+                    if (
+                      createdCommonLibraries !== undefined &&
+                      createdCommonLibraries.length > 0
+                    ) {
+                      sub_parent_ids.forEach((sub_parent_id) => {
+                        createdCommonLibraries.forEach((library) => {
+                          if (sub_parent_id == library.sub_header_id) {
+                            common_libraries.push(library);
+                          }
                         });
-                      }
+                      });
+                    }
                     if (
                       savedCommonLibrariesDetail !== undefined &&
                       savedCommonLibrariesDetail.length > 0
@@ -531,7 +547,7 @@ exports.updateCommonLibrariesDetail = (req, res) => {
     return common_librariesModel.findOne(
       { id: common_libraries_id },
       (err, common_library) => {
-        if (err || !common_library) {
+        if (err) {
           return res
             .status(500)
             .json(
@@ -590,7 +606,7 @@ exports.updateCommonLibrariesDetail = (req, res) => {
               return res.json(
                 success(
                   "Success save common library details",
-                  null,
+                  { ...detailToBeSaved, user_id },
                   res.statusCode
                 )
               );
@@ -799,7 +815,7 @@ exports.addCustomLibraries = (req, res) => {
 
         return userLibrary.save((err, result) => {
           if (err) {
-            console.log(err)
+            console.log(err);
             return res
               .status(500)
               .json(
@@ -811,13 +827,17 @@ exports.addCustomLibraries = (req, res) => {
           }
 
           return res.json(
-            success("Library successfully created.", customLibraryObjectToSave, res.statusCode)
+            success(
+              "Library successfully created.",
+              customLibraryObjectToSave,
+              res.statusCode
+            )
           );
         });
       }
 
       // If user library found, we will update the custom_common_library array
-      var savedCustomLibraries = user_library.custom_common_libraries
+      var savedCustomLibraries = user_library.custom_common_libraries;
 
       if (savedCustomLibraries == null || savedCustomLibraries == undefined) {
         savedCustomLibraries = [];
@@ -848,7 +868,7 @@ exports.addCustomLibraries = (req, res) => {
 
       return user_library.save((err, result) => {
         if (err) {
-          console.log(err)
+          console.log(err);
           return res
             .status(500)
             .json(
@@ -860,7 +880,11 @@ exports.addCustomLibraries = (req, res) => {
         }
 
         return res.json(
-          success("Library successfully created.", customLibraryObjectToSave, res.statusCode)
+          success(
+            "Library successfully created.",
+            customLibraryObjectToSave,
+            res.statusCode
+          )
         );
       });
     });
