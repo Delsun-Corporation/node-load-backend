@@ -19,6 +19,9 @@ const userLibrariesSchema = new mongoose.Schema(
     custom_common_libraries: {
         type: [
             {
+                id:{
+                    type: Number
+                },
                 exercise_name: {
                     type: String
                 },

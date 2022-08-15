@@ -716,6 +716,10 @@ exports.updateCommonLibrariesDetail = (req, res) => {
 };
 
 exports.addCustomLibraries = (req, res) => {
+  function getDefaultLibraryId() {
+    return Math.round(Date.now() + Math.random());
+  }
+
   const { authorization } = req.headers;
   const {
     exercise_name,
@@ -756,6 +760,7 @@ exports.addCustomLibraries = (req, res) => {
         var userLibrary = new user_librariesModel();
 
         const customLibraryObjectToSave = {
+          id: getDefaultLibraryId(),
           exercise_name,
           regions_ids: regions_ids.toString(),
           category_id,
@@ -805,6 +810,7 @@ exports.addCustomLibraries = (req, res) => {
         savedCustomLibraries = [];
       }
       const customLibraryObjectToSave = {
+        id: getDefaultLibraryId(),
         exercise_name,
         regions_ids: regions_ids.toString(),
         category_id,
