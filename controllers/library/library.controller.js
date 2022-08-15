@@ -715,6 +715,138 @@ exports.updateCommonLibrariesDetail = (req, res) => {
   });
 };
 
+exports.addCustomLibraries = (req, res) => {
+  const { authorization } = req.headers;
+  const {
+    exercise_name,
+    user_id,
+    regions_ids,
+    category_id,
+    mechanics_id,
+    motion,
+    movement,
+    targeted_muscles_ids,
+    action_force_id,
+    equipment_ids,
+    repetition_max,
+    exercise_link,
+    selected_rm,
+  } = req.body;
+
+  authModel.findOne({ token: authorization }, (err, user) => {
+    if (err || !user) {
+      return res
+        .status(500)
+        .json(error("Can't find user with that id", res.statusCode));
+    }
+
+    const user_id = user.id;
+
+    return user_librariesModel.findOne({ user_id }, (err, user_library) => {
+      if (err) {
+        return res
+          .status(500)
+          .json(
+            error("Error server while search for user library", res.statusCode)
+          );
+      }
+
+      if (!user_library) {
+        // Create new model
+        var userLibrary = new user_librariesModel();
+
+        const customLibraryObjectToSave = {
+          exercise_name,
+          regions_ids: regions_ids.toString(),
+          category_id,
+          mechanics_id,
+          motion,
+          movement,
+          targeted_muscles_ids: targeted_muscles_ids.toString(),
+          action_force_id,
+          equipment_ids: equipment_ids.toString(),
+          repetition_max,
+          exercise_link,
+          selected_rm,
+        };
+        var customLibraries = [];
+        customLibraries.push(customLibraryObjectToSave);
+
+        const updatedData = {
+          user_id,
+          custom_common_libraries: customLibraries,
+        };
+
+        userLibrary = _.extend(userLibrary, updatedData);
+
+        return userLibrary.save((err, result) => {
+          if (err) {
+            console.log(err)
+            return res
+              .status(500)
+              .json(
+                error(
+                  "Error server while saving new user library",
+                  res.statusCode
+                )
+              );
+          }
+
+          return res.json(
+            success("Library successfully created.", customLibraryObjectToSave, res.statusCode)
+          );
+        });
+      }
+
+      // If user library found, we will update the custom_common_library array
+      var savedCustomLibraries = user_library.custom_common_libraries
+
+      if (savedCustomLibraries == null || savedCustomLibraries == undefined) {
+        savedCustomLibraries = [];
+      }
+      const customLibraryObjectToSave = {
+        exercise_name,
+        regions_ids: regions_ids.toString(),
+        category_id,
+        mechanics_id,
+        motion,
+        movement,
+        targeted_muscles_ids: targeted_muscles_ids.toString(),
+        action_force_id,
+        equipment_ids: equipment_ids.toString(),
+        repetition_max,
+        exercise_link,
+        selected_rm,
+      };
+      savedCustomLibraries.push(customLibraryObjectToSave);
+
+      const updatedData = {
+        custom_common_libraries: savedCustomLibraries,
+      };
+
+      user_library = _.extend(user_library, updatedData);
+
+      return user_library.save((err, result) => {
+        if (err) {
+          console.log(err)
+          return res
+            .status(500)
+            .json(
+              error(
+                "Error server while saving new user library",
+                res.statusCode
+              )
+            );
+        }
+
+        return res.json(
+          success("Library successfully created.", customLibraryObjectToSave, res.statusCode)
+        );
+      });
+    });
+  });
+};
+
 // exports.deleteLibrary = (req, res) => {
 //   const library_id = req.params.libraryId;
 //   const { authorization } = req.headers;
