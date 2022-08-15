@@ -1,8 +1,9 @@
 const express = require('express');
-const { postLibraryList, addFavouriteLibrary, updateCommonLibrariesDetail, addCustomLibraries } = require('../controllers/library/library.controller');
+const { postLibraryList, addFavouriteLibrary, updateCommonLibrariesDetail, addCustomLibraries, deleteLibrary } = require('../controllers/library/library.controller');
 const router = express.Router();
 
-// GET
+// DELETE
+router.delete('/library-delete/:libraryId', deleteLibrary);
 
 // POST
 router.post('/library-list', postLibraryList);

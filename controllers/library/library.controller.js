@@ -903,7 +903,80 @@ exports.deleteLibrary = (req, res) => {
         .json(error("Can't find user with that id", res.statusCode));
     }
 
-    
+    return user_librariesModel.findOne({user_id: user.id}, (err, user_library) => {
+      if (err) {
+        console.log(err);
+          return res
+            .status(500)
+            .json(
+              error(
+                "Error server while getting user library",
+                res.statusCode
+              )
+            );
+      }
+
+      var savedCustomLibraries = user_library.custom_common_libraries;
+      var savedCustomLibrariesDetail = user_library.saved_common_libraries_detail;
+      var savedFavoriteLibrariesIdList = user_library.favorite_libraries;
+
+      // Delete custom library
+      var savedCustomLibrariesIndex = -1;
+      savedCustomLibraries.forEach((library) => {
+        savedCustomLibrariesIndex += 1;
+        if (library.id == library_id) {
+          savedCustomLibraries.splice(savedCustomLibrariesIndex, 1);
+        }
+      })
+
+      // Delete custom library detail
+      var savedCustomLibrariesDetailIndex = -1;
+      savedCustomLibrariesDetail.forEach((library) => {
+        savedCustomLibrariesDetailIndex += 1;
+        if (library.common_libraries_id == library_id) {
+          savedCustomLibrariesDetail.splice(savedCustomLibrariesDetailIndex, 1);
+        }
+      })
+
+      // Delete from favorite library list
+      var savedFavoriteIndex = -1;
+      savedFavoriteLibrariesIdList.forEach((favoriteId) => {
+        savedFavoriteIndex += 1;
+        if (favoriteId == library_id) {
+          savedFavoriteLibrariesIdList.splice(savedFavoriteIndex, 1);
+        }
+      })
+
+      const updatedData = {
+        favorite_libraries: savedFavoriteLibrariesIdList,
+        saved_common_libraries_detail: savedCustomLibrariesDetail,
+        custom_common_libraries: savedCustomLibraries
+      }
+
+      user_library = _.extend(user_library, updatedData);
+
+      return user_library.save((err, result) => {
+        if (err) {
+          console.log(err);
+          return res
+            .status(500)
+            .json(
+              error(
+                "Error server while saving new user library",
+                res.statusCode
+              )
+            );
+        }
+
+        return res.json(
+          success(
+            "Success delete library",
+            null,
+            res.statusCode
+          )
+        );
+      });
+    })
 
   });
 }
