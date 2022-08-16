@@ -47,6 +47,7 @@ exports.commonLibrariesDataModel = {
     },
     is_show_again_message: Boolean,
     common_libraries_id: Number,
+    selected_rm: Number,
     created_at: {
         type: Date
     },

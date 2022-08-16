@@ -92,6 +92,7 @@ exports.postLibraryList = (req, res) => {
                     part.is_show_again_message = detail.is_show_again_message;
                     part.exercise_link = detail.exercise_link;
                     part.repetition_max = detail.repetition_max;
+                    part.selected_rm = detail.selected_rm;
                   }
                 });
               });
@@ -320,6 +321,7 @@ exports.postLibraryList = (req, res) => {
                               detail.is_show_again_message;
                             part.exercise_link = detail.exercise_link;
                             part.repetition_max = detail.repetition_max;
+                            part.selected_rm = detail.selected_rm;
                           }
                         });
                       });
