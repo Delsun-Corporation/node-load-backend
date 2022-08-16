@@ -66,24 +66,24 @@ exports.postLibraryList = (req, res) => {
               );
             }
 
+            const createdCommonLibraries = user_library.custom_common_libraries;
+            // add SAVED custom libraries to common_libraries
+
+            if (
+              createdCommonLibraries !== undefined &&
+              createdCommonLibraries.length > 0
+            ) {
+              createdCommonLibraries.forEach((library) => {
+                common_library.push(library);
+              });
+            }
+
             const savedCommonLibrariesDetail =
               user_library.saved_common_libraries_detail;
             if (
               savedCommonLibrariesDetail !== undefined &&
               savedCommonLibrariesDetail.length > 0
             ) {
-              const createdCommonLibraries =
-                user_library.custom_common_libraries;
-              // add SAVED custom libraries to common_libraries
-
-              if (
-                createdCommonLibraries !== undefined &&
-                createdCommonLibraries.length > 0
-              ) {
-                createdCommonLibraries.forEach((library) => {
-                  common_library.push(library);
-                });
-              }
               // Assign Personal Common Libraries Detail if exist
               common_library.forEach((part) => {
                 savedCommonLibrariesDetail.forEach((detail) => {
@@ -911,7 +911,7 @@ exports.updateCustomLibraries = (req, res) => {
     exercise_link,
     selected_rm,
   } = req.body;
-  
+
   authModel.findOne({ token: authorization }, (err, user) => {
     if (err || !user) {
       return res
@@ -969,7 +969,8 @@ exports.updateCustomLibraries = (req, res) => {
           equipment_ids: equipment_ids.toString(),
           repetition_max,
           exercise_link,
-          selected_rm
+          selected_rm,
+          user_id
         };
         savedCustomLibraries.push(customLibraryObjectToSave);
 
@@ -984,10 +985,7 @@ exports.updateCustomLibraries = (req, res) => {
             return res
               .status(500)
               .json(
-                error(
-                  "Error server while updating library",
-                  res.statusCode
-                )
+                error("Error server while updating library", res.statusCode)
               );
           }
 
@@ -1003,9 +1001,7 @@ exports.updateCustomLibraries = (req, res) => {
 
       return res
         .status(500)
-        .json(
-          error("Cant find custom library with that id", res.statusCode)
-        );
+        .json(error("Cant find custom library with that id", res.statusCode));
     });
   });
 };
