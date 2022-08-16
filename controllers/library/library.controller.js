@@ -802,6 +802,7 @@ exports.addCustomLibraries = (req, res) => {
           repetition_max,
           exercise_link,
           selected_rm,
+          user_id,
         };
         var customLibraries = [];
         customLibraries.push(customLibraryObjectToSave);
@@ -857,6 +858,7 @@ exports.addCustomLibraries = (req, res) => {
         repetition_max,
         exercise_link,
         selected_rm,
+        user_id,
       };
       savedCustomLibraries.push(customLibraryObjectToSave);
 
@@ -891,92 +893,207 @@ exports.addCustomLibraries = (req, res) => {
   });
 };
 
-exports.deleteLibrary = (req, res) => {
-  const library_id = req.params.libraryId;
+exports.updateCustomLibraries = (req, res) => {
   const { authorization } = req.headers;
-
+  const library_id = req.params.libraryId;
+  const {
+    exercise_name,
+    user_id,
+    regions_ids,
+    category_id,
+    mechanics_id,
+    motion,
+    movement,
+    targeted_muscles_ids,
+    action_force_id,
+    equipment_ids,
+    repetition_max,
+    exercise_link,
+    selected_rm,
+  } = req.body;
+  
   authModel.findOne({ token: authorization }, (err, user) => {
-
     if (err || !user) {
       return res
         .status(500)
         .json(error("Can't find user with that id", res.statusCode));
     }
 
-    return user_librariesModel.findOne({user_id: user.id}, (err, user_library) => {
-      if (err) {
-        console.log(err);
-          return res
-            .status(500)
-            .json(
-              error(
-                "Error server while getting user library",
-                res.statusCode
-              )
-            );
+    const user_id = user.id;
+
+    return user_librariesModel.findOne({ user_id }, (err, user_library) => {
+      if (err || !user_library) {
+        return res
+          .status(500)
+          .json(
+            error("Error server while search for user library", res.statusCode)
+          );
       }
 
+      // If user library found, we will update the custom_common_library array
       var savedCustomLibraries = user_library.custom_common_libraries;
-      var savedCustomLibrariesDetail = user_library.saved_common_libraries_detail;
-      var savedFavoriteLibrariesIdList = user_library.favorite_libraries;
 
-      // Delete custom library
-      var savedCustomLibrariesIndex = -1;
-      savedCustomLibraries.forEach((library) => {
-        savedCustomLibrariesIndex += 1;
-        if (library.id == library_id) {
-          savedCustomLibraries.splice(savedCustomLibrariesIndex, 1);
-        }
-      })
-
-      // Delete custom library detail
-      var savedCustomLibrariesDetailIndex = -1;
-      savedCustomLibrariesDetail.forEach((library) => {
-        savedCustomLibrariesDetailIndex += 1;
-        if (library.common_libraries_id == library_id) {
-          savedCustomLibrariesDetail.splice(savedCustomLibrariesDetailIndex, 1);
-        }
-      })
-
-      // Delete from favorite library list
-      var savedFavoriteIndex = -1;
-      savedFavoriteLibrariesIdList.forEach((favoriteId) => {
-        savedFavoriteIndex += 1;
-        if (favoriteId == library_id) {
-          savedFavoriteLibrariesIdList.splice(savedFavoriteIndex, 1);
-        }
-      })
-
-      const updatedData = {
-        favorite_libraries: savedFavoriteLibrariesIdList,
-        saved_common_libraries_detail: savedCustomLibrariesDetail,
-        custom_common_libraries: savedCustomLibraries
+      if (savedCustomLibraries == null || savedCustomLibraries == undefined) {
+        savedCustomLibraries = [];
       }
 
-      user_library = _.extend(user_library, updatedData);
+      if (savedCustomLibraries.length == 0) {
+        return res
+          .status(403)
+          .json(error("Can't find saved custom libraries", res.statusCode));
+      }
 
-      return user_library.save((err, result) => {
+      var tempIndex = -1;
+      var isLibraryFound = false;
+      savedCustomLibraries.forEach((library) => {
+        tempIndex += 1;
+        if (library_id == library.id) {
+          // Remove item at index to replace it
+          savedCustomLibraries.splice(tempIndex, 1);
+          isLibraryFound = true;
+        }
+      });
+
+      if (isLibraryFound) {
+        const customLibraryObjectToSave = {
+          id: library_id,
+          exercise_name,
+          regions_ids: regions_ids.toString(),
+          sub_header_id: regions_ids[0],
+          category_id,
+          mechanics_id,
+          motion,
+          movement,
+          targeted_muscles_ids: targeted_muscles_ids.toString(),
+          action_force_id,
+          equipment_ids: equipment_ids.toString(),
+          repetition_max,
+          exercise_link,
+          selected_rm
+        };
+        savedCustomLibraries.push(customLibraryObjectToSave);
+
+        const updatedData = {
+          custom_common_libraries: savedCustomLibraries,
+        };
+
+        user_library = _.extend(user_library, updatedData);
+        return user_library.save((err, result) => {
+          if (err) {
+            console.log(err);
+            return res
+              .status(500)
+              .json(
+                error(
+                  "Error server while updating library",
+                  res.statusCode
+                )
+              );
+          }
+
+          return res.json(
+            success(
+              "Library successfully updated.",
+              customLibraryObjectToSave,
+              res.statusCode
+            )
+          );
+        });
+      }
+
+      return res
+        .status(500)
+        .json(
+          error("Cant find custom library with that id", res.statusCode)
+        );
+    });
+  });
+};
+
+exports.deleteLibrary = (req, res) => {
+  const library_id = req.params.libraryId;
+  const { authorization } = req.headers;
+
+  authModel.findOne({ token: authorization }, (err, user) => {
+    if (err || !user) {
+      return res
+        .status(500)
+        .json(error("Can't find user with that id", res.statusCode));
+    }
+
+    return user_librariesModel.findOne(
+      { user_id: user.id },
+      (err, user_library) => {
         if (err) {
           console.log(err);
           return res
             .status(500)
             .json(
-              error(
-                "Error server while saving new user library",
-                res.statusCode
-              )
+              error("Error server while getting user library", res.statusCode)
             );
         }
 
-        return res.json(
-          success(
-            "Success delete library",
-            null,
-            res.statusCode
-          )
-        );
-      });
-    })
+        var savedCustomLibraries = user_library.custom_common_libraries;
+        var savedCustomLibrariesDetail =
+          user_library.saved_common_libraries_detail;
+        var savedFavoriteLibrariesIdList = user_library.favorite_libraries;
 
+        // Delete custom library
+        var savedCustomLibrariesIndex = -1;
+        savedCustomLibraries.forEach((library) => {
+          savedCustomLibrariesIndex += 1;
+          if (library.id == library_id) {
+            savedCustomLibraries.splice(savedCustomLibrariesIndex, 1);
+          }
+        });
+
+        // Delete custom library detail
+        var savedCustomLibrariesDetailIndex = -1;
+        savedCustomLibrariesDetail.forEach((library) => {
+          savedCustomLibrariesDetailIndex += 1;
+          if (library.common_libraries_id == library_id) {
+            savedCustomLibrariesDetail.splice(
+              savedCustomLibrariesDetailIndex,
+              1
+            );
+          }
+        });
+
+        // Delete from favorite library list
+        var savedFavoriteIndex = -1;
+        savedFavoriteLibrariesIdList.forEach((favoriteId) => {
+          savedFavoriteIndex += 1;
+          if (favoriteId == library_id) {
+            savedFavoriteLibrariesIdList.splice(savedFavoriteIndex, 1);
+          }
+        });
+
+        const updatedData = {
+          favorite_libraries: savedFavoriteLibrariesIdList,
+          saved_common_libraries_detail: savedCustomLibrariesDetail,
+          custom_common_libraries: savedCustomLibraries,
+        };
+
+        user_library = _.extend(user_library, updatedData);
+
+        return user_library.save((err, result) => {
+          if (err) {
+            console.log(err);
+            return res
+              .status(500)
+              .json(
+                error(
+                  "Error server while saving new user library",
+                  res.statusCode
+                )
+              );
+          }
+
+          return res.json(
+            success("Success delete library", null, res.statusCode)
+          );
+        });
+      }
+    );
   });
-}
+};

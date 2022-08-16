@@ -52,6 +52,9 @@ exports.commonLibrariesDataModel = {
     },
     updated_at: {
         type: Date
+    },
+    user_id: {
+        type: Number
     }
 }
 
