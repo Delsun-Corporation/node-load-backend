@@ -180,7 +180,7 @@ exports.forgotPasswordEmailv2 = (otp, username) => {
                                   <div style="line-height: 150%; text-align: center; word-wrap: break-word;">
                                     <p style="font-size: 18px; line-height: 150%; text-align: left;">Hi ${username},</p>
                                     <p style="font-size: 18px; line-height: 150%; text-align: left;">We have received a request to change your account password.</p>
-                                    <p style="font-size: 18px; line-height: 150%; text-align: left;">You can use this OTP to change your account password in LOAD app.</p>
+                                    <p style="font-size: 18px; line-height: 150%; text-align: left;">You can use this OTP to change your account password in LOAD app.</p><br/>
                                     <p style="font-size: 18px; line-height: 160%; text-align: left;">Please note that the OTP (One-Time Password) will expire in 10 minutes.</p>
                                   </div>
     

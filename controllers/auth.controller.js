@@ -271,6 +271,7 @@ exports.forgotController = (req, res) => {
         user = _.extend(user, updatedFields);
 
         const name = user.name;
+        const firstName = name.split(" ")[0];
 
         return user.save((err, result) => {
           if (err) {
@@ -287,7 +288,7 @@ exports.forgotController = (req, res) => {
             from: `${process.env.EMAIL_FROM}`,
             to: email,
             subject: "Password Change Request",
-            html: forgotPasswordEmailv2(otp, name),
+            html: forgotPasswordEmailv2(otp, firstName),
             onError: (e) => {
               console.log(e);
               return res
@@ -302,7 +303,7 @@ exports.forgotController = (req, res) => {
             onSuccess: (i) => {
               console.log(i);
               return res.json(
-                success(`Email has been sent to ${email}`, null, res.statusCode)
+                success(`An OTP has been sent to your email.`, null, res.statusCode)
               );
             },
           });

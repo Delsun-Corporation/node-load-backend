@@ -39,9 +39,9 @@ exports.forgotPasswordValidator = [
 
 // Reset password
 exports.resetPasswordValidator = [
-    check('password')
-        .not()
-        .isEmpty()
-        .isLength({ min: 6 })
-        .withMessage('Password must be at least  6 characters long')
+    check('password', 'password is required').not().isEmpty(),
+    check('password').isLength({
+        min: 8
+    }).withMessage('Password must contain at leat 8 characters').matches(/\d/).withMessage('password must contain a number'),
+    check('password').matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/).withMessage('Password must contain at least 1 lower or uppercase letter')
 ]
