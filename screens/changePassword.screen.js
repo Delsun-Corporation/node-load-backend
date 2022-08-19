@@ -179,9 +179,9 @@ exports.changePassword = (username) => {
     
                                   <div style="line-height: 150%; text-align: center; word-wrap: break-word;">
                                     <p style="font-size: 18px; line-height: 150%; text-align: left;">Hi ${username},</p> <br />
-                                    <p style="font-size: 18px; line-height: 150%; text-align: left;">It looks like the password for your LOAD account recently changed. You can access the account using the updated password</p> <br />
+                                    <p style="font-size: 18px; line-height: 150%; text-align: left;">It looks like the password for your LOAD account recently changed. You can access the account using the updated password.</p> <br />
                                     <p style="font-size: 18px; line-height: 150%; text-align: left;"><strong>Do you think this is a mistake?</strong></p><br />
-                                    <p style="font-size: 18px; line-height: 160%; text-align: left;">Please contact <strong><span style="text-decoration: underline; line-height: 22.4px;"><a rel="noopener" href="mailto:hello@load-peakyourperformance.com?subject=Customer%20Service%20Support&body=" target="_blank" style="color: #000000; text-decoration: underline;">LOAD Customer Service</a></span></strong> at if you did not initiate this activity and have security concerns about your account.</p>
+                                    <p style="font-size: 18px; line-height: 160%; text-align: left;">Please contact <strong><span style="text-decoration: underline; line-height: 22.4px;"><a rel="noopener" href="mailto:hello@load-peakyourperformance.com?subject=Customer%20Service%20Support&body=" target="_blank" style="color: #000000; text-decoration: underline;">LOAD Customer Service</a></span></strong> if you did not initiate this activity and have security concerns about your account.</p>
                                   </div>
     
                                 </td>

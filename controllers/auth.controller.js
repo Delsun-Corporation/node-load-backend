@@ -329,7 +329,8 @@ exports.changePasswordController = (req, res) => {
         .json(error("User with that email does not exist", res.statusCode));
     }
 
-    const name = user.name
+    const name = user.name;
+    const firstName = name.split(" ")[0];
 
     if (
       is_from_otp !== null &&
@@ -361,8 +362,8 @@ exports.changePasswordController = (req, res) => {
           },
           from: `${process.env.EMAIL_FROM}`,
           to: email,
-          subject: "Success Change Password",
-          html: changePassword(name),
+          subject: "Your LOAD Account Password Has Been Changed",
+          html: changePassword(firstName),
           onError: (e) => {
             console.log(e);
             return res
