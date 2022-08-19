@@ -47,88 +47,88 @@ exports.loginController = (req, res) => {
   const { email, password } = req.query;
   const errors = validationResult(req);
 
-  if (!errors.isEmpty()) {
-    const firstError = errors.array().map((error) => error.msg)[0];
-    return res.status(422).json(validation(firstError));
-  } else {
-    User.findOne({
-      email,
-    }).exec((err, user) => {
-      if (err || !user) {
+  User.findOne({
+    email,
+  }).exec((err, user) => {
+    if (err || !user) {
+      return res
+        .status(400)
+        .json(
+          error(
+            "Email ID does not exist. Please sign up and activate your account before signing in.",
+            res.statusCode
+          )
+        );
+    }
+
+    if (!errors.isEmpty()) {
+      const firstError = errors.array().map((error) => error.msg)[0];
+      return res.status(422).json(validation(firstError));
+    } 
+
+    // Authentication
+    if (!user.authenticate(password)) {
+      return res
+        .status(400)
+        .json(error("Either email or password do not match", res.statusCode));
+    }
+
+    const { _id } = user;
+    const userId = _id.toString();
+
+    //Generate Token
+    const token = jwt.sign(
+      {
+        userId: userId,
+      },
+      process.env.JWT_SECRET
+    );
+
+    const newBioToSave = {
+      token,
+    };
+
+    user = _.extend(user, newBioToSave);
+
+    return user.save((err, result) => {
+      if (err) {
         return res
           .status(400)
-          .json(
-            error(
-              "User with that email does not exist, please sign up or activate your account with email that has been sent",
-              res.statusCode
-            )
-          );
+          .json(error("Error resetting user password", res.statusCode));
       }
 
-      // Authentication
-      if (!user.authenticate(password)) {
-        return res
-          .status(400)
-          .json(error("Either email or password do not match", res.statusCode));
-      }
+      delete result._doc["hashed_password"];
+      delete result._doc["salt"];
 
-      const { _id } = user;
-      const userId = _id.toString();
-
-      //Generate Token
-      const token = jwt.sign(
+      Snooze.findOne(
         {
-          userId: userId,
+          user_id: result.id,
         },
-        process.env.JWT_SECRET
-      );
-
-      const newBioToSave = {
-        token,
-      };
-
-      user = _.extend(user, newBioToSave);
-
-      return user.save((err, result) => {
-        if (err) {
-          return res
-            .status(400)
-            .json(error("Error resetting user password", res.statusCode));
-        }
-
-        delete result._doc["hashed_password"];
-        delete result._doc["salt"];
-
-        Snooze.findOne(
-          {
-            user_id: result.id,
-          },
-          (err, account) => {
-            if (err || account == null || account == undefined) {
-              return res.json(
-                success(
-                  "Sign in Success",
-                  { user: result, token },
-                  res.statusCode
-                )
-              );
-            }
-
+        (err, account) => {
+          if (err || account == null || account == undefined) {
             return res.json(
               success(
                 "Sign in Success",
-                {
-                  user: { ...result._doc, user_snooze_detail: account },
-                  token,
-                },
+                { user: result, token },
                 res.statusCode
               )
             );
           }
-        );
-      });
+
+          return res.json(
+            success(
+              "Sign in Success",
+              {
+                user: { ...result._doc, user_snooze_detail: account },
+                token,
+              },
+              res.statusCode
+            )
+          );
+        }
+      );
     });
-  }
+  });
 };
 
 exports.registerController = (req, res) => {
@@ -172,7 +172,7 @@ exports.registerController = (req, res) => {
         },
         from: `${process.env.EMAIL_FROM}`,
         to: email,
-        subject: "Email verification link",
+        subject: "Verify your LOAD ID email address",
         html: activationEmailv2(token, email),
         onError: (e) => {
           console.log(e);

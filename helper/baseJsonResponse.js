@@ -44,7 +44,7 @@
  */
 exports.validation = (errors) => {
     return {
-      message: "Validation errors",
+      message: errors,
       success: false,
       status: 422,
       errors
