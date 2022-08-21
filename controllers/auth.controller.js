@@ -65,7 +65,7 @@ exports.loginController = (req, res) => {
     if (!errors.isEmpty()) {
       const firstError = errors.array().map((error) => error.msg)[0];
       return res.status(422).json(validation(firstError));
-    } 
+    }
 
     // Authentication
     if (!user.authenticate(password)) {
@@ -182,7 +182,11 @@ exports.registerController = (req, res) => {
         },
         onSuccess: (i) => {
           return res.json(
-            success(`An activation link has been sent to your email`, null, res.statusCode)
+            success(
+              `An activation link has been sent to your email`,
+              null,
+              res.statusCode
+            )
           );
         },
       });
@@ -270,12 +274,21 @@ exports.forgotController = (req, res) => {
 
         const name = user.name;
         const firstName = name.split(" ")[0];
+        // Search if user's name still in default format (e.g: User-x-x-x)
+        const defaultUserName = name.split("-")[0];
 
         return user.save((err, result) => {
           if (err) {
             return res
               .status(400)
               .json(error("Error saving user OTP", res.statusCode));
+          }
+
+          var usernameToSend = "";
+          if (defaultUserName == "User") {
+            usernameToSend = "there";
+          } else {
+            usernameToSend = firstName;
           }
 
           nodemailer.sendEmail({
@@ -286,7 +299,7 @@ exports.forgotController = (req, res) => {
             from: `${process.env.EMAIL_FROM}`,
             to: email,
             subject: "Password Change Request",
-            html: forgotPasswordEmailv2(otp, firstName),
+            html: forgotPasswordEmailv2(otp, usernameToSend),
             onError: (e) => {
               console.log(e);
               return res
@@ -301,7 +314,11 @@ exports.forgotController = (req, res) => {
             onSuccess: (i) => {
               console.log(i);
               return res.json(
-                success(`An OTP has been sent to your email.`, null, res.statusCode)
+                success(
+                  `An OTP has been sent to your email.`,
+                  null,
+                  res.statusCode
+                )
               );
             },
           });
@@ -330,6 +347,8 @@ exports.changePasswordController = (req, res) => {
 
     const name = user.name;
     const firstName = name.split(" ")[0];
+    // Search if user's name still in default format (e.g: User-x-x-x)
+    const defaultUserName = name.split("-")[0];
 
     if (
       is_from_otp !== null &&
@@ -337,7 +356,7 @@ exports.changePasswordController = (req, res) => {
       is_from_otp === true
     ) {
       const updatedFields = {
-        password: password
+        password: password,
       };
 
       user = _.extend(user, updatedFields);
@@ -354,6 +373,13 @@ exports.changePasswordController = (req, res) => {
             );
         }
 
+        var usernameToSend = "";
+        if (defaultUserName == "User") {
+          usernameToSend = "there";
+        } else {
+          usernameToSend = firstName;
+        }
+
         nodemailer.sendEmail({
           auth: {
             user: `${process.env.NODEMAILER_ACCOUNT}`,
@@ -362,7 +388,7 @@ exports.changePasswordController = (req, res) => {
           from: `${process.env.EMAIL_FROM}`,
           to: email,
           subject: "Your LOAD Account Password Has Been Changed",
-          html: changePassword(firstName),
+          html: changePassword(usernameToSend),
           onError: (e) => {
             console.log(e);
             return res
@@ -503,132 +529,226 @@ exports.registerFullProfileController = (req, res) => {
 exports.getAllData = (req, res) => {
   const { authorization } = req.headers;
 
-  Account.find({is_active: 1}, (err, accounts) => {
+  Account.find({ is_active: 1 }, (err, accounts) => {
     if (err) {
       return res
         .status(500)
         .json(error("Error getting Account Types", res.statusCode));
     }
-    return available_timesModel.find({ is_active: 1 }, (err, available_times) => {
-      if (err) {
-        return res
-          .status(500)
-          .json(error("Error getting Available Times", res.statusCode));
-      }
-      return training_typesModel.find({ is_active: 1 }, (err, training_types) => {
+    return available_timesModel.find(
+      { is_active: 1 },
+      (err, available_times) => {
         if (err) {
           return res
             .status(500)
-            .json(error("Error getting Training Types", res.statusCode));
+            .json(error("Error getting Available Times", res.statusCode));
         }
-
-        return training_intensityModel.find({ is_active: 1 }, (err, training_intensity) => {
-          if (err) {
-            return res
-              .status(500)
-              .json(error("Error getting Training Intensty", res.statusCode));
-          }
-
-          return languagesModel.find({ is_active: 1 }, (err, languages) => {
+        return training_typesModel.find(
+          { is_active: 1 },
+          (err, training_types) => {
             if (err) {
               return res
                 .status(500)
-                .json(error("Error getting languages", res.statusCode));
+                .json(error("Error getting Training Types", res.statusCode));
             }
 
-            languages.sort(objectSorterByStringValue('name'));
+            return training_intensityModel.find(
+              { is_active: 1 },
+              (err, training_intensity) => {
+                if (err) {
+                  return res
+                    .status(500)
+                    .json(
+                      error("Error getting Training Intensty", res.statusCode)
+                    );
+                }
 
-            return professional_typesModel.find({ is_active: 1 }, (err, professional_types) => {
+                return languagesModel.find(
+                  { is_active: 1 },
+                  (err, languages) => {
+                    if (err) {
+                      return res
+                        .status(500)
+                        .json(error("Error getting languages", res.statusCode));
+                    }
 
-              return cancelation_policiesModel.find({is_active: 1}, (err, cancellation_policy) => {
+                    languages.sort(objectSorterByStringValue("name"));
 
-                return payment_optionsModel.find({is_active: 1}, (err, payment_options) => {
-
-                  return professional_scheduleModel.find({is_active: 1}, (err, professional_schedule_advance_booking) => {
-
-                    return specializationModel.find({is_active: "1"}, (err, specializations) => {
-
-                      return race_distanceModel.find({is_active: 1}, (err, settings_race_distances) => {
-
-                        return currenciesModel.find({is_active: 1}, (err, currencies) => {
-
-                          return servicesModel.find({is_active: 1}, (err, services) => {
-
-                            return countries.find({is_active: 1}, (err, countries) => {
-
-                              return body_partsModel.find({is_region: 1}, (err, regions) => {
-
-                                return preset_training_programsModel.find({is_active: 1, status: "CARDIO"}, (err, cardio_preset_training_program) => {
-
-                                  return preset_training_programsModel.find({is_active: 1, status: "RESISTANCE"}, (err, resistance_preset_training_program) => {
-                                    
-                                    return body_partsModel.find({is_active: "1", parent_id: null}, (err, body_parts) => {
-
-                                      return mechanicsModel.find({is_active: 1}, (err, mechanics) => {
-
-                                        return action_forceModel.find({is_active: 1}, (err, action_force) => {
-
-                                          return equipmentModel.find({is_active: "1"}, (err, equipments) => {
-
-                                            return targeted_muscleModel.find({is_active: "1"}, (err, targeted_muscles) => {
-
-                                              return res.json(
-                                                success(
-                                                  "Success Get All Data",
-                                                  {
-                                                    accounts,
-                                                    available_times,
-                                                    training_types,
-                                                    training_intensity,
-                                                    languages,
-                                                    professional_types,
-                                                    cancellation_policy,
-                                                    payment_options,
-                                                    professional_schedule_advance_booking,
-                                                    specializations,
-                                                    settings_race_distances,
-                                                    currencies,
-                                                    services,
-                                                    countries,
-                                                    regions,
-                                                    cardio_preset_training_program,
-                                                    resistance_preset_training_program,
-                                                    category: body_parts,
-                                                    mechanics,
-                                                    action_force,
-                                                    equipments,
-                                                    targeted_muscles,
-                                                    default_body_part_image_url_back: "https://firebasestorage.googleapis.com/v0/b/loadapp-3ab00.appspot.com/o/libraries_images%2FAnatomy_Back.png?alt=media&token=20de3dc8-1cd8-46d4-9072-26f15010da90",
-                                                    default_body_part_image_url_front: "https://firebasestorage.googleapis.com/v0/b/loadapp-3ab00.appspot.com/o/libraries_images%2FAnatomy_Front.png?alt=media&token=febececc-e04e-4fdf-b7ef-3a0483da44d0"
-                                                  },
-                                                  res.statusCode
-                                                )
-                                              );
-
-                                            });
-                                            
-                                          })
-
-                                        });
-                                      })
-
-                                    })
-                                  }); 
-                                })
-                              })
-                            })
-                          })
-                        })
-                      })
-                    })
-                  })
-                })
-              })
-            })
-          });
-        });
-      });
-    });
+                    return professional_typesModel.find(
+                      { is_active: 1 },
+                      (err, professional_types) => {
+                        return cancelation_policiesModel.find(
+                          { is_active: 1 },
+                          (err, cancellation_policy) => {
+                            return payment_optionsModel.find(
+                              { is_active: 1 },
+                              (err, payment_options) => {
+                                return professional_scheduleModel.find(
+                                  { is_active: 1 },
+                                  (
+                                    err,
+                                    professional_schedule_advance_booking
+                                  ) => {
+                                    return specializationModel.find(
+                                      { is_active: "1" },
+                                      (err, specializations) => {
+                                        return race_distanceModel.find(
+                                          { is_active: 1 },
+                                          (err, settings_race_distances) => {
+                                            return currenciesModel.find(
+                                              { is_active: 1 },
+                                              (err, currencies) => {
+                                                return servicesModel.find(
+                                                  { is_active: 1 },
+                                                  (err, services) => {
+                                                    return countries.find(
+                                                      { is_active: 1 },
+                                                      (err, countries) => {
+                                                        return body_partsModel.find(
+                                                          { is_region: 1 },
+                                                          (err, regions) => {
+                                                            return preset_training_programsModel.find(
+                                                              {
+                                                                is_active: 1,
+                                                                status:
+                                                                  "CARDIO",
+                                                              },
+                                                              (
+                                                                err,
+                                                                cardio_preset_training_program
+                                                              ) => {
+                                                                return preset_training_programsModel.find(
+                                                                  {
+                                                                    is_active: 1,
+                                                                    status:
+                                                                      "RESISTANCE",
+                                                                  },
+                                                                  (
+                                                                    err,
+                                                                    resistance_preset_training_program
+                                                                  ) => {
+                                                                    return body_partsModel.find(
+                                                                      {
+                                                                        is_active:
+                                                                          "1",
+                                                                        parent_id:
+                                                                          null,
+                                                                      },
+                                                                      (
+                                                                        err,
+                                                                        body_parts
+                                                                      ) => {
+                                                                        return mechanicsModel.find(
+                                                                          {
+                                                                            is_active: 1,
+                                                                          },
+                                                                          (
+                                                                            err,
+                                                                            mechanics
+                                                                          ) => {
+                                                                            return action_forceModel.find(
+                                                                              {
+                                                                                is_active: 1,
+                                                                              },
+                                                                              (
+                                                                                err,
+                                                                                action_force
+                                                                              ) => {
+                                                                                return equipmentModel.find(
+                                                                                  {
+                                                                                    is_active:
+                                                                                      "1",
+                                                                                  },
+                                                                                  (
+                                                                                    err,
+                                                                                    equipments
+                                                                                  ) => {
+                                                                                    return targeted_muscleModel.find(
+                                                                                      {
+                                                                                        is_active:
+                                                                                          "1",
+                                                                                      },
+                                                                                      (
+                                                                                        err,
+                                                                                        targeted_muscles
+                                                                                      ) => {
+                                                                                        return res.json(
+                                                                                          success(
+                                                                                            "Success Get All Data",
+                                                                                            {
+                                                                                              accounts,
+                                                                                              available_times,
+                                                                                              training_types,
+                                                                                              training_intensity,
+                                                                                              languages,
+                                                                                              professional_types,
+                                                                                              cancellation_policy,
+                                                                                              payment_options,
+                                                                                              professional_schedule_advance_booking,
+                                                                                              specializations,
+                                                                                              settings_race_distances,
+                                                                                              currencies,
+                                                                                              services,
+                                                                                              countries,
+                                                                                              regions,
+                                                                                              cardio_preset_training_program,
+                                                                                              resistance_preset_training_program,
+                                                                                              category:
+                                                                                                body_parts,
+                                                                                              mechanics,
+                                                                                              action_force,
+                                                                                              equipments,
+                                                                                              targeted_muscles,
+                                                                                              default_body_part_image_url_back:
+                                                                                                "https://firebasestorage.googleapis.com/v0/b/loadapp-3ab00.appspot.com/o/libraries_images%2FAnatomy_Back.png?alt=media&token=20de3dc8-1cd8-46d4-9072-26f15010da90",
+                                                                                              default_body_part_image_url_front:
+                                                                                                "https://firebasestorage.googleapis.com/v0/b/loadapp-3ab00.appspot.com/o/libraries_images%2FAnatomy_Front.png?alt=media&token=febececc-e04e-4fdf-b7ef-3a0483da44d0",
+                                                                                            },
+                                                                                            res.statusCode
+                                                                                          )
+                                                                                        );
+                                                                                      }
+                                                                                    );
+                                                                                  }
+                                                                                );
+                                                                              }
+                                                                            );
+                                                                          }
+                                                                        );
+                                                                      }
+                                                                    );
+                                                                  }
+                                                                );
+                                                              }
+                                                            );
+                                                          }
+                                                        );
+                                                      }
+                                                    );
+                                                  }
+                                                );
+                                              }
+                                            );
+                                          }
+                                        );
+                                      }
+                                    );
+                                  }
+                                );
+                              }
+                            );
+                          }
+                        );
+                      }
+                    );
+                  }
+                );
+              }
+            );
+          }
+        );
+      }
+    );
   });
 };
 
