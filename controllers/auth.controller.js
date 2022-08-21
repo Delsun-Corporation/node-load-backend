@@ -160,10 +160,7 @@ exports.registerController = (req, res) => {
           email,
           password,
         },
-        `${process.env.JWT_ACCCOUNT_ACTIVATION}`,
-        {
-          expiresIn: "15m",
-        }
+        `${process.env.JWT_ACCCOUNT_ACTIVATION}`
       );
 
       nodemailer.sendEmail({
