@@ -38,6 +38,7 @@ const mechanicsModel = require("../models/mechanics.model");
 const action_forceModel = require("../models/action_force.model");
 const equipmentModel = require("../models/equipment.model");
 const targeted_muscleModel = require("../models/targeted_muscle.model");
+const { objectSorterByStringValue } = require("../helper/reusable_function");
 
 function getDefaultUserId() {
   return Math.round(Date.now() + Math.random());
@@ -537,6 +538,8 @@ exports.getAllData = (req, res) => {
                 .status(500)
                 .json(error("Error getting languages", res.statusCode));
             }
+
+            languages.sort(objectSorterByStringValue('name'));
 
             return professional_typesModel.find({ is_active: 1 }, (err, professional_types) => {
 
