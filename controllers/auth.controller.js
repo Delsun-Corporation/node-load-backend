@@ -523,12 +523,12 @@ exports.registerFullProfileController = (req, res) => {
 
         console.log("FileSize: " + fileSize);
 
-        if (fileSize > 20) {
+        if (fileSize > 5) {
           return res
             .status(403)
             .json(
               error(
-                "Your image size is more than 20 MB, please use different image",
+                "Your image size is more than 5 MB, please use different image",
                 res.statusCode
               )
             );
