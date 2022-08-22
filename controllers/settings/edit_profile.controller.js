@@ -103,7 +103,7 @@ exports.updateEditProfile = (req, res) => {
         country_id,
         facebook,
         gender,
-        photo: `${process.env.SERVER_URL}/uploads/profilePicture/${fileName}.jpg`,
+        photo: `${process.env.CLIENT_URL}/uploads/profilePicture/${fileName}.jpg`,
       };
 
       user = _.extend(user, updatedData);

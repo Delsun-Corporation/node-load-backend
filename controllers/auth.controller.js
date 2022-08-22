@@ -525,7 +525,7 @@ exports.registerFullProfileController = (req, res) => {
         phone_number,
         location,
         is_profile_complete: true,
-        photo: `${process.env.SERVER_URL}/uploads/profilePicture/${fileName}.jpg`,
+        photo: `${process.env.CLIENT_URL}/uploads/profilePicture/${fileName}.jpg`,
       };
 
       user = _.extend(user, newBioToSave);
