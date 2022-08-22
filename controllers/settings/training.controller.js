@@ -37,7 +37,10 @@ exports.getTrainingData = (req, res) => {
           return res.json(
             success(
               "Success getting training's setting data",
-              null,
+              {
+                weight,
+                height,
+              },
               res.statusCode
             )
           );
