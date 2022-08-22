@@ -5,6 +5,7 @@
     "server": "nodemon server"
   },
   "dependencies": {
+    "atob": "^2.1.2",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
@@ -17,6 +18,7 @@
     "mongoose": "^6.4.0",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
+    "node-base64-image": "^2.0.4",
     "nodejs-nodemailer-outlook": "^1.2.4"
   },
   "devDependencies": {

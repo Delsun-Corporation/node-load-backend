@@ -15,10 +15,11 @@ require('dotenv').config({
 connectDb();
 
 app.use(bodyParser.urlencoded({ extended: true })); 
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
 // for parsing multipart/form-data
 app.use(upload.array()); 
 app.use(express.static('public'));
+app.use('/api/uploads', express.static('uploads'));
 
 // Config for only development
 if(process.env.NODE_ENV == 'development') {

@@ -1,6 +1,7 @@
 const { validationResult } = require("express-validator");
 const User = require("../models/auth.model");
 const jwt = require("jsonwebtoken");
+const atob = require('atob');
 // const nodemailer = require('nodemailer');
 const nodemailer = require("nodejs-nodemailer-outlook");
 const { errorHandler } = require("../helper/dbErrorHandling");
@@ -9,6 +10,9 @@ const {
   forgotPasswordEmail,
 } = require("../screens/forgotPasswordEmail.screen");
 const { success, error, validation } = require("../helper/baseJsonResponse");
+const encode = require("node-base64-image").encode;
+const decode = require("node-base64-image").decode;
+const fs = require("fs");
 const _ = require("lodash");
 const crypto = require("crypto");
 const Account = require("../models/account.model");
@@ -38,7 +42,10 @@ const mechanicsModel = require("../models/mechanics.model");
 const action_forceModel = require("../models/action_force.model");
 const equipmentModel = require("../models/equipment.model");
 const targeted_muscleModel = require("../models/targeted_muscle.model");
-const { objectSorterByStringValue } = require("../helper/reusable_function");
+const {
+  objectSorterByStringValue,
+  createRandomStringName,
+} = require("../helper/reusable_function");
 
 function getDefaultUserId() {
   return Math.round(Date.now() + Math.random());
@@ -470,6 +477,7 @@ exports.registerFullProfileController = (req, res) => {
     phone_area,
     phone_number,
     email,
+    profile_image,
   } = req.body;
   const { authorization } = req.headers;
 
@@ -491,6 +499,22 @@ exports.registerFullProfileController = (req, res) => {
         return res.status(401).json(error("Unautorized", res.statusCode));
       }
 
+      var base64str = profile_image;
+      var decoded = atob(base64str);
+      const fileSize = (decoded.length/1000000)
+
+      console.log("FileSize: " + fileSize);
+
+      if (fileSize > 20) {
+        return res.status(403).json(error("Your image size is more than 20 MB, please use different image", res.statusCode));
+      }
+
+      const fileName = createRandomStringName();
+      decode(profile_image, {
+        fname: `./uploads/profilePicture/${fileName}`,
+        ext: "jpg",
+      });
+
       const newBioToSave = {
         date_of_birth,
         name,
@@ -501,6 +525,7 @@ exports.registerFullProfileController = (req, res) => {
         phone_number,
         location,
         is_profile_complete: true,
+        photo: `${process.env.SERVER_URL}/uploads/profilePicture/${fileName}.jpg`,
       };
 
       user = _.extend(user, newBioToSave);
