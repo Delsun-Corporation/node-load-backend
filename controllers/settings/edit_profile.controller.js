@@ -3,7 +3,7 @@ const authModel = require("../../models/auth.model");
 const _ = require("lodash");
 const user_snoozeModel = require("../../models/user_snooze.model");
 const decode = require("node-base64-image").decode;
-const atob = require('atob');
+const atob = require("atob");
 const { createRandomStringName } = require("../../helper/reusable_function");
 
 exports.getEditProfile = (req, res) => {
@@ -78,22 +78,6 @@ exports.updateEditProfile = (req, res) => {
         return res.status(401).json(error("Unauthorized", res.statusCode));
       }
 
-      var base64str = profile_image;
-      var decoded = atob(base64str);
-      const fileSize = (decoded.length/1000000)
-
-      console.log("FileSize: " + fileSize);
-
-      if (fileSize > 20) {
-        return res.status(403).json(error("Your image size is more than 20 MB, please use different image", res.statusCode));
-      }
-
-      const fileName = createRandomStringName();
-      decode(profile_image, {
-        fname: `./uploads/profilePicture/${fileName}`,
-        ext: "jpg",
-      });
-
       const updatedData = {
         name,
         email,
@@ -102,9 +86,40 @@ exports.updateEditProfile = (req, res) => {
         date_of_birth,
         country_id,
         facebook,
-        gender,
-        photo: `${process.env.CLIENT_URL}/uploads/profilePicture/${fileName}.jpg`,
+        gender
       };
+
+      // Check if profile_image is not empty
+      if (
+        profile_image !== undefined &&
+        profile_image !== null &&
+        profile_image !== ""
+      ) {
+        var base64str = profile_image;
+        var decoded = atob(base64str);
+        const fileSize = decoded.length / 1000000;
+
+        console.log("FileSize: " + fileSize);
+
+        if (fileSize > 20) {
+          return res
+            .status(403)
+            .json(
+              error(
+                "Your image size is more than 20 MB, please use different image",
+                res.statusCode
+              )
+            );
+        }
+
+        const fileName = createRandomStringName();
+        decode(profile_image, {
+          fname: `./uploads/profilePicture/${fileName}`,
+          ext: "jpg",
+        });
+
+        updatedData['photo'] = `${process.env.CLIENT_URL}/uploads/profilePicture/${fileName}.jpg`;
+      }
 
       user = _.extend(user, updatedData);
 
