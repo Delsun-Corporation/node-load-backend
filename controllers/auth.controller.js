@@ -170,33 +170,33 @@ exports.registerController = (req, res) => {
         `${process.env.JWT_ACCCOUNT_ACTIVATION}`
       );
 
-      nodemailer.sendEmail({
-        auth: {
-          user: `${process.env.NODEMAILER_ACCOUNT}`,
-          pass: `${process.env.NODEMAILER_PASSWORD}`,
-        },
-        from: `${process.env.EMAIL_FROM}`,
-        to: email,
-        subject: "Verify your LOAD ID email address",
-        html: activationEmailv2(token, email),
-        onError: (e) => {
-          console.log(e);
-          return res
-            .status(500)
-            .json(
-              error("Something went wrong, please try again", res.statusCode)
-            );
-        },
-        onSuccess: (i) => {
-          return res.json(
-            success(
-              `An activation link has been sent to your email`,
-              null,
-              res.statusCode
-            )
-          );
-        },
-      });
+      // nodemailer.sendEmail({
+      //   auth: {
+      //     user: `${process.env.NODEMAILER_ACCOUNT}`,
+      //     pass: `${process.env.NODEMAILER_PASSWORD}`,
+      //   },
+      //   from: `${process.env.EMAIL_FROM}`,
+      //   to: email,
+      //   subject: "Verify your LOAD ID email address",
+      //   html: activationEmailv2(token, email),
+      //   onError: (e) => {
+      //     console.log(e);
+      //     return res
+      //       .status(500)
+      //       .json(
+      //         error("Something went wrong, please try again", res.statusCode)
+      //       );
+      //   },
+      //   onSuccess: (i) => {
+      //     return res.json(
+      //       success(
+      //         `An activation link has been sent to your email`,
+      //         null,
+      //         res.statusCode
+      //       )
+      //     );
+      //   },
+      // });
     });
   }
 };

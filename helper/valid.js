@@ -8,8 +8,8 @@ exports.validRegister = [
     check('password', 'password is required').not().isEmpty(),
     check('password').isLength({
         min: 8
-    }).withMessage('Password must contain at leat 8 characters').matches(/\d/).withMessage('password must contain a number'),
-    check('password').matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/).withMessage('Password must contain at least 1 lower or uppercase letter')
+    }).withMessage('Password must contain at least 8 characters').matches(/\d/).withMessage('password must contain a number'),
+    check('password').matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/).withMessage('Password must contain at least 1 lower or uppercase letter')
 ]
 
 exports.validRegisterFullProfile = [
@@ -42,6 +42,6 @@ exports.resetPasswordValidator = [
     check('password', 'password is required').not().isEmpty(),
     check('password').isLength({
         min: 8
-    }).withMessage('Password must contain at leat 8 characters').matches(/\d/).withMessage('password must contain a number'),
-    check('password').matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/).withMessage('Password must contain at least 1 lower or uppercase letter')
+    }).withMessage('Password must contain at least 8 characters').matches(/\d/).withMessage('password must contain a number'),
+    check('password').matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/).withMessage('Password must contain at least 1 lower or uppercase letter')
 ]
