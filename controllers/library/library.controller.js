@@ -353,7 +353,7 @@ exports.postLibraryList = (req, res) => {
                     common_libraries.forEach((library) => {
                       if (
                         body.id == library.sub_header_id &&
-                        library.exercise_name.includes(searchKeyword)
+                        library.exercise_name.toLowerCase().includes(searchKeyword.toLowerCase())
                       ) {
                         if (
                           library.regions_ids != null &&
