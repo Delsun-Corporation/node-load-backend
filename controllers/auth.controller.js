@@ -712,6 +712,7 @@ exports.getAllData = (req, res) => {
                                                                                         err,
                                                                                         targeted_muscles
                                                                                       ) => {
+                                                                                        targeted_muscles.sort(objectSorterByStringValue("name"))
                                                                                         return res.json(
                                                                                           success(
                                                                                             "Success Get All Data",
