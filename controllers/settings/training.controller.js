@@ -128,7 +128,7 @@ exports.updateTrainingSettings = (req, res) => {
 
     user = _.extend(user, updatedUserData);
 
-    return user.save((err, result) => {
+    return user.save((err, userResult) => {
       if (err) {
         return res
           .status(500)
@@ -170,6 +170,8 @@ exports.updateTrainingSettings = (req, res) => {
                     {
                       race_distance_detail,
                       ...result._doc,
+                      height: userResult.height,
+                      weight: userResult.weight
                     },
                     res.statusCode
                   )
@@ -204,6 +206,8 @@ exports.updateTrainingSettings = (req, res) => {
                   {
                     race_distance_detail,
                     ...result._doc,
+                    height: userResult.height,
+                    weight: userResult.weight
                   },
                   res.statusCode
                 )
