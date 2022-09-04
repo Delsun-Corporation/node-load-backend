@@ -752,6 +752,7 @@ exports.getAllData = (req, res) => {
                                                                                                     training_activity,
                                                                                                     training_frequencies,
                                                                                                     training_goal,
+                                                                                                    training_goal_log_cardio: training_goal,
                                                                                                     default_body_part_image_url_back:
                                                                                                       "https://firebasestorage.googleapis.com/v0/b/loadapp-3ab00.appspot.com/o/libraries_images%2FAnatomy_Back.png?alt=media&token=20de3dc8-1cd8-46d4-9072-26f15010da90",
                                                                                                     default_body_part_image_url_front:
