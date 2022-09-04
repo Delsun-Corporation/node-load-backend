@@ -46,6 +46,7 @@ const {
   objectSorterByStringValue,
   createRandomStringName,
 } = require("../helper/reusable_function");
+const training_activitiesModel = require("../models/training/training_activities.model");
 
 function getDefaultUserId() {
   return Math.round(Date.now() + Math.random());
@@ -713,41 +714,45 @@ exports.getAllData = (req, res) => {
                                                                                         targeted_muscles
                                                                                       ) => {
                                                                                         targeted_muscles.sort(objectSorterByStringValue("name"))
-                                                                                        return res.json(
-                                                                                          success(
-                                                                                            "Success Get All Data",
-                                                                                            {
-                                                                                              accounts,
-                                                                                              available_times,
-                                                                                              training_types,
-                                                                                              training_intensity,
-                                                                                              languages,
-                                                                                              professional_types,
-                                                                                              cancellation_policy,
-                                                                                              payment_options,
-                                                                                              professional_schedule_advance_booking,
-                                                                                              specializations,
-                                                                                              settings_race_distances,
-                                                                                              currencies,
-                                                                                              services,
-                                                                                              countries,
-                                                                                              regions,
-                                                                                              cardio_preset_training_program,
-                                                                                              resistance_preset_training_program,
-                                                                                              category:
-                                                                                                body_parts,
-                                                                                              mechanics,
-                                                                                              action_force,
-                                                                                              equipments,
-                                                                                              targeted_muscles,
-                                                                                              default_body_part_image_url_back:
-                                                                                                "https://firebasestorage.googleapis.com/v0/b/loadapp-3ab00.appspot.com/o/libraries_images%2FAnatomy_Back.png?alt=media&token=20de3dc8-1cd8-46d4-9072-26f15010da90",
-                                                                                              default_body_part_image_url_front:
-                                                                                                "https://firebasestorage.googleapis.com/v0/b/loadapp-3ab00.appspot.com/o/libraries_images%2FAnatomy_Front.png?alt=media&token=febececc-e04e-4fdf-b7ef-3a0483da44d0",
-                                                                                            },
-                                                                                            res.statusCode
-                                                                                          )
-                                                                                        );
+
+                                                                                        return training_activitiesModel.find({ is_active: "1" }, (err, training_activity) => {
+                                                                                          return res.json(
+                                                                                            success(
+                                                                                              "Success Get All Data",
+                                                                                              {
+                                                                                                accounts,
+                                                                                                available_times,
+                                                                                                training_types,
+                                                                                                training_intensity,
+                                                                                                languages,
+                                                                                                professional_types,
+                                                                                                cancellation_policy,
+                                                                                                payment_options,
+                                                                                                professional_schedule_advance_booking,
+                                                                                                specializations,
+                                                                                                settings_race_distances,
+                                                                                                currencies,
+                                                                                                services,
+                                                                                                countries,
+                                                                                                regions,
+                                                                                                cardio_preset_training_program,
+                                                                                                resistance_preset_training_program,
+                                                                                                category:
+                                                                                                  body_parts,
+                                                                                                mechanics,
+                                                                                                action_force,
+                                                                                                equipments,
+                                                                                                targeted_muscles,
+                                                                                                training_activity,
+                                                                                                default_body_part_image_url_back:
+                                                                                                  "https://firebasestorage.googleapis.com/v0/b/loadapp-3ab00.appspot.com/o/libraries_images%2FAnatomy_Back.png?alt=media&token=20de3dc8-1cd8-46d4-9072-26f15010da90",
+                                                                                                default_body_part_image_url_front:
+                                                                                                  "https://firebasestorage.googleapis.com/v0/b/loadapp-3ab00.appspot.com/o/libraries_images%2FAnatomy_Front.png?alt=media&token=febececc-e04e-4fdf-b7ef-3a0483da44d0",
+                                                                                              },
+                                                                                              res.statusCode
+                                                                                            )
+                                                                                          );
+                                                                                        })
                                                                                       }
                                                                                     );
                                                                                   }
