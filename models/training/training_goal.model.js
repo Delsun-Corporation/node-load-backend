@@ -14,10 +14,10 @@ const trainingGoalSchema = new mongoose.Schema(
             type: String
         },
         training_activity_ids: {
-            type: String
+            type: [String]
         },
         training_intensity_ids: {
-            type: String
+            type: [String]
         },
         display_at: {
             type: String
