@@ -14,12 +14,15 @@ const { error } = require("./baseJsonResponse");
 
 async function validateToken(req, res, callback) {
   const { authorization } = req.headers;
+  if (authorization == null || authorization == undefined) {
+    return res.status(403).json(error("Invalid headers", res.statusCode));
+}
 
   authModel.findOne({ token: authorization }, (err, user) => {
     if (err || user == null || user == undefined) {
         return res.status(403).json(error("Unauthorized", res.statusCode));
     }
-    
+
     return callback(user);
   });
 }
