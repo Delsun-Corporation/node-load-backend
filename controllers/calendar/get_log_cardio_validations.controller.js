@@ -25,7 +25,7 @@ exports.getLogCardioValidation = (req, res) => {
                     element.hr_max = hr_max;
                 });
 
-                return res.json(success("Success getting cardio log validations", {cardioLogValidations}, res.statusCode));
+                return res.json(success("Success getting cardio log validations", cardioLogValidations, res.statusCode));
             })
         })
     });
