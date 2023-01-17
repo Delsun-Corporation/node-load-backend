@@ -30,17 +30,17 @@ exports.getTrainingLogDetail = (req, res) => {
                 return res.status(500).json(error("Error find training log detail", res.statusCode))
             }
             const trainingGoalId = trainingLog.training_goal_id
-            training_goalModel.findOne({id: trainingGoalId}, (err, trainingGoal) => {
-                if (err || trainingGoal == null) {
+            training_goalModel.findOne({id: trainingGoalId}, (err, training_goal) => {
+                if (err || training_goal == null) {
                     return res.status(500).json(error("Error find training goal", res.statusCode))
                 }
 
                 training_intensityModel.findOne({id: trainingLog.training_intensity_id}, (err, training_intensity) => {
-                    if (err || trainingGoal == null) {
+                    if (err || training_goal == null) {
                         return res.status(500).json(error("Error find training goal", res.statusCode))
                     }
 
-                    return res.json(success("Success getting training log detail", { ...trainingLog._doc, trainingGoal, training_intensity, user_detail: user }, res.statusCode))
+                    return res.json(success("Success getting training log detail", { ...trainingLog._doc, training_goal, training_intensity, user_detail: user }, res.statusCode))
                 })
             })
         })
