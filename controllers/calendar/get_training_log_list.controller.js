@@ -28,7 +28,7 @@ exports.getTrainingLogDetail = (req, res) => {
                 return res.status(500).json(error("Error find training log list", res.statusCode))
             }
 
-            return res.json(success("Success getting training log list", trainingLog, res.statusCode))
+            return res.json(success("Success getting training log list", { ...trainingLog._doc, user_detail: user }, res.statusCode))
         })
     })
 }
