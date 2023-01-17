@@ -1,7 +1,9 @@
 const { error, success } = require("../../helper/baseJsonResponse")
 const validateToken = require("../../helper/token_checker")
 const authModel = require("../../models/auth.model")
-const training_log_listModel = require("../../models/calendar/training_log_list.model")
+const training_log_listModel = require("../../models/calendar/training_log_list.model");
+const training_goalModel = require("../../models/training/training_goal.model");
+const training_intensityModel = require("../../models/training/training_intensity.model");
 const ObjectId = require('mongoose').Types.ObjectId;
 
 // return training log list
@@ -25,10 +27,22 @@ exports.getTrainingLogDetail = (req, res) => {
         const trainingId = req.params.trainingId;
         training_log_listModel.findById(trainingId, (err, trainingLog) => {
             if (err || trainingLog == null) {
-                return res.status(500).json(error("Error find training log list", res.statusCode))
+                return res.status(500).json(error("Error find training log detail", res.statusCode))
             }
+            const trainingGoalId = trainingLog.training_goal_id
+            training_goalModel.findOne({id: trainingGoalId}, (err, trainingGoal) => {
+                if (err || trainingGoal == null) {
+                    return res.status(500).json(error("Error find training goal", res.statusCode))
+                }
 
-            return res.json(success("Success getting training log list", { ...trainingLog._doc, user_detail: user }, res.statusCode))
+                training_intensityModel.findOne({id: trainingLog.training_intensity_id}, (err, training_intensity) => {
+                    if (err || trainingGoal == null) {
+                        return res.status(500).json(error("Error find training goal", res.statusCode))
+                    }
+
+                    return res.json(success("Success getting training log detail", { ...trainingLog._doc, trainingGoal, training_intensity, user_detail: user }, res.statusCode))
+                })
+            })
         })
     })
 }
