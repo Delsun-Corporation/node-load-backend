@@ -17,6 +17,25 @@ const generated_calculations = {
   avg_pace_unit: String,
 };
 
+// "exercise" : [
+//   {
+//     "name" : "Biceps Curls",
+//     "data" : [
+//       {
+//         "is_completed" : false,
+//         "duration" : "",
+//         "rest" : "01:00",
+//         "weight" : "0.3",
+//         "reps" : "13"
+//       }
+//     ],
+//     "is_completed" : false,
+//     "exercise_link" : "",
+//     "common_library_id" : 55,
+//     "library_id" : 0
+//   }
+// ],
+
 const trainingExercise = [
   {
     is_completed: Boolean,
@@ -28,6 +47,19 @@ const trainingExercise = [
     distance: Number,
     rest: String,
     rpm: String,
+    name: String,
+    common_library_id: Number,
+    data: {
+      type: [
+        {
+          is_completed: Boolean,
+          duration: String,
+          rest: String,
+          weight: String,
+        reps: String
+        }
+      ]
+    }
   },
 ];
 
