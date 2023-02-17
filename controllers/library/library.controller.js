@@ -663,10 +663,12 @@ exports.updateCommonLibrariesDetail = (req, res) => {
 
             // if user want to update records of library
             if (
-              (selected_rm != undefined || selected_rm != null) &&
               (repetition_max != undefined || repetition_max != null)
             ) {
               updatedData.repetition_max = repetition_max;
+            }
+
+            if ((selected_rm != undefined || selected_rm != null)) {
               updatedData.selected_rm = selected_rm;
             }
 
