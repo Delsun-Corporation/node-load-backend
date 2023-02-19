@@ -49,6 +49,7 @@ const {
 const training_activitiesModel = require("../models/training/training_activities.model");
 const training_frequenciesModel = require("../models/training/training_frequencies.model");
 const training_goalModel = require("../models/training/training_goal.model");
+const swimming_stylesModel = require("../models/calendar/swimming_styles.model");
 
 function getDefaultUserId() {
   return Math.round(Date.now() + Math.random());
@@ -722,46 +723,49 @@ exports.getAllData = (req, res) => {
                                                                                           return training_frequenciesModel.find({is_active: 1}, (err, training_frequencies) => {
                                                                                             
                                                                                             return training_goalModel.find({is_active: "1"}, (err, training_goal) => {
-                                                                                              return res.json(
-                                                                                                success(
-                                                                                                  "Success Get All Data",
-                                                                                                  {
-                                                                                                    accounts,
-                                                                                                    available_times,
-                                                                                                    training_types,
-                                                                                                    training_intensity,
-                                                                                                    languages,
-                                                                                                    professional_types,
-                                                                                                    cancellation_policy,
-                                                                                                    payment_options,
-                                                                                                    professional_schedule_advance_booking,
-                                                                                                    specializations,
-                                                                                                    settings_race_distances,
-                                                                                                    currencies,
-                                                                                                    services,
-                                                                                                    countries,
-                                                                                                    regions,
-                                                                                                    cardio_preset_training_program,
-                                                                                                    resistance_preset_training_program,
-                                                                                                    category:
-                                                                                                      body_parts,
-                                                                                                    mechanics,
-                                                                                                    action_force,
-                                                                                                    equipments,
-                                                                                                    targeted_muscles,
-                                                                                                    training_activity,
-                                                                                                    training_frequencies,
-                                                                                                    training_goal,
-                                                                                                    training_goal_log_cardio: training_goal,
-                                                                                                    training_goal_log_resistance: training_goal,
-                                                                                                    default_body_part_image_url_back:
-                                                                                                      "https://firebasestorage.googleapis.com/v0/b/loadapp-3ab00.appspot.com/o/libraries_images%2FAnatomy_Back.png?alt=media&token=20de3dc8-1cd8-46d4-9072-26f15010da90",
-                                                                                                    default_body_part_image_url_front:
-                                                                                                      "https://firebasestorage.googleapis.com/v0/b/loadapp-3ab00.appspot.com/o/libraries_images%2FAnatomy_Front.png?alt=media&token=febececc-e04e-4fdf-b7ef-3a0483da44d0",
-                                                                                                  },
-                                                                                                  res.statusCode
-                                                                                                )
-                                                                                              );
+                                                                                              return swimming_stylesModel.find({is_active: true}, (err, training_log_styles) => {
+                                                                                                return res.json(
+                                                                                                  success(
+                                                                                                    "Success Get All Data",
+                                                                                                    {
+                                                                                                      accounts,
+                                                                                                      available_times,
+                                                                                                      training_types,
+                                                                                                      training_intensity,
+                                                                                                      languages,
+                                                                                                      professional_types,
+                                                                                                      cancellation_policy,
+                                                                                                      payment_options,
+                                                                                                      professional_schedule_advance_booking,
+                                                                                                      specializations,
+                                                                                                      settings_race_distances,
+                                                                                                      currencies,
+                                                                                                      services,
+                                                                                                      countries,
+                                                                                                      regions,
+                                                                                                      cardio_preset_training_program,
+                                                                                                      resistance_preset_training_program,
+                                                                                                      category:
+                                                                                                        body_parts,
+                                                                                                      mechanics,
+                                                                                                      action_force,
+                                                                                                      equipments,
+                                                                                                      targeted_muscles,
+                                                                                                      training_activity,
+                                                                                                      training_frequencies,
+                                                                                                      training_goal,
+                                                                                                      training_goal_log_cardio: training_goal,
+                                                                                                      training_goal_log_resistance: training_goal,
+                                                                                                      training_log_styles,
+                                                                                                      default_body_part_image_url_back:
+                                                                                                        "https://firebasestorage.googleapis.com/v0/b/loadapp-3ab00.appspot.com/o/libraries_images%2FAnatomy_Back.png?alt=media&token=20de3dc8-1cd8-46d4-9072-26f15010da90",
+                                                                                                      default_body_part_image_url_front:
+                                                                                                        "https://firebasestorage.googleapis.com/v0/b/loadapp-3ab00.appspot.com/o/libraries_images%2FAnatomy_Front.png?alt=media&token=febececc-e04e-4fdf-b7ef-3a0483da44d0",
+                                                                                                    },
+                                                                                                    res.statusCode
+                                                                                                  )
+                                                                                                );
+                                                                                              })
                                                                                             })
                                                                                           })
                                                                                         })
