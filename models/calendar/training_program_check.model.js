@@ -22,11 +22,11 @@ const trainingProgramCheckSchema = new mongoose.Schema(
     },
     is_resistance: {
         type: Boolean,
-        default: false
+        default: true
     },
     is_cardio: {
         type: Boolean,
-        default: false
+        default: true
     },
     is_cardio_preset_delete_id: {
         type: Boolean,
