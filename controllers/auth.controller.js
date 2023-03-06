@@ -45,6 +45,7 @@ const targeted_muscleModel = require("../models/targeted_muscle.model");
 const {
   objectSorterByStringValue,
   createRandomStringName,
+  dynamicSort,
 } = require("../helper/reusable_function");
 const training_activitiesModel = require("../models/training/training_activities.model");
 const training_frequenciesModel = require("../models/training/training_frequencies.model");
@@ -659,8 +660,11 @@ exports.getAllData = (req, res) => {
                                                               },
                                                               (
                                                                 err,
-                                                                cardio_preset_training_program
+                                                                _cardio_preset_training_program
                                                               ) => {
+                                                                var cardio_preset_training_program = _cardio_preset_training_program;
+                                                                cardio_preset_training_program.sort(dynamicSort("code"));
+                                                                console.log(cardio_preset_training_program);
                                                                 return preset_training_programsModel.find(
                                                                   {
                                                                     is_active: 1,
