@@ -17,7 +17,7 @@ const trainingFrequenciesSchema = new mongoose.Schema(
             type: Number
         },
         preset_training_program_ids: {
-            type: String
+            type: [String]
         },
         is_active: {
             type: Number
