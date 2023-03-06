@@ -660,11 +660,8 @@ exports.getAllData = (req, res) => {
                                                               },
                                                               (
                                                                 err,
-                                                                _cardio_preset_training_program
+                                                                cardio_preset_training_program
                                                               ) => {
-                                                                var cardio_preset_training_program = _cardio_preset_training_program;
-                                                                cardio_preset_training_program.sort(dynamicSort("code"));
-                                                                console.log(cardio_preset_training_program);
                                                                 return preset_training_programsModel.find(
                                                                   {
                                                                     is_active: 1,

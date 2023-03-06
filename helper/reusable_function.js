@@ -20,14 +20,11 @@ exports.dynamicSort = (property) => {
 
         // If property is string we will sort by alphabetically
         if(typeof a[property] == 'string') {
-            console.log('aku suka kamu')
             return function (a, b) {
                 // a[property].localeCompare(b[property])
                 a.property.localeCompare(b.property, {sensitivity: 'base'})
             }
         }
-
-        console.log('aku sangat suka kamu')
         var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
         return result * sortOrder;
     }
