@@ -660,8 +660,12 @@ exports.getAllData = (req, res) => {
                                                               },
                                                               (
                                                                 err,
-                                                                cardio_preset_training_program
+                                                                _cardio_preset_training_program
                                                               ) => {
+                                                                // Sort cardio preset by ID
+                                                                var cardio_preset_training_program = _cardio_preset_training_program
+                                                                cardio_preset_training_program.sort(dynamicSort("id"));
+
                                                                 return preset_training_programsModel.find(
                                                                   {
                                                                     is_active: 1,

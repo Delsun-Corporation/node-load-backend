@@ -17,15 +17,8 @@ exports.dynamicSort = (property) => {
         /* next line works with strings and numbers, 
          * and you may want to customize it to your needs
          */
-
-        // If property is string we will sort by alphabetically
-        if(typeof a[property] == 'string') {
-            return function (a, b) {
-                // a[property].localeCompare(b[property])
-                a.property.localeCompare(b.property, {sensitivity: 'base'})
-            }
-        }
-        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        
+        var result = (parseInt(a[property]) < parseInt(b[property])) ? -1 : (parseInt(a[property]) > parseInt(b[property])) ? 1 : 0;
         return result * sortOrder;
     }
 }
