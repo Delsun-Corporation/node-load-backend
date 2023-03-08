@@ -26,16 +26,19 @@ const trainingProgramsSchema = new mongoose.Schema(
             type: String
         },
         days: {
-            type: String
+            type: [String]
         },
         date: {
             type: Date
         },
         phases: {
             type: String
+        },
+        user_id: {
+            type: String
         }
     },
     {timestamps: true}
 );
 
-module.exports = mongoose.model("Training_Program", trainingProgramsSchema);
+module.exports = mongoose.model("training_program", trainingProgramsSchema);
