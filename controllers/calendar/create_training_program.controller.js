@@ -8,7 +8,7 @@ exports.createTrainingProgram = (req, res) => {
             status,
             type,
             training_frequencies_id,
-            preset_training_programs_id,
+            preset_training_program_id,
             start_date,
             end_date,
             days
@@ -18,7 +18,7 @@ exports.createTrainingProgram = (req, res) => {
             status,
             type,
             training_frequencies_id,
-            preset_training_programs_id,
+            preset_training_program_id,
             start_date,
             end_date,
             days,
